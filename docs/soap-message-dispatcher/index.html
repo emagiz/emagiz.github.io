@@ -1,6 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>soap-message-dispatcher · eMagiz Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;soap-message-dispatcher&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#soap-message-dispatcher&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SOAP message dispatcher&lt;/h1&gt;
-"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="soap-message-dispatcher · eMagiz Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://eperkowski.github.io/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;soap-message-dispatcher&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#soap-message-dispatcher&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SOAP message dispatcher&lt;/h1&gt;
-"/><meta property="og:image" content="https://eperkowski.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://eperkowski.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://eperkowski.github.io/blog/atom.xml" title="eMagiz Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://eperkowski.github.io/blog/feed.xml" title="eMagiz Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="eMagiz Documentation"/><h2 class="headerTitleWithLogo">eMagiz Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/landing-page" target="_self">Docs</a></li><li class=""><a href="/docs/doc4" target="_self">API</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">soap-message-dispatcher</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="soap-message-dispatcher"></a><a href="#soap-message-dispatcher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SOAP message dispatcher</h1>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>soap-message-dispatcher · eMagiz Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;hr&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="soap-message-dispatcher · eMagiz Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://eperkowski.github.io/"/><meta property="og:description" content="&lt;hr&gt;
+"/><meta property="og:image" content="https://eperkowski.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://eperkowski.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://eperkowski.github.io/blog/atom.xml" title="eMagiz Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://eperkowski.github.io/blog/feed.xml" title="eMagiz Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="eMagiz Documentation"/><h2 class="headerTitleWithLogo">eMagiz Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/landing-page" target="_self">Docs</a></li><li class=""><a href="/docs/doc4" target="_self">API</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">soap-message-dispatcher</h1></header><article><div><span><hr>
+<h2><a class="anchor" aria-hidden="true" id="id-title-soap-message-dispatchersoap-message-dispatcher"></a><a href="#id-title-soap-message-dispatchersoap-message-dispatcher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>id: title: SOAP message dispatcherSOAP message dispatcher</h2>
 <h4><a class="anchor" aria-hidden="true" id="dispatches-soap-web-service-messages-to-registered-endpoints"></a><a href="#dispatches-soap-web-service-messages-to-registered-endpoints" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dispatches SOAP web service messages to registered endpoints.</h4>
 <p><a href="http://docs.spring.io/spring-ws/sites/2.0/reference/html/server.html#message-dispatcher-servlet" target="_blank">Documentation</a></p>
 <p>SOAP-specific message dispatcher.</p>
@@ -38,84 +39,4 @@ The dispatcher will try these resolvers (in order) to handle the exception, for 
 <h4><a class="anchor" aria-hidden="true" id="id"></a><a href="#id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Id</h4>
 <p>Name that uniquely identifies this flow component.</p>
 <p><i>Required</i></p>
-<p>---id: soap-
-message-
-dispatcher
-title: SOAP message dispatcher
-sidebar_label: SOAP message dispatcher
----#### Dispatches SOAP web service messages to registered endpoints.
-<a href="http://docs.spring.io/spring-ws/sites/2.0/reference/html/server.html#message-dispatcher-servlet" target="_blank">Documentation</a></p>
-<p>SOAP-specific message dispatcher.</p>
-<p>Handles the message in the following order:</p>
-<p><b>1. Endpoint search</b>
-An appropriate endpoint is searched for using the configured Endpoint Mapping(s). If an endpoint is found, the invocation chain associated with the endpoint (preprocessors, postprocessors, and endpoints) will be executed in order to create a response.</p>
-<p><b>2. Adapter search</b>
-An appropriate adapter is searched for the endpoint. The Message Dispatcher delegates to this adapter to invoke the endpoint.</p>
-<p><b>3. Response</b>
-If a response is returned, it is sent on its way. If no response is returned (which could be due to a pre- or post-processor intercepting the request, for example, for security reasons), no response is sent.</p>
-<p>For more information about spring web services see:</p>
-<p><a href="http://static.springsource.org/spring-ws/sites/1.5/reference/html/server.html" target="_blank">Spring Webservices Reference 2.0</a></p>
-<p>The endpoint mapping is responsible for mapping incoming messages to appropriate endpoints.</p>
-<p>An <i>endpoint mapping</i> delivers the endpoint that matches the incoming request, and may also deliver a list of <i>endpoint interceptors</i> that will be applied to the request and response.</p>
-<p>The following types of mapping are available:
-<b>1. Root element mapping</b>
-The <i>Payload Root QName Endpoint Mapping</i> will use the qualified name of the root element of the request payload to determine the endpoint that handles it.</p>
-<p>Specifies adapters that are used for delegating the dispatch of the message to an endpoint.
-The dispatcher will look for an appropriate adapter after finding the endpoint in the mappings.</p>
-<p>If not specified, the following endpoint adapters are used by default:</p>
-<ul>
-<li><code>MessageEndpointAdapter</code></li>
-<li><code>PayloadEndpointAdapter</code></li>
-<li><code>MessageMethodEndpointAdapter</code></li>
-<li><code>PayloadMethodEndpointAdapter</code></li>
-<li><code>DefaultMethodEndpointAdapter</code></li>
-</ul>
-<p>Specifies classes that can resolve exceptions thrown during endpoint execution.
-The dispatcher will try these resolvers (in order) to handle the exception, for example by converting it into a <i>SOAP Fault</i> response.</p>
-<p>If not specified, the following endpoint exception resolvers are used by default:</p>
-<ul>
-<li><code>SimpleSoapExceptionResolver</code></li>
-<li><code>SoapFaultAnnotationExceptionResolver</code></li>
-</ul>
-<h4><a class="anchor" aria-hidden="true" id="id-1"></a><a href="#id-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Id</h4>
-<p>Name that uniquely identifies this flow component.</p>
-<p><i>Required</i></p>
-<p>---id: SOAP message dispatcherSOAP message dispatcher
----#### Dispatches SOAP web service messages to registered endpoints.
-<a href="http://docs.spring.io/spring-ws/sites/2.0/reference/html/server.html#message-dispatcher-servlet" target="_blank">Documentation</a></p>
-<p>SOAP-specific message dispatcher.</p>
-<p>Handles the message in the following order:</p>
-<p><b>1. Endpoint search</b>
-An appropriate endpoint is searched for using the configured Endpoint Mapping(s). If an endpoint is found, the invocation chain associated with the endpoint (preprocessors, postprocessors, and endpoints) will be executed in order to create a response.</p>
-<p><b>2. Adapter search</b>
-An appropriate adapter is searched for the endpoint. The Message Dispatcher delegates to this adapter to invoke the endpoint.</p>
-<p><b>3. Response</b>
-If a response is returned, it is sent on its way. If no response is returned (which could be due to a pre- or post-processor intercepting the request, for example, for security reasons), no response is sent.</p>
-<p>For more information about spring web services see:</p>
-<p><a href="http://static.springsource.org/spring-ws/sites/1.5/reference/html/server.html" target="_blank">Spring Webservices Reference 2.0</a></p>
-<p>The endpoint mapping is responsible for mapping incoming messages to appropriate endpoints.</p>
-<p>An <i>endpoint mapping</i> delivers the endpoint that matches the incoming request, and may also deliver a list of <i>endpoint interceptors</i> that will be applied to the request and response.</p>
-<p>The following types of mapping are available:
-<b>1. Root element mapping</b>
-The <i>Payload Root QName Endpoint Mapping</i> will use the qualified name of the root element of the request payload to determine the endpoint that handles it.</p>
-<p>Specifies adapters that are used for delegating the dispatch of the message to an endpoint.
-The dispatcher will look for an appropriate adapter after finding the endpoint in the mappings.</p>
-<p>If not specified, the following endpoint adapters are used by default:</p>
-<ul>
-<li><code>MessageEndpointAdapter</code></li>
-<li><code>PayloadEndpointAdapter</code></li>
-<li><code>MessageMethodEndpointAdapter</code></li>
-<li><code>PayloadMethodEndpointAdapter</code></li>
-<li><code>DefaultMethodEndpointAdapter</code></li>
-</ul>
-<p>Specifies classes that can resolve exceptions thrown during endpoint execution.
-The dispatcher will try these resolvers (in order) to handle the exception, for example by converting it into a <i>SOAP Fault</i> response.</p>
-<p>If not specified, the following endpoint exception resolvers are used by default:</p>
-<ul>
-<li><code>SimpleSoapExceptionResolver</code></li>
-<li><code>SoapFaultAnnotationExceptionResolver</code></li>
-</ul>
-<h4><a class="anchor" aria-hidden="true" id="id-2"></a><a href="#id-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Id</h4>
-<p>Name that uniquely identifies this flow component.</p>
-<p><i>Required</i></p>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="eMagiz Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 eMagiz</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#id-title-soap-message-dispatchersoap-message-dispatcher">id: title: SOAP message dispatcherSOAP message dispatcher</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="eMagiz Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 eMagiz</section></footer></div></body></html>
