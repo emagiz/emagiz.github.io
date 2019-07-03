@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>portal-documentation/designer/how-to-implement-sftp · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;how-2-implement-sftp&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#how-2-implement-sftp&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How 2 implement SFTP&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="portal-documentation/designer/how-to-implement-sftp · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;how-2-implement-sftp&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#how-2-implement-sftp&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How 2 implement SFTP&lt;/h1&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/ILM/" target="_self">General</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">portal-documentation/designer/how-to-implement-sftp</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="how-2-implement-sftp"></a><a href="#how-2-implement-sftp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How 2 implement SFTP</h1>
+<p><a href="https://my.emagiz.com/link/documentation/118">https://my.emagiz.com/link/documentation/118</a><br>
+<strong>In the secured tunnels release we extend our support for file transfer patterns with SFTP. eMagiz already supported FTP and FTPS. So what’s new and different?</strong></p>
+<p><strong>FTPS vs. SFTP</strong></p>
+<p>Alexander Willemsen already mentioned the differences of FTPS and SFTP as an answer to a community question.</p>
+<p>FTPS is the combination of FTP and SSL. Also known as the secure version of 'normal' FTP, just like HTTPS is the secure version of HTTP (both use SSL encryption). SFTP uses the SSH File Transfer Protocol. This extension of the Secure Shell protocol (SSH) provides secure file transfer capability.</p>
+<p>Except that FTPS and SFTP both handle file transfers and happen to contain the letters 'FTP' in their names, these protocols share nothing in common and are completely incompatible.</p>
+<p><strong>New flow designer components</strong></p>
+<p>Where can I find them? Just type in “sftp” in the search bar of the flow designer and you can start implementing SFTP for your integration projects.</p>
+<p>The SFTP inbound channel adapter synchronizes a remote SFTP directory with a local directory and creates file-messages.</p>
+<p>The SFTP inbound channel adapter has two tasks:</p>
+<ul>
+<li>Communicate with a remote server in order to transfer files from a remote directory to a local directory;</li>
+<li>For each transferred file, generate a message with that file as the payload and send it to the channel.</li>
+</ul>
+<p>If your local directory already has one or more files it will first generate messages from those, and only when all local files have been processed, it will initiate the remote communication to retrieve more files.</p>
+<p>The SFTP outbound channel adapter sends messages securely to a remote directory using the SSH File Transfer Protocol. It connects to the SFTP server and initiates an SFTP transfer for every file it receives in the payload of incoming messages.</p>
+<p>The SFTP outbound channel adapter supports the following payloads:</p>
+<ul>
+<li>java.io.File - the actual file object</li>
+<li>byte[] - a byte array that represents the file contents</li>
+<li>java.lang.String - text that represents the file contents</li>
+</ul>
+<p><strong>New support objects</strong></p>
+<p>The new inbound- and outbound channel adapters are accompanied with 3 new support objects:</p>
+<ul>
+<li>Default SFTP session factory</li>
+<li>Default SFTP caching session factory</li>
+<li>Composite file list filter</li>
+</ul>
+<p>To make the SFTP channel adapter work, a simple SFTP session factory can be applied for cases that don't require session caching/pooling. It creates a new session for every request. The SFTP caching session factory provides session caching/pooling, re-using existing sessions for multiple request. A composite file list filter combines any number of file list filters. Only when all filters in the list accept a file, the composite file list filter will accept it. For more details and implementation details, we refer to the helptexts included for each component.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"></footer></div></body></html>

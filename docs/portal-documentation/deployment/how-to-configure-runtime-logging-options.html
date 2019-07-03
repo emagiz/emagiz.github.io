@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>portal-documentation/deployment/how-to-configure-runtime-logging-options · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;How to configure custom runtime logging options&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="portal-documentation/deployment/how-to-configure-runtime-logging-options · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;How to configure custom runtime logging options&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/ILM/" target="_self">General</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">portal-documentation/deployment/how-to-configure-runtime-logging-options</h1></header><article><div><span><p>How to configure custom runtime logging options
+<a href="https://my.emagiz.com/link/documentation/4">https://my.emagiz.com/link/documentation/4</a>
+In every runtime mode eMagiz is configured with some default logging options, but these can be overridden when required (for example, for debugging purposes). The default settings per runtime mode and ways to override them are described in the next paragraphs.</p>
+<p>Default runtime
+The default runtime (i.e. running from a command prompt using run-in-console.cmd on Windows or run-in-console.sh on Linux) has the most flexible logging options. By default all messages of level INFO and higher are displayed in the console window in shortened form, and written to the logs/emagiz.log log file with full details. This log file is archived and zipped every month or when it reaches a size of 100 MiB, whichever happens first.</p>
+<p>You can override these default settings by specifying your own log settings. To do this, create a settings XML file and specify the name of this file as the CUSTOM_LOGBACK_CONFIG parameter in the run-in-console.cmd or run-in-console.sh file. A good starting point for creating your own settings XML file would be the default settings, which are as follows:</p>
+<pre><code class="hljs"> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;configuration&gt;
+    &lt;appender name=&quot;FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
+      &lt;file&gt;logs/emagiz.log&lt;/file&gt;
+      &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
+          &lt;fileNamePattern&gt;logs/emagiz_%d{yyyy-MM}_%i.log.zip&lt;/fileNamePattern&gt;
+          &lt;timeBasedFileNamingAndTriggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;
+            &lt;maxFileSize&gt;100MB&lt;/maxFileSize&gt;
+          &lt;/timeBasedFileNamingAndTriggeringPolicy&gt;
+          &lt;maxHistory&gt;12&lt;/maxHistory&gt;
+        &lt;/rollingPolicy&gt;
+        &lt;encoder&gt;
+          &lt;pattern&gt;%date - %-5level [%logger] : %message%n%xException&lt;/pattern&gt;
+          &lt;immediateFlush&gt;true&lt;/immediateFlush&gt;
+        &lt;/encoder&gt;
+     &lt;/appender&gt;
+     &lt;appender name=&quot;CONSOLE&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+       &lt;encoder&gt;
+         &lt;pattern&gt;%date{HH:mm:ss.SSS} - %-5level [%logger{0}] : %message%n%exception{short}&lt;/pattern&gt;
+         &lt;immediateFlush&gt;true&lt;/immediateFlush&gt;
+       &lt;/encoder&gt;
+     &lt;/appender&gt;
+     &lt;root level=&quot;INFO&quot;&gt;
+       &lt;appender-ref ref=&quot;FILE&quot;/&gt;
+       &lt;appender-ref ref=&quot;CONSOLE&quot;/&gt;
+     &lt;/root&gt;
+   &lt;/configuration&gt;
+</code></pre>
+<p>For more information about logging options and the XML syntax, see the Logback manual.</p>
+<p>Service runtime
+When running eMagiz as a Windows service, the logging options are configured in the .ini file of the service. By default, all logging events of level INFO or higher are written to the file logs/emagiz.log with very detailed information. This log file is archived and zipped every month or when it reaches a size of 100 MiB, whichever happens first.</p>
+<p>You can override these default settings by specifying different values for any of the following settings in the .ini file of the Windows service:</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Setting</th><th style="text-align:center">Default Value</th><th style="text-align:center">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">emagiz.log</td><td style="text-align:center">logs/emagiz.log</td><td style="text-align:center">Name for the log file, relative to the working directory.</td></tr>
+<tr><td style="text-align:center">emagiz.log.level</td><td style="text-align:center">INFO</td><td style="text-align:center">Events of this level and higher are written to the log. Possible options are: ALL, TRACE, DEBUG, INFO, WARN, ERROR or NONE. Note that setting this lower than INFO is not recommended for production environments, as it might result in a significant performance overhead.</td></tr>
+<tr><td style="text-align:center">emagiz.log.pattern</td><td style="text-align:center">%date - %-5level [%logger] : %message%n%xException</td><td style="text-align:center">Pattern describing the layout of log lines. See the Logback manual for the syntax and all possible options.</td></tr>
+<tr><td style="text-align:center">emagiz.log.immediate-flush</td><td style="text-align:center">true</td><td style="text-align:center">If true, logging events are written to the log file immediately. This guarantees that events are never lost during a system crash. Setting this to false will probably increase performance quite a bit as events are buffered before writing them to the log file, but events might get lost during a system crash.</td></tr>
+<tr><td style="text-align:center">emagiz.log.roll.policy</td><td style="text-align:center">logs/emagiz_%d{yyyy-MM}<em>%i.log.zip</em></td><td style="text-align:center">Determines the log roll policy, i.e. when and how old log files are archived. See the Logback manual for the syntax and all possible options.</td></tr>
+<tr><td style="text-align:center">emagiz.log.roll.max-size</td><td style="text-align:center">100MB</td><td style="text-align:center">The maximum size the log file is allowed to grow before it is archived.</td></tr>
+<tr><td style="text-align:center">emagiz.log.roll.history</td><td style="text-align:center">12</td><td style="text-align:center">The maximum number of archived log files to keep on disk.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="mendix-runtime"></a><a href="#mendix-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mendix runtime</h2>
+<p>When running eMagiz in Mendix, all the logging of eMagiz is redirected to the Mendix logging mechanism. This means that to change any log settings, simply change the Mendix log settings.</p>
+<p>There is one special setting for eMagiz logging in a Mendix Business Server, which is specified by the LogLevel constant of the EMagiz_Runtime module. This log level determines what eMagiz logging events are redirected to the Mendix logging mechanism. During development you'll probably want to set this to ALL: this way you can fully control all the log levels using the &quot;Set log levels...&quot; option in the Mendix Business Modeler. On a production server however, you'll probably want to set this to INFO: this completely suppresses all TRACE and DEBUG messages generated by eMagiz, resulting in a significant logging performance increase.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#mendix-runtime">Mendix runtime</a></li></ul></nav></div><footer class="nav-footer" id="footer"></footer></div></body></html>
