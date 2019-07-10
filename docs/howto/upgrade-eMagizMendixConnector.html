@@ -18,14 +18,14 @@
 <li>Go to <strong>Deploy -&gt; On Premises -&gt; Runtime Downloads</strong> the eMagiz Mendix connector can be downloaded. It is important that you look at the column Mendix version. It must correspond to the Mendix version of the project where you want to use the eMagiz Mendix Connector. If you do not do this then the connector will <strong>not</strong> work.</li>
 </ul>
 <p align="center">
-  <img  src="resources/emc-runtime-downloads.png"> 
+  <img  src="../../img/howto/emc-runtime-downloads.png"> 
 </p>
 <h2><a class="anchor" aria-hidden="true" id="2-importing-emagiz-mendix-connector"></a><a href="#2-importing-emagiz-mendix-connector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Importing eMagiz Mendix connector</h2>
 <ul>
 <li>In the next step the connector is imported into the correct Mendix project. Open the Project. In the Project Explorer, right-click and choose the option &quot;Import module package...&quot;</li>
 </ul>
 <p align="center">
-  <img src="resources/emc-import-mx-app-module.png"> 
+  <img src="../../img/howto/emc-import-mx-app-module.png"> 
 </p>
 <ul>
 <li>Select the appropriate eMagiz Mendix connector.</li>
@@ -37,29 +37,29 @@ If it is already present, you get a question where you choose the <strong>overri
 <li><strong>Afterstartup/Before shutdown:</strong> In the Mendix Project, go to Project settings -&gt; Runtime -&gt; for the fields After startup and Before shutdown select the coresponding MFs from the eMagizMendixConnector module.</li>
 </ul>
 <p align="center">
-  <img src="resources/emc-after-startup-before-shutdown.png"> 
+  <img src="../../img/howto/emc-after-startup-before-shutdown.png"> 
 </p>  
 <ul>
 <li><strong>Rights</strong> : It is recommended that only the administrator user role has access to the eMagiz Mendix Connector module. In order to do this go to Project Security -&gt; User Roles -&gt; start editing the Administrator User Role -&gt; start editing the Modules roles -&gt; check the box of the eMagiz Mendix Connector module and save.</li>
 </ul>
 <p align="center">
-  <img src="resources/emc-security-rights.png"> 
+  <img src="../../img/howto/emc-security-rights.png"> 
 </p>
 <ul>
 <li><strong>Navigation page item:</strong> In the Mendix project, go to Navigation -&gt; Click New Item -&gt; fill in the fields as in the image below.</li>
 </ul>
 <p align="center">
-  <img src="resources/new-navigation-item.png"> 
+  <img src="../../img/howto/new-navigation-item.png"> 
 </p>
 <ul>
 <li><strong>Constants:</strong> In the Mendix project, go to project settings -&gt; start editing the active configuration -&gt; Constants -&gt; and add there the following constants from the eMagizMendixConnector module:</li>
 </ul>
 <p align="center">
-  <img src="resources/emc-constants.png"> 
+  <img src="../../img/howto/emc-constants.png"> 
 </p>
 <p>The values for these constants can be found from the eMagiz iPaaS: Deploy -&gt; On premises -&gt; Runtime connection settings</p>
 <p align="center">
-  <img src="resources/emc-settings-constants.png"> 
+  <img src="../../img/howto/emc-settings-constants.png"> 
 </p>  
 <p>These constants are used by the Mendix Connector to get access to the iPaaS services.</p>
 <ul>
@@ -90,44 +90,44 @@ In the SOAP Response tab you can opt for storing the response into a variable. T
 </ul>
 <p>An example of this is when The Mendix project has multiple languages. After the import you will receive multiple errors/warnings. These are easy to solve by following the steps.</p>
 <p align="center">
-  <img src="resources/emc-language-operations.png"> 
+  <img src="../../img/howto/emc-language-operations.png"> 
 </p>
 <p align="center">
-  <img src="resources/emc-language-operations-2.png"> 
+  <img src=../../img/howto/emc-language-operations-2.png"> 
 </p>  
 <ul>
 <li><strong>Layout errors that can be solved with the eMagiz cleanup tool</strong></li>
 </ul>
 <p>Another example is the layouts. These can be solved by choosing the layouts that are used within your project.</p>
 <p align="center">
-  <img src="resources/emc-display-project-directory.png"> 
+  <img src="../../img/howto/emc-display-project-directory.png"> 
 </p> 
 <p>The cleanup is in the project directory Under the Resource folders.</p>
 <p align="center">
-  <img src="resources/emc-cleanup-tool.png"> 
+  <img src="../../img/howto/emc-cleanup-tool.png"> 
 </p> 
 <p>Click right mouse button (or double click) For &quot;Openings with | Java™ Platform SE Binary</p>
 <p align="center">
-  <img src="resources/emc-open-cleanup-tool-2.png"> 
+  <img src="../../img/howto/emc-open-cleanup-tool-2.png"> 
 </p> 
 <p>After performing this action it is good to check the userlib for verification. This can be based on the following steps. First open your project folder (see below)</p>
 <p align="center">
-  <img src="resources/emc-display-project-directory.png"> 
+  <img src="../../img/howto/emc-display-project-directory.png"> 
 </p>
 <p>Then navigate to Userlib. In this userlib, there should only be one reference to a version of the eMagizMendixConnector. (see below)</p>
 <p align="center">
-  <img src="resources/emc-mendix-jar-file.png"> 
+  <img src="../../img/howto/emc-mendix-jar-file.png"> 
 </p>
 <p>For reference, all JAR files using the eMagizMendixConnector (version 2.4.1):</p>
 <p align="center">
-  <img src="resources/emc-all-jar-files.png"> 
+  <img src="../../img/howto/emc-all-jar-files.png"> 
 </p>
 <ul>
 <li><strong>Cleanup the project directory to avoid other problems</strong></li>
 </ul>
 <p>The last step is to clean up the project directory and then committing your customization. Ideally, you perform all of these actions in a single commit so that you can perform a rollback and so that you can easily isolate any problems.</p>
 <p align="center">
-  <img src="resources/emc-mendix-clean-project-directory.png"> 
+  <img src="../../img/howto/emc-mendix-clean-project-directory.png"> 
 </p>  
 <h2><a class="anchor" aria-hidden="true" id="6-best-practices"></a><a href="#6-best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Best practices</h2>
 <ul>
@@ -156,4 +156,4 @@ In the SOAP Response tab you can opt for storing the response into a variable. T
    <!--- to be detailed later with Samet --->
    5) In [step 5](/docs/howto/upgrade-eMagizMendixConnector#5-possible-errors) there is a list of possible errors and quick fixes for them, so in case you have any errors you should check it because you might find a solution there. It is highly recommended to try the eMagiz Cleanup Tool.
    6) [Step 6](/docs/howto/upgrade-eMagizMendixConnector#6-best-practices)
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-download-the-emagiz-mendix-connector">1. Download the eMagiz Mendix connector</a></li><li><a href="#2-importing-emagiz-mendix-connector">2. Importing eMagiz Mendix connector</a></li><li><a href="#3-configuration">3. Configuration</a></li><li><a href="#4-usage">4. Usage</a></li><li><a href="#5-possible-errors">5. Possible errors</a></li><li><a href="#6-best-practices">6. Best practices</a></li></ul></nav></div><footer class="nav-footer" id="footer"></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-download-the-emagiz-mendix-connector">1. Download the eMagiz Mendix connector</a></li><li><a href="#2-importing-emagiz-mendix-connector">2. Importing eMagiz Mendix connector</a></li><li><a href="#3-configuration">3. Configuration</a></li><li><a href="#4-usage">4. Usage</a></li><li><a href="#5-possible-errors">5. Possible errors</a></li><li><a href="#6-best-practices">6. Best practices</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/platypus.png" alt="eMagiz Platform documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 eMagiz</section></footer></div></body></html>
