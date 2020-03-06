@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/3.2.0-webbed-feet · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release migrating to the latest versions of underlying libraries, adding full HTTP/REST support and other new components, and improving performance and high availability capabilities.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/3.2.0-webbed-feet · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release migrating to the latest versions of underlying libraries, adding full HTTP/REST support and other new components, and improving performance and high availability capabilities.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/3.2.0-webbed-feet</h1></header><article><div><span><p>Release migrating to the latest versions of underlying libraries, adding full HTTP/REST support and other new components, and improving performance and high availability capabilities.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Added support for dynamic URIs and mapping of SOAP headers to the web service components.</li>
+<li>Added XPath filter: a filter implementation that accepts or rejects XML messages based on evaluation of an XPath expression.</li>
+<li>Added support for specifying property values using Mendix project constants (in addition to the existing options for .properties files, Java system properties, etc), which is used as follows:
+<ul>
+<li>in your Mendix project, fill the constant EMagiz_Runtime.PropertySourceModuleNames with the name(s) of the Mendix module(s) you want to search when resolving property values</li>
+<li>in one of those modules, create a constant with the same name as the property in your eMagiz configuration (replace any character that is illegal in a Mendix constant name with an underscore, e.g. my.example.property becomes my_example_property)</li>
+<li>give the constant the correct value for the environment you're running in (during development this is done in the Mendix modeler, when deploying in the Mendix cloud use the Mendix Cloud Portal, when deploying on Windows use the Mendix Service Console and when deploying on Linux edit the .yaml file)</li>
+</ul></li>
+<li>Added explicit support for caching and reusing of FTP(S) sessions, see the new default FTP caching session factory and default FTPS caching session factory support objects.</li>
+<li>Added recipient list router: a router implementation that sends incoming messages to a statically defined list of channels.</li>
+<li>Added support for creating clusters of HornetQ servers that share message processing load and for clients that connect with these clusters.</li>
+<li>Added support for simple username/password authentication when connecting to a HornetQ server.</li>
+<li>Added support for caching of JMS resources (connections, sessions, message producers and consumers), improving the performance on the client side of a JMS connection.</li>
+<li>Added FileDocument WS request transformer: a transformer implementation for creating web service requests that send the message payload to Mendix as a System.FileDocument object. This can be used as a workaround for a &quot;contract first&quot; web service in Mendix 3.0+; in previous Mendix versions this could be achieved using the pass payload as path property of the Microflow invoking message consumer, but in Mendix 3.0+ this no longer works.</li>
+<li>Added HTTP outbound gateway, HTTP outbound channel adapter and HTTP inbound channel adapter: together with the updated HTTP inbound gateway these components add full HTTP support (including RESTful web services).</li>
+<li>Added Mendix authentication SOAP header mapper: a header mapper implementation that can be used for 'proxying' Mendix authentication credentials from an eMagiz web service to a Mendix web service.</li>
+<li>New version of the flow designer widget added (PaaS): it is now possible to not just view your flows, but also design them using a graphical editor.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Library updates
+<ul>
+<li>Update to Spring Integration 2.1.0</li>
+<li>Update to Spring Framework 3.1.1</li>
+<li>Update to HornetQ 2.2.5</li>
+<li>Update to Netty 3.2.3</li>
+<li>Update to Jackson 1.9.5</li>
+<li>Update to Spring Web Services 2.0.4</li>
+<li>Update to Saxon 9.3.0.11</li>
+<li>Update to Joda Time 2.1.0</li>
+<li>Update to SLF4J 1.6.4</li>
+<li>Update to Jetty 7.5.4</li>
+</ul></li>
+<li>Changes in advanced settings of all routers:
+<ul>
+<li>property ignore channel name resolution failures removed; its behaviour is consolidated with the resolution required property, which is now true by default</li>
+<li>new property ignore send failures added</li>
+<li>new property timeout added</li>
+<li>new property apply sequence added#</li>
+</ul></li>
+<li>Changes in advanced settings of JMS outbound channel adapter:
+<ul>
+<li>new property destination expression added</li>
+</ul></li>
+<li>Changes in advanced settings of JMS message driven channel adapter:
+<ul>
+<li>new property subscription durable added</li>
+<li>new property durable subscription name added</li>
+<li>new property client id added</li>
+</ul></li>
+<li>Changes in advanced settings of web service outbound gateway:
+<ul>
+<li>new property mapped request headers added</li>
+<li>new property mapped reply headers added</li>
+<li>new property uri variables added</li>
+<li>new property header mapper added</li>
+</ul></li>
+<li>Changes in advanced settings of web service inbound gateway:
+<ul>
+<li>new property mapped request headers added</li>
+<li>new property mapped reply headers added</li>
+<li>new property reply timeout added</li>
+<li>new property header mapper added</li>
+</ul></li>
+<li>Changes in advanced settings of TCP inbound channel adapter, TCP inbound gateway and TCP outbound channel adapter:
+<ul>
+<li>new property client mode added</li>
+<li>new property retry interval added</li>
+</ul></li>
+<li>Changes in advanced settings of TCP connection factory:
+<ul>
+<li>new property apply sequence added</li>
+</ul></li>
+<li>Changes in advanced settings of FTP outbound channel adapter:
+<ul>
+<li>property cache sessions removed; caching is now achieved by using a caching session factory</li>
+<li>new property remote directory expression added</li>
+<li>new property remote filename generator expression added</li>
+<li>new property auto create directory added</li>
+<li>new property temporary remote directory added</li>
+<li>new property temporary remote directory added new property temporary remote directory expression added</li>
+</ul></li>
+<li>Changes in advanced settings of FTP inbound channel adapter:
+<ul>
+<li>property cache sessions removed; caching is now achieved by using a caching session factory</li>
+<li>new property local filename generator expression added</li>
+</ul></li>
+<li>Changes in advanced settings of logging channel adaper:
+<ul>
+<li>new property logger name added</li>
+<li>new property expression added</li>
+</ul></li>
+<li>Changes in advanced settings of the reply channel and error channel headers of standard header enricher:
+<ul>
+<li>new property expression added</li>
+</ul></li>
+<li>Changes in advanced settings of property placeholder:
+<ul>
+<li>property system-properties-mode removed in favour of the new (in Spring 3.1) Environment/PropertySource mechanisms</li>
+</ul></li>
+<li>Changes in advanced settings of default FTPS session factory:
+<ul>
+<li>new property protocol added</li>
+<li>new property implicit added</li>
+<li>new property session creation added</li>
+<li>new property use client mode added</li>
+<li>new property need client auth added</li>
+<li>new property wants client auth added</li>
+<li>new property auth value added</li>
+<li>new property cipher suites added</li>
+<li>new property prot added</li>
+<li>new property protocols added</li>
+</ul></li>
+<li>Changes in advanced settings of HornetQ bridge configuration:
+<ul>
+<li>property failover on server shutdown removed</li>
+<li>new property HA added</li>
+<li>properties connector name and backup connector name removed and replaced by new property static connectors</li>
+</ul></li>
+<li>Changes in advanced settings of HornetQ configuration:
+<ul>
+<li>default value of property shared store is now true</li>
+<li>property backup connector name removed and replaced by new property live connector name</li>
+<li>new property allow auto failback added</li>
+<li>new property failover delay added</li>
+<li>new property failover on server shutdown added</li>
+<li>new property cluster connection configurations added</li>
+</ul></li>
+<li>Changes in advanced settings of HornetQ address settings:
+<ul>
+<li>new property page cache max size added</li>
+</ul></li>
+<li>Changes in advanced settings of HornetQ JMS configuration:
+<ul>
+<li>new property JMX domain added</li>
+</ul></li>
+<li>Changes in (advanced) settings of HornetQ JMS connection factory:
+<ul>
+<li>new properties signature and XA added; together these properties determine the JMS connection factory type that is created</li>
+<li>properties connector and backup connector removed and replaced by new property initial servers</li>
+<li>new property compress large messages added</li>
+<li>new property initial connect attemps added</li>
+<li>property failover on server shutdown removed</li>
+</ul></li>
+<li>Changes in (advanced) settings of HTTP inbound gateway:
+<ul>
+<li>property view name is now optional instead of being required</li>
+<li>new properties request timeout and reply timeout added</li>
+<li>new properties mapped request headers and mapped response headers added</li>
+<li>new property payload expression added</li>
+<li>new property path added</li>
+<li>new property convert exceptions added</li>
+<li>new property request payload type added</li>
+<li>support added for defining custom headers containing information about the original HTTP request or the request URL</li>
+</ul></li>
+<li>Application vendor changed from Iris Enterprise Messaging B.V. to eMagiz B.V.</li>
+<li>Changed all multi-selections (eMagiz PaaS) to new Ctrl+click behaviour.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>nullChannel is now correctly classified as a pollable channel by the design time (#12215) (##12215)</li>
+<li>solved an issue with conflicting libraries that could cause Mendix 3.1+ to throw a ClassNotFoundException when calling a web service in a project that also contains the eMagiz runtime module</li>
+<li>fixed highlighting (flow designer) of XPath header enricher when one of the referenced XPath expressions is selected (#11761) (##11761)</li>
+<li>global wire taps and global channel interceptors are now visually connected (flow designer) if multiple channel patterns are used (#15663) (##15663)</li>
+<li>global tracking interceptors now contain the correct context ID, just like the non-global ones</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="known-issues"></a><a href="#known-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Known issues</h2>
+<ul>
+<li>Using property mapped request headers or mapped reply headers of web service inbound gateway causes errors when trying to load the configuration: this issue is fixed in the next Spring Integration release.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li><li><a href="#known-issues">Known issues</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

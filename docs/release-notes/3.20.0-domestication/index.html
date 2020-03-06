@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/3.20.0-domestication · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release adding generic (SpEL based) components and containing library/technology updates.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/3.20.0-domestication · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release adding generic (SpEL based) components and containing library/technology updates.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/3.20.0-domestication</h1></header><article><div><span><p>Release adding generic (SpEL based) components and containing library/technology updates.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Added new SpEL based components that allow for flexible, dynamic message handling in certain (more complex) cases.
+<ul>
+<li>Standard transformer: transforms messages by replacing the payload with the evaluation result of a SpEL expression. (#119524)</li>
+<li>Standard splitter: splits messages using a delimiter character or by evaluating a SpEL expression.</li>
+<li>Standard service activator: service activator that evaluates a SpEL expression for each incoming message.</li>
+<li>Standard router: routes messages to a channel based on the evaluation of a SpEL expression.</li>
+</ul></li>
+<li>Added new support object 'complex SOAP header mapper'. When used in a web service inbound/outbound gateway, this new component can map SOAP headers with complex XML structures to/from message headers. It uses XPath expressions to extract header values from SOAP, and uses a SpEL template to generate custom XML for the SOAP header. (#131255, 93624, 112974)</li>
+<li>Added new component 'custom error message activator'. This service activator generates a custom error each time a message arrives. The text of the error message is dynamically created using a SpEL expression that is evaluated on the incoming message. This can be used to trigger the error handling of the message flow with an error message that contains useful information for locating the problem. For example, when throwing a custom error message in a flow that is exposed as a web service, this custom error is send back to the caller as a SOAP fault. (#106608)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>Following the recommendation of security organizations such as OWASP, eMagiz no longer supports the use of the now obsolete and insecure SSL version 3.0 protocol. Because Oracle also disabled SSLv3 in their January 20 Critical Patch Update release, we highly recommend updating to Java 7 update 75. Note that while the minimum requirement for eMagiz 3.20.0 is still Java 6, we do not recommend running on that version because Oracle stopped releasing public updates for Java 6 almost 2 years ago (and the latest critical patch updates are only available for customers with a long running Oracle support contract).</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Library updates
+<ul>
+<li>Update to HornetQ 2.3.25</li>
+<li>Update to Netty 3.6.10</li>
+<li>Update to Joda Time 2.7.0</li>
+<li>Update to SLF4J 1.7.10</li>
+<li>Update to Spring Framework 3.2.13</li>
+<li>Update to Spring Security 3.1.7</li>
+</ul></li>
+<li>Added an option to HornetQ JMS servers to specify a (custom) security manager implementation. The only implementation currently supported is 'JAAS adapter security manager', which - when running in an OSGi environment - will delegate authorization requests to Java Authentication and Authorization Service.</li>
+<li>Added new options to HornetQ's address settings, allowing for slow consumers to be automatically disconnected from the server.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

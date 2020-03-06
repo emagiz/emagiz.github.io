@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/6.3.0-endothermic · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that includes several small features and handles many minor issues. We have updated one of our best practices to use actual HornetQ bridges instead of bridge flows. In addition, the portal is upgraded to Mendix 5.15, which improves performance of several screens.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/6.3.0-endothermic · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that includes several small features and handles many minor issues. We have updated one of our best practices to use actual HornetQ bridges instead of bridge flows. In addition, the portal is upgraded to Mendix 5.15, which improves performance of several screens.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/6.3.0-endothermic</h1></header><article><div><span><p>Release that includes several small features and handles many minor issues. We have updated one of our best practices to use actual HornetQ bridges instead of bridge flows. In addition, the portal is upgraded to Mendix 5.15, which improves performance of several screens.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Alerting: Add status (empty / 'Under review' / 'Handled') to alerts and allow flow managers to change this status. This can help them to see which alerts still need action.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>New best practice applied in bus wizard: replacing &quot;bridge flows&quot; with actual HornetQ bridges. Any newly designed JMS servers and infra-flows will use the actual JMS bridges. Existing flows are not affected.</li>
+<li>Updated portal to Mendix 5.15.0. In this version, Mendix solved several issues that we reported to them. This includes fixing a memory leak that was especially notable when working with the HornetQ server and alerting triggers. (#128813, 131038, 132037, 132504)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Community: Add paging to release notes overview (#101723)</li>
+<li>Add extra search fields on several screens (#99677, 116739, 89701, 110851)</li>
+<li>Changed the way the progress bar in the capture requirements wizard works. It is now always based on the percentage of filled fields. (#127611)</li>
+<li>In the capture requirements phase, it is now possible to promote a prospect to a customer. (#115424)</li>
+<li>Monitoring: Improved behaviour of previous and next buttons at the start and end of the month. (#141078)</li>
+<li>Improved the look of units of input behind several input fields.</li>
+<li>The description of resources in a message bus is now editable. (#125267, 119851, 122016)
+<ul>
+<li>Description of XML transformation is now editable. (#124065)</li>
+</ul></li>
+<li>XML to flat-file transformer: added a button to copy the namespace prefix and namespace URL to all columns. (#134929)</li>
+<li>Requirements: Include hardware requirements in initial wizard. (#127599)</li>
+<li>Added new component 'HornetQ security manager gateway', which can be used to build custom security manager implementations for HornetQ servers.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Documentation: If you add new or edit documentation in the bus or a flow, it is not refreshing (#127609, 123953, 139382)</li>
+<li>Several bug fixes in the graphical representation of the message bus (#140604, 140662, 129691)</li>
+<li>Several bug fixes in the definition and transformation tool (#140271, 140250, 140251, 118247, 122394, 128825, 140266, 125193, 125190, 130238, 129038)
+<ul>
+<li>The option to choose output attributes was not available in certain transformations. (#138441)</li>
+<li>Button to extract definitions didn't work in certain situations. (#126237, 125457, 125494, 122366)</li>
+</ul></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

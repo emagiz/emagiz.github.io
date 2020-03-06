@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/7.21.0-play-tag · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that further extends the functionality and capabilities of the transformation tooling. The new filtering options are available in Design and Create. The new Deploy dashboard got several improvements.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/7.21.0-play-tag · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that further extends the functionality and capabilities of the transformation tooling. The new filtering options are available in Design and Create. The new Deploy dashboard got several improvements.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/7.21.0-play-tag</h1></header><article><div><span><p>Release that further extends the functionality and capabilities of the transformation tooling. The new filtering options are available in Design and Create. The new Deploy dashboard got several improvements.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Message transformations:
+<ul>
+<li>When transforming from a date, you can easily adjust or remove the timezone.</li>
+<li>Where applicable, &quot;if-exist&quot; filters have an extra option to test whether a string field is empty. For new transformations, this will automatically be added when you have a mapping from a optional string field to an optional field.</li>
+<li>Static entity mappings: Similar to static attributes (&quot;mark as mapped&quot;), entities may not be coming from a source message, but may be set statically. In the message mapping, this can now be set easily by right click on an applicable entity. The static entities are recognizable by a green circle without an incoming line.</li>
+</ul></li>
+<li>Message definitions:
+<ul>
+<li>Namespaces for the CDM are now automatically created.</li>
+<li>Several best practices are enforced in the CDM to avoid unnecessary, non-functional XML-level constructions. For example, &quot;simple content&quot;, XSD attributes, and changing namespaces of the CDM messages are no longer possible in the CDM. (#273980)</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>New deploy: Integrations should now be removed from production first, then from acceptance, and only then they can be deleted from testing. When deleting them from testing, their flows and flow versions will also be removed. Removing the last integration of a system does not delete the container or infra flow, as several manual checks are required for now. If you need to completely remove a system from the deploy phase (e.g. because you also want to remove it from Create), please contact us.</li>
+<li>Tagging systems and filtering on the tags is now available across all applicable graphical visualizations of the bus. In addition, their looks have improved, and you can filter on the todo/doing/done-state.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>New deploy : When transferring an integration to Deploy, a first version for every flow will immediately be generated. This avoids an extra manual step.</li>
+<li>New Deploy: Releases can be deleted, and so can flow versions.</li>
+<li>New deploy: When applying a &quot;Force Sync&quot;, you can start, stop, and uninstall any &quot;inconsistent&quot; flows.</li>
+<li>Across the phases, the side panel on the right in visual representations of the bus now looks more consistent.</li>
+<li>Deploy: For new buses, the deprecated dashboard is no longer available. For older buses, it can now be disabled per bus. If you think you are ready for the switch to the new deploy dashboard, but still want to be able to fall back, we can change the default deploy page without limiting access.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Cloud: Cloud slots that are configured to go to standby at night, will do so again.</li>
+<li>Message definitions: Fixed several cases where entities and attributes in message definitions would have the same position as others due to a bug in the past. This would cause several errors later on in the proces. For example, gaps in message mappings, as the attributes were displayed on top of each other.</li>
+<li>Message mapping: Fixed a specific case where warnings would remain after removing an attribute or entity.</li>
+<li>New deploy: Uninstalling a flow always showed an error message, although the flow was successfully uninstalled. This no longer occurs every time, however, in specific cases you may still see an unexpected error while uninstalling. If you are able to reproduce this case, please use the feedback button to let us know how.</li>
+<li>Old deploy: Properties can once again be added to new runtimes.</li>
+<li>Message definitions: Enumerations can no longer have invalid characters. (#268911)</li>
+<li>New deploy: Performance of the two grids showing &quot;Expected flows not installed currently&quot; and &quot;All available flow versions&quot; has been improved tremendously.</li>
+<li>New deploy: Transfer for acceptance and production has a scrollbar when needed.</li>
+<li>New deploy: Trying to start or install a flow version on a runtime that is not powered on no longer shows an error with &quot;null&quot;. (#279490)</li>
+<li>Store: Fixed an issue where exporting a CDM and/or message definition to the store would not work.</li>
+<li>Transferring a bus from Design to Create the first time would cause an error if not all required settings were filled first. This has been fixed.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="known-issues"></a><a href="#known-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Known issues</h2>
+<ul>
+<li>For new buses, in some cases, infra flows are not automatically attached to their containers in the Deploy phase. If this is the case for you, please contact us to fix this manually.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li><li><a href="#known-issues">Known issues</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

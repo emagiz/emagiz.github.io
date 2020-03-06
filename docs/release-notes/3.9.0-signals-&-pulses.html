@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/3.9.0-signals-&amp;-pulses · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release with retry behaviour, support for UTF with BOM, HTTPS web service hosting, new JMS features and library/technology updates.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/3.9.0-signals-&amp;-pulses · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release with retry behaviour, support for UTF with BOM, HTTPS web service hosting, new JMS features and library/technology updates.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/3.9.0-signals-&amp;-pulses</h1></header><article><div><span><p>Release with retry behaviour, support for UTF with BOM, HTTPS web service hosting, new JMS features and library/technology updates.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Added support for configuration of sophisticated retry scenarios on nearly all flow endpoints using the Spring Retry project.</li>
+<li>Added support for the following custom character encodings: (##46059)
+<ul>
+<li>x-UTF-8-BOM (eight-bit Unicode Transformation Format, with byte-order mark)</li>
+<li>x-UTF-16BE-BOM (sixteen-bit Unicode Transformation Format, big-endian byte order, with byte-order mark)</li>
+</ul></li>
+<li>Added support for SSL select channel selector to Jetty Web Server, enabling hosting of web services using the HTTPS protocol. Also supports 2-way SSL (i.e. mutual authentication).</li>
+<li>New features added to the JMS messaging infrastructure layer:
+<ul>
+<li>failover using replication is now supported in addition to failover using a shared-store</li>
+<li>message redelivery can now be configured to use an exponentially increasing delay between attempts</li>
+<li>2-way SSL (i.e. mutual authentication) is now supported for securing connections between servers and clients</li>
+<li>the local address/port used by clients when creating outgoing connections to JMS servers can now be explicitly set, which can be useful to solve firewall issues in specific deployment scenarios</li>
+<li>this new version is backwards compatible with the previous version, but not forwards compatible: this means that old JMS clients can still connect to new JMS servers, but new JMS clients cannot connect to old JMS servers</li>
+</ul></li>
+<li>Added functionality to Mendix 3 &amp; 4 runtime modules for delayed auto-loading of configurations (#48315); see the documentation of the new constant EMagiz_Runtime.AutoLoadDelay on how to enable this. Auto-loading configurations with a delay can be useful in cases where Mendix must be fully started before loading the eMagiz flows, for example when an eMagiz message flow calls a web service hosted in the same Mendix runtime. (##48315)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Cluster connection configuration:
+<ul>
+<li>Added new property call failover timeout</li>
+<li>Added new property cluster notification interval</li>
+<li>Added new property cluster notification attempts</li>
+</ul></li>
+<li>HornetQ server configuration:
+<ul>
+<li>Removed property clustered (a server is now automatically &quot;clustered&quot; when it has at least one cluster connection configuration)</li>
+<li>Removed property live connector name (backup servers now automatically locate live servers using their cluster connection; this behaviour can be influenced by specifying a backup group name)</li>
+<li>Removed property log delegate factory class name</li>
+<li>Added new property check for live server</li>
+<li>Added new property backup group name</li>
+<li>Added new property replication clustername</li>
+</ul></li>
+<li>Address settings:
+<ul>
+<li>Added new property redelivery multiplier</li>
+<li>Added new property max redelivery delay</li>
+<li>Added new property expiry delay</li>
+</ul></li>
+<li>Netty acceptor transport configuration:
+<ul>
+<li>Added new property need client auth</li>
+</ul></li>
+<li>Netty connector transport configuration:
+<ul>
+<li>Added new property local address</li>
+<li>Added new property local port</li>
+<li>Added new property trust store path</li>
+<li>Added new property trust store password</li>
+<li>Added new property connect timeout</li>
+<li>Added new property use NIO global worker pool</li>
+</ul></li>
+<li>HornetQ connection factory:
+<ul>
+<li>Added new property call failover timeout</li>
+</ul></li>
+<li>Library updates
+<ul>
+<li>Update to Spring Framework 3.2.2</li>
+<li>Update to Spring Integration 2.2.3</li>
+<li>Update to Spring Web Services 2.1.3</li>
+<li>Update to Logback 1.0.12</li>
+<li>Update to Google Guava 14.0.1</li>
+<li>Update to JavaX Servlet API 3.0</li>
+<li>Update to SLF4J 1.7.5</li>
+<li>Update to Ehcache 2.6.6</li>
+<li>Update to Saxon XSLT and Query Processor 9.4.0.7</li>
+<li>Update to XOM 1.2.9</li>
+<li>Update to Apache Commons Codec 1.8.0</li>
+<li>Update to Apache Commons Net 3.2.0</li>
+<li>Update to Apache FOP 1.1.0</li>
+<li>Update to Apache HttpComponents HttpClient 4.2.5</li>
+<li>Update to Apache HttpComponents HttpCore 4.2.4</li>
+<li>Update to Apache XML Graphics Commons 1.5.0</li>
+<li>Update to WinRun4J 0.4.5</li>
+<li>Update to Bouncy Castle Crypto APIs 1.48</li>
+<li>Update to Jackson JSON processor 1.9.12</li>
+<li>Update to Jetty Web Server 8.1.10</li>
+<li>Update to Joda Time 2.2.0</li>
+<li>Update to Netty 3.6.2</li>
+<li>Update to HornetQ 2.3.0</li>
+</ul></li>
+<li>Added new buttons auto-load all and unload all to Mendix runtime modules, and removed reload button</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#minor-changes">Minor changes</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

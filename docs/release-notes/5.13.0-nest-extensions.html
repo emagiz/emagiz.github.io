@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/5.13.0-nest-extensions · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that adds support for (custom) extensions to XML transformations and contains many usability improvements and fixes.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/5.13.0-nest-extensions · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that adds support for (custom) extensions to XML transformations and contains many usability improvements and fixes.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/5.13.0-nest-extensions</h1></header><article><div><span><p>Release that adds support for (custom) extensions to XML transformations and contains many usability improvements and fixes.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Notification triggers that check for missing monitoring data measurements no longer trigger when eMagiz iPaaS is restarted for deployments. This should prevent the sending of multiple &quot;false positive&quot; notifications in these situations. (#67472)</li>
+<li>Customer employees and partner employees now can be set to inactive by their admin. (#94703)
+<ul>
+<li>Inactive employees won't be calculated in the user role limit. (#94706)</li>
+</ul></li>
+<li>Notifications are now sent as one e-mail with all the recipients as BCC. If you prefer, you can also choose to send the e-mail to all recipients directly. (#96237)</li>
+<li>Multiple notification triggers can now be disabled/enabled at the same time. (#93292)</li>
+<li>The XML transformation editor now fully supports extensions through the &quot;XSLT extension gateway&quot; introduced in the previous release. With this functionality you can for example retrieve additional data from an external system during a transformation, or apply some custom XSLT logic on parts of your message.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Notification e-mails now contain the whole stracktrace. (#82316)</li>
+<li>All documentation links in the flowdesigner are now moved to the help text. The help text window now closes though the close button. (#84935)</li>
+<li>Added search option to Message type overview. (#88158)</li>
+<li>Updated the &quot;resource is still in use error message&quot;. The message now displays where the resource is still in use. (#91727, 91807, 91469, 93386)</li>
+<li>Various resource management fixes. (# )</li>
+<li>Resource name now changes when another file is uploaded to a existing resource. (#73636)</li>
+<li>Removed global resource state. (#64120, 68725)</li>
+<li>Added searchfields to requirements overview. (#91816)</li>
+<li>Requirements can be linked to a flow when not in editing mode. (#90175)</li>
+<li>Various Requirement PDF fixes. (# )
+<ul>
+<li>PDF now contains the display name. (#91924, 92313, 89034)</li>
+<li>Added alert and notification information (#93261, 95788)</li>
+<li>Added message type information (#93260)</li>
+<li>Requirement and PDF now can contain images. (#93190)</li>
+</ul></li>
+<li>Requirements error messages and Hardware security specifications are now defined project wide. (#92235, 92237)</li>
+<li>Notifications can now be searced on customer and tag. (#92477)</li>
+<li>When a resource that isn't used anywhere else is removed from a flow you will get the option to delete the resource. (#92465)</li>
+<li>Moved major change up in the release notes. (#92395)</li>
+<li>Flat file to Xml Transformer now shows more than 5 pattern mathing line mapper. (#89977)</li>
+<li>Maximal length of a comment is set to 140 characters. (#91359)</li>
+<li>Error Message Trigger, Logging Event Trigger and Monitoring Data Trigger now have multi remove in the output (select tag) tab. (#89213)</li>
+<li>Integration of a requirement now contains additional information of a message type. (#93184)</li>
+<li>When making a new integration in requirements both the in and out systems are optional (only one is needed). (#93180)</li>
+<li>Requirements, message type now has an description input field. (#93154)</li>
+<li>Changed resource open to edit in flowdesigner objects. (#92932)</li>
+<li>Changed JVM dropdown list to input field. (#94412)</li>
+<li>Error message now contains Caused by message. (#89805)</li>
+<li>Hovering on a graph point now display the value of that point. (#93664)</li>
+<li>Information text now is colored red when inserting the wrong login information. (#92964)</li>
+<li>Added selectable resource to JMS server manager. (#95229)</li>
+<li>Flow designer read only are added to user role report. (#95343)</li>
+<li>The XML transformation editor now also supports XML documents that only contain one element, for example a string message &quot;wrapped&quot; as XML. (#94054)</li>
+<li>The XML transformation editor now supports passing parameters from the message flow to the transformation. (#82844)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Fixed select recipients in Notifications. (#65713, 90592)
+<ul>
+<li>Customer admin's can now be selected in select recipients screen. (#69534)</li>
+</ul></li>
+<li>Prospects are now linked to a Partner. (#88435)</li>
+<li>Graphs and statistics work again in Chrome 35.0.1916.153 (#85828, 85630)</li>
+<li>A requirements now has a Prospect or a Customer. (#92311)</li>
+<li>Changed requirements integration wizard logic. The wizard now skips when the first page is empty and a field on another page is filled in. (#93253)</li>
+<li>Requirements, select message type now works like it should. (#93198)</li>
+<li>QnA who might know is now filled correctly. (#92932)</li>
+<li>Resource changed date doesn't get updated when exporting a flow or a message bus. (#93319)</li>
+<li>Customer employee's can't be created when it has a flow manager role and that user role limit is reached. (#89345)</li>
+<li>eMagiz employees now have the rights to see the Error message screen. (#95781, 95782)</li>
+<li>Requirements, alerts now is linked to only one project. (#95784, 95786)</li>
+<li>Customer and Partner employees now can be deleted again. (#95526, 96272)</li>
+<li>Adding a comment to QnA now updates the last activity date. (#91489)</li>
+<li>Fixed an issue where under certain conditions, the namespace of the root element was missing in XML transformations. (#93002)</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

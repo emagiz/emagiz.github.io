@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/typical_errors_emagiz · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;&lt;strong&gt;Typical error messages in eMagiz&lt;/strong&gt;&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/typical_errors_emagiz · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;&lt;strong&gt;Typical error messages in eMagiz&lt;/strong&gt;&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">howto/typical_errors_emagiz</h1></header><article><div><span><p><strong>Typical error messages in eMagiz</strong></p>
+<p>Below are some common error messages in eMagiz that can help to understand these better, and work towards a solution for these.</p>
+<p><strong>Last updated:</strong> February 14th ,2020</p>
+<table>
+<thead>
+<tr><th>#</th><th><strong>ClassException</strong></th><th><strong>Last Exception Message</strong></th><th><strong>Exception</strong></th><th><strong>Possible cause</strong></th><th><strong>Potential solution</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>JMSException</td><td>There is no queue with name X</td><td></td><td>There is no queue known in JMS with name xxx</td><td>Update the infra flows of the container, restart the JMS so it can create the queue for you</td></tr>
+<tr><td>2</td><td>SAXParseException</td><td>cvc-type.3.1.3: The value X of element Y is not valid.</td><td>cvc-enumeration-valid:Value X is not facet-valid with respect to enumerationY. It must be a value from the enumeration.</td><td>Value Y is unknown in enumeration Y</td><td>Add enumeration value X to the transformation</td></tr>
+<tr><td>3</td><td>xxx</td><td>xxx</td><td>cvc-maxLength-valid: Value X with length = '4' is not facet-valid with respect to maxLength '1' for type Y.</td><td>Value can have a maximum length of 1, whilst the actual value is 4</td><td>Agree with both parties what should be send and received</td></tr>
+<tr><td>4</td><td>SAXParseException</td><td>cvc-complex-type.2.4.b: The content of element 'X' is not complete. One of Y is expected.</td><td>xxx</td><td>Element Y can’t be found in the message whilst the message definition expects this element Y as mandatory in the message.</td><td>Please consult receiving system to understand if this field Y should be mandatory to receive or not. And how it should be filled properly.</td></tr>
+<tr><td>5</td><td>NoSuchBean DefinitionException</td><td>No bean named X is defined</td><td>xxx</td><td>In the routing process, the message can’t be processed. The message type is not handled in any of the routing management.</td><td>To enable proper Routing of the Message, a specific channel should be added to the existing routing flow. Whenever the message shouldn’t be routed, it can be handled by adding a Recipient Router that can manage the routing or deletion of the of the message. Use the expression: '${Property}' == 'true' for this purpose</td></tr>
+<tr><td>6</td><td>Message RejectedException</td><td>Message was rejected due to XML Validation errors</td><td>cvc-complex-type.2.4.d: Invalid content was found starting with element X. No child element is expected at this point.</td><td>The message contains element X but according to the definition it’s expected on a different location sequence wise</td><td>Change the location only when agreed between both systems</td></tr>
+<tr><td>7</td><td>Message DeliveryException</td><td>no channel resolved by router and no default output channel defined</td></tr>
+<tr><td>xxx</td><td>In the routing process, eMagiz can’t put the message to any of the channels, nor is there a default output channel for unhandled messages</td><td>Please add a default channel for unmanaged messages in the Routing. The null Channel will result in a silent disappearance of the message.</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

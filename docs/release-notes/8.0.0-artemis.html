@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/8.0.0-artemis · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that switches the underlying messaging technology of eMagiz buses.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/8.0.0-artemis · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that switches the underlying messaging technology of eMagiz buses.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/8.0.0-artemis</h1></header><article><div><span><p>Release that switches the underlying messaging technology of eMagiz buses.
+Furthermore, several components were added to the flow designer that enable you to connect to Kafka. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Added new components 'Kafka message driven channel adapter' and 'Kafka outbound channel adapter' to the flow designer. Together with new support objects 'Kafka message listener container' and 'Kafka template', these components allow you to receive message from and send messages to the Apache Kafka distributed streaming platform.</li>
+<li>Added new support object 'WS-Addressing action callback' to the flow designer. This allows you to add WS-Addressing headers such as 'wsa:Action' and 'wsa:To' to the SOAP requests of a web service outbound gateway.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>eMagiz now no longer use HornetQ as the (open source) JMS server, but we are switching to Apache ActiveMQ Artemis. The main reason for this is not that we were unhappy with HornetQ, but simply because HornetQ development has stopped. However, all source code has been donated to the Apache ActiveMQ community, and they released Artemis as the direct successor of HornetQ. Other than multiple years of improvements, bugfixes and performance gains, the most notable changes for eMagiz users are:
+<ul>
+<li>Auto-creation of queues: Artemis will automatically create queues when the first consumer is registered on a queue or when the first message is send to a queue. This means that the JMS server flow no longer contains a list of all queue names and does not have to be redeployed every time a process is added to your bus, resulting in no downtime of existing integrations during deployments.</li>
+<li>Auto-deletion of queues: Artemis will automatically delete queues when the last consumer is disconnected from a queue and no messages are in the queue. This means that the JMS server does not have to be redeployed every time a process is removed from your bus, resulting in no downtime of existing integrations during deployments.</li>
+<li>Backwards compatible with HornetQ: older flows that still use HornetQ clients can connect to Artemis servers, but new AMQP-based flows cannot connect to HornetQ servers. This means that it is possible to migrate existing buses one runtime at a time, as long as the JMS server is migrated first.</li>
+</ul></li>
+<li>Related to replacing the HornetQ server with Artemis, we are also replacing the HornetQ client with the Apache Qpid JMS client. Previously HornetQ was used both as the JMS server and client, but because we are switching to the AMQP protocol (see below) we no longer have the requirement of running the same software on both the client and server side. Other than Qpid being actively developed and up-to-date with security patches, the most notable changes for eMagiz users are:
+<ul>
+<li>JMS connection factory sharing: Qpid connection settings are only stored in each container's infra flow and shared with all other flows in the same runtime, while previously the HornetQ connection settings were stored in each flow separately. This means that when there is a change in these settings, only the infra flows are affected and need to be redeployed instead of every single flow in your bus.</li>
+<li>Connections with Qpid are secured with two-way TLS using auto-generated certificates, similar to how HornetQ connections are secured. To migrate existing HornetQ-based buses, it is important that those buses no longer use (old) custom SSL settings. Also with Qpid, having to add your bus certificates manually to key-/truststores when altering the Java defaults should no longer be needed.</li>
+<li>Fully compatible with existing flows: Qpid JMS communicates with the components in your flows using the same JMS API that the HornetQ client uses. This means that after migrating flows to AMQP, the only changed components are some support objects, but all functional flow components – including the JMS inbound and outbound channel adapters – will not be touched at all.</li>
+</ul></li>
+<li>eMagiz now uses the AMQP protocol (Advanced Message Queuing Protocol) to connect all flows in a message bus, while previously a custom TCP protocol was used. As a user, you will probably never notice the actual protocol being used, but switching to AMQP does bring some important benefits:
+<ul>
+<li>To send and receive messages, eMagiz now uses the AMQP over WebSocket Secure (amqpwss) protocol. Because this an IETF standardized protocol that is HTTP(S) based, it should be better compatible with most current and future cloud infrastructures compared to the custom TCP protocol we used previously.</li>
+<li>By switching to a standardized protocol, flows using AMQP provide better forward compatibility with future changes to the eMagiz messaging technology. For example, it should now be possible to completely replace the JMS server with another AMQP compatible message broker without it affecting any of your flows (well, in theory at least).</li>
+<li>Because the implementations of the AMQP protocol that eMagiz uses are different for the client side (Qpid) and server side (Artemis), this makes updating either of them much easier. Previously, an upgrade of HornetQ would affect every single flow in a bus, but now an upgrade of Artemis will only affect the JMS server flow(s) for example.</li>
+</ul></li>
+<li>To locally buffer outgoing messages in a runtime, in case of (AMQP) connection problems, we now use a 'channel message store' backed by an embedded H2 database. While functionally very similar to how it worked before – buffering messages in an embedded HornetQ server and then bridging them to the main JMS server – there are some notable differences:
+<ul>
+<li>Instead of being hidden, this buffering is now transparently shown in the flow designer as a message channel with a special 'storage' icon on it. New support objects that represent the actual message store, an embedded H2 database in this case, are also included in these flows. Note that these support objects are actually located in the infra flow and then shared with other flows that use them.</li>
+<li>Max limit for locally stored runtime metrics and log entries was 2 x 5 MiB and is now 2 x 1000 messages. In practice this should be quite similar. The maximum for &quot;normal&quot; user-defined messages is still unlimited.</li>
+<li>The H2 database is writing all data to disk using encrypted (AES-128) files with randomly generated and unique encryption keys. This means that even when deployed on servers without disk encryption, messages are never simply stored in a plain format.</li>
+<li>The maximum rate when forwarding messages from the local buffer to the JMS server is two messages per second (per message queue), while previously this was unlimited. This lowering of the maximum throughput is intentional, to alleviate the total load on the JMS server when recovering from (long) periods of unavailability. The disadvantage of course is that it can take a bit longer for the backlog of messages to be processed.</li>
+<li>Since this embedded H2 database is a fully fledged SQL database, it can be used for other storage tasks as well. Right now eMagiz can also use it as the job repository for data pipelines, and expect more applications of this storage mechanism in the future.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Updated library 'jsoup' from 1.11.2 to 1.11.3 (prevents XSS attacks from user-submitted content in the portal)</li>
+<li>Removed the documentation menu option from the Create phase of the ILM, because it was not being used while taking up (precious) space in the navigation menu.</li>
+<li>The eMagiz AWS Cloud now has fixed IP addresses (52.57.7.213 and 35.158.233.116) for traffic going to the cloud. This can be useful for IP whitelisting, although hostname based whitelisting is preferred. Note that these IP addresses cannot be used to connect to; for that the 'cloudXXXX.emagizcloud.com' DNS names must be used. Also note that existing AWS Cloud slots are switched to these IP addresses the first time the &quot;update AWS&quot; button is used.</li>
+<li>Across the portal several (help) texts have been improved. For example, providing an extra reminder to turn monitoring of cloud machines back on. (#427155, 428594)</li>
+<li>Deploy - Releases: When properties are missing for flows that should be installed, you can now see exactly which ones are missing instead of being shown a list of all properties of that runtime. In addition, you can fill in their values on the spot.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Design - Cloud Architecture: Removed non-functional &quot;Export to PNG&quot; button.</li>
+<li>Deploy - Releases:
+<ul>
+<li>Adding new tenants to multi-instance multi-tenant setups now creates the correct containers, and adds the flows that should run to them automatically.</li>
+<li>After migrating to releases, the request handler and infra flows are added to the containers for Acceptance and Production now. This happens when approving the release for those environments.</li>
+<li>(Re-)Adding integrations with an entry flow to an eMagiz-Mendix Connector system, now also adds the request handler to the release.</li>
+<li>Fixed an issue that, in a specific case, would block you from using &quot;Update all flows to the latest versions&quot;.</li>
+<li>Fixed an issue where, in specific cases, the colours would not update correctly while adding or removing integrations to a release.</li>
+<li>Package overview shows packages in view-only mode again.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="remarks"></a><a href="#remarks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remarks</h2>
+<ul>
+<li>Using both HornetQ (old) and Artemis/Qpid (new) components in the same flow is not supported and will most likely cause unexpected behaviour.</li>
+<li>Flows that use AMQP require Java 8. While technically HornetQ-based flows can still run on Java 7, we strongly recommend to update all existing runtimes to Java 8, since Java 7 has been end-of-life for four years now.</li>
+<li>As an alternative to the Oracle Java 8 download, consider trying AdoptOpenJDK (see <a href="https://adoptopenjdk.net">https://adoptopenjdk.net</a>), which has better long-term support. While we do not have much experience with this distribution (yet), initial tests show no problems running eMagiz on it.</li>
+<li>A select number of early adopter buses are already running on AMQP. We strongly recommend these buses to 'reset' and redeploy all their infra flows and JMS server(s), because this release contains an important fix: queue prefetch was enabled to prevent large messages getting stuck in queues.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li><li><a href="#remarks">Remarks</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/7.24.0-jump-&amp;-celebrate · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that brings a major update to a core component of eMagiz: Spring 4. This makes many new options and components available in the flow designer. Next to that, two new operations are included for message transformations. In addition, this release includes several other improvements and tackles some minor issues.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/7.24.0-jump-&amp;-celebrate · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that brings a major update to a core component of eMagiz: Spring 4. This makes many new options and components available in the flow designer. Next to that, two new operations are included for message transformations. In addition, this release includes several other improvements and tackles some minor issues.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/7.24.0-jump-&amp;-celebrate</h1></header><article><div><span><p>Release that brings a major update to a core component of eMagiz: Spring 4. This makes many new options and components available in the flow designer. Next to that, two new operations are included for message transformations. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>New options and components available in the flow designer, mainly improving the existing functionality and adding flexibility:
+<ul>
+<li>[HTTP] Added the option to switch the client HTTP library used by custom REST templates to 'Apache HttpComponents'. This gives more options when doing HTTP calls, most notably it supports HTTP 'PATCH' which the standard JDK HTTP library does not support. Additionally it allows you to specify custom 'connect timeout' and 'read timeout' values.</li>
+<li>[TCP/IP] New option 'treat timeout as end of message' added to support object 'byte array raw (de)serializer'.</li>
+<li>[TPC/IP] New support object 'byte array single terminator (de)serializer'.</li>
+<li>[Core] Direct channels now have the 'fixed subscriber' option (disabled by default). When enabled, this will check during startup of the flow whether that channel is connected to exactly one component, otherwise the flow will fail to start. This can be useful to prevent the deployment of flows with disconnected channels or channels that are accidentally connected multiple times.</li>
+<li>[Cache] New options 'allow null values' and 'store by value' added to support object 'concurrent map cache manager'.</li>
+<li>[FTP] New options 'connect timeout', 'read timeout' and 'data timeout' added to support object 'default FTP(S) (caching) session factory'.</li>
+<li>[SFTP] New option 'allow unknown keys' added to support object 'default SFTP (caching) session factory'. This can be used to populate your 'known hosts' file, which - when used correctly - greatly improves security. See the help texts in the flows designer for instructions. While this option is disabled by default (which is more secure), for backwards compatibility this will be enabled in all existing flows.</li>
+<li>[File] New option 'ignore hidden' added to 'file inbound channel adapter'. If enabled, the adapter will not pickup any files that are marked as hidden.</li>
+<li>[File] New options 'use watch service' and 'watch events' added to 'file inbound channel adapter'. These options provide an alternative for scanning directories every poll, which can lead to big performance improvements when directories contain large amounts of files or when sub-directories need to be scanned as well. See the help texts in the flow designer for more information.</li>
+<li>[File] New options 'mode: append no flush', 'flush interval' and 'flush when idle' added to 'file outbound channel adapter'. When doing many file appends in quick succession, these new options can significantly improve performance at the risk of lost data in the event of a failure.</li>
+<li>[File] New (advanced) options 'append new line', 'buffer size' and 'preserve timestamp' added to 'file outbound channel adapter'.</li>
+<li>[FTP] New option 'local filter' added to 'FTP inbound channel adapter'. A local filter can be very useful in scenario's where files are downloaded that do not have unique file names. Previously in these cases you had to rename the files using a 'local filename generator expression', but this new option can simplify this considerably.</li>
+<li>[FTP] New (advanced) option 'preserve timestamp' added to 'FTP inbound channel adapter'.</li>
+<li>[FTP] New option 'mode' added to 'FTP outbound channel adapter'. Supported modes are: replace (default), append, append no flush, fail, ignore.</li>
+<li>[Core] New transformer 'header filter'. This is a specialised header enricher for removing headers from messages with just one simple configuration option. No more adding 'standard header enrichers', disabling 'should skip nulls', using a 'null' SpEL expression and enabling 'overwrite'!</li>
+<li>[HTTP] New option 'status code expression' added to 'HTTP inbound channel adapter'. Previously this adapter would always respond with a '200 OK' code, but with this option you can configure the behaviour.</li>
+<li>[HTTP] New option 'reply timeout status code expression' added to 'HTTP inbound channel adapter'. Previously this gateway would always respond with a '500 Internal Server Error' code in case of reply timeouts, but with this option you can configure the behaviour.</li>
+<li>[HTTP] New option 'encode URI' added to 'HTTP outbound channel adapter', 'HTTP outbound gateway' and 'web service outbound gateway'. This may be useful in some scenarios as it allows user control over the encoding.</li>
+<li>[Mail] New option 'user flag' added to 'IMAP idle channel adapter' and 'mail inbound channel adapter'. This option allows you to change the default flag (&quot;spring-integration-mail-adapter&quot;) that the mail adapters use to mark messages as processed.</li>
+<li>[Core] New option 'requires reply' added to 'JDBC outbound gateway', 'JDBC stored procedure outbound gateway', 'JMS outbound gateway' and 'WS outbound gateway'. Allows you to specify whether these outbound gateways must return a non-null value, i.e. whether every request message must result in a reply message.</li>
+<li>[JDBC] New option 'return value required' added to 'JDBC stored procedure inbound channel adapter'.</li>
+<li>[JMS] New (advanced) option 'session transacted' added to 'JMS inbound channel adapter' and 'JMS outbound channel adapter'.</li>
+<li>[JMS] New (advanced) option 'subscription shared' added to 'JMS inbound gateway' and 'JMS message driven channel adapter'.</li>
+<li>[JMS] New option 'concurrency' added to support object 'JMS listener'. Previously concurrency was dictated by the parent 'JMS listener container', but with this option each listener can have a customized value.</li>
+<li>[JMS] New options 'response destination type' and 'recovery interval' added to support object 'JMS listener container'. Now also supports two more destination types: 'sharedTopic' and 'sharedDurableTopic'.</li>
+<li>[JMS] New option 'reply destination expression' added to 'JMS outbound gateway'. There already was a 'request destination expression', but this option was missing for the replies.</li>
+<li>[JMS] New options 'idle reply listener timeout' and 'async' added to 'JMS outbound gateway'. When using a reply listener, these options allow more fine-grained control over its threading behaviour.</li>
+<li>[Core] New support object 'management'. This support object can be used to tweak the flow's behaviour with regards to debug logging and keeping track of usage metrics. Disabling these features can improve performance in situations with extremely high loads, at the cost of losing some monitoring information.</li>
+<li>[Core] Removed option 'shutdown executor' from support object 'MBean export'.</li>
+<li>[OAuth2] Support for grant type 'password' added to support object 'OAuth 2.0 resource'.</li>
+<li>[Core] The 'object to string transformer' can now also convert byte[] and character[] payloads. To correctly convert byte arrays, new option 'charset' has been added.</li>
+<li>[Core] New (advanced) options 'value separator', 'trim values' and 'null value' added to support object 'property placeholder'.</li>
+<li>[File] New option 'filter' added to support object 'recursive leaf-only directory scanner'. Note that this support object is now deprecated in favour of the new 'watch service' functionality, but if you still want to use it any file filters have to be specified on the scanner instead of on the 'file inbound channel adapter'.</li>
+<li>[SFTP] New (advanced) option 'preserve timestamp' added to 'SFTP inbound channel adapter'.</li>
+<li>[SFTP] New option 'local filter' added to 'SFTP inbound channel adapter'. A local filter can be very useful in scenario's where files are downloaded that do not have unique file names. Previously in these cases you had to rename the files using a 'local filename generator expression', but this new option can simplify this considerably.</li>
+<li>[SFTP] New option 'mode' added to 'SFTP outbound channel adapter'. Supported modes are: replace (default), append, append no flush, fail, ignore.</li>
+<li>[SFTP] New option 'chmod' added to 'SFTP outbound channel adapter'. With this option the access permissions of files can be changed after uploading.</li>
+<li>[TCP/IP] New options 'SSL handshake timeout' and 'read delay' added to support object 'TCP connection factory'.</li>
+<li>[TCP/IP] New option 'remote timeout expression' added to 'TCP outbound gateway'.</li>
+<li>[Core] New option 'selector expression' added to 'wire tap'. This can be used to conditionally intercept certain messages, instead of wire-tapping all messages and then having to filter out unwanted messages.</li>
+<li>[XML] New option 'header type' added to 'XPath header enricher'. This allows you to specify the desired Java type (class name) for each header, which can be useful for headers that need a specific Java type, for example when a subsequent SpEL expression uses that value.</li>
+<li>[XML] New (advanced) options 'apply sequence' and 'iterator' added to 'XPath splitter'.</li>
+<li>[XML] New (advanced) option 'transformer factory class' added to 'XSLT transformer'.</li>
+<li>[XMPP] New option 'payload expression' added to 'XMPP inbound channel adapter', replacing option 'extract payload'.</li>
+<li>[HTTP] New support object 'default HTTP header mapper'. This allows more control over the mapping of message headers to and from HTTP headers. For example, you can influence whether custom HTTP headers should automatically get the &quot;X-&quot; prefix or not.</li>
+<li>[Mail] New S/MIME transformers for encrypting/decrypting and signing of MIME data. These new transformers require runtime version 4.2.0 or higher to function.</li>
+</ul></li>
+<li>You can now specify default values for properties in your message flows, using the '${propertyName:defaultValue}' syntax. Note that default values specified this way will always be the last fallback when resolving property values, i.e. the value will only be applied when you &quot;forget&quot; to specify the property in the deploy phase.</li>
+<li>The Spring Expression Language (SpEL) has been extended with the following new features. These new additions to the language can be used in all components of your message flows that support SpEL expressions.
+<ul>
+<li>It is now possible to use the '@' notation to reference any flow component when passing parameters to XSLT transformations. This can be very useful for passing 'XSLT extention gateways' to your XSLT, without having to add (and later remove!) these as headers to your messages.</li>
+<li>Maps can now be created using '{key1:value1, key2:value2, ...}' notation. Previously maps had to be created using Java code, or you had to use multiple lists to represent the concept of a map. Having this option, especially when combining it with the use of property values, can be very useful in multi-tenant flows to easily configure per-tenant settings.</li>
+<li>SpEL function '#xpath' has been added, allowing you to perform evaluation of XPath expressions at any place where SpEL expressions can be used in flows. For example, the SpEL expression &quot;#xpath(payload, 'count(//order)', 'number')&quot; will count and return the number of orders in the XML payload of a message. The third argument of this function, the return type, is optional and defaults to 'string'; the other options are 'boolean', 'number', 'node', 'node_list' and 'document_list'.</li>
+</ul></li>
+<li>Java 8 is now supported, in addition to Java 7 (previously only Java 7 was supported). For existing runtimes this means that you can only upgrade to Java 8 if ALL deployment packages on that runtime are created since this release. This can be checked by comparing the build number (the fourth and last number of the full version number) of your deployment packages: build number 23 (or higher) means it is compatible with both Java 7 and Java 8, while build number 22 (or lower) means it can only run on Java 7. For new buses (or new connectors) created after this release, we recommend to install on Java 8 in order to be more future-proof. Note that you need runtime version 4.1.6 (released 2017-06-30) or higher to run on Java 8. Also note that hybrid bus installations - some runtimes on Java 7 and others on Java 8 - is perfectly fine. This also allows for incrementally updating your existing buses one runtime at a time.</li>
+<li>Two new operations in message transformations:
+<ul>
+<li>Conditional. An new type of operation to check if a source attribute fulfills a condition, and determine the destination value based on that. Also known as &quot;if-then-else&quot;. For example, this is useful to define a value to default to if an attribute is optional in the source message, yet required in the destination.</li>
+<li>Enumeration mapping. A new transformer option to easily change the values of a source enumeration to those required by the destination message.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Updated the following Java libraries (these are updated automatically when deploying flows, you do not need to install a new runtime version):
+<ul>
+<li>Apache Commons Net: 3.3.0 -&gt; 3.4.0</li>
+<li>Google Guava: 15.0.0 -&gt; 19.0.0</li>
+<li>Jackson JSON processor: 1.9.13 -&gt; 2.7.4</li>
+<li>JSch: 0.1.49 -&gt; 0.1.54</li>
+<li>Smack API: 3.2.1 -&gt; 4.1.7</li>
+<li>Spring Batch: 2.2.7 -&gt; 3.0.7</li>
+<li>Spring Framework: 3.2.13 -&gt; 4.3.8</li>
+<li>Spring Integration: 2.2.6 -&gt; 4.3.9</li>
+<li>Spring Retry: 1.0.3 -&gt; 1.1.5</li>
+<li>Spring Security: 3.1.7 -&gt; 4.2.2</li>
+<li>Spring Security OAuth: 1.0.5 -&gt; 2.1.0</li>
+<li>Spring Web Services: 2.1.4 -&gt; 2.4.0</li>
+<li>Eclipse Gemini Blueprint: 1.0.2 -&gt; 2.1.0</li>
+</ul></li>
+<li>Made it easier to change your bus to &quot;Enforce CDM best practices&quot;. Transferring this setting from Design to Create is now separate from transferring the architecture and connection settings.</li>
+<li>Capture: When filtering using tags, it is now possible to add integrations to the visible systems. Please be aware that, if you are filtering on tags on integrations, you have to add the tag to the new integration for it to be visible immediately after saving.</li>
+<li>Design: System message definitions for response messages can be imported from the CDM. Similar to asynchronous and request messages since the previous release.</li>
+<li>Design: When going to a CDM message from the CDM, the screen on the left side will adjust to show the root of the selected message.</li>
+<li>Search fields on dates have more space, so that their values are easier to read and input.</li>
+<li>Bus dashboard: The names of the ILM phases on the dashboard are now clickable. They can be used to jump to the applicable phase immediately.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Capture: Fixed that, changing (a)sync on message types not in use by integrations would cause an error message to appear.</li>
+<li>Deploy: Fixed that, in case of a reinstall of runtimes in an old bus, a newer version than expected of the infra-flows could be installed.</li>
+<li>Classic definitions: The order of complex types now remains the same when uploading and then downloading again.</li>
+<li>Previously it was not possible when configuring SFTP to link private key files uploaded as flow resources. This has been fixed, and you should now link them in the same way as other resources (e.g. &quot;resources/00-012345_my-key.pem&quot;).</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="remarks"></a><a href="#remarks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remarks</h2>
+<ul>
+<li>Breaking change: flows using a file inbound channel adapter configured with a 'recursive leaf-only directory scanner' will no longer apply any file filters. The filters should now either be applied on the directory scanner, or you should switch to using the new 'watch service' feature (recommended).</li>
+<li>Flows in which you want to monitor message channel or message handler statistics now not only need to include the 'MBeans export' support object, but require the new 'management' support object as well.</li>
+<li>Important note about runtime memory usage: Each flow you deploy always uses up a bit of memory. The runtime tries to keep the memory usage low by re-using as many Java libraries as possible, but every flow also requires Java libraries that cannot be shared with other flows. Because this release adds a lot of functionality to the runtime and also contains many Java library updates, the effects on the memory usage might be more noticeable than in previous releases. We recommend NOT to update and deploy every flow in your process container at once (i.e. mass updating all flows from build number 22 to 23 just because you can), but simply to keep deploying the flows that you've actually changed. And as always, keep an eye on the memory usage: when memory gets low because of many repeated deployments, restarting the runtime can free up some memory. If the memory is structurally low, you might want to check the sizing of your runtime against the current usage.</li>
+<li>A new property 'emagiz.extension.spring2.compatibility' has automatically been added to all existing message buses. A bus with this property will run newly created flows (build number 23 or higher) in &quot;compatibility mode&quot;, making sure that these flows can still correctly communicate with older flows (build number 22 or lower). Do not disable this compatibility mode until you are sure that ALL flows in your bus use deployment packages created since this release (build number 23 or higher). Newly created buses do not need to use compatibility mode, as they won't contain older flows.</li>
+<li>A property 'startuporder.[infra-flow name]' will be added to all new containers, and has been added to all containers that did not have it yet. The property tells a runtime to start the specified flow before other flows whenever it reboots. By starting the infra-flow first, a reboot closer follows the path of a manual startup, where the infra flow must be started in order to install other flows. For synchronous flows, you may want to use similar properties to ensure the right startup order after a reboot ('startuporder.[flow name]', use positive integers for values, lowest value is started first).</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li><li><a href="#remarks">Remarks</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

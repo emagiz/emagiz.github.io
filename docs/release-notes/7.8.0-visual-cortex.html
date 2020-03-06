@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/7.8.0-visual-cortex · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that allows you to easily define your CDM (Canonical Data Model) and message types in the Design phase of the ILM. In addition, the release includes many improvements to the transformations and definitions in the Create phase.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/7.8.0-visual-cortex · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that allows you to easily define your CDM (Canonical Data Model) and message types in the Design phase of the ILM. In addition, the release includes many improvements to the transformations and definitions in the Create phase.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/7.8.0-visual-cortex</h1></header><article><div><span><p>Release that allows you to easily define your CDM (Canonical Data Model) and message types in the Design phase of the ILM. In addition, the release includes many improvements to the transformations and definitions in the Create phase.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Design the CDM and message definitions in the Design phase of the ILM. Easily learn how to start designing your CDM by watching this 2 minute video: <a href="https://www.youtube.com/watch?v=lV-HJW8bsrU">https://www.youtube.com/watch?v=lV-HJW8bsrU</a>
+<ul>
+<li>Start defining the CDM from scratch, or import existing information from XSDs or even a Mendix 6 project.</li>
+<li>Design your CDM message types by selecting entities, relationships, and attributes from your CDM.</li>
+<li>Design your system message types by creating entities, relationships, and attributes for the specific system. Or import your existing XSDs.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Transformations and definitions: After changing a definition, the resources tab shows which transformations need to be updated. (#208562)</li>
+<li>Transformations and definitions: Fields of a transformation are highlighted if they will be changed by updating after one of their definitions has been changed.</li>
+<li>New, beautiful help text design in the Design phase of the ILM.</li>
+<li>Improved loading speed of the homepage.</li>
+<li>Upgraded the eMagiz portal to Mendix 6.7.1</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Exporting a single flow only closes the pop-up, and no longer takes you an extra page back. (#211235, 211073, 210568)</li>
+<li>Flow designer: Deleting flow components no longer requires selecting them twice. (#169979)</li>
+<li>Key stores and trust stores are no longer detached from the flows when transferring bus settings more than once.</li>
+<li>Flow designer: Extension gateway now correctly displays its input and output channels after saving or cancelling. (#195553)</li>
+<li>Transformations and definitions: Moving attributes from one entity to another in a definition no longer breaks transformations. Please be aware, that you still have to adjust the mapping rules. Especially when moving attributes from or to a list entity. (#166795, 207406, 126644, 163636, 150416, 135641)</li>
+<li>Transformations and definitions: The refresh button in transformations now completely refreshes the transformation page (#865160)</li>
+<li>Transformations and definitions: Changing the data type of an attribute in a definition no longer breaks the transformation. (#133050, 204196, 180302)</li>
+<li>Transformations and definitions: Updating a definition is now also reflected in the &quot;Select attribute&quot; screen of the transformation. (#201041, 128832, 142558)</li>
+<li>Transformations and definitions: Fixed several cases where the update option would not appear on a transformation when changing one of its definitions.</li>
+<li>Fixed several minor styling issues in the Q&amp;A section</li>
+<li>When using the FTP(S) or SFTP session factory without any caching or connection pooling capabilities, the FTP and SFTP flow components previously applied their own caching behaviour. This made them functionally identical to their caching counterparts. This has now been corrected; no changes in the flow are required, just creating a new deployment package and deploying it on your runtime will correctly disable any form of connection caching.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

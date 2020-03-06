@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/8.7.0-hooray-hooray · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that introduces new options and best practices for synchronous flows. Furthermore, many feature requests are fulfilled in the Deploy phase. In addition, this release includes several other improvements and tackles some minor issues.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/8.7.0-hooray-hooray · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that introduces new options and best practices for synchronous flows. Furthermore, many feature requests are fulfilled in the Deploy phase. In addition, this release includes several other improvements and tackles some minor issues.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/8.7.0-hooray-hooray</h1></header><article><div><span><p>Release that introduces new options and best practices for synchronous flows. Furthermore, many feature requests are fulfilled in the Deploy phase. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>MFA (Multi-Factor Authentication) can be enabled by a bus owner. With MFA enabled, access to any production environment is (further) restricted to people who prove &quot;they are who they say they are&quot; by entering their Google Authenticator code. Please refer to the previous release notes on how to register and other details. (#417723)</li>
+<li>The best practice for error handling in synchronous flows has been improved. By default, only the entry flow will route errors to the error process. Other flows will pass back errors to the originating flow through the gateway. To allow the flows enough time to process timeout errors properly, the timeout and time-to-live settings are adjusted. The entry flows will wait longest, and the exit flow shortest. In addition, the default amount of consumers is adjusted on generated gateways, to better match their synchronous requirements. This setup allows to easily return error messages from a back-end service to the system originally calling the service. Whenever you build a new synchronous flow, or reset an existing one, the new best practice is applied. Existing flows are not changed automatically. The 'error to XML transformer' has the following new features, all in support of the improved eMagiz best practices for error handling in synchronous bus flows: (#292806)
+<ul>
+<li>Added a new option to log every exception (payload of the input messages) as a warning. This can be useful if the error handling further downstream can not always be relied on, for example when sending errors back upstream in synchronous flows. In such cases having at least logged the initial exception might help doing root cause analyses.</li>
+<li>Every error message created by this transformer now has the 'emagiz_error_isErrorMessage=true' message header. This header can be used further downstream in the flow to very quickly and efficiently distinguish between &quot;normal&quot; messages and error messages.</li>
+<li>If an incoming exception contains the new special marker exception 'AsyncHandledException' anywhere in the exception hierarchy, the error will not be transformed to XML but instead the exception is rethrown. This is to guard against re-entry of a flow's error handling in case we want to intentionally signal a failure to the originating thread after (successfully) handling the error asynchronously.</li>
+</ul></li>
+<li>Improved HTTP / REST support (requires build number 44): (#127686, 325532, 119771, 128300)
+<ul>
+<li>When a HTTP/REST call fails and the server returns a response body (usually providing more details about the error), this information is now automatically added to the error messages created by the 'error to XML transformer'.</li>
+<li>New 'HTTP inbound endpoint dispatcher servlet' added as a replacement for the 'simple dispatcher servlet'. Using this new dispatcher servlet &quot;unlocks&quot; the following new features in HTTP inbound gateways and HTTP inbound channel adapters:
+<ul>
+<li>Automatic discovery of all 'HTTP inbound gateways' and 'HTTP inbound channel adapters'.</li>
+<li>Smart mapping of requests to the endpoint that best matches the request path, method, params, headers and content type.</li>
+<li>Fully configurable path that can include {variables} and wildcards (?, *, **). Requests will automatically be mapped to the most precise matching path (more wildcards makes a path less precise). Specifying multiple endpoints using the exact same path is also supported, as long as there is some other differentiating factor such as the HTTP method.</li>
+<li>All information of the incoming request (path variables, parameters, headers, etc.) is available for specifying header values and the payload content of the resulting message.</li>
+</ul></li>
+<li>The 'simple dispatcher servlet' now supports HTTP method PATCH, and has the 'default handler exception resolver' as the default handler exception resolver (previously it had none). These changes should not really affect existing published HTTP/REST endpoints, however the 'simple dispatcher servlet' has now also been deprecated in favour of the new 'HTTP inbound endpoint dispatcher servlet'. Since this new dispatcher servlet has way more features than the old one and is configured quite differently, we decided not to change any existing flows to avoid breaking those. But we strongly encourage you to take a look at the new features and start replacing your old 'simple dispatcher servlets'.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Deploy - Releases: When changing a flow version from the Release details screen, the flow versions are now sorted by version number, the highest at the top. This makes it quicker to select the right new version . (#430201)</li>
+<li>Design - Message definitions: it is easier to select an entity when adding an entity via relationship: you can double click it. (#449511)</li>
+<li>Deploy - Releases: You will be made aware of very old versions of flows (old build numbers), to ensure your bus runs, and keeps running, as smoothly and with as little technical debt as possible.</li>
+<li>Across the portal several (help) texts have been improved</li>
+<li>Deploy - Releases: When comparing, it is now easy to recognize flows that have a build number increase as their only change. They show up as white with a blue-dashed border. (#442479)</li>
+<li>Deployment plan: Steps that take too long (time out), will show a different icon than those that really go wrong.</li>
+<li>Manage - Dashboard: This hardly used functionality has been removed to make space for future improvements.</li>
+<li>Deploy Architecture: The Update AWS action has become part of &quot;Apply to environment&quot;. It will automatically be executed every time you press click that action on an AWS enabled bus.</li>
+<li>Deploy Architecture: For AWS enabled buses, you can jump to the template release notes straight from the slot details. This helps to see which features are available on the current template.</li>
+<li>Manage - Message Tracking: This hardly used functionality has been removed to make space for future improvements.</li>
+<li>Flow Designer: Removed Mendix App Services support, as Mendix does not support those anymore themselves.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>MFA: While registering for MFA, the process should be completed on the spot, for security reasons. An unfinished registration (for example by navigating away) blocks you from doing another registration. Unfinished registrations are removed after 5 minutes. (#449649)</li>
+<li>Fixed the known issue of last release where you would get an error pop-up when leaving any of the statistics page for a non-bus specific page.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

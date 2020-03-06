@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/7.10.0-webbed-wings · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that has two major features: 1. Cloud, 2. Message mapping. In addition, the release includes several improvements, especially to the CDM and message designer.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/7.10.0-webbed-wings · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that has two major features: 1. Cloud, 2. Message mapping. In addition, the release includes several improvements, especially to the CDM and message designer.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/7.10.0-webbed-wings</h1></header><article><div><span><p>Release that has two major features: 1. Cloud, 2. Message mapping. In addition, the release includes several improvements, especially to the CDM and message designer.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Cloud: eMagiz provides the opportunity to run your bus(es) in the eMagiz cloud. Control your cloud slot directly from the eMagiz portal. Please contact your partner manager to learn more about what this feature may offer you. The main features of the eMagiz Cloud are:
+<ul>
+<li>Testing and acceptance environments can be configured to automatically shutdown every day at 17:00 UTC.</li>
+<li>Monitoring graphs on the IaaS level for all virtual machines that have a service level. Any alerts on the IaaS level (for example low disk space warnings) will be visible in the alerting overview with tag &quot;Cloud alert&quot;. You can also receive these alerts in your e-mail, if you configure a notification for them.</li>
+<li>Create, start, stop, delete and resize your own virtual machines. When creating and resizing virtual machines, the number of vCPUs and amount of memory is calculated by the system based on the size of your bus. Also, based on what you are deploying, VMs are automatically placed in either the DMZ (for connectors) or LAN (for other VMs).</li>
+<li>Production, acceptance and testing environments are completely separated from each other, and each environment comes with its own firewall. This firewall is automatically configured to allow the default bus traffic and to split the network into a DMZ (for the connectors) and LAN (for the other VMs), but also allows users to specify custom firewall rules.</li>
+<li>You can manage who is allowed to access the cloud information and who can perform actions (such as starting and stopping virtual machines) by giving users view and/or edit permissions for the Deploy ILM phase of your bus. This can be managed per environment.</li>
+</ul></li>
+<li>Message mapping: Design mappings between messages at a high level easily. Continuing on the recent releases of CDM and message designer, we enable you to map between designed CDM and system message definitions (and the other way round). Connecting attributes in the source message to those in the destination message is as easy as drawing a line. The result is a visual mapping with filtering options for clear communication.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>In the Design phase of the ILM, message type definitions (both system and CDM) can now be placed in the store, so that they are easy to reuse across integrations.</li>
+<li>When putting a CDM in the store or getting it from the store, you can select which entities you want to include or exclude.</li>
+<li>In the Design phase, after creating or importing a system message definition, you can &quot;promote&quot; it to also be the CDM message. This will copy the entities to the CDM, and create the CDM message type as an exact copy of the system message.</li>
+<li>In the CDM and message designer, annotations are available to clearly document design decisions, similar to the annotations available in the flow editor.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Upgrade to Mendix 6.9.1. This fixes the issues where parts of the user interface stopped responding (mainly noticeable when editing message flows), forcing users to close and reopen browser windows.</li>
+<li>Design Architecture: Add information to the central eMagiz machines, similar to other machines (double-click or right mouse button). (#219610)</li>
+<li>For new buses, automatically create and fill two of the required properties (jms.username and jms.password) in the Deploy phase.</li>
+<li>In the CDM and message designer, the selectable set of data types is changed to be clearer. In the design phase, only basic data types can be chosen. In the create phase, it will be possible to pick their specializations.</li>
+<li>In the CDM designer, delete multiple entities at the same time by selecting them (selection drag or ctrl+click) and then use the context menu (right mouse button).</li>
+<li>In the Design phase, the message type definition indicates whether an entity may occur multiple times in the message (i.e. is a list).</li>
+<li>In the CDM designer, to better distinguish entities, a suffix is added to the name of the entity when importing multiple entities with the same name.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>In the flow editor, it is possible to use the search function in the palette again. (#220687, 221227)</li>
+<li>In Firefox, infographics are opened with the right height now. (#215186, 219405)</li>
+<li>In the CDM and message designer, importing an XSD works for all XSD data types now. (#220492)</li>
+<li>Fixed an issue that prevented the OAuth 2.0 components from working correctly on the eMagiz 4 (OSGi) runtime.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

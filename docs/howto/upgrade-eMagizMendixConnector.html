@@ -1,12 +1,15 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/upgrade-eMagizMendixConnector · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;emagiz-mendix-connector&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#emagiz-mendix-connector&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;eMagiz Mendix Connector&lt;/h1&gt;
-"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/upgrade-eMagizMendixConnector · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;emagiz-mendix-connector&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#emagiz-mendix-connector&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;eMagiz Mendix Connector&lt;/h1&gt;
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/upgrade-eMagizMendixConnector · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;introduction&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#introduction&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h1&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/upgrade-eMagizMendixConnector · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;introduction&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#introduction&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h1&gt;
 "/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
           )
         });
-        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">howto/upgrade-eMagizMendixConnector</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="emagiz-mendix-connector"></a><a href="#emagiz-mendix-connector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>eMagiz Mendix Connector</h1>
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">howto/upgrade-eMagizMendixConnector</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h1>
+<p>This document is valid for all eMagiz Mendix connector versions that are currently supported. That includes the most recent addition that support Mendix version 8, which brings some changes in the way the Connector is used.</p>
+<p>Last update on March 6th, 2020</p>
+<h1><a class="anchor" aria-hidden="true" id="emagiz-mendix-connector"></a><a href="#emagiz-mendix-connector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>eMagiz Mendix Connector</h1>
 <p>The eMagiz Mendix Connector (EMC) is a Mendix Project module that you can import into your application to make it communicate with eMagiz. To make this connector work correctly, you need to follow the steps presented below. But before starting to follow these steps there are a few things that should be known. Even though the EMC module is imported in the Mendix project, Mendix does not know that it has an EMC inside and neither does the EMC know it is inside a Mendix Project. So, the way to make them communicate is using the webservice calls that Mendix supports. But first, in order for the EMC to be able to communicate with the bus, it needs to know the credentials with which it can connect to the HIP bus so that it can retrieve the list of properties. These credentials are referred as constants below in the steps.</p>
 <p>After configuring everything needed for establishing the connection to the HIP services, you will need to create one webservice in order to facilitate the communication between the EMC and the Mendix project. After creating the Webservice, you need to call it from a MF, and in the call, you will need to fill in the credentials with which you are authenticating in the WS. The same credentials you need to fill in the eMagiz HIP (Deploy -&gt; Properties) as the values of the properties corresponding to the request handler.</p>
 <p>The last part in setting up the EMC is about enabling access to the WS call from the EMC to the Mendix Project. To do that you will need to create a WebService user in the Mendix Project and enable access for that user through the firewall of the Mendix Project Website.</p>
@@ -64,9 +67,9 @@ If it is already present, you get a question where you choose the <strong>overri
 <p>These constants are used by the Mendix Connector to get access to the HIP services.</p>
 <ul>
 <li><p><strong>Keystore/Truststore:</strong> In the resources folder of the eMagiz Mendix Connector you need to add the keystore and truststore from the eMagiz HIP which can be found in the Resources tab of the Create phase.</p></li>
-<li><p><strong>Webservice user:</strong> In order for the eMagiz Mendix Connector flow you need to create a user of the consumed webservice in the Mendix project (Administration Overview page) and use these credentials as the values of the username and password values of the connector flow (they can be defined in Deploy -&gt; Properties).</p></li>
-<li><p><strong>Webservices cloud:</strong>  Add the webservice in the cloud which is hosting the Mendix Project. If your project is hosted in the Mendix cloud, you need to enable acces to your network for the URLs which contain '/emagiz-mendix-connector/'. If it runs locally or is hosted in another cloud environment make sure to enable acces the acces in the firewall to the port 5445 or 8443 depending on whether you migrated or not to eMagiz5.</p></li>
-<li><p><strong>Request handler</strong>:</p>
+<li><p><strong>Webservice user</strong> (only for Mendix version prior to V8): In order for the eMagiz Mendix Connector flow you need to create a user of the consumed webservice in the Mendix project (Administration Overview page) and use these credentials as the values of the username and password values of the connector flow (they can be defined in Deploy -&gt; Properties).</p></li>
+<li><p><strong>Webservices cloud</strong> (only for Mendix version prior to V8): Add the webservice in the cloud which is hosting the Mendix Project. If your project is hosted in the Mendix cloud, you need to enable acces to your network for the URLs which contain '/emagiz-mendix-connector/'. If it runs locally or is hosted in another cloud environment make sure to enable acces the acces in the firewall to the port 5445 or 8443 depending on whether you migrated or not to eMagiz5.</p></li>
+<li><p><strong>Request handler</strong> (only for Mendix version prior to V8):</p>
 <ul>
 <li>Import xml schema into req handler configuration from the eMagiz HIP.</li>
 <li>Create consumed web service in Mx project based on the url 'the url to your MX project' + '/emagiz-mendix-connector/' + 'wsdl' (e.g.: <a href="http://localhost:8080/emagiz-mendix-connector/wsdl">http://localhost:8080/emagiz-mendix-connector/wsdl</a>) and then press 'Import'.</li>
@@ -76,87 +79,16 @@ In the SOAP Request Body you need to fill in the values required for the request
 In the SOAP Response tab you can opt for storing the response into a variable. To do so, you need to create an import mapping which maps the response of the webservicce into an entity from the domain model.</li>
 </ul></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="4-usage"></a><a href="#4-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Usage</h2>
-<ul>
-<li>Deployment/updating flows</li>
-<li>Starting/stopping flows</li>
-<li>Explanation User Interface</li>
-<li>Version Numbering</li>
-</ul>
-<h2><a class="anchor" aria-hidden="true" id="5-possible-errors"></a><a href="#5-possible-errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Possible errors</h2>
-<p>There are several situations where you get errors/warnings in your project as a result of the installation/updating the eMagiz Mendix connector.</p>
-<ul>
-<li><strong>Log errors/warnings</strong></li>
-</ul>
-<p>An example of this is when The Mendix project has multiple languages. After the import you will receive multiple errors/warnings. These are easy to solve by following the steps.</p>
-<p align="center">
-  <img src="../../img/howto/emc-language-operations.png"> 
-</p>
-<p align="center">
-  <img src="../../img/howto/emc-language-operations-2.png"> 
-</p>  
-<ul>
-<li><strong>Layout errors that can be solved with the eMagiz cleanup tool</strong></li>
-</ul>
-<p>Another example is the layouts. These can be solved by choosing the layouts that are used within your project.</p>
-<p align="center">
-  <img src="../../img/howto/emc-display-project-directory.png"> 
-</p> 
-<p>The cleanup is in the project directory Under the Resource folders.</p>
-<p align="center">
-  <img src="../../img/howto/emc-cleanup-tool.png"> 
-</p> 
-<p>Click right mouse button (or double click) For &quot;Openings with | Java™ Platform SE Binary</p>
-<p align="center">
-  <img src="../../img/howto/emc-open-cleanup-tool-2.png"> 
-</p> 
-<p>After performing this action it is good to check the userlib for verification. This can be based on the following steps. First open your project folder (see below)</p>
-<p align="center">
-  <img src="../../img/howto/emc-display-project-directory.png"> 
-</p>
-<p>Then navigate to Userlib. In this userlib, there should only be one reference to a version of the eMagizMendixConnector. (see below)</p>
-<p align="center">
-  <img src="../../img/howto/emc-mendix-jar-file.png"> 
-</p>
-<p>For reference, all JAR files using the eMagizMendixConnector (version 2.4.1):</p>
-<p align="center">
-  <img src="../../img/howto/emc-all-jar-files.png"> 
-</p>
-<ul>
-<li><strong>Cleanup the project directory to avoid other problems</strong></li>
-</ul>
-<p>The last step is to clean up the project directory and then committing your customization. Ideally, you perform all of these actions in a single commit so that you can perform a rollback and so that you can easily isolate any problems.</p>
-<p align="center">
-  <img src="../../img/howto/emc-mendix-clean-project-directory.png"> 
-</p>  
-<h2><a class="anchor" aria-hidden="true" id="6-best-practices"></a><a href="#6-best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Best practices</h2>
-<ul>
-<li>Configure startup time</li>
-<li>Communication in conjunction with Mendix Inbound/outbound Web services</li>
-<li>Conflicting userlib AppStore Modules</li>
-<li>Tracing WebServices Lognode at debugging</li>
-<li>Deployments – updates request handler</li>
-<li>Restart</li>
-<li>Stop</li>
-<li>Start</li>
-<li>OnDersteunde Mendix Versions</li>
-<li>What to consider</li>
-<li>Multithreading</li>
-<li>Error handling</li>
-<li>Retry mechanisme</li>
-</ul>
-<h1><a class="anchor" aria-hidden="true" id="step-plan-upgrading-the-emagiz-mendix-connector"></a><a href="#step-plan-upgrading-the-emagiz-mendix-connector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step plan upgrading the eMagiz Mendix Connector</h1>
+<h2><a class="anchor" aria-hidden="true" id="step-by-step-plan-to-upgrade-the-emagiz-mendix-connector"></a><a href="#step-by-step-plan-to-upgrade-the-emagiz-mendix-connector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step by step plan to upgrade the eMagiz Mendix Connector</h2>
 <p>To get a new version of the eMagiz Mendix Connector in a Mendix app, the following steps from above need to be performed:</p>
 <ol>
-<li><a href="/docs/howto/upgrade-eMagizMendixConnector#1-download-the-emagiz-mendix-connector">Step 1</a></li>
-<li><a href="/docs/howto/upgrade-eMagizMendixConnector#2-importing-emagiz-mendix-connector">Step 2</a></li>
-<li>When it comes to <a href="/docs/howto/upgrade-eMagizMendixConnector#3-configuration">step 3</a>, there is no need to do all the configurations again because they should have already been done when an older version of the connector was installed. So, just to make sure that everything should function correctly, you should go through all the bullet points mentioned in <a href="/docs/howto/upgrade-eMagizMendixConnector#3-configuration">step 3</a> and check if there is nothing unusual.</li>
-<li><a href="/docs/howto/upgrade-eMagizMendixConnector#4-usage">Step 4</a></li>
+<li><a href="/docs/howto/upgrade-eMagizMendixConnector#1-download-the-emagiz-mendix-connector">Step 1 - Download</a></li>
+<li><a href="/docs/howto/upgrade-eMagizMendixConnector#2-importing-emagiz-mendix-connector">Step 2 - Import</a></li>
+<li>When it comes to <a href="/docs/howto/upgrade-eMagizMendixConnector#3-configuration">step 3 - Configuration</a>, there is no need to do all the configurations again because they should have already been done when an older version of the connector was installed. So, just to make sure that everything should function correctly, you should go through all the bullet points mentioned in <a href="/docs/howto/upgrade-eMagizMendixConnector#3-configuration">step 3 - Configuration</a> and check if there is nothing unusual.</li>
+<li>Ensure to double check the functioning of the eMagiz Connector in case Mendix V8 is used - please refer to the <a href="/docs/howto/relnotes-emagizmendix-V8">Release note for the eMagiz Connector for Mendix 8</a> for more information</li>
+<li>In the <a href="/docs/howto/Bestpractices-emagizmendix-connector">best practice document for the eMagiz Mendix Connector</a> there is a list of possible errors and quick fixes for them, so in case you have any errors you should check it because you might find a solution there. It is highly recommended to try the eMagiz Cleanup Tool.</li>
 </ol>
-   <!--- to be detailed later with Samet --->
-   5) In [step 5](/docs/howto/upgrade-eMagizMendixConnector#5-possible-errors) there is a list of possible errors and quick fixes for them, so in case you have any errors you should check it because you might find a solution there. It is highly recommended to try the eMagiz Cleanup Tool.
-   6) [Step 6](/docs/howto/upgrade-eMagizMendixConnector#6-best-practices)
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-download-the-emagiz-mendix-connector">1. Download the eMagiz Mendix connector</a></li><li><a href="#2-importing-emagiz-mendix-connector">2. Importing eMagiz Mendix connector</a></li><li><a href="#3-configuration">3. Configuration</a></li><li><a href="#4-usage">4. Usage</a></li><li><a href="#5-possible-errors">5. Possible errors</a></li><li><a href="#6-best-practices">6. Best practices</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-download-the-emagiz-mendix-connector">1. Download the eMagiz Mendix connector</a></li><li><a href="#2-importing-emagiz-mendix-connector">2. Importing eMagiz Mendix connector</a></li><li><a href="#3-configuration">3. Configuration</a></li><li><a href="#step-by-step-plan-to-upgrade-the-emagiz-mendix-connector">Step by step plan to upgrade the eMagiz Mendix Connector</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

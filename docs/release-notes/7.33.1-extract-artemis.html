@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/7.33.1-extract-artemis · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that adds many new expert level components to the flow designer. Next to this, the way headers are passed from one flow to another was improved. In addition, this release includes several other improvements and tackles some minor issues across the portal.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/7.33.1-extract-artemis · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that adds many new expert level components to the flow designer. Next to this, the way headers are passed from one flow to another was improved. In addition, this release includes several other improvements and tackles some minor issues across the portal.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/7.33.1-extract-artemis</h1></header><article><div><span><p>Release that adds many new expert level components to the flow designer. Next to this, the way headers are passed from one flow to another was improved. In addition, this release includes several other improvements and tackles some minor issues across the portal.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>It is now possible to add custom-build components to your flows, extending the functionality of eMagiz beyond the capabilities provided by the out-of-the-box components. Adding custom flow components is fairly easy, but requires writing code in the Groovy programming language. While this is extremely flexible and powerful and can be very useful in certain corner cases, we recommend to use this with extreme caution because: 1) adding programming code to your flow makes it unusable for non-programmers; 2) with great power comes great responsibility: you can do almost anything in your Groovy code, including completely destroying the runtime; 3) with each release the eMagiz team makes sure components are backwards compatible, but with Groovy code this is up to the programmer to check/fix. The following five components now support Groovy scripts in addition to the SpEL expressions that these components already supported:
+<ul>
+<li>Standard filter</li>
+<li>Standard router</li>
+<li>Standard service activator</li>
+<li>Standard splitter</li>
+<li>Standard transformer</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>Changed the way message headers are passed from one flow to the next (using JMS). Previously certain message headers could cause problems, and could even lead to message loss, if you did not preemptively remove the (potentially) problematic headers in your message flows. The exact changes are described below, but when deploying flows with build number 29 or higher this should be a thing of the past.
+<ul>
+<li>PROBLEM #1: Certain message headers had names that were not valid for JMS headers, for example names containing a hyphen such as 'Content-Type'. Every time such a header was encountered a warning (with a full stack trace) would be logged, and the message header would not be mapped to a JMS header. Note that this did not necessarily mean the header was lost, because if the message was send with 'extract payload' disabled it would still be part of the serialized JMS message body. CHANGE: We now simply skip these headers with invalid names, resulting in the exact same functional behaviour as before, but without any warnings being logged.</li>
+<li>PROBLEM #2: Certain headers had values with &quot;non-standard&quot; data types. When a message with such a header would be send with 'extract payload' disabled, this could crash the flow on the receiving end. After a few (default: 5) of these failed delivery attempts, the message would be discarded by the JMS server. CHANGE: The values of headers with &quot;non-standard&quot; data types are now automatically converted to a String before sending. This guarantees that the message can always be received, but you could lose some information by the conversion. However, because we do not remove these headers, you can at least tell what header information was there. Also, receiving messages with potentially some converted headers is always better than crashing and the messages being discarded. &quot;Non-standard&quot; data types in this context are all values where the full Java class name does not start with &quot;java.&quot;, such as the infamous &quot;org.springframework.http.HttpStatus&quot; type.</li>
+</ul></li>
+<li>Added new components to the flow designer in preparation for upcoming new features. While these are fully functional components, you should not have to use them: essentially these components will form the basis of features that will be added in future releases. When those features are released these components will be part of auto-generated flows, similar to how the entire JMS layer is automatically created by eMagiz. The new components are:
+<ul>
+<li>New outbound gateway: job launching gateway</li>
+<li>New service activator: message bridge</li>
+<li>New support objects: Apache ActiveMQ Artemis server, Qpid JMS connection factory, JDBC H2 connection pool, JDBC data source transaction manager, job, job manager, job repository, job registry bean post processor, map job registry, simple job launcher, and default execution context serializer.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Updated the following Java libraries (these are updated automatically when deploying flows, you do not need to install a new runtime version):
+<ul>
+<li>Netty: 3.6.10 -&gt; 4.1.25</li>
+<li>JBoss Logging: 3.1.4 -&gt; 3.3.2</li>
+<li>JMS API: 1.1 -&gt; 2.0</li>
+</ul></li>
+<li>Added the following Java libraries (these are downloaded automatically when using new functionality in your flows, you do not need to install a new runtime version):
+<ul>
+<li>Microsoft Azure EventHubs Java Client 1.0.2</li>
+<li>Apache ActiveMQ Artemis 2.6.2</li>
+<li>Groovy 2.4.15</li>
+<li>Apache Qpid JMS 0.34.0</li>
+<li>Apache Qpid Proton-J 0.27.1</li>
+<li>Apache Commons BeanUtils 1.9.3</li>
+<li>Apache Commons Collections 3.2.2</li>
+<li>Apache Johnzon 0.9.5</li>
+<li>H2 1.4.197</li>
+<li>JGroups 3.6.15</li>
+</ul></li>
+<li>Added two new support objects to the flow designer: OSGi service and JDBC OSGi data source reference. These allow for &quot;sharing&quot; components between flows running in the same runtime. The components in this release only allow for sharing JDBC data sources, but more support objects will be made &quot;sharable&quot; in upcoming releases.</li>
+<li>Across the portal, the menu has been updated. While in most places this is not noticeable, it fixes several issues, such as highlighting the right selected item. This should also avoid the loading bar that would not disappear when first opening the portal in specific cases. (#242087)</li>
+<li>Deploy - AWS Cloud: Improved &quot;Update AWS&quot; to prepare for deployments that are no longer service affecting and allow users to upgrade their slots directly from the portal.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Removed the 'request factory' settings in the 'OAuth 2.0 REST template' page: these settings had no effect on this component and when specified prevented the flow from being installed.</li>
+<li>Create: Toggling the state of an entry/exit-connector now updates the status of the entry component as well, and updates the bus dashboard percentages accordingly.</li>
+<li>Design: Opens again in Internet Explorer. (#365968)</li>
+<li>Create - Definitions: In specific cases, generating an XSD would not work if using Simple Content and changing the data type in Design. (#366085)</li>
+<li>Across the portal, several textual improvements were made. (#367339, 367379)</li>
+<li>Create: Fixed that filtering on tags would not properly reset in combination with a combined entry connector.</li>
+<li>Create - Flow designer: Fixed that a new XML to JSON transformer could not be saved if the advanced tab was not opened before saving.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="known-issues"></a><a href="#known-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Known issues</h2>
+<ul>
+<li>Create - Flow designer: In Internet Explorer, the Compare function for the history of flows does not work.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li><li><a href="#known-issues">Known issues</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

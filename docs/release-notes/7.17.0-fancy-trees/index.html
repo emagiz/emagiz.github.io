@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/7.17.0-fancy-trees · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release that improves the message definition and transformation tooling. In addition, many inconsistenties have been straightened out. The release includes several other improvements and tackles some minor issues.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/7.17.0-fancy-trees · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release that improves the message definition and transformation tooling. In addition, many inconsistenties have been straightened out. The release includes several other improvements and tackles some minor issues.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/7.17.0-fancy-trees</h1></header><article><div><span><p>Release that improves the message definition and transformation tooling. In addition, many inconsistenties have been straightened out. The release includes several other improvements and tackles some minor issues.</p>
+<h2><a class="anchor" aria-hidden="true" id="major-changes"></a><a href="#major-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Major changes</h2>
+<ul>
+<li>Transformations: Added the option to easily convert from String to Date/Time formats in the transformers, including the correct handling of time zone information.</li>
+<li>Definitions and transformations: Added full support for &quot;XSD attributes&quot;. Previously these could be imported from existing XSDs in the design phase, but they would then be handled exactly the same as &quot;normal&quot; attributes (XSD elements) in the create phase. Now the following is also supported:
+<ul>
+<li>Importing both &quot;xs:attribute&quot; and &quot;xs:attributeGroup&quot; from XSDs.</li>
+<li>In message definitions you can manually set an attribute to be an &quot;XSD attribute&quot; (default is still &quot;XSD element&quot;).</li>
+<li>XSD attributes can be visually distinguished in the create phase by their &quot;@&quot; prefix.</li>
+<li>All combinations of mapping to and from XSD attributes and/or elements is supported in XML transformations.</li>
+</ul></li>
+<li>Message mapping: Has had a major update to &quot;Fancy Trees&quot;. This improves the performance in your browser, and allows significantly larger message trees to be shown. In addition, the source and destination trees can now be scrolled independently. The functionality and behaviour of both trees is now also more consistent with the message definitions.</li>
+<li>System definitions: Adding and deleting attributes, entities, and relations to the message tree can now be done similar to the CDM messages, with a (+) / (-) click on the elements on the canvas. Toggle between this mode and editing the canvas by clicking the button next to the select root button at the right top of the task pane.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h2>
+<ul>
+<li>Flow designer: Added (advanced) options to Jetty server to enabled/disable sending of &quot;Server&quot; and &quot;Date&quot; HTTP response headers. For backwards compatibility sending the server version is still enabled in this release, but next release it will be disabled by default for all newly created Jetty HTTP servers.</li>
+<li>CDM: Selecting the root has its own cursor</li>
+<li>Cloud: Layout for read-only pages is consistent with edit pages</li>
+<li>Tenants: Improved the amount of tenants shown when a system has multiple integrations. In addition, long display names no longer run out of the system.</li>
+<li>Definitions: a warning is shown when using several of the standards namespaces that would mess up your transformation. For example, XSD's standard namespace &quot;<a href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</a>&quot; is not one that should be used as namespace for message definitions.</li>
+<li>Across the portal: Improved consistency between pages and features</li>
+<li>Definitions: In the design phase, only an icon is shown to indicate the types of attributes. This leads to more space for attribute names.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h2>
+<ul>
+<li>Definitions: Inner simple types with enumerations are supported during import now</li>
+<li>Definitions: In specific cases, &quot;ghost&quot; alerts remained in place even if their cause was solved. These should no longer arise. If you do notice them, please let us know as we can detect and bust them if necessary.</li>
+<li>Definitions: The position of imported definitions is improved. This includes &quot;Promote to CDM&quot;, importing from XSD, and importing from the store.</li>
+<li>Error messages: The Prettify XML button is shown in a better position when the payload is long. In addition, it no longer hides the headers when pressed.</li>
+<li>Flow designer: new Flat file to XML transformers can be saved again.</li>
+<li>Classic transformations: Parameters can be used again, without having to revert to custom XPath</li>
+<li>Classic transformations: Can be created from the bus resources page again. It is possible to select the classic definitions.</li>
+<li>Cloud: Solved an issue preventing users from manually adding new firewall rules.</li>
+<li>Q&amp;A: When searching for questions, the results will show correctly again.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="known-issues"></a><a href="#known-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Known issues</h2>
+<ul>
+<li>When importing an XSD containing an &quot;xs:attribute&quot; with enumeration data type, it will be imported as data type &quot;xs:string&quot;. While this is not correct, it should still work because those data types are compatible.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#major-changes">Major changes</a></li><li><a href="#minor-changes">Minor changes</a></li><li><a href="#bug-fixes">Bug fixes</a></li><li><a href="#known-issues">Known issues</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

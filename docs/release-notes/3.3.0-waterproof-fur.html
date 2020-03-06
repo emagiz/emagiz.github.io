@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/3.3.0-waterproof-fur · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Release migrating to the latest maintenance releases of HornetQ and Spring Integration, adding support for SaaS code mappings and property values, adding support for caching and containing a new version of the flow designer that is now the default editor in eMagiz PaaS.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/3.3.0-waterproof-fur · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;p&gt;Release migrating to the latest maintenance releases of HornetQ and Spring Integration, adding support for SaaS code mappings and property values, adding support for caching and containing a new version of the flow designer that is now the default editor in eMagiz PaaS.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">release-notes/3.3.0-waterproof-fur</h1></header><article><div><span><p>Release migrating to the latest maintenance releases of HornetQ and Spring Integration, adding support for SaaS code mappings and property values, adding support for caching and containing a new version of the flow designer that is now the default editor in eMagiz PaaS.</p>
+<h2><a class="anchor" aria-hidden="true" id="new-features"></a><a href="#new-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New features</h2>
+<ul>
+<li>Support for mapping system specific codes to/from a 'CDM code':
+<ul>
+<li>Added the following XPath functions for using the mapping service from within an XSLT stylesheet: mapping:lookup-cdm-code(string system, string codeType, string systemCode, boolean mustExist) : string</li>
+<li>Added the following XPath functions for using the mapping service from within an XSLT stylesheet: mapping:lookup-system-code(string system, string codeType, string cdmCode, boolean mustExist) : string</li>
+<li>Added the mapping service gateway: an inbound gateway that handles all mapping requests send from any eMagiz configuration running in the same Java runtime instance. This gateway also supports caching using the Spring cache abstraction (caching of mappings is done automatically; cache put and cache evict operations are exposed as managed operations, which can be called using the Spring Integration control bus mechanism).</li>
+</ul></li>
+<li>Support for caching using the Spring cache abstraction:
+<ul>
+<li>Added support for enabling caching in eMagiz configurations of components that support this (at the moment the mapping service gateway is the only component that uses caching). Caching in a configuration is enabled by adding the cache annotation driven support object, and then providing a cache implementation.</li>
+<li>Added support for the following three simple, build-in Spring cache implementations (in the future, implementations like Ehcache might be added):</li>
+<li>simple cache manager: works against a given collection of caches, useful for testing or simple caching declarations</li>
+<li>concurrent map cache manager: lazily builds concurrent map cache instances when a cache is accessed for the first time</li>
+<li>composite cache manager: iterates over a list of cache manager instances looking for the requested cache, and can fall-back to a 'no-op' cache</li>
+</ul></li>
+<li>Added new message endpoint category 'service activator', and the first implementation of this pattern 'control bus'. A service activator is a message endpoint that activates some service, triggered by the arrival of a message. A service activator may return any number of messages as a result, but this is optional. The control bus is a service activator implementation that receives control messages for managing individual messaging components, for example stopping an inbound channel adapter from producing messages or instructing the mapping service gateway to evict old values from its cache.</li>
+<li>New version of the flow designer that better reflects changes made to the flow during the design process: this is now the default new/edit form for creating/editing flows in eMagiz PaaS. Note that some functionality (e.g. deleting components or running wizards) is not yet available in the flow designer: for these cases the old form is still available by pressing the edit button.</li>
+<li>Added support for new property sources, resulting in the following options (in order of precedence) for defining property values:
+<ul>
+<li>Context properties: these are a fixed set of properties that are available in all eMagiz configurations (e.g., the JVM name and the working directory)</li>
+<li>SaaS connection settings: (optional) fixed set of properties containing the connection settings (URL, username and password) for connecting to eMagiz SaaS</li>
+<li>SaaS properties: (optional) set of any user-defined properties that are maintained in eMagiz SaaS</li>
+<li>Mendix properties: (optional) set of any user-defined properties that are defined as constants in a Mendix project (only available when running eMagiz in Mendix)</li>
+<li>File properties: (optional) set of any user-defined properties stored in a .properties file</li>
+<li>Embedded properties: (optional) set of any user-defined properties defined within the eMagiz configuration that uses them (useful for specifying default values)</li>
+</ul></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="minor-changes"></a><a href="#minor-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Minor changes</h1>
+<ul>
+<li>Completely removed the support for message chains: it conflicted with the new mapping features, their use is quite limited (for example, no possibility to use channel intercepters, i.e. no message tracking or debugging), and no message flow in the PaaS was actually using them.</li>
+<li>Using an underscore character in an entity ID (PaaS) is no longer possible: only dots, hyphens and alphanumeric characters are now allowed.</li>
+<li>Added the run-in-console.sh bash shell script to the eMagiz standalone runtime, for running eMagiz as a Linux console application.</li>
+<li>Update to Spring Integration 2.1.1
+<ul>
+<li>changed priority header to use an integer value (instead of an enumeration)</li>
+<li>new advanced property use temporary file name added to FTP outbound channel adapter</li>
+<li>updated the documentation of advanced properties request timeout and reply timeout on HTTP inbound/outbound gateways to better describe their effects and uses</li>
+<li>new advanced property control encoding added to all FTP(S) session factories</li>
+</ul></li>
+<li>Update to HornetQ 2.2.14
+<ul>
+<li>new advanced property cluster connection added to in-VM and Netty acceptor configurations</li>
+<li>added properties Stomp consumer credits, Stomp enable message ID and connection TTL to Netty acceptor configuration</li>
+<li>added property page max concurrent IO to HornetQ JMS server</li>
+<li>added properties client failure check period, connection TTL, retry interval multiplier, max retry interval, reconnect attempts, call timeout and min large message size to cluster connection configurations</li>
+<li>added properties connection TTL, max retry interval and min large message size to bridge configurations</li>
+</ul></li>
+<li>Update to Netty 3.2.5</li>
+<li>Made it possible to use a property placeholder for port properties (for connecting to web services, JMS, FTP, XMPP, TCP, etc) (#5861) (##5861)</li>
+<li>Increased the input length for the column names property of all flat file line tokenizers (#16379) (##16379)</li>
+<li>Added missing eMagiz icons to Mendix 2.5.3 runtime module, and removed unused icons from all runtime modules</li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="bug-fixes"></a><a href="#bug-fixes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bug fixes</h1>
+<ul>
+<li>Fixed a license check issue when running the default runtime</li>
+<li>Typos in PaaS corrected (#17154, #19224) (##17154, #19224)</li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="known-issues"></a><a href="#known-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Known issues</h1>
+<ul>
+<li>In some circumstances the PaaS form for configuring the flat file to XML transformer seems to 'forget' some settings, causing problems that prevent the configuration from loading/running.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-features">New features</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
