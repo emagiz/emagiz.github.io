@@ -1,12 +1,10 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/runtime-installations-onpremise · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;on-premise-emagiz-runtime-installation-document&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#on-premise-emagiz-runtime-installation-document&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;On-premise eMagiz runtime installation document&lt;/h1&gt;
-"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/runtime-installations-onpremise · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;h1&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;on-premise-emagiz-runtime-installation-document&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#on-premise-emagiz-runtime-installation-document&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;On-premise eMagiz runtime installation document&lt;/h1&gt;
-"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/runtime-installations-onpremise · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# On-premise eMagiz runtime installation document"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/runtime-installations-onpremise · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# On-premise eMagiz runtime installation document"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
           )
         });
-        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">howto/runtime-installations-onpremise</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="on-premise-emagiz-runtime-installation-document"></a><a href="#on-premise-emagiz-runtime-installation-document" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>On-premise eMagiz runtime installation document</h1>
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference</a></li><li class=""><a href="/docs/integration/" target="_self">Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Method</a></li><li class=""><a href="/docs/howto/" target="_self">How to</a></li><li class=""><a href="/docs/portal-documentation/" target="_self">Old documentation</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/runtime-installations-onpremise</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="on-premise-emagiz-runtime-installation-document"></a><a href="#on-premise-emagiz-runtime-installation-document" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>On-premise eMagiz runtime installation document</h1>
 <p>This document describes what the requirements are for a eMagiz runtime installation on-premise as well as a step by step guideline how to install a runtime on-premise. An on-premise installation often occurs in an architecture where the runtime should run within your own or your customer’s network. This is recommended for all connectors that communicate with a system that is located inside your network or if you would like to test locally on your computer. For an installation of a runtime on a Linux system please see Linux runtime installations</p>
 <h2><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
 <p>To install a runtime, please be aware that eMagiz needs an environment that satisfies certain requirements. These requirements can be different depending on your architectural choices. Most common is the connector inside your network and a JMS and container running outside the network. In that case, if you are running only connectors on this environment, please keep the following requirements in mind:</p>
@@ -53,7 +51,7 @@ The above is the bare minimum needed to run. As the number of flows running on a
 <h2><a class="anchor" aria-hidden="true" id="java-runtime-and-emagiz-runtime-compatibility"></a><a href="#java-runtime-and-emagiz-runtime-compatibility" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Java runtime and eMagiz runtime compatibility</h2>
 <p>Java is required to run eMagiz instances, however Java and eMagiz are continuously developing their software. However,  Oracle will stop supporting older version of Java at some point in time. This behavior we saw when Oracle stop the support for Java 7. This chapter will discuss the implications of a new version of Java or a new eMagiz runtime version.
 Different elements will be discussed. The following schema will show the compatibility of eMagiz in relation with Java and the flow build numbers.</p>
-<p align="center"><img  src="../../img/howto/runtime-win-compatible.png"></p>
+<p><img src="../../img/howto/runtime-win-compatible.png" alt=""></p>
 <p>X = Not compatible
 ! = Caution, either not compatible or not tested
 V = Compatible</p>
@@ -69,33 +67,33 @@ If you need to install an earlier version, please also read the extra informatio
 <li><p>Go to the server where you need to install the runtime.</p></li>
 <li><p>Check the JAVA_HOME system variable if it is set and is directed to the correct folder. You can do this by going to ‘This Computer’.</p></li>
 </ol>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step3-1.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step3-1.png" alt=""></p>
 <p>Click with your right mouse button on This PC and go to Properties. The following screen pops up and go to Advanced System Settings.</p>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step3-2.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step3-2.png" alt=""></p>
 <p>Go to Environment Variables.</p>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step3-3.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step3-3.png" alt=""></p>
 <p>Check if the JAVA_HOME system veriable exists and it directs to the correct JAVA directory. If it does not exists, please add it.</p>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step3-4.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step3-4.png" alt=""></p>
 <ol start="4">
 <li>Download the eMagiz runtime of your connector, JMS or container via eMagiz Deploy phase in the Containers tab on the server where it needs to be installed.
 Please note the environment you want the runtime of. If you download the runtime of the wrong environment you will send to or receive of the wrong environment, for example you are testing and sending test messages on the live environment
 In this case below, we see the that we are downloading a connector runtime Appeee for the Test environment.</li>
 </ol>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step4-1.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step4-1.png" alt=""></p>
 <ol start="5">
 <li><p>Unzip your download package into a directory which is not too deep into the directory structure. A directory structure which is too deep will cause issues when extracting the runtime.
-For example use: C://eMagiz/test
-Do not use: C://Programs/eMagiz/test/connector/appeee/installation</p></li>
+For example use: <a href="C://eMagiz/test">C://eMagiz/test</a>
+Do not use: <a href="C://Programs/eMagiz/test/connector/appeee/installation">C://Programs/eMagiz/test/connector/appeee/installation</a></p></li>
 <li><p>Go to the unpacked package and open</p></li>
 <li><p>In the Bin folder, you can validate if the service can make a connection via karaf.bat.
 To check the connection of the service, use right mouse button the execute the file as Administrator.
 Please make sure that if you are installing a connector or a container that the JMS runtime is running.</p></li>
 </ol>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step4-2.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step4-2.png" alt=""></p>
 <ol start="8">
 <li>A screen will pop up and will show you the following:</li>
 </ol>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step8-1.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step4-1.png" alt=""></p>
 <p>Use the command ‘log:tail’ to see the full log. You will see the full stack trace. If the installation is successful, you should see as result:
 67 - org.eclipse.gemini.blueprint.extender - 2.1.0.RELEASE | Application context successfully refreshed (OsgiBundleXmlApplicationContext(bundle=nl.capesystemsintegration.cape.bus.emagcc.jms-server-01.spring, config=nl.capesystemsintegration.cape.bus.emagcc.jms-server-01.spring_1.0.3.28.xml))</p>
 <p>If you see an error or the popup closes itself immediately, please check the above steps and requirements. If the popup closes this is probably due to a mismatch between Java version and runtime version. Please look back at the section explaining how to set JAVA_HOME for more information. If all the above steps are correct and you are not able to identify the issue, please contact your eMagiz contact person (<a href="mailto:emagizcc@capegroep.nl">emagizcc@capegroep.nl</a>).</p>
@@ -111,18 +109,18 @@ Please make sure that if you are installing a connector or a container that the 
 <li><p>Install the windows service to ensure that the runtime will automatically start and stop when the server starts, stops or restarts.
 You can do this by running the ‘install-service.bat’.</p></li>
 </ol>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step11-1.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step11-1.png" alt=""></p>
 <ol start="12">
 <li>Please check if the service is created. This can be viewed via Services in Windows. You can find Services by using the navigation bar of Windows and searching for Services or typ-in ‘Services.msc’ in your run-window (WINDOWS+R) and press enter.
 You will find in the list of services your eMagiz runtime service.</li>
 </ol>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step12-1.png"></p>
-If you click on the service, you can either start, stop or restart the service.
+<p><img src="../../img/howto/runtime-win-install-step12-1.png" alt=""></p>
+<p>If you click on the service, you can either start, stop or restart the service.</p>
 <ol start="13">
 <li>Click with your right mouse button on the service and select Properties.
 You will see the following screen.</li>
 </ol>
-<p align="center"><img  src="../../img/howto/runtime-win-install-step13-1.png"></p>
+<p><img src="../../img/howto/runtime-win-install-step13-1.png" alt=""></p>
 <p>For the start up type, please check Automatically (delayed start)
 In the Tab Log On, you are able to change the user that starts this service, if necessary. This mostly occurs when you are requested to use a different user for the service than your windows user due to security reasons.</p>
 <ol start="14">
