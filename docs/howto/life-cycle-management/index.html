@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/life-cycle-management · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Life Cycle Management in eMagiz - Cross check complete Integration Model"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/life-cycle-management · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="## Life Cycle Management in eMagiz - Cross check complete Integration Model"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/life-cycle-management</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="life-cycle-management-in-emagiz---cross-check-complete-integration-model"></a><a href="#life-cycle-management-in-emagiz---cross-check-complete-integration-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Life Cycle Management in eMagiz - Cross check complete Integration Model</h2>
+<p>This document discusses the practical implementation of Life Cycle Management within eMagiz.
+The main idea behind Life Cycle Management in general and in eMagiz is to stay in control of the integration landscape we are developing alongside our customers. Life Cycle Management does not only entail deleting flows and information when a certain integration has reached its end of life but also keeping your integration landscape up to date with new features and developments as made by the eMagiz product development team.
+Life Cycle Management should be a conscious part of everyday life for everyone that plays a part within a team, project or program. This way the team, and not the individual, will add the most value to the process.</p>
+<p>To summarize, life cycle management gives you:</p>
+<ul>
+<li>Tools to stay in control of your integration landscape.</li>
+<li>A way to keep up to date with the latest developments within the eMagiz portal.</li>
+<li>Everyone should be involved</li>
+</ul>
+<p><strong>Requirements</strong>
+This document discusses the practical implementation of Life Cycle Management within eMagiz.
+The main idea behind Life Cycle Management in general and in eMagiz is to stay in control of the integration landscape we are developing alongside our customers. Life Cycle Management does not only entail deleting flows and information when a certain integration has reached its end of life but also keeping your integration landscape up to date with new features and developments as made by the eMagiz product development team.
+Life Cycle Management should be a conscious part of everyday life for everyone that plays a part within a team, project or program. This way the team, and not the individual, will add the most value to the process.
+To summarize, life cycle management gives you:</p>
+<ul>
+<li>Tools to stay in control of your integration landscape.</li>
+<li>A way to keep up to date with the latest developments within the eMagiz portal.</li>
+<li>Everyone should be involved</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="best-practices"></a><a href="#best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best Practices</h2>
+<ul>
+<li>Remove flows   as part of completing your production deployment (after a grace period in which you conform that everything works as expected). This to avoid a backlog of delete actions. A standard grace period would be two weeks. One could deviate from this standard if they have discussed this with the business owner.</li>
+<li>Remove flows only after a written approval of the business owner of the process</li>
+<li>Remove flows from back to front. In other words, start in Manage and end in Capture.</li>
+<li>Regularly update your flows in Test and Acceptance so you can test new functionality released by eMagiz</li>
+<li>Updating flows to the latest build numbers can be done in two ways
+•   Deploy with each production deployment a certain number of extra flows for which nothing has changed but the build number
+•   Use a separate deployment moment to upgrade all flows, without functional changes, to the newest build number</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="how-to-implement-life-cycle-management"></a><a href="#how-to-implement-life-cycle-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to implement life cycle management</h2>
+<p>This chapter will discuss a step to step guideline of how to implement Life Cycle Management within the context of eMagiz.</p>
+<p>Follow these steps carefully in order to acquire the desired result. If a step is unclear or you are not able to follow it, please contact CAPE Academy. Steps 1 through 7 outlined below need to be executed separately on Test, Acceptance and Production</p>
+<h3><a class="anchor" aria-hidden="true" id="removal-of-flows"></a><a href="#removal-of-flows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Removal of flows</h3>
+<ol>
+<li>Identify the flow in question you want to remove. Be aware that the removal of a flow is done in pairs. You cannot delete an onramp without deleting the entry. Obviously the same applies to the offramp and exit combination</li>
+<li>When you have identified the flow you want to delete navigate to Manage -&gt; Alerting</li>
+<li>Within this Tab navigate to Triggers (look at the Tag name when following these instructions)
+a.  If you have configured the alerting following the best practice outlined here (nog link toevoegen) the following triggers (at least!!!) need to be changed. For your specific situation more triggers could be relevant
+i.  Standard – Queue consumers too high
+ii. Standard – Queue consumers too low
+b.  If you are removing the last flow belonging to a system and you have followed the best practice outlined here the following triggers (at least!!!) need to be changed. For your specific situation more triggers could be relevant
+i.  Standard – Data measurements missing
+ii. Standard – Log entries missing
+iii.    Standard – Error log entry</li>
+<li>After you have removed the flow, and possibly runtime, from all relevant triggers you navigate to Deploy -&gt; Releases</li>
+<li>In this page you create a new release (naming it according to the naming conventions) in which you remove the flow you want to remove from your integration landscape.</li>
+<li>Deploy this release to the environment(s) you already have executed step 1 through 5 for. It is advisable to leave a grace period between removing things from Test before removing them from Production just to be sure.</li>
+<li>Navigate to Deploy -&gt; Properties and press the Find Unused button. The result of this action will show you all unused properties within your active release. Identify the ones related to the flow you want to throw away and delete them if they are only used there.</li>
+<li>After executing step 1 through 7 for all environments that are relevant for you (Test, Acceptance and Production), and only after executing all these steps you can continue with step 9</li>
+<li>Navigate to Create -&gt; Add Integrations</li>
+<li>Select the flow you want to throw away in Create and press Save Selection</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="removal-of-resources"></a><a href="#removal-of-resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Removal of resources</h3>
+<ol start="11">
+<li>Navigate to Create -&gt; Resources</li>
+<li>Select all resources that don’t have any link to any flow. This can be seen by looking at the Configuration(s) column. If this does not show any flow, the resource is not used anymore. If life cycle management has been applied correctly before only custom resources linked to the flow, and only to that flow, you have deleted in Step 9 and 10 should be shown. Be aware, eMagiz automatically deletes the validation and transformation if they are build via the eMagiz tooling.</li>
+<li>Navigate to Design -&gt; System Message</li>
+<li>Clear the System message (if it exists)</li>
+<li>Navigate to Capture</li>
+<li>Click on the message type you want to remove. If this message type only occurs once you can continue with step 17. You can determine whether a message type only occurs once by clicking on the message type. This way it will show you were the message type in question is used. If not continue with step 20</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="removal-of-unused-cdm-elements"></a><a href="#removal-of-unused-cdm-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Removal of unused CDM elements</h3>
+<ol start="17">
+<li>Navigate to Design -&gt; CDM</li>
+<li>Select the Message type you are currently deleting. This to see the CDM message you are working with.</li>
+<li>Check for each attribute within this CDM message of this attribute is not used anymore in any other CDM message. Repeat this step for each attribute, entity and relationship that exists within the system message.
+a.  If the answer is yes, delete the attribute
+b.  If the answer is no, leave the attribute in the CDM.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="removal-of-message-types--systems"></a><a href="#removal-of-message-types--systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Removal of message types &amp; Systems</h3>
+<ol start="20">
+<li>Navigate to Capture</li>
+<li>Right click on the message type you want to remove and select Delete integration. If no integrations are connected to the system anymore you can delete the system by right clicking on the system and pressing Delete system.</li>
+</ol>
+<p>When you have done this the last step is to remove the runtime from the runtime dashboard. This can be done by any eMagiz administrator (<a href="mailto:productmanagement@emagiz.com">productmanagement@emagiz.com</a>). These also provides an extra check that you have followed this how to correctly. If you have missed something they will let you know.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#life-cycle-management-in-emagiz---cross-check-complete-integration-model">Life Cycle Management in eMagiz - Cross check complete Integration Model</a></li><li><a href="#best-practices">Best Practices</a></li><li><a href="#how-to-implement-life-cycle-management">How to implement life cycle management</a><ul class="toc-headings"><li><a href="#removal-of-flows">Removal of flows</a></li><li><a href="#removal-of-resources">Removal of resources</a></li><li><a href="#removal-of-unused-cdm-elements">Removal of unused CDM elements</a></li><li><a href="#removal-of-message-types--systems">Removal of message types &amp; Systems</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

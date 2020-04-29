@@ -1,0 +1,244 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+const React = require('react');
+
+const CompLibrary = require('../../core/CompLibrary.js');
+
+const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
+const Container = CompLibrary.Container;
+const GridBlock = CompLibrary.GridBlock;
+
+class HomeSplash extends React.Component {
+  render() {
+    const {siteConfig, language = ''} = this.props;
+    const {baseUrl, docsUrl} = siteConfig;
+    const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
+    const langPart = `${language ? `${language}/` : ''}`;
+    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+
+    const SplashContainer = props => (
+      <div className="homeContainer">
+        <div className="homeSplashFade">
+          <div className="wrapper homeWrapper">{props.children}</div>
+        </div>
+      </div>
+    );
+
+    const Logo = props => (
+      <div className="projectLogo">
+        <img src={props.img_src} alt="Project Logo" />
+      </div>
+    );
+
+    const ProjectTitle = () => (
+      <h2 className="projectTitle">
+        {siteConfig.title}
+        <small>{siteConfig.tagline}</small>
+      </h2>
+    );
+
+    const PromoSection = props => (
+      <div className="section promoSection">
+        <div className="promoRow">
+          <div className="pluginRowBlock">{props.children}</div>
+        </div>
+      </div>
+    );
+
+    const Button = props => (
+      <div className="pluginWrapper buttonWrapper">
+        <a className="button" href={props.href} target={props.target}>
+          {props.children}
+        </a>
+      </div>
+    );
+
+    return (<div/>
+
+    );
+  }
+}
+
+class Index extends React.Component {
+  render() {
+    const {config: siteConfig, language = ''} = this.props;
+    const {baseUrl} = siteConfig;
+    console.log()
+
+    const Block = props => (
+      <Container
+        padding={['bottom', 'top']}
+        id={props.id}
+        background={props.background}>
+        <GridBlock
+          align="center"
+          contents={props.children}
+          layout={props.layout}
+        />
+      </Container>
+    );
+
+    const ReadMe = () => (
+      <div>
+<p><img src="../img/eMagiz_enterprise_ipaas.png" alt="alttext"/></p>
+<ul>
+<li><a href="/docs/integration/">Integration scenarios and Messaging concepts</a></li>
+<li><a href="/docs/iPaaS/">ILM Methodology – How2 apply methodology</a></li>
+<li><a href="/docs/referenceguide/">Technical reference guide for components</a></li>
+<li><a href="/docs/howto/">User Guies</a></li>
+</ul>
+<hr></hr>
+<p>We position eMagiz as the model driven integration platform as a service, driving the <a href="https://www.gartner.com/it-glossary/bimodal"> Bi-modal</a> IT strategy of Gartner.</p>
+<p>Our positioning is based on 3 pillars:</p>
+<p><strong>Pillar 1: architected models.<br/>
+Pillar 2: full lifecycle support.<br/>
+Pillar 3: built-in patterns and best practices.</strong></p>
+<p><strong>1. Pillar 1: architected models.</strong> We empower citizen developers (working on <a href="https://www.gartner.com/it-glossary/bimodal"> mode 2</a> initiatives) with architected, model driven design tools that</p>
+<ul>
+<li>add abstraction and automation to delivery and support processes</li>
+<li>mitigate the risk of accidental architectures</li>
+<li>create a common language to collaborate with architects and IT pros</li>
+</ul>
+<p><strong>2. Pillar 2: full lifecycle support.</strong> At my.emagiz.com we fully support the lifecycle of integrations, strongly focussing on jointly collecting and sharing the required information to rapidly connect mode 2 initiatives to the mode 1 ecosystem</p>
+<p><strong>3. Pillar 3: built-in patterns and best practices.</strong> We visualize the evolvement of enterprise architectures with models throughout the several lifecycle phases and implemented an extensive set of enterprise integration patterns and best practices</p>
+<p>Combining architected models, full lifecycle support and built-in patterns and best practices, we drive the delivery of bi-modal IT. We help our customers increase their revenue and margins by reducing the time to market of mode 2 integrations and lowering the total costs of ownership to connect with the mode 1 ecosystem.</p>
+<p>Let’s sum up the key facts and figures about eMagiz and our value proposition:</p>
+<ul>
+<li>1 Multi-tenant iPaaS, fully supporting Integration Lifecycle Management with 100+ components</li>
+<li>Managed Services: EDI ESB  EAI for 80+ food &amp; DIY retailers</li>
+<li>Managed Services: <a href="https://en.wikipedia.org/wiki/Electronic_data_interchange">EDI ("Electronic Data Interchange")</a>,<a href="https://en.wikipedia.org/wiki/Enterprise_service_bus"> ESB ("Enterprise Service Bus")</a> &amp; <a href="https://en.wikipedia.org/wiki/Enterprise_application_integration">EAI("Enterprise Application Integration")</a> for 80+ food &amp; <a href="https://en.wikipedia.org/wiki/Do_it_yourself">DIY("Do It Yourself") retailers</a></li>
+<li>We help our partners and customers drive bi-modal IT integration:
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Time_to_market">Reducing TTM("Time To Market")</a> of mode 1 application  integration, increasing revenue and margins of mode 2 initiatives</li>
+<li><a href="https://en.wikipedia.org/wiki/Total_cost_of_ownership">Lowering TCO("Total Cost of Ownership") </a> of integration: smaller teams, faster implementation, reducing maintenance costs</li>
+</ul></li>
+</ul>
+      </div>
+    );
+
+    /*const FeatureCallout = () => (
+      <div
+        className="productShowcaseSection paddingBottom"
+        style={{textAlign: 'center'}}>
+        <h2>Feature Callout</h2>
+        <MarkdownBlock>These are features of this project</MarkdownBlock>
+      </div>
+    );
+
+    /*const TryOut = () => (
+      <Block id="try">
+        {[
+          {
+            content:
+              'To make your landing page more attractive, use illustrations! Check out ' +
+              '[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
+              'The illustrations you see on this page are from unDraw.',
+            image: `${baseUrl}img/undraw_code_review.svg`,
+            imageAlign: 'left',
+            title: 'Wonderful SVG Illustrations',
+          },
+        ]}
+      </Block>
+    );*/
+
+    /*const Description = () => (
+      <Block background="dark">
+        {[
+          {
+            content:
+              'This is another description of how this project is useful',
+            image: `${baseUrl}img/undraw_note_list.svg`,
+            imageAlign: 'right',
+            title: 'Description',
+          },
+        ]}
+      </Block>
+    );*/
+
+    /*const LearnHow = () => (
+      <Block background="light">
+        {[
+          {
+            content:
+              'Each new Docusaurus project has **randomly-generated** theme colors.',
+            image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
+            imageAlign: 'right',
+            title: 'Randomly Generated Theme Colors',
+          },
+        ]}
+      </Block>
+    );*/
+
+/*    const Features = () => (
+      <Block layout="fourColumn">
+        {[
+          {
+            content: 'This is the content of my feature',
+            image: `${baseUrl}img/undraw_react.svg`,
+            imageAlign: 'top',
+            title: 'Feature One',
+          },
+          {
+            content: 'The content of my second feature',
+            image: `${baseUrl}img/undraw_operating_system.svg`,
+            imageAlign: 'top',
+            title: 'Feature Two',
+          },
+        ]}
+      </Block>
+    );*/
+
+    /*const Showcase = () => {
+      if ((siteConfig.users || []).length === 0) {
+        return null;
+      }
+
+      const showcase = siteConfig.users
+        .filter(user => user.pinned)
+        .map(user => (
+          <a href={user.infoLink} key={user.infoLink}>
+            <img src={user.image} alt={user.caption} title={user.caption} />
+          </a>
+        ));
+
+      const pageUrl = page => baseUrl + (language ? `${language}/` : '') + page;
+
+      return (
+        <div className="productShowcaseSection paddingBottom">
+          <h2>Who is Using This?</h2>
+          <p>This project is used by all these people</p>
+          <div className="logos">{showcase}</div>
+          <div className="more-users">
+            <a className="button" href={pageUrl('users.html')}>
+              More {siteConfig.title} Users
+            </a>
+          </div>
+        </div>
+      );
+    };*/
+
+    return (
+      <div class="docMainWrapper wrapper">
+        <div className="container mainContainer">
+          <ReadMe />
+        </div>
+        </div>
+    );
+  }
+}
+/* // Cut out of the above return statement
+  <HomeSplash siteConfig={siteConfig} language={language} />
+        <div className="mainContainer">
+          <Features />
+          <FeatureCallout />
+          <LearnHow />
+          <TryOut />
+          <Description />
+        </div>*/
+
+module.exports = Index;
