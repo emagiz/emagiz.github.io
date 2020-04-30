@@ -52,40 +52,45 @@
 <p><strong>Request</strong></p>
 <ol>
 <li>Request Queue - enter the proper value for the offramp request queue of eMagiz where the request message needs to be put on.</li>
-<li>Validate request -</li>
-<li>Request Import Mapping -</li>
+<li>Validate request - Whether the request needs to be validated - works only for XML (not JSON)</li>
+<li>Request Import Mapping - Import mapping document that contains the mapping from XML or JSON to the domain model object</li>
+<li>Request limit - The maximum number of objects in the request. When set to 0-1, it means unlimited. When set to 1 the microflow will only be called when the import mapping is not empty. Other values means that the microflow is always called regardless whether the import mapping is empty or not</li>
 </ol>
 <p><strong>Response</strong></p>
 <ol>
-<li>Generate Response Microflow -</li>
-<li>Response Limit -</li>
-<li>Response export mapping</li>
-<li>Validate Response -</li>
+<li>Generate Response Microflow - Microflow that is called when the message is received</li>
+<li>Response Limit - See request limit above</li>
+<li>Response export mapping - Export mapping that maps XML/JSON to the domain model object</li>
+<li>Validate Response - Whether the request needs to be validated - works only for XML (not JSON)</li>
 </ol>
-<p><strong>Message Listeners</strong></p>
+<p><strong>Message Listeners Option</strong></p>
 <ol>
-<li>Error handling</li>
-<li>max attempts</li>
-<li>Back off period</li>
-<li>Concurrent cinsumers</li>
-<li>Max concurrent users</li>
-<li>Idle cosumer limit</li>
+<li>Error handling - Optional, default ERROR-MESSAGE. There are four options to influence the behavior when an error message is generated:
+a. Generate an error message
+b. Ignore error message
+c. Log error message only
+d. Rollback changes</li>
+<li>Max. attempts - Optional, default 1. When a delivery problem arises, number of attempts to redeliver the message</li>
+<li>Back off period - Optional, default 1. Period between the different attempts to redeliver the message</li>
+<li>Concurrent consumers - Optional, default 1. Static number of consumer that listen to the registered queue - option used to tweak/tune the performance</li>
+<li>Max. concurrent users - Optional, default 1. Dynamic number of consumer that listen to the registered queue - option used to tweak/tune the performance</li>
+<li>Idle consumer limit - Optional, default 1. Minimum number of consumers that listen to the registered queue</li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="sending-synchronous-message-request-via-provided-java-actions"></a><a href="#sending-synchronous-message-request-via-provided-java-actions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sending synchronous message request via provided Java actions</h3>
 <p><img src="../../img/howto/emmxv8_java_action_sendmsgasynch2.png" alt=""></p>
 <p><strong>Request</strong></p>
 <ol>
-<li>Request Mapping parameter -</li>
-<li>Request Export mapping -</li>
-<li>validate Request -</li>
+<li>Request Mapping parameter - Mendix Domain Model object to export JSON or XML using specified export mapping</li>
+<li>Request Export mapping - Contains the export mapping from domain model object to XML or JSON</li>
+<li>Validate Request - Whether request should be validated or not</li>
 <li>Request Queue - enter the proper value for the onramp request queue of eMagiz where the request message needs to be put on.</li>
 </ol>
 <p><strong>Response</strong></p>
 <ol>
 <li>Response queue - enter the proper value for the onramp queue of eMagiz where the response message needs to be picked up from</li>
-<li>Validate Response -</li>
-<li>Response import mapping</li>
-<li>Response Object type -</li>
+<li>Validate Response - Whether response should be validated or not</li>
+<li>Response import mapping - Mapping object from XML/JSON to domain model object</li>
+<li>Response Object type - Output domain model object of the import mapping and input for the microflow</li>
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="key-notes-in-using-this-package"></a><a href="#key-notes-in-using-this-package" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key notes in using this package</h2>
 <p>Please take care of the following items when you start to use this version of the Connector to ensure you can use it properly</p>
