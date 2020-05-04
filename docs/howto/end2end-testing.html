@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/end2end-testing · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This document describes best practices on how to set-up an end-to-end test. End-to-end testing is a technique used to test whether the integration is behaving as expected from start to finish. There are various ways to mimic a Production like situation which means that these test do not involve any test applications as Postman or SoapUI. The objective of the performance test is to verify that your solution not only works for a handful of messages but also when thousands and thousands of messages are sent."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/end2end-testing · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="This document describes best practices on how to set-up an end-to-end test. End-to-end testing is a technique used to test whether the integration is behaving as expected from start to finish. There are various ways to mimic a Production like situation which means that these test do not involve any test applications as Postman or SoapUI. The objective of the performance test is to verify that your solution not only works for a handful of messages but also when thousands and thousands of messages are sent."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/end2end-testing</h1></header><article><div><span><p>This document describes best practices on how to set-up an end-to-end test. End-to-end testing is a technique used to test whether the integration is behaving as expected from start to finish. There are various ways to mimic a Production like situation which means that these test do not involve any test applications as Postman or SoapUI. The objective of the performance test is to verify that your solution not only works for a handful of messages but also when thousands and thousands of messages are sent.</p>
+<h2><a class="anchor" aria-hidden="true" id="introduction--why-end-to-end-testing"></a><a href="#introduction--why-end-to-end-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction – Why end-to-end testing?</h2>
+<p>The purpose of performing end-to-end testing is to identify system dependencies and to ensure that the data integrity is maintained between various system components and systems. This means that each change made to an integration should be tested to make sure that production-like scenarios don’t lead to any unexpected errors when the new functionality is released to production.
+During the development of new features, you will need multiple testing methods. Each method has a different purpose to help you in the different steps of thsee development process. Not in every case each test is applicable however they are still recommended. Examples include:</p>
+<ul>
+<li>Unit testing
+<ul>
+<li>Offline testing</li>
+<li>Flow testing</li>
+<li>Integration testing</li>
+</ul></li>
+<li>Regression testing</li>
+<li>Performance testing</li>
+<li>End-to-end testing (UAT)</li>
+</ul>
+<p>An important step is to determine as early as possible the different scenarios which you need to test during your end-to-end test. The earlier you have these clear, the better you are able to test your changes during the process. This will improve the quality of the integration. Before starting the Create phase, the test scenario’s need to be agreed upon with the business owners. This is one of the Definition of Done items from the Discovery (Capture &amp; Design) phase.
+During the development, you have considered what the steps and effects are of the new functionality and change. While implementing, you need to test continuously  to verify if the changes made behave as expected. The eMagiz platform offers you features which help you during these tests. If you need to change transformations or need to create a XPath, you can use the unit testing feature in eMagiz. If this is not applicable in your case, use several tools which are not in eMagiz to help you develop. These tools will give feedback on your changes meaning that you can easily update your change or test with multiple scenarios by varying the input message. You can do this before you start editing in eMagiz. Example of these tools are XSLT Fiddle, Freeformatter Xpath Tester, IntelliJ, and Notepad++.
+After implementation in the flow, you can use the Unit Test feature to test whether every component and eventually the whole flow works. You can repeat these steps for each Onramp and Offramp flow that needs to be adjusted.</p>
+<p>More information about the Unit Test feature and how to use it can be found in the eMagiz portal in Academy: Community -&gt; Academy -&gt; eMagiz ABL Block 1 -&gt; Unit Testing in eMagiz.</p>
+<p>In Entry- and Exit Connectors you could use the Debugger in combination with the Deploy feature during editing the Entry or Exit Connector. Based on the debugger results, changes can be made directly and directly tested again with the same cycle. For Entry and Exit Connectors, the Unit Test feature is expected in the Product roadmap.
+When all flows are ready, the whole integration needs to be tested, this is called the integration test. This is a technical test to make sure that the integration is technically sound. Ideally, you test the integration from application to application. If you do not have access to system A, you could use one of the following options (based on connectivity with system A) to send messages to system B:</p>
+<ul>
+<li>SOAP UI</li>
+<li>Postman</li>
+<li>Placing files in a certain location and let eMagiz pick up these files</li>
+</ul>
+<p>If the integration works as expected, you have to verify whether your changes might affect other flows. If they don’t have any functional changes, execute a regression test to make sure that the integration still behaves as before you implemented the new functionality in the other flow. Regression testing is re-running functional and non-functional tests to ensure that previously developed and tested software still performs after a change. If you don’t do this, you might see unexpected results in the production environment.
+To ensure that not only functionally the integration works properly, but also when a lot of messages are processed, you can perform a performance test. The objective is to mimic a Production like situation. This to verify that your solution not only works for a handful of messages but also when thousands and thousands of messages are sent.
+In this how-to, we will focus on end-to-end testing. This is the final functional test with end users to test production-like scenarios with production-like data. The goal is to get the business’s approval. The document discusses the preparations before the end-to-end test, how to perform the test and what the next steps are till the production deployment.</p>
+<h2><a class="anchor" aria-hidden="true" id="step-1--preparations"></a><a href="#step-1--preparations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 1 – Preparations</h2>
+<p>You would like to perform the final end-to-end test as early as possible when you have completed developing. Therefore, it is important to plan out this test as soon as you start developing to keep the developing cycle as short as possible.
+Ideally, you have agreed the test scenarios with the business before the development. These test scenarios are used during the end-to-end test to conclude whether the new functionality works. To prepare your test, please consider the following:</p>
+<p>Before development:</p>
+<ul>
+<li>Plan the end-to-end test with the stakeholders</li>
+<li>Agree upon test scenarios</li>
+<li>Check whether test data is available in the testable environment to test all your scenarios</li>
+<li>If not available, create the data or ask the business to create the test data</li>
+</ul>
+<p>Before end-to-end test:</p>
+<ul>
+<li>Check whether data is available which you want to use in your test.</li>
+<li>If not available, create the data or ask the business to create the test data.</li>
+<li>Re-test the integration on the environment which you use to do the end-to-end test to confirm that everything works. Use other test data than you would like to use or have used in your end-to-end test.</li>
+<li>It is important that you always test the integration system to system. Avoid using applications as Postman or SOAP-UI to simulate one of the applications. Using such applications does not simulate the process on the live environment and is less reliable.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="step-2--the-end-to-end-test"></a><a href="#step-2--the-end-to-end-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2 – The end-to-end-test</h2>
+<p>During the end-to-end test, many things can happen or go wrong. It is important to keep the scope of your change or story in mind while doing the end-to-end test. The following guidelines can help you during your test:</p>
+<ul>
+<li>Before testing, inform the stakeholders what the scope is of the change and what the agreed test scenarios are. This will help you and the stakeholders remember the scope of the test. Stakeholders often have the tendency to discuss other features or issues during a test session.</li>
+<li>Talk the stakeholders through the changes and how the integration works (differently). This will increase the understanding of the business. Keep in mind your audience, not everyone is interested in the technical details.</li>
+<li>Let the business perform the test scenarios as agreed.</li>
+<li>Write down feedback if issues or other suggestions occur.</li>
+<li>At the end of the test session, discuss the feedback and other suggestions and plan a new end-to-end test.</li>
+<li>If everything works as it should and the stakeholders approve, the process starts to deploy the changes to the live environment. An example of such a process is: you will sent an email requesting confirmation that everything works as intended. The approval via email is required to perform next steps.</li>
+</ul>
+<p>Although changes are made for an existing or new flow, you might need to update your deployment plan. The usage of the deployment plan also structures the deployment for you. It ensures that all the flows are deployed which are in the releases and ensures that all your changes are deployed. Apply these changes not only for the production environment but also for your acceptance and test environment. To verify you applied these changes correctly, do not forget to test the new deployment plan.</p>
+<h2><a class="anchor" aria-hidden="true" id="step-3--make-it-production-ready"></a><a href="#step-3--make-it-production-ready" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 3 – Make it production-ready</h2>
+<p>After receiving the approval, you can make the change production-ready. This is the moment that you will hand the deployment over to the person who will perform the production deployment. Make sure to send all the required information for a smooth deployment. In larger projects it is often the case that only a few people have the rights to perform a production deployment.
+As developer, you can help your team by handing over all the information required for the deployment. This includes information such as:</p>
+<ul>
+<li>Adjusted flows with flow numbers</li>
+<li>Dependencies</li>
+<li>New/Changed properties with their (new) value</li>
+<li>Business approval</li>
+</ul>
+<p>Structuring the information may help your team, think about a structured Go-Live document which all team members use for every story for example.
+Even if you perform the deployment yourself, structuring this information is extremely helpful. It reduces errors during the deployment phase if you split the preparations and eventually the deployment itself. Also, a Go-Live document might help you when business requests information about the deployment if it causes issues. Since it provides you and the business with all the information related to the deployment. Update (if applicable) and use the deployment plan to perform the deployment.
+After deploying, always inform the business that the change is available on the live environment. Please always check if the changes produce no issues and check this also with the business. If you see issues, consider a rollback or a hotfix.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction--why-end-to-end-testing">Introduction – Why end-to-end testing?</a></li><li><a href="#step-1--preparations">Step 1 – Preparations</a></li><li><a href="#step-2--the-end-to-end-test">Step 2 – The end-to-end-test</a></li><li><a href="#step-3--make-it-production-ready">Step 3 – Make it production-ready</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
