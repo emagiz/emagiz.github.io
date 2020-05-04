@@ -19,7 +19,30 @@
 <li>Save the certificates in an client internal support application so you can set a notification for when the certificate is about to expire.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="3---how-to-steps-for-keystore-in-emagiz-flows"></a><a href="#3---how-to-steps-for-keystore-in-emagiz-flows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.   HOW-TO STEPS FOR KEYSTORE IN EMAGIZ FLOWS</h2>
-<p>Starting point of this part is that you have already received (either from the customer a .p12 file containing the keypair and a .cer file containing the to be trusted certificate. Please obtain these before proceeding to the next step. Follow these steps carefully in order to acquire the desired result. Before you head into the how-to steps make sure you have downloaded the program Keystore Explorer from the internet. We will use this program to create our trust- and keystore.</p>
+<p>Starting point of this part is that you have already received a certificate file (.pfx, .abc, etc.). Please obtain this before proceeding to the next step. Follow these steps carefully in order to acquire the desired result. Before you head into the how-to steps make sure you have downloaded the program Keystore Explorer from the internet. We will use this program to create our trust- and keystore.</p>
+<p><strong><em>How to create the proper certificate file (.CER)</em></strong></p>
+<ol>
+<li>Open keystore Explorer</li>
+<li>Browse to the PFX or ABC file on your machine and open it</li>
+<li>Apply the password in order to open it</li>
+<li>Right click on the key, select View Details, Certificate Chain Details.</li>
+<li>Select the top level in the certificate Chain and press Export</li>
+<li>Export settings: select the X.509 option</li>
+<li>Select folder where to store the .cer file</li>
+</ol>
+<p><strong><em>How to create the P12 file containing the keypair</em></strong></p>
+<ol>
+<li><p>Open keystore Explorer</p></li>
+<li><p>Browse to the PFX or ABC file on your machine and open it</p></li>
+<li><p>Apply the password in order to open it</p></li>
+<li><p>Right click on the key, and select Export Keypair</p></li>
+<li><p>Enter the password of the PFX or ABC file</p></li>
+<li><p>Enter the new password for the keypair you are going to export</p></li>
+<li><p>Save the file locally on your disk as a .p12 file</p></li>
+<li><p>Open the .p12 file and using the password just created</p></li>
+<li><p>Right click on the key, select Edit Certificate Chain, and then Remove Certificate (it will remove the top level certificate of the certificate chain)</p></li>
+<li><p>Save file</p></li>
+</ol>
 <p><strong><em>How to create a Java Trust Store – containing your trusted certificate(s)</em></strong></p>
 <ol>
 <li>Open Keystore Explorer.</li>
@@ -36,14 +59,14 @@
 </ol>
 <p>You have now created a key store file containing the trust store.</p>
 <p><strong><em>How to create a java keystore – containing your keypair</em></strong></p>
-<ol start="9">
+<ol>
 <li>Open Keystore Explorer.</li>
 <li>Select Create a new key store file.</li>
 <li>Select JKS (Java Key Store) and press OK.</li>
 <li>Click the Import Key Pair as can be seen below.</li>
 </ol>
 <p align="center"><img  src="../../img/howto/keystores-section3-2.png"></p>
-<ol start="13">
+<ol start="5">
 <li>Select PKCS #12 (assuming you received a .p12 file)</li>
 <li>Type in the Decryption Password and select the .p12 file</li>
 <li>Save the file and secure it with an appropriate password that matches the password of the keystore (step 7)</li>
@@ -51,41 +74,47 @@
 <li>Save the keystore file with an appropriate name as an .jks file. Ensure to use something to recognize this is a key store file</li>
 </ol>
 <p><strong><em>How to use a SSL web service message sender in your eMagiz flow to set-up a Two-Way SSL Authentication: Same key- and truststore for all environments</em></strong></p>
-<ol start="18">
+<ol>
 <li>Open your flow and start editing.</li>
 <li>Create your web service outbound gateway if you have not done that already.</li>
 <li>Upload the key- and truststore in the Resources tab.</li>
-<li>Create your SSL web service message sender.</li>
+<li>Create your SSL web service message sender.
+<ul>
+<li>in case you update this object, please validate in the Advanced tab if the Certificate Alias is used. Select the proper value</li>
+</ul></li>
 <li>Select your key- and truststore in the key- and truststore paths.</li>
 <li>Create your key- and truststore password properties and type them in the appropriate fields.</li>
 </ol>
 <p align="center"><img  src="../../img/howto/keystores-section3-3.png"></p>
-<ol start="24">
+<ol start="7">
 <li>Open your web service outbound gateway, go to the advanced tab and select your SSL web service message sender in the Message sender field.</li>
 </ol>
 <p><strong><em>How to use a SSL web service message sender in your eMagiz flow to set-up a Two-Way SSL Authentication: Different key- and truststores for every environment</em></strong></p>
-<ol start="25">
+<ol>
 <li>Open your flow and start editing.</li>
 <li>Create your web service outbound gateway if you have not done that already.</li>
 <li>Upload all the key- and truststores in the Resources tab (in this case we have different key- and truststores for acceptance and production).</li>
 </ol>
 <p align="center"><img  src="../../img/howto/keystores-section3-4.png"></p>
-<ol start="28">
+<ol start="4">
 <li>Now download all your key- and truststores to know what their paths will be.</li>
 </ol>
 <p align="center"><img  src="../../img/howto/keystores-section3-5.png"></p>
-<ol start="29">
+<ol start="5">
 <li>For each environment create a key- and trustore property containing the path to your key- and truststore. The value should be: “resources/[filename of the key- or truststore]”. So in the case of the acceptance keystore this would be:
 “resources/00-103915_emagiz_esb_a19_keystore.jks”</li>
 </ol>
 <p align="center"><img  src="../../img/howto/keystores-section3-6.png"></p>
-<ol start="30">
+<ol start="6">
 <li>Create your SSL web service message sender.</li>
-<li>Type in your key- and truststore path properties.</li>
+<li>Type in your key- and truststore path properties.
+<ul>
+<li>in case you update this object, please validate in the Advanced tab if the Certificate Alias is used. Select the proper value</li>
+</ul></li>
 <li>Create your key- and truststore password properties and type them in the appropriate fields.</li>
 </ol>
 <p align="center"><img  src="../../img/howto/keystores-section3-7.png"></p>
-<ol start="33">
+<ol start="9">
 <li>Open your web service outbound gateway, go to the advanced tab and select your SSL web service message sender in the Message sender field.</li>
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="4-how-to-steps-for-certificates-in-emagiz-cloud"></a><a href="#4-how-to-steps-for-certificates-in-emagiz-cloud" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. HOW-TO STEPS FOR CERTIFICATES IN EMAGIZ CLOUD</h2>
