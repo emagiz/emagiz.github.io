@@ -121,8 +121,9 @@
 <p>These how to steps are valid for both updates and for new certificates for web services hosted in eMagiz.</p>
 <p>Key Assumptions:</p>
 <ul>
-<li>Webservice for which the certificate is meant, is already created and is successfully deployed in the environment for which the certificate is valid</li>
+<li>Webservice for which the certificate is meant, is already created and is successfully deployed in the environment for which the certificate is to be updated</li>
 <li>Routes in the Deploy Architecture have been configured for this specific web service</li>
+<li>eMagiz Support will deploy the actual certificate in the eMagiz Cloud - focus here is to ensure the linkage between that certificate and the eMagiz platform instance</li>
 </ul>
 <ol>
 <li>In order to use the certificate for the web service, it needs to be signed by eMagiz. Please contact your eMagiz Partner to obtain such a certificate. Ensure to have a Common Name for the Certificate as a reference</li>
@@ -133,7 +134,7 @@
 <li>Right click in the whitespace and select Certificates</li>
 <li>Click on New and enter the Common Name and a Client Name - click Save</li>
 <li>Remove the popup screen and right the white space to select Routes.</li>
-<li>Open the route of the webservice for which the certificae is to be set</li>
+<li>Open the route of the webservice for which the certificate is to be set</li>
 <li>Upload the certificate via Certificate click Save.</li>
 <li>Click apply to environment bottom left in the Architecture page.</li>
 </ol>
