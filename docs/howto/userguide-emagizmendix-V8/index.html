@@ -54,7 +54,7 @@
 <li>Request Queue - enter the proper value for the offramp request queue of eMagiz where the request message needs to be put on.</li>
 <li>Validate request - Whether the request needs to be validated - works only for XML (not JSON)</li>
 <li>Request Import Mapping - Import mapping document that contains the mapping from XML or JSON to the domain model object</li>
-<li>Request limit - The maximum number of objects in the request. When set to 0-1, it means unlimited. When set to 1 the microflow will only be called when the import mapping is not empty. Other values means that the microflow is always called regardless whether the import mapping is empty or not</li>
+<li>Request limit - The maximum number of objects in the request. When set to -1, it means unlimited. When set to 1 the microflow will only be called when the import mapping is not empty. Other values means that the microflow is always called regardless whether the import mapping is empty or not</li>
 </ol>
 <p><strong>Response</strong></p>
 <ol>
@@ -103,7 +103,7 @@ d. Rollback changes</li>
 </ol>
 <p><strong>Key considerations</strong></p>
 <ul>
-<li>Check if [%CurrentUser%] is not used in the microflow when processing incoming messages. Mendix loses this value when using a Java action microflow</li>
+<li>Check if [%CurrentUser%] is not used in the microflow when processing incoming messages. Mendix loses this value when using a Java action microflow. An error message is generated and the message is not processed.</li>
 <li>Understand the impact of the user that is updating/creating the domain model object. The web service user is no longer used to update/create the domain model object</li>
 <li>A best practice can be to store the XSDs of the various integrations into the resources folder of the mendix project so that the entire team has access to the latest</li>
 <li>During restart of the Mendix application, there is no consumer on the synchronous response queues. Once the first message is processed, the consumer will become active. eMagiz alerting will trigger on this scenario which can be considered a false positive.</li>
