@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/hosting-rest-webservice · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This document discusses how you can manually host a REST webservice outside the API management layer of eMagiz."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/hosting-rest-webservice · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="This document discusses how you can manually host a REST webservice outside the API management layer of eMagiz."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/hosting-rest-webservice</h1></header><article><div><span><p>This document discusses how you can manually host a REST webservice outside the API management layer of eMagiz.
+The main idea of hosting a webservice, whether it be SOAP/XML or REST/JSON (or any other combination) is that the process you are supporting wants to be informed in real time or wants to execute actions in real time without any support from the integration. In other words you want the application to push the requests to eMagiz and from there to another application instead of having to pull the data out of an application.
+In this how to we will focus on the REST webservice and how you can host this in eMagiz through some simple steps.
+To summarize, hosting a REST webservice gives you:</p>
+<ul>
+<li>A way to listen for messages instead of actively needing to pull them.</li>
+<li>A way to receive messages via various HTTP methods (GET, PUT, POST, DELETE, etc.)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="best-practices"></a><a href="#best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best practices</h2>
+<ul>
+<li>Don’t change your process when executing Capture and Design. Those steps don’t change if you want the output of what is being delivered on your REST endpoint transformed to a CDM and beyond</li>
+<li>Use naming conventions to make it clear to the calling party what the build up of the endpoint is, which methods are allowed and which contentTypes are allowed</li>
+<li>Keep the connectivity in the entry and the transformation in the onramp</li>
+<li>Use one HTTP Inbound Gateway per HTTP Method</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="how-to-steps-hosting-a-rest-webservice"></a><a href="#how-to-steps-hosting-a-rest-webservice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How-to steps Hosting a REST webservice</h2>
+<p>Follow these steps carefully in order to acquire the desired result. If a step is unclear or you are not able to follow it, please contact CAPE Academy.</p>
+<ol>
+<li>If the system for which you want to host the REST webservice is new start with step 2. If you already have a system Captured continue with step 6</li>
+<li>Navigate to Capture and add a system to the canvas</li>
+<li>Fill in the System name and information on the system</li>
+<li>Draw a line representing a message type from the system to eMagiz in the middle</li>
+<li>Fill in the relevant details based on system and message type specifics
+After this step you have successfully finished Capture (for hosting a REST webservice)</li>
+<li>Navigate to Design and double click on the system for which you want to host a REST webservice</li>
+<li>Select the option Combined entry connector</li>
+<li>Select Custom under Entry connector type</li>
+<li>If applicable, execute the same steps in Design as you normally. i.e create / change CDM, add system message, message mapping, update architecture, etc.
+After this step you have successfully finished Design (for hosting a REST webservice)</li>
+<li>Navigate to Create -&gt; Add integrations</li>
+<li>Select the flow you have just registered via Capture and Design</li>
+<li>Press Save Selection</li>
+<li>Navigate back to Create. eMagiz will have added the flow including the all entry</li>
+<li>Open the all entry</li>
+<li>Add the support object called Jetty Server</li>
+<li>Open the support object after naming it</li>
+<li>Select a connector. When running in AWS or if you want to handle the authentication without a client certificate requirement the Select channel connector is the option of your choice. In most cases this is used</li>
+<li>Fill in the port</li>
+<li>Select for handler type the Servlet Context Handler. This way you can set up the endpoint through each HTTP inbound gateway that you need in the all entry</li>
+<li>Type in the context path. A option could be to go for /rest or /api or simply /. This will become part of the endpoint later on</li>
+<li>Select as Servlet the HTTP Inbound endpoint dispatcher. This does the following for you: A servlet that dispatches requests to HTTP inbound gateways and HTTP inbound channel adapters based on their request mapping settings. For more information see the help text provided with the component itself.</li>
+<li>Give the servlet a name so you can tell what the function is.</li>
+<li>Add a servlet mapping and fill in the required values. The servlet name needs to match the name you have just created in step 20. The path should be something that makes it clear to the caller what he is calling. A categorization could be done here (i.e /schades/* or /orders/* or /invoices/*)</li>
+<li>Press Save
+After this step you have successfully created the Jetty server that will host the collection of endpoints of your REST webservice</li>
+<li>Add a HTTP Inbound Gateway to the flow and create two channels to which it can connect</li>
+<li>Define the path that is specific for this endpoint (i.e /address or /invoicelines or v1/reports)</li>
+<li>Define the supported methods for this specific Gateway (i.e. GET, POST, DELETE)</li>
+<li>Define under the Advanced tab the Request payload type as java.lang.String for readability
+After this step you have successfully created an HTTP Inbound Gateway that listens to specific methods on a specific endpoint which you can test and works</li>
+<li>Apart from the mandatory options (defined in step 26 till 28) there are many optional options, such as defining params, which contentType(s) are consumed and produced. For more information on these please see the help text in the component itself</li>
+<li>You can verify if your endpoint works by deploying it on a local runtime and call the endpoint (via Postman) you have created in the previous steps. The structure is as follows: <a href="https://host">https://host</a>:port/contextPath/servletPath/pathInfo?queryString</li>
+<li>If everything works correct (be aware, if you run it locally you need http in your endpoint) you should receive a 200 OK and a payload. Easiest way to test the validity of your setup is to create a POST call that gives back what you have posted.
+After this step you have verified that the endpoint itself can be called. Next steps could be to add authentication or other checks in order to give back 401, 404, 403 etc.</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#best-practices">Best practices</a></li><li><a href="#how-to-steps-hosting-a-rest-webservice">How-to steps Hosting a REST webservice</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
