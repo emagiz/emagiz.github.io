@@ -9,15 +9,18 @@
 Requirements
 Assitance is needed from the eMagiz development team so plan ahead and contact your partner manager early on to make this work.</p>
 <h2><a class="anchor" aria-hidden="true" id="2---best-practices"></a><a href="#2---best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.   BEST PRACTICES</h2>
-<p>In this chapter the best practices are outlined for when you want to migrate from Root to AWS.
-•   Plan ahead as some steps require the assistance of an eMagiz development team colleague
-•   Consult your partner manager beforehand to see if there is a possible cloud slot which you can use for your solution
-•   Always update the JMS as this is mandatory
-•   Store the settings you used in Root as you need to remove the complete Root setup before you can switch over to AWS
-•   Test your actions in Test and Acceptance before moving to Production</p>
+<p>In this chapter the best practices are outlined for when you want to migrate from Root to AWS.</p>
+<ul>
+<li>Plan ahead as some steps require the assistance of an eMagiz development team colleague</li>
+<li>Consult your partner manager beforehand to see if there is a possible cloud slot which you can use for your solution</li>
+<li>Always update the JMS as this is mandatory</li>
+<li>Store the settings you used in Root as you need to remove the complete Root setup before you can switch over to AWS</li>
+<li>Test your actions in Test and Acceptance before moving to Production</li>
+<li>Ensure to have the property for the data directory for JMS created. &lt;bus_technical_name&gt;.jmsserver.datadir=/efs/data/artemis/jms01</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="3---how-to-steps-migrate-from-root-to-aws"></a><a href="#3---how-to-steps-migrate-from-root-to-aws" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.   HOW-TO STEPS MIGRATE FROM ROOT TO AWS</h2>
-<p>Follow these steps carefully in order to acquire the desired result. If a step is unclear or you are not able to follow it, please contact CAPE Academy.
-Step 1: Edit the settings in Design (once)
+<p>Follow these steps carefully in order to acquire the desired result.</p>
+<p>Step 1: Edit the settings in Design (once)
 Navigate, for your bus, to the Design page and click on Settings in the right top hand corner</p>
 <p>Step 2: Change the IaaS option in the Design settings (once)
 When you have opened the Settings page press the Edit settings button and select AWS as the IaaS you want to use. When pressing Save you will see the below popup:</p>
