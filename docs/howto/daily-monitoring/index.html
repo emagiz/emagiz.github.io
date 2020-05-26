@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/daily-monitoring · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Daily Monitoring eMagiz, a practical guide"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/daily-monitoring · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Daily Monitoring eMagiz, a practical guide"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/daily-monitoring</h1></header><article><div><span><p>Daily Monitoring eMagiz, a practical guide</p>
+<p>Issue date: 01-05-2020</p>
+<p>This document discusses the practical process of (daily) monitoring with the help of eMagiz and how you can best utilize this to stay in control of your complete environment.
+The main idea behind (daily) monitoring in general and in eMagiz is to signal problems early on. By signaling problems as early as possible we can pro-actively take action before there is (any) business impact. Another benefit of (daily) monitoring is that you can use it as a feedback loop for further improvements to the integration that are running within the eMagiz busses on each environment.
+To summarize, (daily) monitoring gives you:</p>
+<ul>
+<li>A means to pro-actively take action to limit business impact as the result of how integrations work.</li>
+<li>A feedback loop that can be harvested to learn from during the development of new integrations.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="best-practices"></a><a href="#best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best practices</h2>
+<ul>
+<li>Determine the business impact of loss of data or downtime per integration / system. A useful tool is doing a risk analysis</li>
+<li>Based on the risk analysis determine with which frequency a monitoring action should happen</li>
+<li>Use the alerting that eMagiz provides you to help you in monitoring your integrations. For more information on how to set up effective alerting, see: Configuring Alerting in eMagiz</li>
+<li>Create a feedback loop between the output of the monitoring and the development of new and existing integrations</li>
+<li>Try to determine trends / causes of what goes wrong when looking at the bus environment from a broader perspective.</li>
+<li>Whether or not you have a routine of (daily) monitoring always do a periodical health check to make sure that you stay in control of the eMagiz environment. For more information: How-to steps health check</li>
+<li>Reserve periodically time to analyse at least the Production Environment. How much time is needed gravely depends on the size of your environment, aids you have at your control, the knowledge level of the person executing the daily monitoring and quality of alerting that is set up in advance. In practice we see that a daily monitoring takes roughly 15 – 30 minutes a day per check.</li>
+<li>Use the list in which the most frequently seen error messages are listed to help you in determining the appropriate action(s). The list can be found here</li>
+</ul>
+<p>##How-to steps (daily) monitoring</p>
+<p>Follow these steps carefully in order to acquire the desired result.
+General</p>
+<ol>
+<li>Navigate to the tooling you are using to record the alerting that is generated by eMagiz. This could be the eMagiz portal itself but could also be any external tooling that makes use of the API eMagiz offers to read the alert data from the portal.</li>
+<li>Check for open alerts in the dashboard of your choice</li>
+<li>Interpret each alert and couple an action to the alert (i.e. what do you or someone else need to do to make sure this alert can be closed and ideally won’t happen again in the future)</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="using-emagiz-as-the-tool-to-support-daily-monitoring"></a><a href="#using-emagiz-as-the-tool-to-support-daily-monitoring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using eMagiz as the tool to support (daily) monitoring</h2>
+<ol>
+<li>Navigate to Manage -&gt; Alerting -&gt; Alerts</li>
+<li>Navigate to the Alert you have checked last</li>
+<li>Control each single Alert and determine which actions needs to be taken. Any of the below could be the case
+a.  No action needed. No further action is needed for this Alert, continue with the next alert. For more information on determining if an action is needed see How-to steps determining if action is needed
+b.  Incident, repair action needed. See How-to steps dealing with an Incident
+c.  Optimization, development as part of Life Cycle Management is needed. See How-to steps Optimizing integrations
+d.  False positive, Alerting needs to be changed. See Configuring Alerting in eMagiz on how you can effectively change your alerting</li>
+<li>Work your way through the list alert by alert till you have reached the first alert in the eMagiz Alerts overview</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="how-to-steps-determining-if-action-is-needed"></a><a href="#how-to-steps-determining-if-action-is-needed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How-to steps determining if action is needed</h2>
+<ol>
+<li>Look for patterns within the alerting</li>
+<li>See if alerts have the same root cause. An example could be when you get an alert that a runtime is down and at roughly the same time an alert that certain exits don’t have a consumer anymore. In 99% of cases both alerts have the same root cause. In this case the fact that the runtime is not running anymore.</li>
+<li>If alert has the same root cause as other alerts don’t create a new ticket for each alert but consolidate the alerts in one ticket in which you then have the option to give more information to the party involved in fixing the problem.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="how-to-steps-dealing-with-an-incident"></a><a href="#how-to-steps-dealing-with-an-incident" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How-to steps dealing with an Incident</h2>
+<ol>
+<li>Determine the priority of the Incident in accordance with the business</li>
+<li>Determine the right person / people to solve the Incident. For a more functional problem you could best enlist someone in from the DevOps team whereas a more technical problem might be better dealt with by technical support (if such exists within your organization).</li>
+<li>Log the Incident</li>
+<li>Keep the business informed of the progress of the ticket</li>
+<li>Deploy the solution that solves the issues to Acceptance</li>
+<li>Test the solution in accordance with the business</li>
+<li>Deploy the solution that solves the issues to Production, after accordance with the business</li>
+<li>Close the Incident</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="how-to-steps-optimizing-integrations"></a><a href="#how-to-steps-optimizing-integrations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How-to steps Optimizing integrations</h2>
+<ol>
+<li>Log the observation of what could be optimized</li>
+<li>Make sure this optimization lands in the backlog of the (devops) team</li>
+<li>(devops) team implements this optimization, in accordance with the PO, in one of their upcoming sprints. When it will be developed determines on priority given by the PO</li>
+<li>Deploy the solution that solves the issues to Acceptance</li>
+<li>Test the solution</li>
+<li>Deploy the solution that solves the issues to Production, after accordance with the business owner</li>
+<li>Close the Incident</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="how-to-steps-health-check"></a><a href="#how-to-steps-health-check" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How-to steps health check</h2>
+<ol>
+<li>Choose a suitable format in which you want to represent the health check to the business. Examples are a dashboard in a tool, a word document and Excel documents.</li>
+<li>Navigate to Manage -&gt; Data usage -&gt; History</li>
+<li>Note actual numbers and trends on Error Messages and Logging Events.
+a.  Error Messages. This way you can see whether Error Messages become more or less apparent since the last time you have executed the health check
+b.  Logging Events. These are separated in Info, Warning and Error. For a health check the last two are interesting (Warning and especially Error). Once again this could be used for trend analysis</li>
+<li>Navigate to Manage -&gt; Error Messages</li>
+<li>See if you can determine actions that need a follow up. See Using eMagiz as the tool to support (daily) monitoring for more information</li>
+<li>Navigate to Manage -&gt; Log Entries</li>
+<li>See if you can determine actions that need a follow up. See Using eMagiz as the tool to support (daily) monitoring for more information</li>
+<li>Navigate to Manage -&gt; Runtime Statistics</li>
+<li>Check, per runtime, the following thing
+a.  CPU (top left graph) performance. If it is relatively stable and low this is good. Large peaks especially towards 100% could indicate problems
+b.  Heap memory usage (bottom left graph) performance. If it is relatively stable and below the limit (the black line) the performance is good. If the limit is reached often this is an indication of problems.</li>
+<li>Navigate to Deploy -&gt; Architecture</li>
+<li>Check whether the advised sizing (on the left) and the configured (sizing) on the right are still in sync
+a.  If yes, no further action needed
+b.  If no, discuss further actions with those whom it is relevant for</li>
+<li>Present your findings in one</li>
+<li>Present your findings in one dashboard / overview to the business / customer.</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#best-practices">Best practices</a></li><li><a href="#using-emagiz-as-the-tool-to-support-daily-monitoring">Using eMagiz as the tool to support (daily) monitoring</a></li><li><a href="#how-to-steps-determining-if-action-is-needed">How-to steps determining if action is needed</a></li><li><a href="#how-to-steps-dealing-with-an-incident">How-to steps dealing with an Incident</a></li><li><a href="#how-to-steps-optimizing-integrations">How-to steps Optimizing integrations</a></li><li><a href="#how-to-steps-health-check">How-to steps health check</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
