@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/cloud-double-r8-intermediate · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Release notes for cloud slot template R8 intermediate template"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/cloud-double-r8-intermediate · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Release notes for cloud slot template R8 intermediate template"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/cloud-double-r8-intermediate</h1></header><article><div><span><p>Release notes for cloud slot template R8 intermediate template
+Non-service affecting intermediate template to go to the R8 double lane release. This is the first of two steps for your upgrade to the new R8 template.</p>
+<p>To use the new R8 release of our cloud template we upgrade in two steps, with only the second step being service affecting.
+Steps:</p>
+<ol>
+<li>Use the intermediate template (non service affecting)(duration: 4 minutes)
+User actions after applying the intermediate template:</li>
+</ol>
+<ul>
+<li>Check if all &quot;.02&quot; runtimes are reachable by the runtime dashboard</li>
+<li>Check if all flows have been installed according to the active release</li>
+</ul>
+<ol start="2">
+<li>Use the final R8 template (service affecting)(duration: 4 minutes)
+User actions after applying the final template:</li>
+</ol>
+<ul>
+<li>Check if all &quot;.01&quot; runtimes are reachable by the runtime dashboard</li>
+<li>Check if all flows have been installed according to the active release</li>
+<li>Check if messages pass through the bus by verifying a critical message flow in external systems</li>
+</ul>
+<p>By selecting this template and pressing 'update AWS' we will update all zone B machines. Your service will not be affected, but during this update failover is unavailable for up to four minutes.</p>
+<p>Features:</p>
+<ol>
+<li>Auto healing Instance Recovery on AWS system failure</li>
+<li>Auto healing port check</li>
+<li>Auto healing for out-of-memory situations</li>
+<li>Auto healing for coordination failed</li>
+<li>Improved notification email to customer support when auto healing is triggered</li>
+<li>New logging facility for customer support to better monitor machine health</li>
+<li>Instances now have functional hostnames</li>
+<li>Java runtime environment is updated to OpenJdk 8u2228(AdoptOpenJDK, 8u222-b10, HotSpot)</li>
+<li>Fixed the resource limit error on cloudformation deployment</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

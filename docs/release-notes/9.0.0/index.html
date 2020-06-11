@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/9.0.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Release that provides higher availability for runtime services and the eMagiz portal. In addition, this release includes several other improvements and tackles some minor issues."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/9.0.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Release that provides higher availability for runtime services and the eMagiz portal. In addition, this release includes several other improvements and tackles some minor issues."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/9.0.0</h1></header><article><div><span><p>Release that provides higher availability for runtime services and the eMagiz portal. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<p>Major changes</p>
+<ul>
+<li>The iPaaS infrastructure has had a major upgrade for higher performance and availability. As part of this, the connection point for runtime services has changed from <a href="https://my.emagiz.com/">https://my.emagiz.com/</a> to <a href="https://rts.emagiz.com/">https://rts.emagiz.com/</a>. Most operational buses will connect there automatically. For those that do not (last runtime update before 2018-05-31, eMagiz 7.31.0), we have built it so that everything still works. However, these cases do not profit from the higher availability.
+<ul>
+<li>Note for eMagiz-Mendix connector users: The connection point for the connector is defined with the constant &quot;eMagizWsUrl&quot;. We encourage you to update this to &quot;<a href="https://rts.emagiz.com/ws/">https://rts.emagiz.com/ws/</a>&quot; now, so your app makes use of it after the next restart.</li>
+</ul></li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Deploy - Containers: When adding flows to a container, buttons are available to (de)select all flows on the page. (#457577)</li>
+<li>Deploy - Architecture: When resetting an (AWS) runtime, you will be able to see which runtime was reset in the pop-up. (#462521)</li>
+<li>Deploy - Packages: When using the packages screen to install a flow that belongs to multiple containers, up to 10 containers are now shown without having to press the paging buttons. We do advise to use the Deployment plan feature to install, instead of the packages page. (#458130)</li>
+<li>Across the portal many help texts have been updated.</li>
+<li>Upgraded the portal to Mendix 7.23.8</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>Deploy - Properties: When editing a property, pressing cancel and then opening the property again will show the correct value. (#460987, 455590, 456443)</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
