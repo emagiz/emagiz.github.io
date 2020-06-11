@@ -6,47 +6,52 @@
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/store-your-mendix-data-in-redshift</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="how-to-store-your-mendix-data-in-aws-redshift-using-emagiz"></a><a href="#how-to-store-your-mendix-data-in-aws-redshift-using-emagiz" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to store your Mendix data in AWS Redshift using eMagiz</h1>
 <h2><a class="anchor" aria-hidden="true" id="1-introduction"></a><a href="#1-introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Introduction</h2>
-<p>This document explains how to setup a data pipeline between Mendix and AWS Redshift using eMagiz and how to publish the AWS Redshift data using AWS materialized views.</p>
+<p>This document explains how to setup a data pipeline between Mendix and AWS Redshift using eMagiz and how to publish the AWS Redshift data using AWS materialized views. eMagiz data pipelines are flows that support high-volume data transfer using <a href="_new">Spring Batch</a> technology. The data is retrieved from Mendix by using an OData webservice. The data is written to AWS Redshift using the AWS recommended way: Intermediate storage of comma-separates data in AWS S3.</p>
+<p>Advantages of eMagiz data pipelines</p>
+<ul>
+<li>Supports very large tables</li>
+<li>Fast Mendix to Redshift-integration development compared to message bus integrations</li>
+</ul>
+<p>Disadvantages of eMagiz data pipelines</p>
+<ul>
+<li>Does not support complex data structures (one table per data pipeline)</li>
+<li>Does not support complex transformations (only column selection/renaming)</li>
+<li>Data structure changes need to be applied to both source and target tables</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="2-getting-started"></a><a href="#2-getting-started" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Getting started</h2>
 <ol>
-<li><p>Publish the data using OData service in your Mendix project.</p></li>
-<li><p>Use the Mendix PostgreSQL data structure to create the target table in Redshift (Recommended).</p></li>
-<li><p>Import the 'Mendix to Redshift' datapipeline flow from the store.</p>
+<li>Publish the data using an OData service in your Mendix project.</li>
+<li>Use the Mendix PostgreSQL data structure to create the target table in Redshift (Recommended).</li>
+<li>Import the 'Mendix to Redshift' datapipeline flow from the store.
    <p align="center"><img src="../../img/howto/datapipeline-store-item.png"></p>
+1. Follow the store items instructions to setup the data pipeline.
+1. Follow the rest of this how-to to start using AWS materialized views.
 </li>
-<li><p>Follow the store items instructions to setup the data pipeline.</p></li>
-<li><p>Follow the rest of this how-to to start using AWS materialized views.</p></li>
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="3-create-a-materialized-view"></a><a href="#3-create-a-materialized-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Create a materialized view</h2>
 <ol>
 <li>Use SQL Workbench or the AWS Console to connect to the Redshift database.</li>
-<li>Write and test the SQL statement. If you need help joining tables look at the
+<li>Write and test the SQL statement to select data from the Redshift database. If you need help joining tables look at the
 <a target="_new" href="https://www.w3schools.com/sql/sql_join_inner.asp">w3school tutorials</a>.</li>
 <li>Execute the following statement to create the materialized view:</br>
-<code>CREATE MATERIALIZED VIEW {viewname} AS {your query};</code></li>
+<code>CREATE MATERIALIZED VIEW {viewname} AS {your query};</code>
+<p align="center"><img  src="../../img/howto/datapipeline-create-materialized-view.png"></p></li>
 <li>For more info see the AWS documentation:
 <a target="_new" href="https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html">Creating materialized views in Amazon Redshift</a></li>
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="4-refresh-the-materialized-view"></a><a href="#4-refresh-the-materialized-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Refresh the materialized view</h2>
 <ol>
-<li>Add a JDBC outbound channel adapter to your data pipeline flow and connect it to existing JDBC redshift data source. Enter the query:</br>
-<code>REFRESH MATERIALIZED VIEW ${dp.jdbc.message.mvtablename}</code></li>
-<li>Use your own trigger mechanism or add a 'Job execution listener gateway' to trigger the refresh after the data pipeline job is done.</li>
-<li>Add a standard filter in between to only trigger on succesfull job executions. Filter expression:</br>
-<code>payload.status == T(org.springframework.batch.core.BatchStatus).COMPLETED</code></li>
-<li>If you have executed step 1, 2 and 3 you have extended your flow with these components:
+<li>The example data pipeline flow from the store contains a job listener structure to refresh the AWS Materialized view after the job is complete. In this structure the <i>send.jdbc-refresh</i> component send the <code>REFRESH MATERIALIZED VIEW</code> command to AWS Redshift.
 <p align="center"><img  src="../../img/howto/datapipeline-listener-structure.png"></p></li>
-<li>Make sure to register the job listener gateway in the job configuration (advanced tab).
-<p align="center"><img  src="../../img/howto/datapipeline-job-listeners.png"></p></li>
-<li>It is highly recommended to have only on data pipeline in one eMagiz flow. If you have materialized views using data from different data pipelines, refresh the materialized view after each pipeline or create a custom refresh mechanism.</li>
+<li>It is highly recommended to have only one data pipeline in one eMagiz flow. If you have materialized views using data from different data pipelines, by default, the materialized view will be refreshed after each pipeline. If this causes invalid data in the materialized view, consider removing the refresh structure from all but the last scheduled data pipeline.</li>
 </ol>
-<h2><a class="anchor" aria-hidden="true" id="4-delete-the-materialized-view"></a><a href="#4-delete-the-materialized-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Delete the Materialized view</h2>
+<h2><a class="anchor" aria-hidden="true" id="5-delete-the-materialized-view"></a><a href="#5-delete-the-materialized-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Delete the Materialized view</h2>
 <ol>
 <li>Use SQL Workbench or the AWS Console to connect to the Redshift database.</li>
 <li>Execute the following statement to delete the materialized view:</br>
 <code>DROP MATERIALIZED VIEW {viewname};</code></li>
 </ol>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#2-getting-started">2. Getting started</a></li><li><a href="#3-create-a-materialized-view">3. Create a materialized view</a></li><li><a href="#4-refresh-the-materialized-view">4. Refresh the materialized view</a></li><li><a href="#4-delete-the-materialized-view">4. Delete the Materialized view</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#2-getting-started">2. Getting started</a></li><li><a href="#3-create-a-materialized-view">3. Create a materialized view</a></li><li><a href="#4-refresh-the-materialized-view">4. Refresh the materialized view</a></li><li><a href="#5-delete-the-materialized-view">5. Delete the Materialized view</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
