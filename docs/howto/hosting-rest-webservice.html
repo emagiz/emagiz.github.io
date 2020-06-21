@@ -56,8 +56,33 @@ After this step you have successfully created the Jetty server that will host th
 After this step you have successfully created an HTTP Inbound Gateway that listens to specific methods on a specific endpoint which you can test and works</li>
 <li>Apart from the mandatory options (defined in step 26 till 28) there are many optional options, such as defining params, which contentType(s) are consumed and produced. For more information on these please see the help text in the component itself</li>
 <li>You can verify if your endpoint works by deploying it on a local runtime and call the endpoint (via Postman) you have created in the previous steps. The structure is as follows: <a href="https://host">https://host</a>:port/contextPath/servletPath/pathInfo?queryString</li>
-<li>If everything works correct (be aware, if you run it locally you need http in your endpoint) you should receive a 200 OK and a payload. Easiest way to test the validity of your setup is to create a POST call that gives back what you have posted.
-After this step you have verified that the endpoint itself can be called. Next steps could be to add authentication or other checks in order to give back 401, 404, 403 etc.</li>
+<li>If everything works correct (be aware, if you run it locally you need http in your endpoint) you should receive a 200 OK and a payload. Easiest way to test the validity of your setup is to create a POST call that gives back what you have posted.</li>
+</ol>
+<p>After this step you have verified that the endpoint itself can be called. Next steps could be to add authentication or other checks in order to give back 401, 404, 403 etc.. Some of these are specified below, others can be configured in a similar fashion.</p>
+<p>Giving back a 401
+In case you secured the webservice with the help of an ApiKey you can validate whether what the client send to the webservice for authentication is indeed a correct ApiKey. This can be done via the following steps:</p>
+<ol>
+<li>Place a standard filter in your entry to validate if the ApiKey provided by the client is valid. This can be done via a SpEL expression comparable to the following (headers['Authorization'] == '${authentication.inbound.api-key}')</li>
+<li>In cases where the client is not authorized lead the message back to a standard header enricher. In this standard header enricher add a header called http_statusCode with a value 401</li>
+<li>Add a standard transformer to set a default message that can be given back to the client. An example would be '{ &quot;errors&quot;: [{ &quot;internalMessage&quot;: &quot;Unauthorized&quot; }]}'.</li>
+</ol>
+ <p align="center"><img  src="../../img/howto/hostingrest-service-401.png"></p>
+<p>Giving back a 403
+In case you have secured your REST webservice with the help of a client certificate and the client is unable to provide the correct certificate eMagiz will return a 403 by default. No other changes in the flow are needed</p>
+<p>Giving back a 404
+eMagiz will give back a 404 by default if the endpoint is not configured in one of the HTTP inbound channel adapters in your flow. You can override this functionality via the following steps.</p>
+<ol>
+<li>Add a separate HTTP inbound channel adapter that resolves to /* (this catches everything that cannot be resolved by any other HTTP inbound channel adapter)</li>
+<li>Set a standard header enricher and add a header called http_statusCode with a value 404</li>
+<li>Add a standard transformer to set a default message that can be given back to the client. An example would be '{ &quot;errors&quot;: [{ &quot;internalMessage&quot;: &quot;Het aangeroepen endpoint is niet gevonden&quot; }]}’.</li>
+</ol>
+<p align="center"><img  src="../../img/howto/hostingrest-service-404.png"></p>
+<p>Giving back a 500
+eMagiz will give back a 500 by default if the flow results in an unresolvable error. To counteract this for most scenarios the error handling in eMagiz for synchronous flows has changed in such a way that the message or error will be given back to the client. To specify http code and body of the response you can follow these steps.</p>
+<ol>
+<li>Use the standard filter eMagiz gives you in a synchronous flow (with the SpEL expression headers['emagiz_error_isErrorMessage']!=true) and make sure that instead of throwing a default error the error channel leads to a standard header enricher</li>
+<li>Set a standard header enricher and add a header called http_statusCode with a value 500</li>
+<li>Add a standard transformer to set a default message that can be given back to the client. An example would be '{ &quot;errors&quot;: [{ &quot;internalMessage&quot;: &quot;Een technische error heeft plaatsgevonden in de integratie&quot; }]}’.</li>
 </ol>
 </span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#best-practices">Best practices</a></li><li><a href="#how-to-steps-hosting-a-rest-webservice">How-to steps Hosting a REST webservice</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
