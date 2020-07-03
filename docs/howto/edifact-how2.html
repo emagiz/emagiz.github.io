@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/edifact-how2 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="How to EDIFACT"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/edifact-how2 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="How to EDIFACT"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/edifact-how2</h1></header><article><div><span><p>How to EDIFACT
+Issue date: 03-Jul-2020</p>
+<p>This document describes best practices on EDIFACT. It discusses what EDIFACT is, how to transform an EDIFACT file to XML and from XML to EDIFACT.</p>
+<h2><a class="anchor" aria-hidden="true" id="introduction--what-is-edifact"></a><a href="#introduction--what-is-edifact" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction – What is EDIFACT?</h2>
+<p>EDIFACT stands for Electronic Data Interchange For Administration, Commerce and Transport. The standard is developed by the United Nations to create an international standard for exchanging messages electronically between organizations. It is often named EDI, but EDI stands for Electronic Data Interchange which is the way of work how organizations can exchange data while EDIFACT defines the structure how these messages are exchanged.
+In EDIFACT, you have multiple standard. UN/EDIFACT is the most comprehensive and worldwide most common standard. This document will be about UN/EDIFACT messages standard.
+EDIFACT contains a set of standard message types which define what kind of information is exchanged and in what format. Each message type supports a specific process, for example an order or an invoice.<br>
+Examples of message types which are common in the B2B communication are:</p>
+<ul>
+<li>ORDERS – It describes an order</li>
+<li>ORDRSP – It describes an order response, this is the confirmation that the orders is accepted or declined</li>
+<li>INVOIC – It describes an invoice</li>
+<li>APERAK – It describes an acknowledgement of receipt
+EDIFACT has a hierarchical structure consisting of multiple components. The topmost unit of an EDIFACT message is the Interchange (UNB), which can be thought of as an envelope. The interchange defines the message recipient, the message sender, the message number, the message date, etc. An interchange can in turn contain several individual Groups (UNG) representing message groups. Alternatively, an interchange can also contain individual messages (concrete messages).A message itself is enclosed by a header (UNH) and a trailer segment (UNT).
+A message group is surrounded by an UNG and UNE segment. Within a message, there are several segments and segment groups, which represent individual related message parts (for example, information about the biller, a specific invoice line, etc.).
+A segment group is initiated by a so-called trigger element. Segments consist of data elements and composite data elements. The smallest unit of an EDIFACT file are simple data elements.
+A group or segment can be mandatory (M) or conditional (C) and can be specified to repeat. For example :</li>
+<li>C99 indicates between 0 and 99 repetitions of a segment or group</li>
+<li>M99 signifies between 1 and 99 repetitions of a segment or group
+A group, like a message, is a sequence of segments or groups. The first segment or group beneath a group must be mandatory, and the group should be made conditional if the logic of the situation demands it.</li>
+</ul>
+<p>|<em>Service String Advice              UNA  Optional
+|____Interchange Header              UNB  Mandatory
+:    |<strong><em>Functional Group Header     UNG  Conditional
+:    :   |<em><strong>Message Header          UNH  Mandatory
+:    :   :   |</strong> User Data Segments          As required
+:    :   |</em></em> Message Trailer         UNT  Mandatory
+:    |</strong> Functional Group Trailer    UNE  Conditional
+|</em>__ Interchange Trailer             UNZ  Mandatory</p>
+<p>An example of how an EDIFACT file (partly) looks like is:
+UNA:+.? ' UNB+UNOC:3+SENDERCODE+RECEIVERCODE+270217:1438+ID:f57cbf19-fc' UNH+1+ORDERS:D:96A:UN' BGM+220+AB123456+9' DTM+137:20170115212655:204' RFF+ON:'
+More information about the different message types and their structure can be found here:
+<a href="https://www.truugo.com/edifact/">https://www.truugo.com/edifact/</a>
+An example of an EDIFACT file and a EDIFACT file transformed into XML can be found here:</p>
+<ul>
+<li><a href="ORDERS_edifact_example1.edifact">Example EDITFACT</a></li>
+<li>[Example XML(ORDERS-edifact-xml_example1.xml)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="edifact-to-xml"></a><a href="#edifact-to-xml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EDIFACT to XML</h2>
+<p>In eMagiz, you are able to both transform a XML to an EDIFACT file as from EDIFACT to XML. This chapter discusses the transformation from EDIFACT to XML.
+In order to transform an EDIFACT file into a XML, you need in eMagiz only one component, the UN/EDIFACT to XML Transformer. This transformation component transforms the following piece of EDIFACT message:
+UNA:+.? ' 'UNB+UNOC:3+SENDERCODE+RECEIVERCODE+270217:1438+ID:f57cbf19-fc' 'UNH+1+ORDERS:D:96A:UN'
+Into
+&lt;out:unEdifact xmlns:out=&quot;urn:org.milyn.edi.unedifact.v41&quot;&gt;
+&lt;out:UNB&gt;
+&lt;out:syntaxIdentifier&gt;
+&lt;out:id&gt;UNOC&lt;/out:id&gt;
+&lt;out:versionNum&gt;3&lt;/out:versionNum&gt;
+&lt;/out:syntaxIdentifier&gt;
+&lt;out:sender&gt;
+&lt;out:id&gt;SENDERCODE&lt;/out:id&gt;
+&lt;/out:sender&gt;
+&lt;out:recipient&gt;
+&lt;out:id&gt;RECEIVERCODE&lt;/out:id&gt;
+&lt;/out:recipient&gt;
+&lt;out:dateTime&gt;
+&lt;out:date&gt;270217&lt;/out:date&gt;
+&lt;out:time&gt;1438&lt;/out:time&gt;
+&lt;/out:dateTime&gt;
+&lt;out:controlRef&gt;ID:f57cbf19-fc&lt;/out:controlRef&gt;
+&lt;/out:UNB&gt;
+&lt;out:interchangeMessage&gt;
+&lt;out:UNH&gt;
+&lt;out:messageRefNum&gt;1&lt;/out:messageRefNum&gt;
+&lt;out:messageIdentifier&gt;
+&lt;out:id&gt;ORDERS&lt;/out:id&gt;
+&lt;out:versionNum&gt;D&lt;/out:versionNum&gt;
+&lt;out:releaseNum&gt;96A&lt;/out:releaseNum&gt;
+&lt;out:controllingAgencyCode&gt;UN&lt;/out:controllingAgencyCode&gt;
+&lt;/out:messageIdentifier&gt;
+&lt;/out:UNH&gt;</p>
+<p>Based on this XML file, you can transform the messages via a XSLT. The transformation component has several features. The Basic settings view is:</p>
+<p align="center"><img src="../../img/howto edifact-how2-image1"></p>
+<p>The Id, Input channel and Output channel are known and will not be discussed.</p>
+<ul>
+<li>UN/EDIFACT version: This is the version of the incoming EDIFACT message. This determines what transformation eMagiz will use and how the EDIFACT file should be interpreted. You can find your EDIFACT version in the UNH segment:
+UNH+1+ORDERS:D:96A:UN'. In this case the version is D:96.</li>
+<li>Delete files: Specify whether the source file should be deleted. Used if you picked up the file from a local folder of SFTP. Best practice is to delete your original files, as you do not need them anymore in most cases.</li>
+</ul>
+<p>The advanced settings that are available. Mostly you don’t need to change the settings here. Use the target selector f you need to split a EDIFACT file into multiple XML files. You can enter in this field the entity where you would like to split the files.</p>
+<ul>
+<li>Target selector: Expression for splitting the EDI message into smaller fragments. Default is the entire EDI message.</li>
+<li>Selector namespace: If required, you can add here the namespace for the expression above.</li>
+<li>Requires reply: Set to true if you expect that the result of this transformer always leads to at least one output message.</li>
+<li>Apply sequence: Set to true if you would like to have a sequence number to your output messages.</li>
+<li>Send timeout: Set if the transformation cannot take longer than a certain amount of time.</li>
+<li>Validate: Set to true if the incoming message validates against the EDIFACT content fields as data type, min and max length. Structure of the document is always validated during this transformation.</li>
+<li>Ignore new lines: Set to true if you would ignore unexpected new lines.</li>
+<li>Ignore empty nodes: Set to true if you would ignore unexpected empty nodes.</li>
+</ul>
+<p align="center"><img src="../../img/howto edifact-how2-image2"></p>
+<h2><a class="anchor" aria-hidden="true" id="xml-to-edifact"></a><a href="#xml-to-edifact" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>XML to EDIFACT</h2>
+<p>In order to transform a XML to an EDIFACT file, you can use the XML to UN/EDIFACT transformer component. Important is to structure your XML correctly in EDI-XML. Since the EDIFACT message can grow rapidly due to its many features, its XML structure can be complex to build.</p>
+<p align="center"><img src="../../img/howto edifact-how2-image3"></p>
+<ul>
+<li>UN/EDIFACT version: This is the version of the outgoing EDIFACT message. This determines what transformation eMagiz will use and how the XML file should be interpret. Your EDIFACT version should meet with what is stated in the UNH component. Voorbeeld?
+In comparison to the advanced settings for incoming EDIFACT messages, the advanced settings for the outgoing EDIFACT messages are more relevant to use.</li>
+</ul>
+<p align="center"><img src="../../img/howto edifact-how2-image4"></p>
+<ul>
+<li>Validate: Set this value to Yes if you would like to validate the structure of the EDIFACT file. This means that not the values are checked but data validation on data type, minimal length or maximal length.</li>
+<li>Segment line break: If you would like to add new lines, you can set delimiter character. This could be for example the ‘ character as shown in the example earlier in this document.</li>
+<li>Charset: Character set which is used to decode the incoming XML message into text. Default is UTF-8.</li>
+<li>Send timeout: This setting is not widely used. Use it if you want to have a timeout when the component takes too much time to transform the message into an EDIFACT file.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction--what-is-edifact">Introduction – What is EDIFACT?</a></li><li><a href="#edifact-to-xml">EDIFACT to XML</a></li><li><a href="#xml-to-edifact">XML to EDIFACT</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
