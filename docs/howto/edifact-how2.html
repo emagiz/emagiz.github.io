@@ -25,14 +25,7 @@ A group or segment can be mandatory (M) or conditional (C) and can be specified 
 <li>M99 signifies between 1 and 99 repetitions of a segment or group
 A group, like a message, is a sequence of segments or groups. The first segment or group beneath a group must be mandatory, and the group should be made conditional if the logic of the situation demands it.</li>
 </ul>
-<p>|<em>Service String Advice              UNA  Optional
-|____Interchange Header              UNB  Mandatory
-:    |<strong><em>Functional Group Header     UNG  Conditional
-:    :   |<em><strong>Message Header          UNH  Mandatory
-:    :   :   |</strong> User Data Segments          As required
-:    :   |</em></em> Message Trailer         UNT  Mandatory
-:    |</strong> Functional Group Trailer    UNE  Conditional
-|</em>__ Interchange Trailer             UNZ  Mandatory</p>
+<p align="center"><img src="../../img/howto/edifact-how2-image5"></p>
 <p>An example of how an EDIFACT file (partly) looks like is:
 UNA:+.? ' UNB+UNOC:3+SENDERCODE+RECEIVERCODE+270217:1438+ID:f57cbf19-fc' UNH+1+ORDERS:D:96A:UN' BGM+220+AB123456+9' DTM+137:20170115212655:204' RFF+ON:'
 More information about the different message types and their structure can be found here:
@@ -76,7 +69,7 @@ Into
 &lt;/out:messageIdentifier&gt;
 &lt;/out:UNH&gt;</p>
 <p>Based on this XML file, you can transform the messages via a XSLT. The transformation component has several features. The Basic settings view is:</p>
-<p align="center"><img src="../../img/howto edifact-how2-image1"></p>
+<p align="center"><img src="../../img/howto/edifact-how2-image1"></p>
 <p>The Id, Input channel and Output channel are known and will not be discussed.</p>
 <ul>
 <li>UN/EDIFACT version: This is the version of the incoming EDIFACT message. This determines what transformation eMagiz will use and how the EDIFACT file should be interpreted. You can find your EDIFACT version in the UNH segment:
@@ -94,15 +87,15 @@ UNH+1+ORDERS:D:96A:UN'. In this case the version is D:96.</li>
 <li>Ignore new lines: Set to true if you would ignore unexpected new lines.</li>
 <li>Ignore empty nodes: Set to true if you would ignore unexpected empty nodes.</li>
 </ul>
-<p align="center"><img src="../../img/howto edifact-how2-image2"></p>
+<p align="center"><img src="../../img/howto/edifact-how2-image2"></p>
 <h2><a class="anchor" aria-hidden="true" id="xml-to-edifact"></a><a href="#xml-to-edifact" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>XML to EDIFACT</h2>
 <p>In order to transform a XML to an EDIFACT file, you can use the XML to UN/EDIFACT transformer component. Important is to structure your XML correctly in EDI-XML. Since the EDIFACT message can grow rapidly due to its many features, its XML structure can be complex to build.</p>
-<p align="center"><img src="../../img/howto edifact-how2-image3"></p>
+<p align="center"><img src="../../img/howto/edifact-how2-image3"></p>
 <ul>
 <li>UN/EDIFACT version: This is the version of the outgoing EDIFACT message. This determines what transformation eMagiz will use and how the XML file should be interpret. Your EDIFACT version should meet with what is stated in the UNH component. Voorbeeld?
 In comparison to the advanced settings for incoming EDIFACT messages, the advanced settings for the outgoing EDIFACT messages are more relevant to use.</li>
 </ul>
-<p align="center"><img src="../../img/howto edifact-how2-image4"></p>
+<p align="center"><img src="../../img/howto/edifact-how2-image4"></p>
 <ul>
 <li>Validate: Set this value to Yes if you would like to validate the structure of the EDIFACT file. This means that not the values are checked but data validation on data type, minimal length or maximal length.</li>
 <li>Segment line break: If you would like to add new lines, you can set delimiter character. This could be for example the ‘ character as shown in the example earlier in this document.</li>
