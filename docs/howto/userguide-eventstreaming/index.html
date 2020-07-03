@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/userguide-eventstreaming · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## User Guide Event Streaming eMagiz"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/userguide-eventstreaming · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="## User Guide Event Streaming eMagiz"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/userguide-eventstreaming</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="user-guide-event-streaming-emagiz"></a><a href="#user-guide-event-streaming-emagiz" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Guide Event Streaming eMagiz</h2>
+<p>Below the user guide for Event Streaming. In this guide we will focus on the following parts:</p>
+<ul>
+<li>Using the portal to set up Event streaming possibilities</li>
+<li>Produce messages on a event stream (Topic) as a part of a message flow in eMagiz</li>
+<li>Consume messages from an event stream (Topic) as the starting point of a message flow in eMagiz
+Should you have any questions, please contact <a href="mailto:productmanagement@emagiz.com">productmanagement@emagiz.com</a>.
+Last update: June 30th 2020</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+<li>Understanding of Event streaming concepts</li>
+<li>Toggle Feature – Event streaming made available via your partner manager for your environment</li>
+<li>Admin user coupled to eMagiz user account by your partner manager</li>
+<li>eMagiz Managed Kafka cluster available for your project (requires proper licensing and admin configuration by eMagiz)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="using-the-portal-to-set-up-event-streaming-possibilities"></a><a href="#using-the-portal-to-set-up-event-streaming-possibilities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the portal to set up Event streaming possibilities</h2>
+<p>In the Deploy phase of eMagiz you will have the option to select Event .</p>
+<p align="center"><img src="../../img/howto/userguide-es-0.png"></p>
+<p>In this screen you will have the following options:</p>
+<ul>
+<li>Users</li>
+<li>Access Control Lists (ACL)</li>
+<li>Topics</li>
+<li>Schemas</li>
+<li>Configuration Details
+Users
+Under the users tab you can create new users, view information on users or delete a user. Every time a new producer or consumer needs to be connected to the Event streaming environment you will have to create a new user via this screen.
+When you want to revoke all rights of an existing user you can remove the user via the Delete button. Don’t forget to also remove the ACL and Topic if this is the last remaining user linked to a specific Topic!</li>
+</ul>
+<p align="center"><img src="../../img/howto/userguide-es-1.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="acl"></a><a href="#acl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ACL</h3>
+<p>ACL stands for Access control list. This list states which user has which rights on which Topic. In this view you can revoke rights by pressing Delete, view the details of a specific entry in the ACL or Add an ACL entry to the list. Adding an ACL entry to the list is preferable not done here but rather via the Topics tab. The reason for this is that in this way you can link the user and the Topic to each other and on the basis of that automatically create the ACL entry.</p>
+<p align="center"><img src="../../img/howto/userguide-es-2.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="topics"></a><a href="#topics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Topics</h3>
+<p>This is the main page for the hosting of an Event Streaming solution. Under this page you can create Topics, view Topics, delete Topics, fetch messages and monitor traffic on the Topics.</p>
+ <p align="center"><img src="../../img/howto/userguide-es-3.png"></p>
+<p>Let us first look at creating a Topic. For each distinct event you should create a new Topic. For example when you measure both temperature and humidity in a room, the events that are triggered by temperature variations are placed on a separate Topic in comparison to the events that are triggered based on humidity variations.
+Creating a Topic can be done by pressing Add Topic and given the Topic a descriptive name (i.e. emagiz.es.acceptance.temperature or emagiz.es.acceptance.humidity), select the user that will receive rights on this Topic and leave the remainder to the default settings made for you. If you want to deviate from these advanced configurations, please first consult the help text provided by eMagiz.
+The buttons Monitoring and Fetch messages are created so you can monitor the Topic. Under monitoring you will see how many messages are placed on a Topic and what the size of the Topic is at the moment. Via the fetch messages button you can see which messages have been placed on the Topic, which message has been placed last in the Topic and who produced that message.
+Via the Delete option you can remove a Topic altogether. This means no messages can be produced or consumed on that specific Topic. All remaining messages that were still residing on the topic will de deleted also.</p>
+<h3><a class="anchor" aria-hidden="true" id="schemas"></a><a href="#schemas" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Schemas</h3>
+<p>Just as with the API gateway and with messaging a certain structure or schema needs can be defined. The purpose of a schema in the context of Event Streaming is to let the consumer know how the message they can consume will look like. For event streaming you can define this via the eMagiz portal by adding an AVRO schema. By creating such a schema you can specify for which Topic the message need to adhere to this schema.</p>
+ <p align="center"><img src="../../img/howto/userguide-es-4.png"></p>
+<p>Creating a schema can be done by pressing the Create subject button. In the following screen you enter the name of the subject, which should mimic the name of the Topic and add the schema. If you have trouble creating an AVRO schema please use this easy to use tool to convert a JSON message to an AVRO schema (such as <a href="https://toolslick.com/generation/metadata/avro-schema-from-json">https://toolslick.com/generation/metadata/avro-schema-from-json</a>). This in combination with the example provided in the help text gives you as user an easy way to correctly set up the schema. In future versions, graphical possibilities will be added to create these AVRO schemas without the need to use such external tools.
+Apart from creating a schema you can view it, delete it or see the version of a specific schema. By using the compatibility function you can update a schema to a newer version but by setting the compatibility to Backward compatible also make sure that producers and consumers can still exchange messages that adhere to the old structure. eMagiz provides you with several options as shown below.</p>
+ <p align="center"><img src="../../img/howto/userguide-es-5.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="config-details"></a><a href="#config-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Config details</h3>
+<p>This is a read only screen that specifies the technical connections needed to set up the Event Streaming functionality. The bootstrap server information is the part of the screen that is relevant for you as a user if you want to produce or consume messages as a part of a message flow. To learn more about this please see the sections on Produce messages on a event stream (Topic) from eMagiz and Consume messages from a event stream (Topic) via eMagiz</p>
+<h2><a class="anchor" aria-hidden="true" id="produce-messages-on-a-event-stream-topic-from-emagiz"></a><a href="#produce-messages-on-a-event-stream-topic-from-emagiz" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Produce messages on a event stream (Topic) from eMagiz</h2>
+<p>Apart from only hosting the Topics on which external parties can produce and consume messages you can also produce messages as a part of an eMagiz message flow. In this way, the eMagiz bus takes on a Hybrid position – both messaging and Event Stream configuration are done. This section will specify how you can make this work.
+In the Create phase of eMagiz you can send messages to a Topic. This can be done at any given moment in the integration (entry, onramp, offramp, exit, etc.). For example when a purchase order is executed within your integration landscape you could post the result of this purchase order on the inventory on a Topic for others to consume.</p>
+<p>To produce messages on a Topic you need two components in eMagiz:</p>
+<ol>
+<li>A Kafka template. This template sets up the connection between the producer and the server that hosts the Topics. In this component the following things need to be configured:</li>
+</ol>
+<ul>
+<li>Host and port of the server to which you want to connect to (separated by a semicolon).</li>
+<li>Security protocol. Default for an server is SSL</li>
+<li>Client ID. Identifier to determine who produces the messages</li>
+<li>A keystore (containing a p12 that identifies the client) + including password and type (PKCS12 or JKS)</li>
+<li>A truststore (containing the ca of the server that authorizes clients) + including password and type (JKS)</li>
+</ul>
+ <p align="center"><img src="../../img/howto/userguide-es-6.png"></p>
+<ol start="2">
+<li>A Kafka outbound channel adapter. This adapter produces messages on a specific Topic. To make this work you need to configure the following things:</li>
+</ol>
+<ul>
+<li>The name of the Topic on which you want to produce messages</li>
+<li>The Partition ID (default is 0) to which you want to write the message. Deviations from the standard can be made if a lot of messages need to be produced. This to reduce the load a consumer needs to process. Or in cases specific messages are only relevant for certain consumers.</li>
+<li>Link to a Kafka template</li>
+</ul>
+ <p align="center"><img src="../../img/howto/userguide-es-6.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="consume-messages-from-a-event-stream-topic-via-emagiz"></a><a href="#consume-messages-from-a-event-stream-topic-via-emagiz" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Consume messages from a event stream (Topic) via eMagiz</h2>
+<p>Apart from only hosting the Topics on which external parties can produce and consume messages you can also consume messages as a part of an eMagiz message flow. This section will specify how you can make this work.
+In the Create phase of eMagiz you can receive messages from a Topic. This could form the starting point of your integration. For example, buying certain products leads to an event telling several systems that new raw materials need to be purchased and new goods need to be produced
+To consume messages from a Topic you need two components in eMagiz:</p>
+<ol>
+<li>Kafka message listener container</li>
+</ol>
+<ul>
+<li>Host and port of the server to which you want to connect to (separated by a semicolon).</li>
+<li>Security protocol. Default for an server is SSL</li>
+<li>Group ID (Cluster ID). Identifier of the group / cluster to which the Topic belongs.</li>
+<li>A keystore (containing a p12 that identifies the client) + including password and type (PKCS12 or JKS)</li>
+<li>A truststore (containing the ca of the server that authorizes clients) + including password and type (JKS)</li>
+</ul>
+ <p align="center"><img src="../../img/howto/userguide-es-7.png"></p>
+<ol start="2">
+<li>Kafka message driven channel adapter</li>
+</ol>
+<ul>
+<li>Link to the Kafka message listener</li>
+</ul>
+ <p align="center"><img src="../../img/howto/userguide-es-8.png"></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-guide-event-streaming-emagiz">User Guide Event Streaming eMagiz</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#using-the-portal-to-set-up-event-streaming-possibilities">Using the portal to set up Event streaming possibilities</a><ul class="toc-headings"><li><a href="#acl">ACL</a></li><li><a href="#topics">Topics</a></li><li><a href="#schemas">Schemas</a></li><li><a href="#config-details">Config details</a></li></ul></li><li><a href="#produce-messages-on-a-event-stream-topic-from-emagiz">Produce messages on a event stream (Topic) from eMagiz</a></li><li><a href="#consume-messages-from-a-event-stream-topic-via-emagiz">Consume messages from a event stream (Topic) via eMagiz</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
