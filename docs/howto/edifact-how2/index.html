@@ -32,8 +32,8 @@ More information about the different message types and their structure can be fo
 <a href="https://www.truugo.com/edifact/">https://www.truugo.com/edifact/</a>
 An example of an EDIFACT file and a EDIFACT file transformed into XML can be found here:</p>
 <ul>
-<li><a href="ORDERS_edifact_example1.edifact">Example EDITFACT</a></li>
-<li>[Example XML(ORDERS-edifact-xml_example1.xml)</li>
+<li><a href="ORDERS_edifact_example1.edifact">Example EDIFACT</a></li>
+<li><a href="ORDERS-edifact-xml_example1.xml">Example XML</a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="edifact-to-xml"></a><a href="#edifact-to-xml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EDIFACT to XML</h2>
 <p>In eMagiz, you are able to both transform a XML to an EDIFACT file as from EDIFACT to XML. This chapter discusses the transformation from EDIFACT to XML.
@@ -102,7 +102,336 @@ In comparison to the advanced settings for incoming EDIFACT messages, the advanc
 <li>Charset: Character set which is used to decode the incoming XML message into text. Default is UTF-8.</li>
 <li>Send timeout: This setting is not widely used. Use it if you want to have a timeout when the component takes too much time to transform the message into an EDIFACT file.</li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction--what-is-edifact">Introduction – What is EDIFACT?</a></li><li><a href="#edifact-to-xml">EDIFACT to XML</a></li><li><a href="#xml-to-edifact">XML to EDIFACT</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<h2><a class="anchor" aria-hidden="true" id="example-edifact-message"></a><a href="#example-edifact-message" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example EDIFACT message</h2>
+<pre><code class="hljs"><span class="hljs-symbol">UNA:</span>+.? <span class="hljs-string">'UNB+UNOC:3+SENDERCODE+RECEIVERCODE+270217:1438+ID:f57cbf19-fc'</span>UNH+<span class="hljs-number">1</span>+<span class="hljs-symbol">ORDERS:</span><span class="hljs-symbol">D:</span><span class="hljs-number">96</span><span class="hljs-symbol">A:</span>UN<span class="hljs-string">'BGM+220+AB123456+9'</span>DTM+<span class="hljs-number">137:20170115212655</span><span class="hljs-symbol">:</span><span class="hljs-number">204</span><span class="hljs-string">'RFF+ON:'</span>NAD+ST+StCode++<span class="hljs-symbol">StName:</span>StCode+StStreet+StCity++StZipcode+StCountry<span class="hljs-string">'NAD+SU+SuCode++SuName:SuCode+SuStreet+SuCity++SuZipcode+SuCountry'</span>NAD+OY+ByCode++<span class="hljs-symbol">ByName:</span>ByCode+ByStreet+ByCity++ByZipcode+ByCountry<span class="hljs-string">'NAD+IV+IvCode++IvName:IvCode+IvStreet+IvCity++IvZipcode+IvCountry'</span>CUX+<span class="hljs-number">2</span><span class="hljs-symbol">:EUR</span><span class="hljs-symbol">:</span><span class="hljs-number">9+3</span><span class="hljs-symbol">:EUR</span><span class="hljs-symbol">:</span><span class="hljs-number">4</span><span class="hljs-string">'PAT+1+6::::'</span>TDT+<span class="hljs-number">12</span>++<span class="hljs-symbol">:++<span class="hljs-string">'TOD+6++::::'</span>LIN+</span><span class="hljs-number">1133435</span><span class="hljs-string">'PIA+5+LINEUNIT-00000006:AA'</span>IMD+A++::<span class="hljs-symbol">:Test</span> <span class="hljs-symbol">Item:</span><span class="hljs-string">'QTY+21:10.0:PCE'</span>QTY+<span class="hljs-number">187:0</span>.0<span class="hljs-symbol">:PCE<span class="hljs-string">'QTY+48:0.0:PCE'</span>QTY+</span><span class="hljs-number">91:0</span>.0<span class="hljs-symbol">:PCE<span class="hljs-string">'PCD+22:0.0'</span>PCD+</span><span class="hljs-number">12</span><span class="hljs-symbol">:<span class="hljs-string">'PCD+12:'</span>DTM+</span><span class="hljs-number">2:20170508</span><span class="hljs-symbol">:</span><span class="hljs-number">102</span><span class="hljs-string">'DTM+72::102'</span>DTM+<span class="hljs-number">35</span>::<span class="hljs-number">102</span><span class="hljs-string">'DTM+94::102'</span>MOA+<span class="hljs-number">66:617</span>.<span class="hljs-number">39</span><span class="hljs-symbol">:EUR<span class="hljs-string">'FTX+LIN+++0001'</span>FTX+AAI+++</span><span class="hljs-number">8f8</span>g5bff<span class="hljs-number">-9232-4e2</span>d<span class="hljs-number">-8</span>ad0-f41788dffcc7<span class="hljs-string">'PRI+AAB:'</span>PRI+<span class="hljs-symbol">AAB:</span><span class="hljs-string">'PRI+AAA:617.39'</span>PRI+<span class="hljs-symbol">AAA:</span><span class="hljs-string">'UNS+D'</span>UNT+<span class="hljs-number">61+1</span><span class="hljs-string">'UNZ+1+20170227023802'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="example-xml-message-from-edifact"></a><a href="#example-xml-message-from-edifact" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example XML message from EDIFACT</h2>
+<pre><code class="hljs"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">out:unEdifact</span> <span class="hljs-attr">xmlns:out</span>=<span class="hljs-string">"urn:org.milyn.edi.unedifact.v41"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">out:UNB</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:syntaxIdentifier</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:id</span>&gt;</span>UNOC<span class="hljs-tag">&lt;/<span class="hljs-name">out:id</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:versionNum</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">out:versionNum</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">out:syntaxIdentifier</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:sender</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:id</span>&gt;</span>SENDERCODE<span class="hljs-tag">&lt;/<span class="hljs-name">out:id</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">out:sender</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:recipient</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:id</span>&gt;</span>RECEIVERCODE<span class="hljs-tag">&lt;/<span class="hljs-name">out:id</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">out:recipient</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:dateTime</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:date</span>&gt;</span>270217<span class="hljs-tag">&lt;/<span class="hljs-name">out:date</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:time</span>&gt;</span>1438<span class="hljs-tag">&lt;/<span class="hljs-name">out:time</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">out:dateTime</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:controlRef</span>&gt;</span>ID:f57cbf19-fc<span class="hljs-tag">&lt;/<span class="hljs-name">out:controlRef</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">out:UNB</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">out:interchangeMessage</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:UNH</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:messageRefNum</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">out:messageRefNum</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:messageIdentifier</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">out:id</span>&gt;</span>ORDERS<span class="hljs-tag">&lt;/<span class="hljs-name">out:id</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">out:versionNum</span>&gt;</span>D<span class="hljs-tag">&lt;/<span class="hljs-name">out:versionNum</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">out:releaseNum</span>&gt;</span>96A<span class="hljs-tag">&lt;/<span class="hljs-name">out:releaseNum</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">out:controllingAgencyCode</span>&gt;</span>UN<span class="hljs-tag">&lt;/<span class="hljs-name">out:controllingAgencyCode</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">out:messageIdentifier</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">out:UNH</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ORDERS</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Beginning_of_message</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">DOCUMENT_MESSAGE_NAME</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Document_message_name__coded</span>&gt;</span>220<span class="hljs-tag">&lt;/<span class="hljs-name">Document_message_name__coded</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">DOCUMENT_MESSAGE_NAME</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Document_message_number</span>&gt;</span>AB123456<span class="hljs-tag">&lt;/<span class="hljs-name">Document_message_number</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Message_function__coded</span>&gt;</span>9<span class="hljs-tag">&lt;/<span class="hljs-name">Message_function__coded</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Beginning_of_message</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>137<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>&gt;</span>20170115212655<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>204<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Reference</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">REFERENCE</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Reference_qualifier</span>&gt;</span>ON<span class="hljs-tag">&lt;/<span class="hljs-name">Reference_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Reference_number</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">REFERENCE</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Reference</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Name_and_address</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Party_qualifier</span>&gt;</span>ST<span class="hljs-tag">&lt;/<span class="hljs-name">Party_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_id._identification</span>&gt;</span>StCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_id._identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-1</span>&gt;</span>StName<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-1</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-2</span>&gt;</span>StCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">STREET</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>StStreet<span class="hljs-tag">&lt;/<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">STREET</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">City_name</span>&gt;</span>StCity<span class="hljs-tag">&lt;/<span class="hljs-name">City_name</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Postcode_identification</span>&gt;</span>StZipcode<span class="hljs-tag">&lt;/<span class="hljs-name">Postcode_identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Country__coded</span>&gt;</span>StCountry<span class="hljs-tag">&lt;/<span class="hljs-name">Country__coded</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Name_and_address</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Name_and_address</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Party_qualifier</span>&gt;</span>SU<span class="hljs-tag">&lt;/<span class="hljs-name">Party_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_id._identification</span>&gt;</span>SuCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_id._identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-1</span>&gt;</span>SuName<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-1</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-2</span>&gt;</span>SuCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">STREET</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>SuStreet<span class="hljs-tag">&lt;/<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">STREET</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">City_name</span>&gt;</span>SuCity<span class="hljs-tag">&lt;/<span class="hljs-name">City_name</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Postcode_identification</span>&gt;</span>SuZipcode<span class="hljs-tag">&lt;/<span class="hljs-name">Postcode_identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Country__coded</span>&gt;</span>SuCountry<span class="hljs-tag">&lt;/<span class="hljs-name">Country__coded</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Name_and_address</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Name_and_address</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Party_qualifier</span>&gt;</span>OY<span class="hljs-tag">&lt;/<span class="hljs-name">Party_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_id._identification</span>&gt;</span>ByCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_id._identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-1</span>&gt;</span>ByName<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-1</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-2</span>&gt;</span>ByCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">STREET</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>ByStreet<span class="hljs-tag">&lt;/<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">STREET</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">City_name</span>&gt;</span>ByCity<span class="hljs-tag">&lt;/<span class="hljs-name">City_name</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Postcode_identification</span>&gt;</span>ByZipcode<span class="hljs-tag">&lt;/<span class="hljs-name">Postcode_identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Country__coded</span>&gt;</span>ByCountry<span class="hljs-tag">&lt;/<span class="hljs-name">Country__coded</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Name_and_address</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Name_and_address</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Party_qualifier</span>&gt;</span>IV<span class="hljs-tag">&lt;/<span class="hljs-name">Party_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_id._identification</span>&gt;</span>IvCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_id._identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_IDENTIFICATION_DETAILS</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-1</span>&gt;</span>IvName<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-1</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Party_name_-_-2</span>&gt;</span>IvCode<span class="hljs-tag">&lt;/<span class="hljs-name">Party_name_-_-2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PARTY_NAME</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">STREET</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>IvStreet<span class="hljs-tag">&lt;/<span class="hljs-name">Street_and_number_p.o._box_-_-1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">STREET</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">City_name</span>&gt;</span>IvCity<span class="hljs-tag">&lt;/<span class="hljs-name">City_name</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Postcode_identification</span>&gt;</span>IvZipcode<span class="hljs-tag">&lt;/<span class="hljs-name">Postcode_identification</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Country__coded</span>&gt;</span>IvCountry<span class="hljs-tag">&lt;/<span class="hljs-name">Country__coded</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Name_and_address</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_7</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Currencies</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">CURRENCY_DETAILS_-_-1</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Currency_details_qualifier</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">Currency_details_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Currency__coded</span>&gt;</span>EUR<span class="hljs-tag">&lt;/<span class="hljs-name">Currency__coded</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Currency_qualifier</span>&gt;</span>9<span class="hljs-tag">&lt;/<span class="hljs-name">Currency_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">CURRENCY_DETAILS_-_-1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">CURRENCY_DETAILS_-_-2</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Currency_details_qualifier</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">Currency_details_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Currency__coded</span>&gt;</span>EUR<span class="hljs-tag">&lt;/<span class="hljs-name">Currency__coded</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Currency_qualifier</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">Currency_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">CURRENCY_DETAILS_-_-2</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Currencies</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_7</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_8</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Payment_terms_basis</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Payment_terms_type_qualifier</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">Payment_terms_type_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PAYMENT_TERMS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Terms_of_payment_identification</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">Terms_of_payment_identification</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Terms_of_payment_-_-1</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Terms_of_payment_-_-2</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PAYMENT_TERMS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Payment_terms_basis</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_8</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_9</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Details_of_transport</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Transport_stage_qualifier</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">Transport_stage_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">MODE_OF_TRANSPORT</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Mode_of_transport</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">MODE_OF_TRANSPORT</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">CARRIER</span>/&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Details_of_transport</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_9</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_11</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Terms_of_delivery_or_transport</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Terms_of_delivery_or_transport_function__coded</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">Terms_of_delivery_or_transport_function__coded</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">TERMS_OF_DELIVERY_OR_TRANSPORT</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Terms_of_delivery_or_transport_-_-1</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Terms_of_delivery_or_transport_-_-2</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">TERMS_OF_DELIVERY_OR_TRANSPORT</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Terms_of_delivery_or_transport</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_11</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_25</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Line_item</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Line_item_number</span>&gt;</span>10000<span class="hljs-tag">&lt;/<span class="hljs-name">Line_item_number</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Line_item</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Additional_product_id</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Product_id._function_qualifier</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">Product_id._function_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ITEM_NUMBER_IDENTIFICATION_-_-1</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Item_number</span>&gt;</span>LINEUNIT-00000006<span class="hljs-tag">&lt;/<span class="hljs-name">Item_number</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Item_number_type__coded</span>&gt;</span>AA<span class="hljs-tag">&lt;/<span class="hljs-name">Item_number_type__coded</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ITEM_NUMBER_IDENTIFICATION_-_-1</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Additional_product_id</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Item_description</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Item_description_type__coded</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">Item_description_type__coded</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ITEM_DESCRIPTION</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Item_description_-_-1</span>&gt;</span>Test Item<span class="hljs-tag">&lt;/<span class="hljs-name">Item_description_-_-1</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Item_description_-_-2</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ITEM_DESCRIPTION</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Item_description</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity_qualifier</span>&gt;</span>21<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>10.0<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>PCE<span class="hljs-tag">&lt;/<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity_qualifier</span>&gt;</span>187<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>0.0<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>PCE<span class="hljs-tag">&lt;/<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity_qualifier</span>&gt;</span>48<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>0.0<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>PCE<span class="hljs-tag">&lt;/<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity_qualifier</span>&gt;</span>91<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>0.0<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>PCE<span class="hljs-tag">&lt;/<span class="hljs-name">Measure_unit_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">QUANTITY_DETAILS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Percentage_details</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PERCENTAGE_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Percentage_qualifier</span>&gt;</span>22<span class="hljs-tag">&lt;/<span class="hljs-name">Percentage_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Percentage</span>&gt;</span>0.0<span class="hljs-tag">&lt;/<span class="hljs-name">Percentage</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PERCENTAGE_DETAILS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Percentage_details</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Percentage_details</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PERCENTAGE_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Percentage_qualifier</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">Percentage_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Percentage</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PERCENTAGE_DETAILS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Percentage_details</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Percentage_details</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">PERCENTAGE_DETAILS</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Percentage_qualifier</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">Percentage_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Percentage</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">PERCENTAGE_DETAILS</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Percentage_details</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>&gt;</span>20170508<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>102<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>72<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>102<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>35<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>102<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>94<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>102<span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period_format_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">DATE_TIME_PERIOD</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Date_time_period</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Monetary_amount</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">MONETARY_AMOUNT</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Monetary_amount_type_qualifier</span>&gt;</span>66<span class="hljs-tag">&lt;/<span class="hljs-name">Monetary_amount_type_qualifier</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Monetary_amount</span>&gt;</span>617.39<span class="hljs-tag">&lt;/<span class="hljs-name">Monetary_amount</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Currency__coded</span>&gt;</span>EUR<span class="hljs-tag">&lt;/<span class="hljs-name">Currency__coded</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">MONETARY_AMOUNT</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Monetary_amount</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Free_text</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Text_subject_qualifier</span>&gt;</span>LIN<span class="hljs-tag">&lt;/<span class="hljs-name">Text_subject_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">TEXT_LITERAL</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Free_text_-_-1</span>&gt;</span>0001<span class="hljs-tag">&lt;/<span class="hljs-name">Free_text_-_-1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">TEXT_LITERAL</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Free_text</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Free_text</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Text_subject_qualifier</span>&gt;</span>AAI<span class="hljs-tag">&lt;/<span class="hljs-name">Text_subject_qualifier</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">TEXT_LITERAL</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Free_text_-_-1</span>&gt;</span>8f8g5bff-9232-4e2d-8ad0-f41788dffcc7<span class="hljs-tag">&lt;/<span class="hljs-name">Free_text_-_-1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">TEXT_LITERAL</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Free_text</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_28</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Price_details</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price_qualifier</span>&gt;</span>AAB<span class="hljs-tag">&lt;/<span class="hljs-name">Price_qualifier</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Price_details</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_28</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_28</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Price_details</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price_qualifier</span>&gt;</span>AAB<span class="hljs-tag">&lt;/<span class="hljs-name">Price_qualifier</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Price_details</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_28</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_28</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Price_details</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price_qualifier</span>&gt;</span>AAA<span class="hljs-tag">&lt;/<span class="hljs-name">Price_qualifier</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>617.39<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Price_details</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_28</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Segment_group_28</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Price_details</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price_qualifier</span>&gt;</span>AAA<span class="hljs-tag">&lt;/<span class="hljs-name">Price_qualifier</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>/&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">PRICE_INFORMATION</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Price_details</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_28</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Segment_group_25</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Section_control</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">SECTION_IDENTIFICATION</span>&gt;</span>D<span class="hljs-tag">&lt;/<span class="hljs-name">SECTION_IDENTIFICATION</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Section_control</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ORDERS</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:UNT</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:segmentCount</span>&gt;</span>61<span class="hljs-tag">&lt;/<span class="hljs-name">out:segmentCount</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">out:messageRefNum</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">out:messageRefNum</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">out:UNT</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">out:interchangeMessage</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">out:UNZ</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:controlCount</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">out:controlCount</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">out:controlRef</span>&gt;</span>20170227023802<span class="hljs-tag">&lt;/<span class="hljs-name">out:controlRef</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">out:UNZ</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">out:unEdifact</span>&gt;</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction--what-is-edifact">Introduction – What is EDIFACT?</a></li><li><a href="#edifact-to-xml">EDIFACT to XML</a></li><li><a href="#xml-to-edifact">XML to EDIFACT</a></li><li><a href="#example-edifact-message">Example EDIFACT message</a></li><li><a href="#example-xml-message-from-edifact">Example XML message from EDIFACT</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
