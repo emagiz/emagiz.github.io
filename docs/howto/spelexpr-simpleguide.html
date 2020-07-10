@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/spelexpr-simpleguide · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## CONTEXT AND REQUIREMENTS"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/spelexpr-simpleguide · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="## CONTEXT AND REQUIREMENTS"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/spelexpr-simpleguide</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="context-and-requirements"></a><a href="#context-and-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CONTEXT AND REQUIREMENTS</h2>
+<p>The tools in eMagiz provide a wide range of options to build your integrations with. In some of the building blocks in the model, capability can be extended using SPeL expressions. SPeL expressions are derived from the Spring Integration Framework and stands for Spring Expression Language. SPEL expressions are very powerful and handy, yet basic knowledge of SPEL expressions is required to add or modify behavior of specific flows in eMagiz. Ensure to use annotations to describe the behavior of the component that has a SPEL expression to allow for easy maintenance of the flow.
+SpEL expressions are used in many variations and applications, for example:</p>
+<ul>
+<li>To split a single adress line into separate values, for example Address: Transportcentrum 16 into Street: Transportcentrum and HouseNumber: 16.</li>
+<li>To validate and match an API Key to a specific partner and also secure your webservice.</li>
+<li>To create an if-statement using header values.</li>
+<li>To determine if an value in your message is listed in a list and use it as an filter
+Requirements</li>
+<li>Access to - and good understanding of eMagiz</li>
+<li>A (very) basic understanding of Java</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="how-to-steps"></a><a href="#how-to-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HOW-TO STEPS</h2>
+<p>Following you will find a couple of examples to make use of SpEL expression. These are not directly complicated but give you a impression of the power of the SpEL. In chapter 3 several links are provided containing more information on SpEL expressions.</p>
+<h3><a class="anchor" aria-hidden="true" id="message-structure"></a><a href="#message-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Message structure</h3>
+<p>Below you see a breakdown of the structure of how SpEL interprets a message. It starts with a root entity, this contains the payload as well the headers. The payload of course contains the message passing through eMagiz at moment of using the expression.
+And headers contains a list of headers with their values that the messages contains. In this example the message contains 3 headers with the names ‘messageID’, ‘onebam_messageType” and ‘onebam_targetSystem’ containing the values ‘123412312412312’,’order’ and ‘’.
+{&quot;root&quot;: {
+&quot;payload&quot;: &quot;inhoud van bericht&quot;,
+&quot;headers&quot;: {
+&quot;messageID&quot;: &quot;123412312412312&quot;,
+&quot;onebam_messageType&quot;: &quot;order&quot;,
+&quot;onebam_targetSystem&quot;: &quot;sucfact, sapo, ibas&quot;
+}
+}}</p>
+<h3><a class="anchor" aria-hidden="true" id="logical-operation"></a><a href="#logical-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logical operation</h3>
+<p>A simple example of a SpEL expression is an expression in which you execute a logical operation. In the below example the message may pass through when the header named error has the value ‘yes’. In all other cases the message while be send to the discard channel</p>
+<p align="center"><img src="../../img/howto/spelexp-image1.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="payload-in-header"></a><a href="#payload-in-header" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Payload in header</h3>
+<p>A standard header enricher gives you the option to add information on top of the payload. In this example a new header is added with the name ‘backup’ and the value of the header is the complete payload of the current message, value = ‘payload’.
+Take notice that ‘Type’ is a SpEL expression. This expression is filled in on the tab ‘Advanced’.</p>
+<p align="center"><img src="../../img/howto/spelexp-image2.png"></p>
+<p>Other examples that can be used to fill a header or to retrieve certain information from a message :</p>
+<ul>
+<li><p>headers.MessageID
+- Takes the value of the header with the name ‘MessageID’</p></li>
+<li><p>#xpath(payload,'//<em>:StandardBusinessDocumentHeader/</em>:Receiver/*:Identifier')</p>
+<ul>
+<li>Executes the stated xpath inside the current payload and retrieves this value.</li>
+</ul></li>
+<li><p>xpath(payload,'//<em>:StandardBusinessDocumentHeader/</em>:Receiver/*:Identifier', 'node_list').![textContent.toLowerCase().substring(0,3)])</p>
+<ul>
+<li>Takes the first three characters of the values of the Identifier elements in the message (see below) and creates a node list value, it also places the values in lowercase.
+<StandardBusinessDocumentHeader>
+<Receiver>
+<Identifier>caP001</Identifier>
+</Receiver>
+<Receiver>
+<Identifier>cap002</Identifier>
+</Receiver>
+<Receiver>
+<Identifier>hst001</Identifier>
+</Receiver>
+</StandardBusinessDocumentHeader></li>
+<li>Result: {'cap','cap','hst'}</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="routing-flow"></a><a href="#routing-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Routing flow</h3>
+<p>Below you will find the best practise to build the routing flow in eMagiz. This best practice makes use of the standard router where you can use a SpEL Expression to route your message. That SpEL Expression looks like this: “headers.bus_targetSystem.split(',').![#this.trim()+#root.headers.bus_messageType]”.
+The first part of the SpEL Expression looks at the ‘bus_targetSystem’ header of the message. This header can consist of multiple values separated with a ‘,’ (comma). So a message can be routed to multiple target systems. The second part of the SpEL Expression looks at the ‘bus_messageType’ header of the message. The result of this SpEL expression can be multiple values since the message can have multiple ‘bus_targetSystem’ headers.</p>
+<p>To give an example.
+Input message
+Header: bus_targetSystem: TMS, FMS
+Header: bus_messageType: Order
+Will be routed to the following value mappings:
+TMSOrder
+FMSOrder</p>
+<p align="center"><img src="../../img/howto/spelexp-image3.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="authorization-in-entry-flow"></a><a href="#authorization-in-entry-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization in Entry flow</h3>
+<p>SpEL expressions could also be utilized to verify if a client is authorized to access a webservice (REST or SOAP) in eMagiz. Below you will find an example of how you can use a Standard filter component to check if the incoming message is authorised to be send to the eMagiz bus:
+“headers['Authorization'] == '${authentication.inbound.api-key}'”
+In this case the value in the Authorization header needs to be equal to the value stored in your property.</p>
+<h2><a class="anchor" aria-hidden="true" id="relevant-links"></a><a href="#relevant-links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RELEVANT LINKS</h2>
+<p>Below you can find a list of relevant links that provide you with even more context surrounding SpEL expressions:</p>
+<ul>
+<li><a href="https://www.baeldung.com/spring-expression-language">https://www.baeldung.com/spring-expression-language</a> (great explanation on SpEL and it various applications)</li>
+<li><a href="https://docs.spring.io/spring/docs/4.3.10.RELEASE/spring-framework-reference/html/expressions.html">https://docs.spring.io/spring/docs/4.3.10.RELEASE/spring-framework-reference/html/expressions.html</a> (more in depth explanation how SpEL expressions relates to the Spring framework)</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#context-and-requirements">CONTEXT AND REQUIREMENTS</a></li><li><a href="#how-to-steps">HOW-TO STEPS</a><ul class="toc-headings"><li><a href="#message-structure">Message structure</a></li><li><a href="#logical-operation">Logical operation</a></li><li><a href="#payload-in-header">Payload in header</a></li><li><a href="#routing-flow">Routing flow</a></li><li><a href="#authorization-in-entry-flow">Authorization in Entry flow</a></li></ul></li><li><a href="#relevant-links">RELEVANT LINKS</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
