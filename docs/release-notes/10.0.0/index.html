@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.0.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.0.0, released 2020-07-01"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.0.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.0.0, released 2020-07-01"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.0.0</h1></header><article><div><span><p>Version 10.0.0, released 2020-07-01</p>
+<p>Release adding support for processing JSON messages to the integrated eMagiz message definition and transformation visual DSLs. Additionally, most underlying technologies are updated to the latest major versions such as Mendix 8 and Spring 5, bringing some changes and new features with them.
+New features
+New options and components available in the flow designer, mainly improving the existing functionality and adding flexibility:
+[WS] New (advanced) option 'extract payload' added to 'Web service outbound gateway'.
+[Mail] New (advanced) options 'cancel idle interval', 'simple content' and 'auto-close folder' added to 'IMAP idle channel adapter'.
+[Mail] New (advanced) options 'simple content' and 'auto-close folder' added to 'mail inbound channel adapter'.
+[TCP] New (advanced) option 'close stream after send' added to 'TCP outbound gateway'.
+[TCP] New (advanced) option 'connect timout' added to 'TCP connection factory'.
+[JMS] New (advanced) options 'delivery mode expression' and 'time to live expression' added to 'JMS outbound channel adapter'.
+[Core] New (advanced) option 'not propagated headers' added to 'standard service activator'.
+[File] New (advanced) options 'filter expression' and 'scan each poll' added to 'file inbound channel adapter'.
+[File] New (advanced) option 'chmod' and new mode 'replace if modified' added to 'file outbound channel adapter'.
+[FTP] New (advanced) options 'filter expression' and 'max fetch size' added to 'FTP inbound channel adapter'.
+[FTP] New (advanced) option 'chmod' and new mode 'replace if modified' added to 'FTP outbound channel adapter'.
+[SFTP] New (advanced) options 'filter expression' and 'max fetch size' added to 'SFTP inbound channel adapter'.
+[SFTP] New mode 'replace if modified' added to 'SFTP outbound channel adapter'.
+[JDBC] Option 'max rows per poll' changed to 'max rows' on 'JDBC outbound gateway' and 'JDBC inbound channel adapter'.
+[Core] Option 'timeout' changed to 'send timeout' on all routers.
+[Core] Options 'request timeout' and 'reply timeout' on 'service gateway' now support SpEL expressions.
+[XML] New (advanced) option 'converter' added to 'XPath header enricher'.
+[XML] New (advanced) option 'converter' added to 'XPath transformer'.
+[XML] New (advanced) option 'converter' added to 'XPath router'.
+[XML] New (advanced) option 'XML converter' added to 'XML validating filter'.
+[XML] New (advanced) option 'source factory' added to 'XSLT transformer'.
+[JSON] New support object 'JSON source factory'. This support object can be used to enable flow components 'XSLT transformer', 'XML validating filter', 'XPath header enricher', 'XPath transformer' and 'XPath router' to work on JSON messages instead of XML messages.
+[JSON] New support object 'JSON result factory'. This support object can be used to enable flow component 'XSLT transformer' to output JSON messages instead of XML messages.
+[JSON] New support object 'JSON result transformer'. This support object can be used (in combination with the new 'JSON result factory' support object) to enable flow component 'XSLT transformer' to output JSON messages instead of XML messages.
+The eMagiz visual DSLs for data models, message definitions, message mappings and transformations previously could only work with XML messages. While XML is still the default when your message bus processes are generated, you can simply switch to JSON by adding one (or more) of the new support objects (see above) to your flow. From the point of view of our message definition and transformation tooling there is no difference between XML or JSON: you just build the definitions and transformations as you were always doing and in the background we take care of the syntactical differences between XML and JSON data for you.
+When doing REST calls, you can now specify custom TLS settings (such as client certificates) for each individual endpoint instead of having to rely on the global Java settings. To do this, link a 'REST template' support object to your HTTP outbound gateway or channel adapter, configure this REST template to use a request factory of type 'Apache HttpComponents' and fill in the required settings.
+Major changes
+Upgraded the portal from Mendix 7.23.11 to Mendix 8.10.2. While most things function exactly the same as before, you'll probably notice that the overall responsiveness of the UI feels better and that there is a new loading animation.
+The solution design (in the Design phase) has had a complete overhaul. The main focus was an upgrade of the underlying web technology (moving from a Dojo-based to a React-based widget architecture) and keeping the user experience (mostly) identical, but there are some changes you might notice:
+All user interaction feels &quot;snappier&quot;.
+Selection is now indicated using an animation, making it more obvious what part of the design has been selected.
+In the centre of the picture there is a new green rectangle labelled &quot;BUS&quot;. Selecting this component will highlight all message bus integrations in your design. The total number of message bus integrations is also shown below the &quot;BUS&quot; label. Right-clicking gives you options to edit the message bus settings and switch view to your message bus CDM. This change is in preparation of the new integrations types 'API gateway' and 'event streaming' that will be added in a similar way to the solution design in upcoming releases.
+Minor changes
+Create - Message bus: Optimized the way the bus picture is rendered and the data is loaded, reducing total loading times for big buses by ~50%.
+Create - Flow designer: Configuration of the Jetty server support object has been simplified. Instead of having three connector options – select channel connector, SSL channel connector and blocking channel connector – all functionality is now combined into one generic connector.
+Bug fixes
+Deploy: Fixed a problem preventing JMS server flows with build number 50 from being deployed. (Same-day hotfix)
+Create - Message definitions: Manually changing data types is possible again. (Same-day hotfix)
+Create - Unit testing &amp; Deploy - Debugger: Showing the real-time messages was not working, this has been fixed. (Same-day hotfix)
+Create - Message bus: Double clicking an eMagiz Mendix Connector entry flow (the blue connectors) gave an error. The details page now shows correcly again. (Same-day hotfix)
+Capture - Requirements designer: Fixed status (to do, doing, done) of integrations missing in the right panel. (Same-day hotfix)
+Deploy - Packages: For certain users the 'packages' page had loading times of 10+ minutes. Data loading for that page has been made more efficient, bringing loading times back to normal. (Same-day hotfix)
+Capture - Requirements designer: dragging integrations from/to systems &quot;below&quot; the screen works again. (Same-day hotfix)
+Remarks
+This release comes with a new build number (50) that adds the runtime support for the new features mentioned above. This is a large update moving most of the eMagiz runtime stack to the latest major versions of open source projects, libraries and technologies, most notably moving from Spring 4 to Spring 5. For this reason, the build number release notes contain more things to take into consideration when deploying new flows than with most other releases, so please read them carefully.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

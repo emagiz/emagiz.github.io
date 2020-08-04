@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/userguide-unitttest · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="### User Guide Unit Testing eMagiz"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/userguide-unitttest · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="### User Guide Unit Testing eMagiz"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/userguide-unitttest</h1></header><article><div><span><h3><a class="anchor" aria-hidden="true" id="user-guide-unit-testing-emagiz"></a><a href="#user-guide-unit-testing-emagiz" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Guide Unit Testing eMagiz</h3>
+<p>Below the user guide for Unit Testing. In this guide we will focus on the following parts:</p>
+<ul>
+<li>Adding Test Messages</li>
+<li>Creating a unit test</li>
+<li>Executing a unit test</li>
+<li>Validate results of unit test</li>
+</ul>
+<p>Should you have any questions, please contact <a href="mailto:productmanagement@emagiz.com">productmanagement@emagiz.com</a>.</p>
+<p>Last update: July 24th 2020</p>
+<h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+<li>Understanding of Unit testing concept</li>
+<li>On- or offramp (without splitter or router) that needs to be tested</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>The eMagiz platform gives the user the option to test certain flows via the unit test functionality embedded in the platform. With the help of this functionality you can more easily develop and thoroughly test functionality that is build in these flow as ever before. Making use of this functionality consists of the following four steps:</p>
+<ol>
+<li>Adding Test Messages</li>
+<li>Creating a unit test</li>
+<li>Executing a unit test</li>
+<li>Validate results of unit test</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="adding-test-messages"></a><a href="#adding-test-messages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding Test messages</h2>
+<p>The first step would be to add a test message. Ideally these messages are known in advance and part of the Discovery. In eMagiz there is a centralized place where you store all relevant files and data belonging to an integration and that is Capture.
+For adding test messages this is the same. In Capture you have the tab called Message Content. In this tab you have the option to navigate to Test messages.</p>
+<p align="center"><img src="../../img/howto/unittest-image1.png"></p>
+<p>In this view you have the option to Create a new message, Edit an existing message or Delete a message. When pressing Create or Edit you end up in the following screen</p>
+<p align="center"><img src="../../img/howto/unittest-image2.png"></p>
+<p>In here you enter or change a Name for your message and the payload of the message resulting in something like this. After pressing save you have stored your test message which can be used in a unit test. Be aware, the name is crucial as all test messages are shown when you want to select one as input or output of your integration. Discuss a proper naming convention amongst those with whom you develop.</p>
+<p align="center"><img src="../../img/howto/unittest-image3.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="creating-a-unit-test"></a><a href="#creating-a-unit-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a unit test</h2>
+<p>On flow level in eMagiz you can create a unit test that is specific for that flow. This can be done by pressing the Configure tests button located on the bottom of your screen. For making a unit test the editing modus on the flow is not mandatory.
+Pressing this button leads to the following screen. In the left hand side panel you see all test messages that are coupled to integrations in Capture. Therefore it is wise to name your messages accordingly.</p>
+<p align="center"><img src="../../img/howto/unittest-image4.png"></p>
+<p>First step in creating a unit test is to link messages to the components in the flow that have a orange icon with a exclamation mark linked to them. This action is mandatory for the inbound and optional for the outbound adapter(s).
+So lets first link a message to only the inbound adapter. This can be done by opening up the list on the left side, selecting the correct message and dragging it onto the inbound adapter. If you were successful the icon should have disappeared as is shown below.</p>
+<p align="center"><img src="../../img/howto/unittest-image5.png"></p>
+<p>If you have an expected outcome in case of success (message reaches the last component of your flow in the structure as expected) and/or in case of failure (messages goes wrong somewhere) you could also link these to their respective components.
+Next step is to press the Add test button, Press Edit and select the correct Input message.</p>
+<p align="center"><img src="../../img/howto/unittest-image6.png"></p>
+<p>After you have selected the correct message press Done and give the Unit Test a name (by pressing the pencil icon)</p>
+<p align="center"><img src="../../img/howto/unittest-image7.png"></p>
+<p>Congratulations, you have successfully create a unit test!</p>
+<h2><a class="anchor" aria-hidden="true" id="executing-a-unit-test"></a><a href="#executing-a-unit-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Executing a unit test</h2>
+<p>You can simple execute a unit test by pressing the Run test button. After this eMagiz will show you the following popup. In case properties are used in the flow you are about to test you need to add values for them. If not just press Run Test (Note: When you are the first of the day using the functionality the Unit Testing bus needs to wake up. Therefore it can take a while until you get a result)</p>
+<p align="center"><img src="../../img/howto/unittest-image8.png"></p>
+<p>When no popup indicating an error shows up the test has run successfully. Congratulation! The color of the backscreen indicates the result of the test. For more information on validating the result please see the section on Validate result of unit test.
+Validate result of unit test
+After you ran the test eMagiz gives you, the user, feedback in two ways:</p>
+<ol>
+<li>The color of the background of the screen (red means failed, green means success)</li>
+<li>Showing the state of the message in each component it passes
+Let’s look into these two ways with a little bit more detail</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="feedback-through-color-of-background"></a><a href="#feedback-through-color-of-background" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Feedback through color of background</h2>
+<p>As specified before the color of the background is a quick indicator to the user telling the user if the executed test was successful or not. If the background turns red it means the test was not successful. Be aware, when you do not define an expected outcome the result of the test will always be failed and therefore the color will also be red. For an example see below</p>
+<p align="center"><img src="../../img/howto/unittest-image9.png"></p>
+<p>After you have specified the expected outcome of the flow the screen will turn green if the actual result equals (in every detail) the expected outcome. If the actual message does not match the expected outcome the background will turn red. See below for a green result!</p>
+<p align="center"><img src="../../img/howto/unittest-image10.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="state-of-message-throughout-the-flow"></a><a href="#state-of-message-throughout-the-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>State of message throughout the flow</h2>
+<p>eMagiz will also give you feedback on how the message looks like in every component of the flow it passed. This way you can validate if certain headers are set correctly and if certain transformations were successful. Below is an example of comparing the input and output of the transformation component shown in the flow. In here you can see in detail what the transformation has done. This way you can determine whether the change you have just made was indeed successful.</p>
+<p align="center"><img src="../../img/howto/unittest-image11.png"></p>
+<p>Now you have successfully learned how to implement a unit test within eMagiz and test it you can develop more effectively and more robust.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#introduction">Introduction</a></li><li><a href="#adding-test-messages">Adding Test messages</a></li><li><a href="#creating-a-unit-test">Creating a unit test</a></li><li><a href="#executing-a-unit-test">Executing a unit test</a></li><li><a href="#feedback-through-color-of-background">Feedback through color of background</a></li><li><a href="#state-of-message-throughout-the-flow">State of message throughout the flow</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
