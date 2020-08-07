@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/userguide-legacyconstructs · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Identification Legacy parts"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/userguide-legacyconstructs · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="## Identification Legacy parts"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/userguide-legacyconstructs</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="identification-legacy-parts"></a><a href="#identification-legacy-parts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Identification Legacy parts</h2>
+<p>Below you will find several sections that identify parts of the framework that are deemed legacy and are replaced by newer and better alternatives. The guide is split up per legacy part. Per section we describe the legacy method, the new method and how to migrate from legacy to new. Should you have any questions, please contact <a href="mailto:productmanagement@emagiz.com">productmanagement@emagiz.com</a>.
+Last update: August 8th 2020</p>
+<h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-old-transformation-tooling"></a><a href="#1-old-transformation-tooling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Old Transformation Tooling</h2>
+<p>A key feature of eMagiz always has been the manner in which you can visually see what you need to transform from A to B. At a certain point eMagiz provided a new way of Designing the transformation. This meant two things. The Design phase in eMagiz has now become the place to set up your transformations instead of doing everything in Create. This way your process of developing an integration became more intuitive and less complex.</p>
+<h3><a class="anchor" aria-hidden="true" id="legacy-approach"></a><a href="#legacy-approach" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Legacy approach</h3>
+<p>You can identify Legacy resources (transformation or validation) by navigating to Create -&gt; Resources. In here you can search for XML definition (classic) or XML transformation (classic). All results given back mean that these resources are created with the old transformation tooling and need to be migrated if the resource in question is still being used in a flow. You can see whether they are still used by looking at the configuration column.</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-1.png"></p>
+<p>Opening a definition in the old tooling will look like this</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-2.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="new-approach"></a><a href="#new-approach" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New approach</h3>
+<p>You can identify New resources (transformation or validation) by navigating to Create -&gt; Resources. In here you can search for Message Definition or Message Transformation. All results given back mean that these resources are created with the new transformation tooling. These resources don’t need to be migrated. You can see whether they are still used by looking at the configuration column. If not used you can remove, after verifying if they are indeed not used anymore, these resources as part of your lifecycle management process.</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-3.png"></p>
+<p>Opening a definition in the new tooling will look something like this</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-4.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="how-to-get-to-the-new-approach"></a><a href="#how-to-get-to-the-new-approach" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to get to the new approach</h3>
+<p>Migrating from the old tooling to the new tooling takes several steps to make it work correctly. Below you will find all these steps. Follow them carefully to achieve the desired result</p>
+<ol>
+<li>Download the XSD, from Create -&gt; Resources, of the system message for the flow you want to migrate</li>
+<li>Download the XSD, from Create -&gt; Resources, of the CDM message for the flow you want to migrate</li>
+<li>Download the XSLT, from Create -&gt; Resources, of the transformation between the system message and CDM</li>
+<li>Navigate to Design</li>
+<li>Open the CDM</li>
+<li>Open the XSD of the CDM message to see how the CDM message looks</li>
+<li>Verify if the entities and attributes in your CDM message are already available in the CDM that you have currently open</li>
+</ol>
+<ul>
+<li>If yes, continue with step 9</li>
+<li>If no, continue with step 8</li>
+</ul>
+<ol start="8">
+<li>Add the missing entities and attributes to your CDM that are needed in your CDM message</li>
+<li>Open the message type of the flow for which you want to migrate</li>
+<li>Construct the CDM message based on the XSD you downloaded in step 2
+At this point you have successfully migrated your CDM XSD to the new transformation tooling</li>
+<li>Navigate to Capture</li>
+<li>Open the information page for the flow for which you want to migrate</li>
+<li>Add the XSD that you downloaded in step 1 as XSD to Message Content</li>
+<li>Navigate to Design</li>
+<li>Open the system message page for the flow for which you want to migrate</li>
+<li>Press the import button and select From Capture</li>
+<li>Select the XSD you have added to Capture in Step 13
+Congratulations, at this point you have successfully migrated your system message to the new transformation tooling</li>
+<li>Navigate to the message mapping page.</li>
+<li>Draw the lines between system message and CDM (or vice versa) based on the XSLT you downloaded in step 3. Based on the color of the background you can see which part of the screen is CDM (green) and system message (blue)
+Now you have successfully transformed the XSLT into the Message Mapping in Design</li>
+<li>Navigate to Create</li>
+<li>Open the flow for which you want to migrate</li>
+<li>Open the tabs System message, CDM message and Transformation one by one to verify if the results of the previous steps in Design are visible in Create.</li>
+<li>Press Start Editing</li>
+<li>Navigate to Resources</li>
+<li>Press Add bus resources to flow</li>
+<li>Search for the correct resources and add them to the flow</li>
+</ol>
+<ul>
+<li>In a onramp you need the system message validation and the transformation from system to CDM</li>
+<li>In a offramp you need the CDM message validation and the transformation from CDM to system</li>
+</ul>
+<ol start="27">
+<li>Link the resources to their respective components in the flow
+After this you have successfully linked the new transformation tooling resources to your flow in Create</li>
+<li>Verify based on the XSLT downloaded in step 3 if changes have to be made to the transformation made in step 19. This can de done by comparing the old and new XSLT. The new XSLT can be downloaded via the Resources tab of the flow</li>
+</ol>
+<ul>
+<li>If no changes are necessary, continue with step 30</li>
+<li>If changes are necessary, continue with step 29</li>
+</ul>
+<ol start="29">
+<li>Recreate the old mapping logic via the Transformation page in the flow. This can be done in various ways</li>
+</ol>
+<ul>
+<li>Filter</li>
+<li>Transformation</li>
+<li>Static Input</li>
+<li>Aggregation</li>
+<li>Grouping
+Now you have migrated from the old to the new tooling. Last step will be to verify everything works exactly the same as before. This can be done in two ways</li>
+</ul>
+<ol start="30">
+<li>Test your changes</li>
+</ol>
+<ul>
+<li>If possible, test your flowing by using the Unit Test functionality. For more information see <a href="/docs/howto/userguide-unitttest">User Guide Unit testing</a></li>
+<li>Otherwise test it by deploying the flow and sending a message.</li>
+</ul>
+<ol start="31">
+<li>Verify your results</li>
+</ol>
+<ul>
+<li>If the result is the same you are finished</li>
+<li>If changes exists, analyze them and make changes to the transformation until you have reached the correct result
+Congratulation, you have successfully migrated your flow from the old transformation tooling to the new transformation tooling.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-error-handling-synchronous-flows"></a><a href="#2-error-handling-synchronous-flows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Error handling synchronous flows</h2>
+<p>To properly manage an eMagiz project you need to have robust and stable error handling. This process of error handling was the same for both asynchronous and synchronous flows. In this process all errors that were thrown by a flow would be routed via the asynchronous error process each eMagiz project has. For synchronous flows this meant that apart from the actual error each step in the process that did not receive a message within the set timeframe would subsequently throw an timeout error.
+This process had three disadvantages</p>
+<ul>
+<li>The client needed to wait for the allowed timeout period (default 20000 ms) before knowing whether or not the action succeeded</li>
+<li>The client only received a generic timeout error instead of information on the error that occurred downstream</li>
+<li>Any synchronous error could lead to up to five separate error messages making it more confusing and difficult to properly analyze what was going wrong
+Based on these consideration the way errors are handled in a synchronous flow has changed. See below for the old way, the new way and how to migrate to the new way</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="legacy-approach-1"></a><a href="#legacy-approach-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Legacy approach</h3>
+<p>In the legacy situation the flow would handle its error message asynchronously. See a picture below for how this is configured in the flow. That way the other flows in the chain are still waiting for an answer that will never come.</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-5.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="new-approach-1"></a><a href="#new-approach-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New approach</h3>
+<p>In the new situation all (error) messages are given back to the flow preceding the current flow. This way the error message is given back to the client so they know what went wrong. This looks as follows in a flow</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-6.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="how-to-get-to-the-new-approach-1"></a><a href="#how-to-get-to-the-new-approach-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to get to the new approach</h3>
+<p>Migrating from the old way of handling errors in a synchronous flow to the new way of handling errors in a synchronous flow takes several steps to make it work correctly. Below you will find all these steps. Follow them carefully to achieve the desired result</p>
+<ol>
+<li>Identify the synchronous flow in your eMagiz project that you want to change</li>
+<li>Navigate to Create and open the exit</li>
+<li>Loop back the error to the response channel. See below for the correct configuration</li>
+</ol>
+<p align="center"><img src="../../img/howto/userguide-legacy-7.png"></p>
+<ol start="4">
+<li>Save the flow and go to the offramp</li>
+<li>Loop back the error to the response channel (see above for the correct configuration)</li>
+<li>Add a standard filter component and fill it in according to the below specifications</li>
+</ol>
+<p align="center"><img src="../../img/howto/userguide-legacy-8.png"></p>
+<ol start="7">
+<li>Add a new channel and link the components to achieve a result as shown above under the new section</li>
+<li>Save the flow</li>
+<li>Repeat steps 5,6 7 and 8 for the onramp</li>
+<li>Open the entry</li>
+<li>In here you have the choice to handle the error in two ways</li>
+</ol>
+<ul>
+<li>Send the error back to the client. This can be achieved by following steps 5,6,7 and 8</li>
+<li>Send the error to the client after setting the statusCode and the error message. For this continue with step 12</li>
+<li>Don’t send the error to the client but to the emagiz error flow instead. For this continue with step 13</li>
+</ul>
+<ol start="12">
+<li>To specify what the client will see as a response in case of an error you can change the following two things</li>
+</ol>
+<ul>
+<li>The statusCode (i.e. 401,403,500,501). This can be done by setting the header, with the help of a standard header enricher, titled http_statusCode to the desired statusCode</li>
+<li>The payload. The payload can be changed to what you want with the help of a standard transformer or an XSLT transformer. An example of this is shown below</li>
+</ul>
+<p align="center"><img src="../../img/howto/userguide-legacy-9.png"></p>
+<ol start="13">
+<li>Add a JMS outbound channel adapter and send the messages to the eMagiz error flow of your project. This way the message will show up in the Error messages overview of eMagiz but all timeout errors won’t show up anymore.</li>
+<li>Test your changes</li>
+</ol>
+<ul>
+<li>If possible, test your flowing by using the Unit Test functionality. For more information see <a href="/docs/howto/userguide-unitttest">User Guide Unit testing</a></li>
+<li>Otherwise test it by deploying the flow and sending a message.</li>
+</ul>
+<ol start="15">
+<li>Verify your results</li>
+</ol>
+<ul>
+<li>If the result is the same you are finished</li>
+<li>If changes exists, analyze them and make changes to the transformation until you have reached the correct result</li>
+</ul>
+<p>Of course it is possible to use a combination of the suggestion made in step 11, 12 and 13 to configure the error handling to your specific use case. If you are planning on implementing a new synchronous flow please consider the API Gateway functionality. For more information please see <a href="/docs/howto/userguide-apigateway"> User Guide API Gateway</a></p>
+<p>Congratulations, you have successfully migrated the error handling of your synchronous flows to the new best practice</p>
+<h2><a class="anchor" aria-hidden="true" id="3-error-flow"></a><a href="#3-error-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Error flow</h2>
+<p>The error flow is part of the default in any eMagiz project. This flow handles all errors that are thrown by (a)synchronous flows within your project and passes them through to the iPaaS so they show up under Manage -&gt; Error Messages. Recently we have made some changes to make the error flow work even more optimal.</p>
+<h3><a class="anchor" aria-hidden="true" id="legacy-approach-2"></a><a href="#legacy-approach-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Legacy approach</h3>
+<p>In the legacy situation the flow would determine for each message whether or not message tracking was enabled. Based on that the error handling responded in a slightly different manner.</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-10.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="new-approach-2"></a><a href="#new-approach-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New approach</h3>
+<p>In the new situation the flow treats all messages the same and removes all headers to reduce the chance the error message will cause problems downstream for the iPaaS or the portal.</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-11.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="how-to-get-to-the-new-approach-2"></a><a href="#how-to-get-to-the-new-approach-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to get to the new approach</h3>
+<p>Migrating from the old error flow to the new error flow takes several steps to make it work correctly. Below you will find all these steps. Follow them carefully to achieve the desired result.</p>
+<ol>
+<li>Determine if you made any custom changes to the error handling</li>
+</ol>
+<ul>
+<li>If not, continue with step 2</li>
+<li>If yet, continue with step 6</li>
+</ul>
+<ol start="2">
+<li>Navigate to Create</li>
+<li>Right click on the Error process and press Reset flow</li>
+<li>Test the flow</li>
+<li>Verify your results</li>
+</ol>
+<ul>
+<li>If the result is the same you are finished</li>
+<li>If changes exists, analyze them and make changes where necessary
+Congratulations, you have successfully migrated the error flow to the new setup</li>
+</ul>
+<ol start="6">
+<li>Determine if these changes are still justified</li>
+</ol>
+<ul>
+<li>If no, execute steps 2, 3, 4 and 5</li>
+<li>If yes, continue with step 6</li>
+</ul>
+<ol start="7">
+<li>Write down all manually changes you still need</li>
+<li>Navigate to Create</li>
+<li>Right click on the Error process and press Reset flow</li>
+<li>Add the manual changes back to the flow</li>
+<li>Test the flow</li>
+<li>Verify your results</li>
+</ol>
+<ul>
+<li>If the result is the same you are finished</li>
+<li>If changes exists, analyze them and make changes where necessary
+Congratulations, you have successfully migrated the error flow to the new setup</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#identification-legacy-parts">Identification Legacy parts</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#1-old-transformation-tooling">1. Old Transformation Tooling</a><ul class="toc-headings"><li><a href="#legacy-approach">Legacy approach</a></li><li><a href="#new-approach">New approach</a></li><li><a href="#how-to-get-to-the-new-approach">How to get to the new approach</a></li></ul></li><li><a href="#2-error-handling-synchronous-flows">2. Error handling synchronous flows</a><ul class="toc-headings"><li><a href="#legacy-approach-1">Legacy approach</a></li><li><a href="#new-approach-1">New approach</a></li><li><a href="#how-to-get-to-the-new-approach-1">How to get to the new approach</a></li></ul></li><li><a href="#3-error-flow">3. Error flow</a><ul class="toc-headings"><li><a href="#legacy-approach-2">Legacy approach</a></li><li><a href="#new-approach-2">New approach</a></li><li><a href="#how-to-get-to-the-new-approach-2">How to get to the new approach</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
