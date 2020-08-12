@@ -215,7 +215,56 @@ Congratulations, you have successfully migrated the error flow to the new setup<
 <li>If changes exists, analyze them and make changes where necessary
 Congratulations, you have successfully migrated the error flow to the new setup</li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#identification-legacy-parts">Identification Legacy parts</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#1-old-transformation-tooling">1. Old Transformation Tooling</a><ul class="toc-headings"><li><a href="#legacy-approach">Legacy approach</a></li><li><a href="#new-approach">New approach</a></li><li><a href="#how-to-get-to-the-new-approach">How to get to the new approach</a></li></ul></li><li><a href="#2-error-handling-synchronous-flows">2. Error handling synchronous flows</a><ul class="toc-headings"><li><a href="#legacy-approach-1">Legacy approach</a></li><li><a href="#new-approach-1">New approach</a></li><li><a href="#how-to-get-to-the-new-approach-1">How to get to the new approach</a></li></ul></li><li><a href="#3-error-flow">3. Error flow</a><ul class="toc-headings"><li><a href="#legacy-approach-2">Legacy approach</a></li><li><a href="#new-approach-2">New approach</a></li><li><a href="#how-to-get-to-the-new-approach-2">How to get to the new approach</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<h2><a class="anchor" aria-hidden="true" id="4-json-related-transformations"></a><a href="#4-json-related-transformations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. JSON related transformations</h2>
+<p>Within eMagiz you have the option to transform messages from JSON to XML, XML to JSON and from JSON to JSON. In all these scenario’s you had to resort to using at least a custom XSLT. Sometimes even in combination with standard components provided by eMagiz. With the new functionality it has become to possible to define what the input and/or output of a message transformation is as well as having the option to interpret the input against which can be validated.</p>
+<h3><a class="anchor" aria-hidden="true" id="legacy-approach-3"></a><a href="#legacy-approach-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Legacy approach</h3>
+<p>In the Legacy situation you would need to have at least one custom XSLT to transform between JSON and XML (or JSON). A traditional example of transforming from JSON to XML looks as follows.</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-12.png"></p>
+<p>In here you would use the standard component to transform from JSON to XML followed by a standardized XSLT that was available through the store. A similar setup was needed when transforming XML to JSON.</p>
+<h3><a class="anchor" aria-hidden="true" id="new-approach-3"></a><a href="#new-approach-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New approach</h3>
+<p>In the new situation you can start your work in Design as you are used to do when transforming XML to XML. The same can now be done with JSON to XML transformations. Note that the definition should have a additional root element (by default eMagiz calls the element root) to make the validation and transformation work as it should be. After you have set your system message and message mapping as you are just to you can navigate to Create and build the flow. Within the flow some small changes are needed. See below for a representation of how this looks in Create</p>
+<p align="center"><img src="../../img/howto/userguide-legacy-13.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="how-to-get-to-the-new-approach-3"></a><a href="#how-to-get-to-the-new-approach-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to get to the new approach</h3>
+<p>Migrating from the old way of transforming messages with regards to JSON to the new way of transforming messages with regards to JSON takes several steps to make it work correctly. Below you will find all these steps. Follow them carefully to achieve the desired result.</p>
+<ol>
+<li>Navigate to Design -&gt; System message for the flow you are currently want to change to determine whether you already have a system message with a specific added root element
+a)  If yes, continue with step 9
+b)  If no, continue with step 2</li>
+<li>See if you have a XSD against which you could validate the JSON messages against.
+a)  If yes, continue with step 2
+b)  If not, continue with step 6</li>
+<li>Open the XSD via Notepad++ (or any other tooling that is capable to show XSD messages) and add a element to the root of the message. Default name would be root but can be anything you want it to be.</li>
+<li>Navigate to Capture</li>
+<li>Upload the XSD to the message flow you are currently working on</li>
+<li>Navigate to Design</li>
+<li>Import the XSD via the option From Capture in your system message if you have one. If not, create the system message by hand (Don’t forget to add a specific root element)</li>
+<li>Navigate to Design -&gt; Message mapping to create the message mapping between system and CDM message</li>
+<li>Navigate to Create</li>
+<li>Open the flow for which you have changed the system message and the message mapping</li>
+<li>Press Start Editing</li>
+<li>Determine whether any validation component in your flow has a JSON message as input. For example:
+o   In an asynchronous onramp this would be the validation you encounter first in your flow.
+o   In a asynchronous offramp no validations need to be changed because in here you validate the CDM and that is still based on XML.
+o   This logic applies the same for other asynchronous and synchronous flows.</li>
+<li>If the answer is yes for the flow you are currently editing you should add a support object called JSON source factory and couple this to the validation. See below for how this looks</li>
+</ol>
+<p align="center"><img src="../../img/howto/userguide-legacy-14.png"></p>
+14. Determine whether any transformation component in your flow has a JSON message as input. For example:
+a)  In an asynchronous onramp this would be the standard transformation based on your message mapping made in Design
+b)  In a asynchronous offramp no transformation will have JSON as input because in here you transform message from CDM to system message and the CDM and that is still based on XML. 
+c)  This logic applies the same for other asynchronous and synchronous flows. 
+15. If the answer is yes for the flow you are currently editing you have a choice to make
+a)  If output is JSON you have to add two support objects. One support object called JSON result transformer and the other called JSON result factory. See step 16 for more details
+b)  If output is XML you have to add one support object. This support object is called result to string transformer. See step 17 for more details
+16. Couple the just created support objects to your transformation as shown below
+<p align="center"><img src="../../img/howto/userguide-legacy-15.png"></p>
+<p>Congratulations, you have successfully migrated your current flow to transform JSON message</p>
+<ol start="17">
+<li>Couple the just created support object to your transformation as shown below</li>
+</ol>
+<p align="center"><img src="../../img/howto/userguide-legacy-16.png"></p>
+<p>Congratulations, you have successfully migrated your current flow to transform JSON message</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#identification-legacy-parts">Identification Legacy parts</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#1-old-transformation-tooling">1. Old Transformation Tooling</a><ul class="toc-headings"><li><a href="#legacy-approach">Legacy approach</a></li><li><a href="#new-approach">New approach</a></li><li><a href="#how-to-get-to-the-new-approach">How to get to the new approach</a></li></ul></li><li><a href="#2-error-handling-synchronous-flows">2. Error handling synchronous flows</a><ul class="toc-headings"><li><a href="#legacy-approach-1">Legacy approach</a></li><li><a href="#new-approach-1">New approach</a></li><li><a href="#how-to-get-to-the-new-approach-1">How to get to the new approach</a></li></ul></li><li><a href="#3-error-flow">3. Error flow</a><ul class="toc-headings"><li><a href="#legacy-approach-2">Legacy approach</a></li><li><a href="#new-approach-2">New approach</a></li><li><a href="#how-to-get-to-the-new-approach-2">How to get to the new approach</a></li></ul></li><li><a href="#4-json-related-transformations">4. JSON related transformations</a><ul class="toc-headings"><li><a href="#legacy-approach-3">Legacy approach</a></li><li><a href="#new-approach-3">New approach</a></li><li><a href="#how-to-get-to-the-new-approach-3">How to get to the new approach</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
