@@ -53,7 +53,15 @@ o Standard rights which is the default Windows suggestion in case of Read rights
   • If you are done, Press Apply and then OK, else press Add to add a new AD group that needs rights to the share.
   • Press Close
   • You are done.
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1context-and-requirements">1.CONTEXT AND REQUIREMENTS</a></li><li><a href="#2---best-practices">2.   BEST PRACTICES</a></li><li><a href="#3---how-to-steps">3.   HOW-TO STEPS</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<h2><a class="anchor" aria-hidden="true" id="key-note"></a><a href="#key-note" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key note</h2>
+<p>Since build 50 the underlying frameworks of eMagiz is using an updated version of Java, which uses a different approach (Java method) for verification. In previous versions, bullet 1 below is used; in the current version bullet 2 is used as approach. This are code extracts with some explainations, but in essence the recent version is checking whether the JVM has sufficient rights via the Windows permission structure. This has an impact on current implementations, as certain permission structures are no longer sufficient. One known example is that the service user of the eMagiz Connector need to have write access to the entire network path configured. In the past, the windows permission structure was not used to determine whether the JVM could write a file to a network share or not.</p>
+<ol>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html#canWrite()">https://docs.oracle.com/javase/7/docs/api/java/io/File.html#canWrite()</a></li>
+<li><a href="https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html#isWritable(java.nio.file.Path)">https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html#isWritable(java.nio.file.Path)</a></li>
+</ol>
+<p>Some relevant reading:
+a. <a href="https://www.geeksforgeeks.org/files-iswritable-method-in-java-with-examples/">https://www.geeksforgeeks.org/files-iswritable-method-in-java-with-examples/</a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1context-and-requirements">1.CONTEXT AND REQUIREMENTS</a></li><li><a href="#2---best-practices">2.   BEST PRACTICES</a></li><li><a href="#3---how-to-steps">3.   HOW-TO STEPS</a></li><li><a href="#key-note">Key note</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
