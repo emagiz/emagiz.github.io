@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/build53 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Release notes for build number 53"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/build53 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Release notes for build number 53"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/build53</h1></header><article><div><span><p>Release notes for build number 53
+Version 53, released 2020-09-04</p>
+<p>Small update that makes XSD imports possible again, and improves the Kafka and OData support.</p>
+<p>Major changes</p>
+<ul>
+<li>Kafka template and Kafka message listener container can now be configured with keystores and truststores uploaded as flow resources. Previously these could only be configured using files on disk.</li>
+<li>Flows that expose OData 4.01 endpoints using the 'simple OData servlet' option (located in the Jetty server support object) now also support querying for entities over associations (one-to-one, one-to-many, many-to-one and many-to-many).</li>
+<li>Before build number 50, it was possible to (manually) import one resource from another resource. In XSDs for example, you could add &lt;xsd:import namespace=&quot;(...)&quot; schemaLocation=&quot;another.xsd&quot;/&gt; to import another XSD. Because these imports work on any URI – such as &quot;file:///etc/passwd&quot; or &quot;<a href="https://attacker.com/malicious.code">https://attacker.com/malicious.code</a>&quot; – this made XML External Entity (XXE) attacks possible. To remedy this, in build number 50 the Java settings accessExternalDTD, accessExternalSchema, and accessExternalStylesheet have been disabled. However, this made it impossible to use XSD imports. While eMagiz never generates XSDs containing imports, there are (valid) use-cases where you need this functionality. This release makes these imports work again, but only for trusted sources. &quot;Trusted&quot; here means resources that are uploaded to your flow only.</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Updated bundle 'com.emagiz.bundles.kafka-clients' from 2.4.0.1 to 2.4.0.2</li>
+<li>Updated bundle 'com.emagiz.bundles.spring-xml' from 3.0.8.1 to 3.0.8.2</li>
+<li>Updated bundle 'com.emagiz.components.kafka' from 2.0.0 to 2.0.1</li>
+<li>Updated bundle 'com.emagiz.components.odata' from 1.0.0 to 1.1.0</li>
+<li>Removed bundle 'com.emagiz.bundles.j8583' 1.5.1.1</li>
+<li>Removed bundle 'com.emagiz.components.iso8583' 6.0.0</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.6.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.6.0, released 2020-09-18"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.6.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.6.0, released 2020-09-18"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.6.0</h1></header><article><div><span><p>Version 10.6.0, released 2020-09-18</p>
+<p>Release that makes working with OAuth2 easier. Besides that, in Design phase, message definitions and data models load much faster. The check for missing properties in Deploy phase now also takes significantly less time. In addition, this release includes several improvements and tackles some minor issues.</p>
+<p>Major changes</p>
+<ul>
+<li>Create - Flow designer: The 'REST template' component has a new 'OAuth2 authorization interceptor'. This interceptor improves the user experience when configuring 'HTTP outbound gateways' and 'HTTP outbound channel adapters' to access OAuth2 protected endpoints. This new OAuth2 solution also provides more features, such as options for persisting and re-using access tokens, and uses the latest versions of underlying technologies. Many OAuth2 use-cases that previously were not fully supported and required manually modelling a sequence of REST calls to authenticate should now work out-of-the-box.</li>
+<li>Create - Flow designer: The components 'OAuth2 REST template', 'OAuth2 resource', 'OAuth2 token advice' and 'OAuth2 redirect exception resolver' have been removed from the flow designer. Functionally these have been replaced by the new component mentioned above. Existing flows that were using these components have been migrated automatically.</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Design - Data models and message definitions: The performance of loading message definitions and data models is improved considerably.</li>
+<li>Deploy - Releases: Checking your environment for missing properties before deploying a release is much quicker.</li>
+<li>Multiple improvements to API gateway:
+<ul>
+<li>Design: OperationId is NOT required anymore, as neither te OpenAPI specification, nor the generated flows require it.</li>
+<li>Create: When deleting the message definition from an exit flow completely, it will be recreated when you visit the flow again.</li>
+<li>Create: Buttons in the bottom bar now also work when in the API gateway view.</li>
+<li>Create: Improved the behaviour of the filters when switching between message bus and API gateway views.</li>
+</ul></li>
+<li>(Un)Transfer to Create: Several improvements to ensure that integrations cannot be broken when re-transferring integrations. As part of this, the &quot;Undo flow&quot;-button is now moved to the Components page of Create.</li>
+<li>Upgraded to Mendix 8.13.1</li>
+<li>Across the portal: several minor and textual improvements.</li>
+<li>Create - Flow Designer: A new field on FTP and SFTP components is available called 'strict reply parsing'. By default this is enabled. Disabling this means that (S)FTP servers not sending text after the 3 digit reply code will not be causing an exception.</li>
+</ul>
+<p>Remarks</p>
+<ul>
+<li>A new build number is available (54), which includes a change that improves OAuth2 support. See the release notes for build number 54 for more details.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

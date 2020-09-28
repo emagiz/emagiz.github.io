@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.5.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.5.0, released 2020-09-04"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.5.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.5.0, released 2020-09-04"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.5.0</h1></header><article><div><span><p>Version 10.5.0, released 2020-09-04</p>
+<p>Release that adds a big new feature: the eMagiz API gateway. In addition, this release includes several usability improvements to the eMagiz Store, and tackles some minor issues.</p>
+<p>New features</p>
+<ul>
+<li>In addition to the 'message bus' pattern, eMagiz now also fully support the 'API gateway' integration pattern. eMagiz API gateway provides a way to design, create, deploy and monitor secure REST APIs. For more information, see the 'features &amp; capabilities' (<a href="https://emagiz.github.io/docs/howto/apigw-releasenotes">https://emagiz.github.io/docs/howto/apigw-releasenotes</a>) and 'user guide' (<a href="https://emagiz.github.io/docs/howto/userguide-apigateway">https://emagiz.github.io/docs/howto/userguide-apigateway</a>) sections in the eMagiz platform documentation. Some highlights:</li>
+<li>In Capture you can specify either 'API gateway' or 'message bus' as the preferred integration pattern for each connected system and message type. The default value for this selection is 'message bus'. In Design, depending on this selection, an 'API' integration or a 'Message bus' integration will be the suggested pattern. You can overrule this suggestion on each individual integration if desired. In Design you'll notice that both message bus and API gateway integrations are shown in a single Solution Design picture, but with slightly different visualizations.</li>
+<li>When designing API operations you can choose between 'passthrough' and 'transformation'. Passthrough is used to easily &quot;plug in&quot; any existing OpenAPI 3 compliant REST service into your eMagiz API gateway. Transformation allows you to expose an operation that can differ in format and protocol from the consumed operation. eMagiz will autogenerate the components in the Create phase that will allow to convert the request and response between the eMagiz API gateway and the backend system. When using this option, you do need to finish the flow by adding and configuring all components needed to connect with the back-end system.</li>
+<li>In the Create phase the two integration types, message bus and API gateway, are split into two different visualizations. The actions you can perform here are very similar for both patterns however, so creating your API gateway should feel very familiar: you can double-click any component to open the flow designer, where you can fill in any missing details of your integrations, transformations and message definitions. These flows can then be added to a release in the deploy phase, in exactly the same way as you would deploy a message bus.</li>
+<li>The API gateway feature is available for all eMagiz users to use, up to and including the Design phase. If you then decide you want to continue building your API gateway integrations and deploy them, you need to contact your partner manager for a license.</li>
+</ul>
+<p>Major changes</p>
+<ul>
+<li>Based on your feedback, we made the following improvements to the eMagiz Store:</li>
+<li>Users can now rate and post reviews for items in the public store.</li>
+<li>Cards for flows shared in the store now show the specific flow type (onramp flow, exit connector flow, etc.); previously you had to check the documentation of the store item or use naming conventions to see this information.</li>
+<li>To make it easier to categorize and search for store items relevant to your use case, we now also keep track of the 'external system' (the system the store item integrates with) and 'vertical market' (transport &amp; logistics, energy, construction &amp; industry, food, financial services, or retail) for each store item.</li>
+<li>Added a 'copy link' button to store items for easier sharing.</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Deploy - Properties: When saving a property, you stay on the current page instead of jumping back to the first page of the properties.</li>
+<li>Create - Flow designer: Previously, the connection settings for Kafka components (Kafka template and Kafka message listener container) required keystores and truststores to be files located on disk. Now you can simply upload them as flow resources.</li>
+<li>Deploy - Architecture: The deprecated &quot;Update AWS&quot; context menu item is removed in favour of the &quot;Apply to architecture&quot; feature in the bottom of the screen.</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>Resources using an &quot;infra:(...)&quot; URI now work correctly again, but only after creating and deploying new packages for all flows on the affected runtime.</li>
+</ul>
+<p>Remarks</p>
+<ul>
+<li>There is also a new build number available (53), which includes a change that makes it possible to use &lt;xsd:import .../&gt; again. See the release notes for build number 53 for more details.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
