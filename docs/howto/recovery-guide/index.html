@@ -14,13 +14,13 @@ Last update: August 19th 2020</p>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="signals"></a><a href="#signals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Signals</h2>
 <p>Below you will find a list of signals that could occur when running your eMagiz environment in the eMagiz cloud. For each of these signals we have detailed sections on how to analyze these problems.</p>
-<p><a href="#Solve-the-problem-where-there-is-no-traffic-between-eMagiz-and-the-runtime-for-which-you-have-received-the-alert">No messages can be send to system X</a></p>
-<p><a href="#Solve-the-problem-where-both-live-JMS-as-well-as-backup-JMS-are-down">Live server seems to be down</a></p>
-<p><a href="#Solve-the-problem-where-backup-server-won't-come-up-again-after-restarting-the-live-JMS">Backup server does not start up after failback scenario</a></p>
-<p><a href="#Solve-the-problem-where-a-runtime-is-down">Connector / Runtime seems to be down</a></p>
-<p><a href="#Solve-the-problem-where-there-are-too-few-or-too-many-consumers">Number of consumers is greater than threshold</a></p>
-<p><a href="#Solve-the-problem-where-there-are-too-few-or-too-many-consumers">Number of consumers is less than threshold</a></p>
-<p><a href="#Solve-the-problem-when-confronted-with-an-out-of-memory-log-entry">Out of memory log entry</a></p>
+<p><a href="#solve-the-problem-where-there-is-no-traffic-between-emagiz-and-the-runtime-for-which-you-have-received-the-alert">No messages can be send to system X</a></p>
+<p><a href="#solve-the-problem-where-both-live-jms-as-well-as-backup-jms-are-down">Live server seems to be down</a></p>
+<p><a href="#solve-the-problem-where-backup-server-won't-come-up-again-after-restarting-the-live-jms">Backup server does not start up after failback scenario</a></p>
+<p><a href="#solve-the-problem-where-a-runtime-is-down">Connector / Runtime seems to be down</a></p>
+<p><a href="#solve-the-problem-where-there-are-too-few-or-too-many-consumers">Number of consumers is greater than threshold</a></p>
+<p><a href="#solve-the-problem-where-there-are-too-few-or-too-many-consumers">Number of consumers is less than threshold</a></p>
+<p><a href="#solve-the-problem-when-confronted-with-an-out-of-memory-log-entry">Out of memory log entry</a></p>
 <h2><a class="anchor" aria-hidden="true" id="first-aid"></a><a href="#first-aid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>First Aid</h2>
 <p>In this section we specify what can be done to give first aid to a eMagiz Cloud environment in case this is needed</p>
 <h3><a class="anchor" aria-hidden="true" id="solve-the-problem-where-there-is-no-traffic-between-emagiz-and-the-runtime-for-which-you-have-received-the-alert"></a><a href="#solve-the-problem-where-there-is-no-traffic-between-emagiz-and-the-runtime-for-which-you-have-received-the-alert" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solve the problem where there is no traffic between eMagiz and the runtime for which you have received the alert</h3>
@@ -43,17 +43,17 @@ Last update: August 19th 2020</p>
 <li>Yes -&gt; Continue with step 4</li>
 <li>No -&gt; In case you are dealing with a failover bus, check whether the backup is running, by executing the process as described in step ii
 <ul>
-<li>Yes -&gt; Backup should handle the message traffic. <a href="#Check-message-traffic">Check message traffic</a></li>
-<li>No -&gt; <a href="#Restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
+<li>Yes -&gt; Backup should handle the message traffic. <a href="#check-message-traffic">Check message traffic</a></li>
+<li>No -&gt; <a href="#restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
 <li>Runtime statistics indicate that statistics are coming in
 <ul>
-<li>Confirm messages are being consumed from the queues and verify in the application itself (yourself or with help from someone else) whether message arrive and are being processed. For help, see <a href="#Check-message-traffic">Check message traffic</a></li>
+<li>Confirm messages are being consumed from the queues and verify in the application itself (yourself or with help from someone else) whether message arrive and are being processed. For help, see <a href="#check-message-traffic">Check message traffic</a></li>
 </ul></li>
 </ul></li>
-<li>Go to <a href="#Check-whether-statistics-are-missing-for-multiple-bus-environments">Check whether statistics are missing for mulitple bus environments</a> and verify if the statistics are also missing for other eMagiz environments</li>
+<li>Go to <a href="#check-whether-statistics-are-missing-for-multiple-bus-environments">Check whether statistics are missing for mulitple bus environments</a> and verify if the statistics are also missing for other eMagiz environments</li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="solve-the-problem-where-both-live-jms-as-well-as-backup-jms-are-down"></a><a href="#solve-the-problem-where-both-live-jms-as-well-as-backup-jms-are-down" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solve the problem where both live JMS as well as backup JMS are down</h3>
 <p>In case of a single lane option only the live JMS will be down to end up in this section</p>
@@ -75,17 +75,17 @@ Last update: August 19th 2020</p>
 <li>Yes -&gt; Continue with step 4</li>
 <li>No -&gt; In case you are dealing with a failover bus, check whether the backup is running, by executing the process as described in step ii
 <ul>
-<li>Yes -&gt; Backup should handle the message traffic. <a href="#Check-message-traffic">Check message traffic</a></li>
-<li>No -&gt; <a href="#Restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
+<li>Yes -&gt; Backup should handle the message traffic. <a href="#check-message-traffic">Check message traffic</a></li>
+<li>No -&gt; <a href="#restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
 <li><p>Runtime statistics indicate that statistics are coming in</p>
 <ul>
-<li>Confirm messages are being consumed from the queues and verify in the application itself (yourself or with help from someone else) whether message arrive and are being processed. For help, see <a href="#Check-message-traffic">Check message traffic</a></li>
+<li>Confirm messages are being consumed from the queues and verify in the application itself (yourself or with help from someone else) whether message arrive and are being processed. For help, see <a href="#check-message-traffic">Check message traffic</a></li>
 </ul></li>
 </ul></li>
-<li>Go to <a href="#Check-whether-statistics-are-missing-for-multiple-bus-environments">Check whether statistics are missing for mulitple bus environments</a> and verify if the statistics are also missing for other eMagiz environments</li>
+<li>Go to <a href="#check-whether-statistics-are-missing-for-multiple-bus-environments">Check whether statistics are missing for mulitple bus environments</a> and verify if the statistics are also missing for other eMagiz environments</li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="solve-the-problem-where-backup-server-wont-come-up-again-after-restarting-the-live-jms"></a><a href="#solve-the-problem-where-backup-server-wont-come-up-again-after-restarting-the-live-jms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solve the problem where backup server won’t come up again after restarting the live JMS</h3>
 <p>This scenario is only applicable for buses with a failover setup</p>
@@ -105,7 +105,7 @@ Last update: August 19th 2020</p>
 <li>In case you arrive here the number of consumers on a container runtime should be two
 <ul>
 <li>Yes -&gt; No further action required</li>
-<li>No -&gt; Restart backup server. <a href="#Restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
+<li>No -&gt; Restart backup server. <a href="#restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
 </ul></li>
 </ul></li>
 </ol>
@@ -133,7 +133,7 @@ Last update: August 19th 2020</p>
 <li>Navigate to ‘Deploy’, ‘Architecture’ and  select the ‘Production’ environment. Search for the runtime that is not working anymore.</li>
 <li>Determine on the basis of the search were the connector is running
 <ul>
-<li>In case of a cloud connector you can restart the connector via this page. <a href="#Restart-a-runtime-in-AWS">Restart a runtime in AWS</a></li>
+<li>In case of a cloud connector you can restart the connector via this page. <a href="#restart-a-runtime-in-AWS">Restart a runtime in AWS</a></li>
 <li>In case of an on-premise runtime you can’t restart the connector via this page. Discuss with customer and support how you can best restart the connector</li>
 </ul></li>
 <li>Restart not successful -&gt; Contact support for assistance as they can check the logs in the eMagiz Cloud</li>
@@ -148,7 +148,7 @@ Last update: August 19th 2020</p>
 <li>Messages arrive -&gt; Continue with step 6</li>
 <li>Messages do not arrive -&gt; Continue with step ii</li>
 </ul></li>
-<li>In case you runtime statistics are coming in but no messages are consumed and delivered please see <a href="#Solve-the-problem-where-there-is-no-traffic-between-eMagiz-and-the-runtime-for-which-you-have-received-the-alert">Solve the problem where there is no traffic between eMagiz and the runtime for which you have received the alert</a></li>
+<li>In case you runtime statistics are coming in but no messages are consumed and delivered please see <a href="#solve-the-problem-where-there-is-no-traffic-between-emagiz-and-the-runtime-for-which-you-have-received-the-alert">Solve the problem where there is no traffic between eMagiz and the runtime for which you have received the alert</a></li>
 </ul></li>
 </ul></li>
 <li>Log an RCA with support for further analysis</li>
@@ -159,12 +159,12 @@ Last update: August 19th 2020</p>
 <ul>
 <li>Yes -&gt; Navigate to ‘Manage’ and select ‘Queue statistics’ on the ‘Production’ environment from the left hand panel. Check various flows that are running on this runtime. The queue statistics should indicate that the number of messages have been dropped from 2 to 1 or from 1 to 0.
 <ul>
-<li>Success -&gt; This means that this specific runtime is indeed down. See <a href="#Restart-a-runtime-in-AWS">Restart a runtime in AWS</a> to restart the runtime in question. In case a on-premise runtime is broken discuss with the customer and support what the next action will be.
+<li>Success -&gt; This means that this specific runtime is indeed down. See <a href="#restart-a-runtime-in-AWS">Restart a runtime in AWS</a> to restart the runtime in question. In case a on-premise runtime is broken discuss with the customer and support what the next action will be.
 <ul>
 <li>Check whether the number of consumers is back to the expected level
 <ul>
 <li>Yes -&gt; Problem solved</li>
-<li>No -&gt; Potentially there are bigger issues on JMS level. Navigate to <a href="#Solve-the-problem-where-both-live-JMS-as-well-as-backup-JMS-are-down">Solve the problem where both live JMS as well as backup JMS are down</a></li>
+<li>No -&gt; Potentially there are bigger issues on JMS level. Navigate to <a href="#solve-the-problem-where-both-live-jms-as-well-as-backup-jms-are-down">Solve the problem where both live JMS as well as backup JMS are down</a></li>
 </ul></li>
 </ul></li>
 <li>Failure -&gt; This means the consumer count works as expected. Consider this an Incident</li>
@@ -175,7 +175,7 @@ Last update: August 19th 2020</p>
 <ul>
 <li>Yes -&gt; Navigate to ‘Manage’, ‘Queue statistics’ for the ‘Production’ environment. Check various flows that are running on this runtime. The queue statistics should indicate that the number of messages have been increased from 1 to 2 or from 2 to 3.
 <ul>
-<li>Success -&gt; This means an unwanted consumer has been spotted. The only way to resolve this is through a restart of the JMS server. <a href="#Restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
+<li>Success -&gt; This means an unwanted consumer has been spotted. The only way to resolve this is through a restart of the JMS server. <a href="#restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
 <li>Failure -&gt; This means the number of consumers is as expected. Consider this an Incident</li>
 </ul></li>
 </ul></li>
@@ -200,7 +200,7 @@ Last update: August 19th 2020</p>
 <li>Yes -&gt; Continue with step 5</li>
 <li>No -&gt; Continue with step 5</li>
 </ul></li>
-<li><a href="#Restart-a-runtime-in-AWS">Restart a runtime in AWS</a></li>
+<li><a href="#restart-a-runtime-in-AWS">Restart a runtime in AWS</a></li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="restart-a-runtime-in-aws"></a><a href="#restart-a-runtime-in-aws" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Restart a runtime in AWS</h3>
 <ol>
@@ -208,10 +208,10 @@ Last update: August 19th 2020</p>
 <li>Press Start Editing</li>
 <li>Search for the runtime for which you have received the alert and activate the drop down menu via a right click of your mouse</li>
 <li>Select Restart Runtime</li>
-<li>Check traffic of messages, see <a href="#Check-message-traffic">Check message traffic</a>
+<li>Check traffic of messages, see <a href="#check-message-traffic">Check message traffic</a>
 <ul>
 <li>Success -&gt; Tell customer that messages are once again delivered correctly</li>
-<li>Failure -&gt; <a href="#Check-whether-runtime-exists-in-eMagiz-Cloud">Check whether runtime exists in eMagiz Cloud</a></li>
+<li>Failure -&gt; <a href="#check-whether-runtime-exists-in-emagiz-cloud">Check whether runtime exists in eMagiz Cloud</a></li>
 </ul></li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="reset-a-runtime-in-aws"></a><a href="#reset-a-runtime-in-aws" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reset a runtime in AWS</h3>
@@ -220,10 +220,10 @@ Last update: August 19th 2020</p>
 <li>Press Start Editing</li>
 <li>Search for the runtime for which you have received the alert and activate the drop down menu via a right click of your mouse</li>
 <li>Select Reset Runtime</li>
-<li>Check traffic of messages, see <a href="#Check-message-traffic">Check message traffic</a>
+<li>Check traffic of messages, see <a href="#check-message-traffic">Check message traffic</a>
 <ul>
 <li>Success -&gt; Tell customer that messages are once again delivered correctly</li>
-<li>Failure -&gt; <a href="#Check-whether-runtime-exists-in-eMagiz-Cloud">Check whether runtime exists in eMagiz Cloud</a></li>
+<li>Failure -&gt; <a href="#check-whether-runtime-exists-in-emagiz-cloud">Check whether runtime exists in eMagiz Cloud</a></li>
 </ul></li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="restart-live-andor-backup-server"></a><a href="#restart-live-andor-backup-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Restart live and/or backup server</h3>
@@ -252,7 +252,7 @@ Last update: August 19th 2020</p>
 <li>Go to ‘Deploy’, ‘Architecture’ and press Start Editing</li>
 <li>Right mouse click on the machine where the backup JMS is running on and select Start machine</li>
 </ul></li>
-<li><a href="#Check-message-traffic">Check message traffic</a>
+<li><a href="#check-message-traffic">Check message traffic</a>
 <ul>
 <li>Success -&gt; Communicate to the customer that messages arrive again</li>
 <li>Failure -&gt; Contact support for assistance as they can check the logs in the eMagiz Cloud</li>
@@ -270,7 +270,7 @@ Last update: August 19th 2020</p>
 <li>Navigate to ‘Deploy’, ‘Architecture’ and press Start Editing</li>
 <li>Right mouse click on the JMS runtime and select Restart Runtime</li>
 </ul></li>
-<li><a href="#Check-message-traffic">Check message traffic</a>
+<li><a href="#check-message-traffic">Check message traffic</a>
 <ul>
 <li>Success -&gt; Communicate to the customer that messages arrive again</li>
 <li>Failure -&gt; Contact support for assistance as they can check the logs in the eMagiz Cloud</li>
@@ -291,7 +291,7 @@ Last update: August 19th 2020</p>
 <li>Check runtime statistics under ‘Manage’
 <ul>
 <li>Success -&gt; Communicate to the customer that both servers are up and running again</li>
-<li>Failure -&gt; <a href="#Check-message-traffic">Check message traffic</a>
+<li>Failure -&gt; <a href="#check-message-traffic">Check message traffic</a>
 <ul>
 <li>Success -&gt; Open an RCA for the project team and or support to identify why the problem occurred</li>
 <li>Failure -&gt; Contact support for assistance as they can check the logs in the eMagiz Cloud</li>
@@ -304,7 +304,7 @@ Last update: August 19th 2020</p>
 <li>Navigate to ‘Manage’ and select the option ‘Queue statistics’ in the left hand panel. Check the various flows that are of relevance for this particular integration. For this integration you should see messages flowing through each step (entry till exit). Be aware, the number of messages does not have to be equal in each step due to the possibility of filtering messages in between.
 <ul>
 <li>Success -&gt; This means everything works again as expected. If you happen to have access to the application that should receive the data you always have the extra option to log in and verify if the messages indeed have arrived</li>
-<li>Failure -&gt; This means that messages are still not being delivered. In most cases this is due to problems on JMS level. Advice is to restart the JMS. See <a href="#Restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
+<li>Failure -&gt; This means that messages are still not being delivered. In most cases this is due to problems on JMS level. Advice is to restart the JMS. See <a href="#restart-live-and/or-backup-server">Restart live and/or backup server</a></li>
 </ul></li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="check-whether-runtime-exists-in-emagiz-cloud"></a><a href="#check-whether-runtime-exists-in-emagiz-cloud" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check whether runtime exists in eMagiz Cloud</h3>
@@ -320,13 +320,13 @@ Last update: August 19th 2020</p>
 <li>White with a green outside line. Continue with step 4</li>
 <li>White with a blue outside line. Continue with step 4</li>
 <li>White with a red outside line. Continue with step 5</li>
-<li>Dark blue with a dark blue outside line -&gt; <a href="#Reset-a-runtime-in-AWS">Reset a runtime in AWS</a></li>
+<li>Dark blue with a dark blue outside line -&gt; <a href="#reset-a-runtime-in-AWS">Reset a runtime in AWS</a></li>
 </ul></li>
 <li>If you arrived at this step this means that a change to Architecture has not yet been committed to the eMagiz Cloud. To commit these changes execute the following steps in order
 <ul>
 <li>Press Start Editing</li>
 <li>Press Apply to Environment and wait for the conformation from eMagiz that the update is committed to the eMagiz Cloud</li>
-<li><a href="#Check-message-traffic">Check message traffic</a>
+<li><a href="#check-message-traffic">Check message traffic</a>
 <ul>
 <li>If this control renders success your runtime is (again) running as expected</li>
 <li>If this control does not render success please contact support to verify what the logs within the eMagiz Cloud tell with regards to why this runtime is not active</li>
@@ -351,7 +351,7 @@ Last update: August 19th 2020</p>
 <li>Select a number of other buses and verify under ‘Manage’ whether those buses do have statistics (queue, runtime, etc.)
 <ul>
 <li>Success -&gt; Problem resides with the bus you are currently investigating. Restart of the JMS server is required. If the problem is only that statistics are missing please consult with the customer first before executing a restart of the environment</li>
-<li>Failure -&gt; Open the EHBO-emagiz portal cL file in Cape Service Point for the customer eMagiz and navigate to <a href="#Solve-the-problem-where-both-live-JMS-as-well-as-backup-JMS-are-down">Live server seems to be down</a></li>
+<li>Failure -&gt; Open the EHBO-emagiz portal cL file in Cape Service Point for the customer eMagiz and navigate to <a href="#solve-the-problem-where-both-live-jms-as-well-as-backup-jms-are-down">Live server seems to be down</a></li>
 </ul></li>
 </ol>
 </span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#recovery-guide-emagiz-cloud">Recovery Guide eMagiz Cloud</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#signals">Signals</a></li><li><a href="#first-aid">First Aid</a><ul class="toc-headings"><li><a href="#solve-the-problem-where-there-is-no-traffic-between-emagiz-and-the-runtime-for-which-you-have-received-the-alert">Solve the problem where there is no traffic between eMagiz and the runtime for which you have received the alert</a></li><li><a href="#solve-the-problem-where-both-live-jms-as-well-as-backup-jms-are-down">Solve the problem where both live JMS as well as backup JMS are down</a></li><li><a href="#solve-the-problem-where-backup-server-wont-come-up-again-after-restarting-the-live-jms">Solve the problem where backup server won’t come up again after restarting the live JMS</a></li><li><a href="#solve-the-problem-where-a-runtime-is-down">Solve the problem where a runtime is down</a></li><li><a href="#solve-the-problem-where-there-are-too-few-or-too-many-consumers">Solve the problem where there are too few or too many consumers</a></li><li><a href="#solve-the-problem-when-confronted-with-an-out-of-memory-log-entry">Solve-the-problem-when-confronted-with-an-out-of-memory-log-entry</a></li><li><a href="#restart-a-runtime-in-aws">Restart a runtime in AWS</a></li><li><a href="#reset-a-runtime-in-aws">Reset a runtime in AWS</a></li><li><a href="#restart-live-andor-backup-server">Restart live and/or backup server</a></li><li><a href="#check-message-traffic">Check message traffic</a></li><li><a href="#check-whether-runtime-exists-in-emagiz-cloud">Check whether runtime exists in eMagiz Cloud</a></li><li><a href="#check-whether-statistics-are-missing-for-multiple-bus-environments">Check whether statistics are missing for multiple bus environments</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
