@@ -22,6 +22,8 @@ To make it clear which integration pattern is selected as default eMagiz has add
 Besides this addition Capture has not changed and still should be filled in according to the business case as you are already used to do when capturing for all integration types. In Capture you draw a line if a new message type needs to be exposed via the API Gateway. In Design you will add operations (GET, POST, DELETE, etc.) to a specific message type</p>
 <p align="center"><img src="../../img/howto/userguide-apigw-1.png"></p>
 <p align="center"><img src="../../img/howto/userguide-apigw-2.png"></p>
+<p>One distinct differences between setting up Capture for an API Gateway in comparison to lets see messaging is that with the help of Capture you can visualize the clients calling an API Gateway.</p>
+<p align="center"><img src="../../img/howto/userguide-apigw-38.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="design"></a><a href="#design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design</h2>
 <p>The focus point of configuring the API Gateway to be used via the eMagiz platform lies in Design. In this ILM phase you set up the structure of your API Gateway. The API Gateway consists of a front end (client facing) and a (series of) back end system(s). Each operation created on the front end (client facing) has a link to a back end operation hosted by an external party. The Design phase gives you the tools that are needed to set up both the front end as the various back end operations. On Integration Level you can add, change and delete operations (GET, POST, PUT, etc.). For each opeartion you can select both front end (exposed) and back end (endpoint) in one screen. Security of your API Gateway can be defined under the Secutiry tab. This is accessible via a right mouse click on the API Icon in your overview page and selecting security. eMagiz uses the Open API Standard (The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs) for the API Gateway. To illustrate this further we have written down four separate scenarios suited for each phase of your API Gateway</p>
 <h3><a class="anchor" aria-hidden="true" id="importing-api-specifications"></a><a href="#importing-api-specifications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Importing API specifications</h3>
@@ -59,11 +61,12 @@ Be aware, not all API specifications are accepted by the tooling. Only OpenAPI 3
 </ol>
 <p align="center"><img src="../../img/howto/userguide-apigw-8.png"></p>
 <ol start="2">
-<li>In the popup that is presented link the correct backend operation to the correct front end operation and choose a display name and a technical name</li>
+<li>In the popup that is presented select REST as API Type and choose transformation or passthrough. Furthermore fill in the display name and technical name</li>
 </ol>
 <p align="center"><img src="../../img/howto/userguide-apigw-9.png"></p>
 <ol start="3">
-<li>The result would be something like this. For each added operation the counter will increase and the operation will become visible</li>
+<li><p>Choose the right operation and choose the path for the front end side. In case passthrough is chosen a backend operation also needs to be selected. When satisfied press Save.</p></li>
+<li><p>The result would be something like this. For each added operation the counter will increase and the operation will become visible</p></li>
 </ol>
 <p align="center"><img src="../../img/howto/userguide-apigw-11.png"></p>
 <p>In the remainder of this section we will look at various scenarios that can occur in Design based on the phase your project is in.</p>
@@ -83,15 +86,7 @@ Be aware, not all API specifications are accepted by the tooling. Only OpenAPI 3
 <p align="center"><img src="../../img/howto/userguide-apigw-13.png"></p>
 <ol start="4">
 <li><p>Final step would be to either import the Open API specification of this system (<a href="#importing-a-backend-operation-of-the-api-gateway.md">Importing a backend operation of the API Gateway</a>) or by adding them manually in this screen.</p></li>
-<li><p>Following this you will select Add integration.</p></li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-8.png"></p>
-<ol start="6">
-<li>For the front end you can either copy the specs of the backend system operation or create a new path</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-9.png"></p>
-<ol start="7">
-<li><p>Select the backend operation that you want to link with this front end operation and press Save</p></li>
+<li><p>Following this you will select Add integration <a href="#add-/-edit-integration.md">Add / Edit integration</a> and follow the steps outlined there.</p></li>
 <li><p>Configure the general settings for this system (I.e. Security). This can be done via a right mouse click on the API icon in the center of your Design overview and pressing security.</p>
 <ul>
 <li>For Security you choose the type of Authentication that is required by eMagiz (ApiKey + Client Certificate is the advised standard)</li>
@@ -112,19 +107,7 @@ Be aware, not all API specifications are accepted by the tooling. Only OpenAPI 3
 <p align="center"><img src="../../img/howto/userguide-apigw-19.png"></p>
 <ol start="3">
 <li><p>Final step would be to either import the Open API specification of this system (<a href="#importing-a-backend-operation-of-the-api-gateway.md">Importing a backend operation of the API Gateway</a>) or by adding them manually in this screen.</p></li>
-<li><p>Following this you will select Add integration.</p></li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-8.png"></p>
-<ol start="5">
-<li>For the front end you can either copy the specs of the backend system operation or create a new path</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-9.png"></p>
-<ol start="6">
-<li><p>Select the backend operation that you want to link with this front end operation and press Save</p></li>
-<li><p>Configure the general settings for this system (I.e. Security). This can be done via a right mouse click on the API icon in the center of your Design overview and pressing security.</p>
-<ul>
-<li>For Security you choose the type of Authentication that is required by eMagiz (ApiKey + Client Certificate is the advised standard)</li>
-</ul></li>
+<li><p>Following this you will select Add integration <a href="#add-/-edit-integration.md">Add / Edit integration</a> and follow the steps outlined there.</p></li>
 </ol>
 <h4><a class="anchor" aria-hidden="true" id="scenario-3-existing-api-gateway-existing-system-and-new-api-resourceoperation"></a><a href="#scenario-3-existing-api-gateway-existing-system-and-new-api-resourceoperation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scenario 3: Existing API Gateway, Existing System and New API Resource/Operation</h4>
 <ol>
@@ -136,15 +119,7 @@ Be aware, not all API specifications are accepted by the tooling. Only OpenAPI 3
 </ol>
 <p align="center"><img src="../../img/howto/userguide-apigw-8.png"></p>
 <ol start="3">
-<li>Following this you will select Add integration.</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-8.png"></p>
-<ol start="4">
-<li>For the front end you can either copy the specs of the backend system operation or create a new path</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-9.png"></p>
-<ol start="5">
-<li>Select the backend operation that you want to link with this front end operation and press Save</li>
+<li>Following this you will select Add integration <a href="#add-/-edit-integration.md">Add / Edit integration</a> and follow the steps outlined there.</li>
 </ol>
 <h4><a class="anchor" aria-hidden="true" id="scenario-4-existing-api-gateway-existing-system-and-existing-api-resourceoperation"></a><a href="#scenario-4-existing-api-gateway-existing-system-and-existing-api-resourceoperation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scenario 4: Existing API Gateway, Existing System and Existing API Resource/Operation</h4>
 <ol>
@@ -154,10 +129,13 @@ Be aware, not all API specifications are accepted by the tooling. Only OpenAPI 3
 <ol start="2">
 <li>The second change can be made on a backend operation. This can be done by right clicking the system, pressing Edit System and pressing Manage. Here you can change endpoints, parameters, responses, etc.</li>
 </ol>
+<h3><a class="anchor" aria-hidden="true" id="transforming-data-api-gateway"></a><a href="#transforming-data-api-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transforming data API Gateway</h3>
+<p>Transforming data can be set up in a similar way as for messaging and event streaming. This means that you can define and/or upload system messages and draw lines between entities and attributes indicating what needs to be translated to what.
+When transforming from and to JSON eMagiz will automatically add the components needed to your flow in Create.</p>
 <h3><a class="anchor" aria-hidden="true" id="design-architecture---deploy-architecture"></a><a href="#design-architecture---deploy-architecture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design Architecture &lt;-&gt; Deploy Architecture</h3>
 <p>Design and Deploy Architecture work the same as is now the case for projects that only include messaging flows. In Design eMagiz will add one or more runtimes for the API Gateway components based on your API Gateway settings. Advice would be to deploy this runtime on a separate machine in the AWS cloud to keep API Gateway components separate from messaging and/or event streaming components.
 Changes made via Design Architecture will be actualized in the same manner as you are used to in eMagiz via Deploy Architecture.</p>
-<h4><a class="anchor" aria-hidden="true" id="error-handling-api-gateway"></a><a href="#error-handling-api-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error handling API Gateway</h4>
+<h3><a class="anchor" aria-hidden="true" id="error-handling-api-gateway"></a><a href="#error-handling-api-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error handling API Gateway</h3>
 <p>The API gateway gives back the error to the client that he receives from the backend system if you as a user don’t do anything.
 This is not always desirable because it gives the client information on the backend operation and could show sensitive information.
 Any technical error message that would go to the asynchronous error flow in messaging will result in a http 500 error including the error for the API Gateway.
@@ -205,11 +183,11 @@ When you have defined this the client will always receive a 422 along with the m
 <ol start="2">
 <li>Select the all.entry flow related to your API Gateway and click on the Reset flow button. This way the new integration is added to the entry. If you configured everything correctly no changes are needed in this flow.</li>
 <li>Select the exit related to your integration (I.e. jira.storyget.exit) and open it by double clicking.</li>
-<li>eMagiz generates the flow based on what you defined in Design. In most cases no changes have to be made in the Create phase. In cases where you want to deviate from the chosen authentication method in Design eMagiz still provides you with this opportunity in Create. When in editing mode in Create you still have the same components at your disposal as when building an integration. These components can be added the same way as you would do for any integration (I.e. using support objects or headers on the message). For an example see the picture below</li>
+<li>eMagiz generates the flow based on what you defined in Design. In most cases no changes have to be made in the Create phase. In cases where you want to deviate from the chosen authentication method in Design eMagiz still provides you with this opportunity in Create. When in editing mode in Create you still have the same components at your disposal as when building an integration. These components can be added the same way as you would do for any integration (i.e. using support objects or headers on the message). For an example see the picture below</li>
 </ol>
 <p align="center"><img src="../../img/howto/userguide-apigw-31.png"></p>
 <ol start="5">
-<li>hen you are finished with the create phase (which should be fast if you filled in Design correctly) press Stop Editing and create a new version for Deploy. This way the newest version will be available for your Releases in Deploy</li>
+<li>When you are finished with the Create phase (which should be fast if you filled in Design correctly) press Stop Editing and create a new version for Deploy. This way the newest version will be available for your Releases in Deploy</li>
 </ol>
 <p align="center"><img src="../../img/howto/userguide-apigw-29.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="deploy"></a><a href="#deploy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploy</h2>
@@ -258,7 +236,7 @@ List of relevant properties API Gateway
 <p>Manage works the same for API gateway operations as for messaging flows. So you can set alerting on whether the exposed gateway or a specific backend operation is running. You can see how many messages have been send to a specific backend operation and many more which you can do at the moment in Manage.
 This can be seen in more detail under the section API Gateway Statistics (Under Manage -&gt; Monitoring). In this section you can see the number of requests made on a specific backend operations and the number of responses received from the backend operation.</p>
 <p align="center"><img src="../../img/howto/userguide-apigw-37.png"></p>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-guide-api-gateway-emagiz">User Guide API Gateway eMagiz</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#capture">Capture</a></li><li><a href="#design">Design</a><ul class="toc-headings"><li><a href="#importing-api-specifications">Importing API specifications</a></li><li><a href="#importing-a-backend-operation-of-the-api-gateway">Importing a backend operation of the API Gateway</a></li><li><a href="#change-api-gateway-settings">Change API Gateway settings</a></li><li><a href="#add--edit-integration">Add / Edit integration</a></li><li><a href="#design-architecture---deploy-architecture">Design Architecture &lt;-&gt; Deploy Architecture</a></li></ul></li><li><a href="#create">Create</a><ul class="toc-headings"><li><a href="#scenario-1-adding-an-integration">Scenario 1: Adding an integration</a></li><li><a href="#scenario-2-updating-an-integration">Scenario 2: Updating an integration</a></li></ul></li><li><a href="#deploy">Deploy</a><ul class="toc-headings"><li><a href="#creating-and-managing-api-keys">Creating and managing API Keys</a></li></ul></li><li><a href="#manage">Manage</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-guide-api-gateway-emagiz">User Guide API Gateway eMagiz</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#capture">Capture</a></li><li><a href="#design">Design</a><ul class="toc-headings"><li><a href="#importing-api-specifications">Importing API specifications</a></li><li><a href="#importing-a-backend-operation-of-the-api-gateway">Importing a backend operation of the API Gateway</a></li><li><a href="#change-api-gateway-settings">Change API Gateway settings</a></li><li><a href="#add--edit-integration">Add / Edit integration</a></li><li><a href="#transforming-data-api-gateway">Transforming data API Gateway</a></li><li><a href="#design-architecture---deploy-architecture">Design Architecture &lt;-&gt; Deploy Architecture</a></li><li><a href="#error-handling-api-gateway">Error handling API Gateway</a></li></ul></li><li><a href="#create">Create</a><ul class="toc-headings"><li><a href="#scenario-1-adding-an-integration">Scenario 1: Adding an integration</a></li><li><a href="#scenario-2-updating-an-integration">Scenario 2: Updating an integration</a></li></ul></li><li><a href="#deploy">Deploy</a><ul class="toc-headings"><li><a href="#creating-and-managing-api-keys">Creating and managing API Keys</a></li></ul></li><li><a href="#manage">Manage</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
