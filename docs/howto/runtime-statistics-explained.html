@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/runtime-statistics-explained · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Runtime Statistics Explained"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/runtime-statistics-explained · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="## Runtime Statistics Explained"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/runtime-statistics-explained</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="runtime-statistics-explained"></a><a href="#runtime-statistics-explained" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Runtime Statistics Explained</h2>
+<p>In the following three sections we want to provide more insights in the Runtime Statistics page within the Manage phase of eMagiz.
+The focus of the first section will be to explain each of the six graphs separately in order to create a common understanding of what each of these graphs tell us.
+In the second section we will highlight the relationship between these six graphs to create more context on how to interpret the graphs in unison.
+The third section will focus on troubleshooting. In this section we have focused on some common cases we see happening and tried to explain which steps are needed and which reasoning is required to better analyze problems and prevent them in the future</p>
+<p>Last update: October 9th 2020</p>
+<h2><a class="anchor" aria-hidden="true" id="the-six-graphs"></a><a href="#the-six-graphs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Six Graphs</h2>
+<h3><a class="anchor" aria-hidden="true" id="total-jvm-cpu-usage"></a><a href="#total-jvm-cpu-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Total JVM CPU usage</h3>
+<p>The top left hand graph shows the CPU usage of the JVM (Java Virtual Machine) aka the runtime you have selected from the dropdown menu. The CPU usage (%) indicates how much of the available CPU is used to run the (Java) processes. In broad terms for eMagiz the main things that take up CPU are:</p>
+<ol>
+<li>Running flows (starting / stopping flows)</li>
+<li>Processing messages</li>
+<li>Garbage collection</li>
+<li>Threads</li>
+</ol>
+<p align="center"><img src="../../img/howto/runtime-statistics-explained-0.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="number-of-live-threads"></a><a href="#number-of-live-threads" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Number of live threads</h3>
+<p>The top right hand graph shows the number of live threads that are currently running on your JVM (runtime). Each thread represents a task that is executed on that JVM. This could be the consumption of a message, the registration of a queue, etc. An ever growing number of live threads indicates that there might be something wrong.</p>
+<p align="center"><img src="../../img/howto/runtime-statistics-explained-1.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="total-jvm-memory-usage"></a><a href="#total-jvm-memory-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Total JVM Memory Usage</h3>
+<p>The second graph on the left hand side shows the total JVM Memory Usage of the JVM (runtime) you have selected from the dropdown menu. This graph shows the total memory the JVM uses. This is a combination of heap (memory where objects that are created by the application are stored) and native memory. The native memory is subsequently divided into several categories:</p>
+<ol>
+<li>metaspace (used to store information about the classes that have been loaded),</li>
+<li>threads (memory used by threads in the JVM),</li>
+<li>code cache (memory used by the JIT to store its output),</li>
+<li>garbage collection (stores data used by the GC),</li>
+<li>symbol (stores symbols such as field names, method signatures, and interned strings)</li>
+<li>internal (stores other internal data that does not fit into any of the other areas)
+As a user you can influence these heap and native memory settings under Deploy -&gt; Architecture to create the best balance. eMagiz supports this by advising you on the desired setting per JVM (runtime).</li>
+</ol>
+<p align="center"><img src="../../img/howto/runtime-statistics-explained-2.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="data-measurements"></a><a href="#data-measurements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data measurements</h3>
+<p>The second graph on the right hand side shows the data measurements of the particular JVM (runtime) that you have selected from the dropdown menu. Each minute various data points (measurements) with regards to the runtime are send to the portal. This graph indicates that the measurements indeed have been successfully send and processed by the portal.
+The moment you start seeing gaps in your graphs you will also see comparable gaps in this graph indicating that data measurements are not coming through. The fact that data measurements are not shown here could indicate problems on the JVM.</p>
+<p align="center"><img src="../../img/howto/runtime-statistics-explained-3.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="heap-memory-usage"></a><a href="#heap-memory-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Heap memory usage</h3>
+<p>The bottom left hand graph shows the heap memory usage of your JVM (runtime). The heap memory consists of memory where objects that are created by the application are stored. In other words when you process messages you use some of the heap memory to execute the various tasks in threads. This process takes up heap memory.
+To make sure that unused objects are removed Java uses the Garbage Collection. It is the task of garbage collection (GC) in the Java virtual machine (JVM) to automatically determine what memory is no longer being used by a Java application and to recycle this memory for other uses.
+The moment you see a nice drop every now and then (zigzag shape) this means the garbage collection has removed all unused memory to free it up for the processing of subsequent messages.</p>
+<p align="center"><img src="../../img/howto/runtime-statistics-explained-4.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="non-heap-memory-usage"></a><a href="#non-heap-memory-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Non-heap memory usage</h3>
+<p>The bottom right hand graph shows the non-heap memory usage of your JVM (runtime). With the introduction of Java 8 the way Java handles memory has changed. This change also included that non-heap has been changed to the term native memory.
+In this graph you can see if the native memory is within range. Contrary to heap memory, non-heap memory is less likely to vary under load. Once an application has loaded all of the classes that it will use and the JIT is fully warmed up, things will settle into a steady state.</p>
+<p align="center"><img src="../../img/howto/runtime-statistics-explained-5.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="relation-between-graphs"></a><a href="#relation-between-graphs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Relation between graphs</h2>
+<p>In this section we will highlight how the graphs shown in this page are connected to each other. This way you get a better picture of how the various parts of the JVM act in unison.</p>
+<ol>
+<li>CPU usage and heap memory.
+<ul>
+<li>An increase in both heap memory as well as CPU is a strong indication that a lot of traffic (in MBs) is being processed. This could be the result of a lot of messages being processed or one or a few large ones.</li>
+<li>A decrease in heap memory, from a high point, combined with a slight increase in CPU is a strong indication that garbage collection has kicked in.</li>
+<li>An explosive increase in both heap memory as well as CPU is a strong indication that the runtime might be having memory problems.</li>
+<li>A decrease in both heap memory as well as CPU is a indication that not a lot of messages are being processed</li>
+</ul></li>
+<li>CPU usage and number of threads.
+<ul>
+<li>An increase in CPU usage and the number of threads means that more tasks are needed to handle the data that is being processed</li>
+<li>A decrease in CPU usage and the number of threads means that less tasks are handled</li>
+<li>A decrease in CPU and an increase in the number of threads is an indication that although more tasks are needed this has no impact on CPU usage</li>
+</ul></li>
+<li>Heap memory and number of threads
+<ul>
+<li>An increase in heap memory and the number of threads indicates that more tasks are taken up more memory</li>
+<li>An decrease in heap memory and the number of threads indicates that less tasks take up less memory</li>
+</ul></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="troubleshooting"></a><a href="#troubleshooting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Troubleshooting</h2>
+<p>With the help of these graphs you can do analysis on your runtimes. Below we have written out several scenarios that occur often**.</p>
+<ol>
+<li>Alert that a high CPU percentage has been detected on a specific runtime.
+<ul>
+<li>First thing to do in such a scenario would be to navigate to the runtime in question and see whether the CPU keeps on increasing or whether there was a temporary spike in CPU usage.</li>
+<li>Based on this observation you need to look at the other graphs, especially the one surrounding the heap memory to see whether the increase in CPU can be linked to an increase in heap memory. If both keep on increasing this could indicate a memory problem. The advice would be to analyze whether the current heap memory settings are still valid</li>
+<li>If you see a decrease in heap memory slightly after the spike in CPU this is an indication that the runtime was temporarily busy with garbage collection (a standard process within Java) to free up memory. No further action is warranted</li>
+<li>If you see no or minimal effect on the heap memory but your CPU is spiking this could be due to someone installing a substantial number of flows on this runtime. Check again after all flows have been installed and started to see whether everything runs stable again. If so, no further action is necessary.</li>
+</ul></li>
+</ol>
+<p>If you still see strange behavior you should check under the log entries and/or with other related runtimes to see if you can see a casual relation between the both of them.</p>
+<ol start="2">
+<li>Alert that the amount of heap memory used is above a threshold.
+<ul>
+<li>First thing to do in such a scenario would be to navigate to the runtime in question and see whether the heap memory keeps on increasing towards the limit or not.</li>
+<li>The moment it keeps on climbing there will probably be an out of memory error. You can confirm this by looking at the log entries of the runtime.</li>
+<li>Out of memories also have the effect that statistics won’t be coming through anymore. This means that another way of verifying whether an out of memory might have occurred is to see whether the statistics disappeared (be aware the statistics are shown once per minute so be patient).
+<ul>
+<li>All three observations together give you the conclusion that an out of memory has occurred.</li>
+</ul></li>
+<li>The moment the heap memory peaks and then drops (zigzag pattern) is a strong indicator that garbage collection has kicked in to free up memory for future use.</li>
+</ul></li>
+</ol>
+<p>**  Not all scenarios that could happen have been specified above. The scenarios written here are to show a certain way of thinking that is needed to trouble shoot.</p>
+<h2><a class="anchor" aria-hidden="true" id="relevant-external-links"></a><a href="#relevant-external-links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Relevant External Links</h2>
+<p><a href="https://spring.io/blog/2019/03/11/memory-footprint-of-the-jvm">https://spring.io/blog/2019/03/11/memory-footprint-of-the-jvm</a>
+<a href="https://www.eginnovations.com/blog/java-threads/#:~:text=A%20thread%2C%20in%20the%20context,invoked%20with%20the%20main%20thread">https://www.eginnovations.com/blog/java-threads/#:~:text=A%20thread%2C%20in%20the%20context,invoked%20with%20the%20main%20thread</a>.
+<a href="https://www.eginnovations.com/blog/what-is-garbage-collection-java/">https://www.eginnovations.com/blog/what-is-garbage-collection-java/</a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#runtime-statistics-explained">Runtime Statistics Explained</a></li><li><a href="#the-six-graphs">The Six Graphs</a><ul class="toc-headings"><li><a href="#total-jvm-cpu-usage">Total JVM CPU usage</a></li><li><a href="#number-of-live-threads">Number of live threads</a></li><li><a href="#total-jvm-memory-usage">Total JVM Memory Usage</a></li><li><a href="#data-measurements">Data measurements</a></li><li><a href="#heap-memory-usage">Heap memory usage</a></li><li><a href="#non-heap-memory-usage">Non-heap memory usage</a></li></ul></li><li><a href="#relation-between-graphs">Relation between graphs</a></li><li><a href="#troubleshooting">Troubleshooting</a></li><li><a href="#relevant-external-links">Relevant External Links</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
