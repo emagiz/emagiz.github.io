@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/runtime-installations-onpremise-windows · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# On-premise (Windows) eMagiz runtime installation document"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/runtime-installations-onpremise-windows · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# On-premise (Windows) eMagiz runtime installation document"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/runtime-installations-onpremise-windows</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="on-premise-windows-emagiz-runtime-installation-document"></a><a href="#on-premise-windows-emagiz-runtime-installation-document" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>On-premise (Windows) eMagiz runtime installation document</h1>
+<p>This document describes what the requirements are for a eMagiz runtime installation on-premise on a Windows machine as well as a step by step guideline how to install a runtime on-premise.
+An on-premise installation often occurs in an architecture where the runtime should run within your own or your customer’s network.
+This is recommended for all connectors that communicate with a system that is located inside your network or if you would like to test locally on your computer.
+For an installation of a runtime on a Linux system please see <a href="/docs/howto/runtime-installations-onpremise-linux">On-premise eMagiz runtime installation document Linux</a></p>
+<h2><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
+<p>To install a runtime, please be aware that eMagiz needs an environment that satisfies certain requirements.
+These requirements can be different depending on your architectural choices.
+Most common is the connector inside your network and a JMS and container running outside the network.
+In that case, if you are running only connectors on this environment, please keep the following requirements in mind:</p>
+<ol>
+<li>OS with support for Java</li>
+<li>OS user with granted security rights to run startup services (Windows services)</li>
+<li>The correct Java installation (Java 8 SE JRE for example, <a href="https://adoptopenjdk.net">https://adoptopenjdk.net</a>) with NO automatic updates. OpenJDK 8 is currently the recommended version for eMagiz installations.</li>
+<li>NTP synchronization – all eMagiz service instances should use the same time and settings.</li>
+<li>Access to internet</li>
+<li>Outbound JMS traffic - port 8443 (and 8444 in case of failover situation) - amqp.emagiz.com / cloudXXXX.emagizcloud.com
+<ul>
+<li>General monitoring data to eMagiz iPaaS</li>
+<li>Specific JMS traffic to eMagiz JMS Server</li>
+</ul></li>
+<li>Outbound HTTPS traffic – port 443 – Specific provisioning data- <a href="https://rts.emagiz.com/ws/">https://rts.emagiz.com/ws/</a> / <a href="https://repository.emagiz.com">https://repository.emagiz.com</a></li>
+<li>Hardware requirements
+<ul>
+<li>Modern CPU</li>
+<li>Enough Disk Space according to sizing calculations</li>
+</ul></li>
+<li>Enough Memory according to sizing calculations</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="additional-information"></a><a href="#additional-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Additional information:</h2>
+<ol>
+<li>To run an eMagiz runtime, the OS of the server should support and have Java installed.
+The current version is Java 8. eMagiz runtimes with version of 5.x or higher only support Java 8.
+These runtimes will not run on Java 7 or earlier versions.
+If you are running on Java 7, or if you need to use an earlier version of the eMagiz runtime,
+please also check ‘Installing an older version of the eMagiz runtime’.</li>
+<li>Additional to 1), please do NOT allow automatic updates. Updates in Java 8 are installed in a different directory than the earlier version. This causes that with every update, your JAVA_HOME system variable, which ensures that if you use Java you use that version, should be updated manually by every update. If you update automatically, this will cause issues since the JAVA_HOME variable will not properly set after each update. See the following Q&amp;A question to learn more about the importance of JAVA_HOME when using on-premise connectors: <a href="https://my.emagiz.com/p/question/172825635700348986">https://my.emagiz.com/p/question/172825635700348986</a>. Since it can be though to find a Java version via the Oracle site, you are advised to download your Java version from <a href="https://adoptopenjdk.net">https://adoptopenjdk.net</a>.</li>
+<li>By installing a runtime, you also need an OS user with security rights to run startup services. This is required because installing the corresponding service for a connector will make sure that the connector can independently stop or start without any user intervention. This means that if the server (JMS) restarts, no manual actions are required.</li>
+<li>Each server has a date and time. An eMagiz service instance use the NTP time protocol. The NTP protocol is a networking protocol for clock synchronization based on UTC time. Synchronizing your server with the NTP protocol ensures that eMagiz runtimes ‘talk’ with the same date and time. This ensures that you prevent for example:</li>
+</ol>
+<ul>
+<li>That you are not able to reach your connector via the Runtime Dashboard</li>
+<li>That synchronized communication fails due to time out errors caused by out of sync runtimes instead of that a system fails to response.</li>
+</ul>
+<ol start="5">
+<li>In order to communicate with other runtimes, that are hosted outside your network, you need access to the internet.</li>
+<li>For your connector to communicate with your JMS server, the on-premise server needs to open its port 8443 (and 8444 in case of failover) for outgoing communication (from the server point of view). Via this port JMS data is communicated. In ensures for example that you are able to reach the connector via the runtime dashboard and that you can see statistics of the runtime in Manage.
+Via a different port, your connector will communicate with your container and its flows. eMagiz requires that the server opens its port 443 for outgoing information to communicate the actual messages exchanged.</li>
+<li>The servers itself has requirements as well. Please ensure that the server has a modern CPU, enough diskspace and enough memory.</li>
+<li>Most important is that for each runtime at least 1GB of RAM Memory is available. These calculation is made as follows:</li>
+</ol>
+<ul>
+<li>500 MB heap memory</li>
+<li>192 MB metaspace memory</li>
+<li>100 MB overhead
+The above is the bare minimum needed to run. As the number of flows running on a connector increases the memory also needs to be increased. The same logic applies to flows that use up a lot of memory because multiple steps are executed within that flow. Both are solid reasons to use 1GB as a general rule of thumb but at the same time always take into account new developments when setting up the sizing.</li>
+</ul>
+<p>If you install your JMS and container as well within your network and not in the cloud, please keep in mind that you need to open port 8443 (and 8444 in case of failover) as well for incoming communication.</p>
+<p><img src="../../img/howto/localconnector-infrastructure-view.png" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="java-runtime-and-emagiz-runtime-compatibility"></a><a href="#java-runtime-and-emagiz-runtime-compatibility" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Java runtime and eMagiz runtime compatibility</h2>
+<p>Java is required to run eMagiz instances, however Java and eMagiz are continuously developing their software. This means that at some point in time older versions of Java and older parts of eMagiz are not supported anymore.</p>
+<p>Please see the <a href="/docs/howto/eMagiz_Platform_release_considerations">eMagiz Platform release considerations</a> which runtime version, buildnumbers, Java version and so forth are still supported within the eMagiz platform.</p>
+<h2><a class="anchor" aria-hidden="true" id="how-to-install-runtime"></a><a href="#how-to-install-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to install runtime</h2>
+<p>This chapter will discuss a step to step guideline of how to install a new eMagiz runtime of 5.X or higher. As a reminder this how to is only applicable for a Windows environment. Please see see <a href="/docs/howto/runtime-installations-onpremise-linux">On-premise eMagiz runtime installation document Linux</a> on how to install a runtime on a Linux enviroment.
+If you need to install an earlier version, please also read the extra information ‘Installing an older version of the eMagiz runtime’</p>
+<h3><a class="anchor" aria-hidden="true" id="pre-configuration"></a><a href="#pre-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-configuration</h3>
+<ol>
+<li>The first step of this How-To is to make sure before installing that the requirements as stated above are met.</li>
+<li>Go to the server where you need to install the runtime.</li>
+<li>Check the JAVA_HOME system variable if it is set and is directed to the correct folder. You can do this by going to ‘This Computer’.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step3-1.png" alt=""></p>
+<ol start="4">
+<li>Click with your right mouse button on This PC and go to Properties. The following screen pops up and go to Advanced System Settings.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step3-2.png" alt=""></p>
+<ol start="5">
+<li>Go to Environment Variables.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step3-3.png" alt=""></p>
+<ol start="6">
+<li>Check if the JAVA_HOME system veriable exists and it directs to the correct JAVA directory. If it does not exists, please add it.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step3-4.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="download-runtime"></a><a href="#download-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Download runtime</h3>
+<ol>
+<li>Download the eMagiz runtime of your connector, JMS or container via eMagiz Deploy phase in the Containers tab on the server where it needs to be installed. Please note the environment you want the runtime of. If you download the runtime of the wrong environment you will send to or receive of the wrong environment. For example you want to test a flow but by downloading the runtime from the incorrect enviroment you end up sending data to the Production environment. In the case below, we see that we are downloading a connector runtime ordsys for the Test environment.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step4-1.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="unzip-the-runtime"></a><a href="#unzip-the-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unzip the runtime</h3>
+<ol>
+<li>Unzip your download package into a directory which is not too deep into the directory structure.
+A directory structure which is too deep will cause issues when extracting the runtime.
+For example use: <a href="C://eMagiz/test">C://eMagiz/test</a>
+Do not use: <a href="C://Programs/eMagiz/test/connector/appeee/installation">C://Programs/eMagiz/test/connector/appeee/installation</a></li>
+<li>Go to the unpacked package and open the folder</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="test-the-runtime"></a><a href="#test-the-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test the runtime</h3>
+<ol>
+<li>In the Bin folder, you can validate if the service can make a connection via karaf.bat.
+To check the connection of the service, use right mouse button the execute the file as Administrator.
+Please make sure that before you try this you verify that your JMS is running.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step4-2.png" alt=""></p>
+<ol start="2">
+<li>A screen will pop up and will show you the following:
+<img src="../../img/howto/runtime-win-install-step4-3.png" alt="">
+<ul>
+<li>Use the command ‘log:tail’ to see the full log. You will see the full stack trace. If the installation is successful, you should see something like this as a result:
+org.eclipse.gemini.blueprint.extender - 2.1.0.RELEASE |  Application context successfully refreshed (ApplicationContext(bundle=nl.capesystemsintegration.demo.bus.commupd.ordsys.connector-infra.spring, config=nl.capesystemsintegration.demo.bus.commupd.ordsys.connector-infra.spring_1.0.0.52.xml))</li>
+</ul></li>
+</ol>
+<p>If you see an error or the popup closes itself immediately, please check the above steps and requirements. If the popup closes this is probably due to a mismatch between Java version and runtime version. Please look back at the section explaining how to set JAVA_HOME for more information. If all the above steps are correct and you are not able to identify the issue, please contact your eMagiz contact person (<a href="mailto:emagizcc@capegroep.nl">emagizcc@capegroep.nl</a>).</p>
+<ol start="3">
+<li>If you see the expected logging, check in eMagiz if:</li>
+</ol>
+<ul>
+<li>You are able to reach the runtime via the runtime dashboard.</li>
+<li>You see runtime statistics in Manage.</li>
+</ul>
+<ol start="4">
+<li>Close the popup that is shown (Stop your karaf executable). This makes sure that you stop the karaf.bat from working</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="install-the-runtime"></a><a href="#install-the-runtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install the runtime</h3>
+<ol>
+<li>Install the windows service to ensure that the runtime will automatically start and stop when the server starts, stops or restarts.
+You can do this by running the ‘install-service.bat’.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step11-1.png" alt=""></p>
+<ol start="2">
+<li>Please check if the service is created. This can be viewed via Services in Windows. You can find Services by using the navigation bar of Windows and searching for Services or typ-in ‘Services.msc’ in your run-window (WINDOWS+R) and press enter.
+You will find in the list of services your eMagiz runtime service.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step12-1.png" alt=""></p>
+<p>If you click on the service, you can either start, stop or restart the service.</p>
+<ol start="3">
+<li>Click with your right mouse button on the service and select Properties.
+You will see the following screen.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-step13-1.png" alt=""></p>
+<p>For the start up type, please check Automatically (delayed start)
+In the Tab Log On, you are able to change the user that starts this service, if necessary. This mostly occurs when you are requested to use a different user for the service than your windows user due to security reasons.</p>
+<ol start="4">
+<li>Check in eMagiz, just as in step 8, if your connector is still running.</li>
+<li>Test the connection by sending test messages over the bus. In case of the live environment, contact your technical contact to test for you.</li>
+<li>If everything is working correctly, document the steps to access the server and environment and the credentials.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="sizing-upgrade-addendum"></a><a href="#sizing-upgrade-addendum" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sizing upgrade addendum</h2>
+<ol>
+<li>Estimate the size and the predicted load of the runtime and decide if the default memory settings are enough.
+If you need more memory, for example when you use more than 20 flows on one connector or if some of the flows running on your connector use up more memory as predicted / default.
+In these cases go to your etc folder of your runtime installation which is named according to the following naming convention -&gt; emagiz_{technicalbusname}-{containertype}-{technicalnameofruntime}_{environment}. In this example that would mean emagiz_commupd-connector-ordsys_test.</li>
+</ol>
+<p><img src="../../img/howto/runtime-win-install-1.png" alt=""></p>
+<p>Within this folder you will find a wrapper.conf file that is named based on the runtimename.</p>
+<p><img src="../../img/howto/runtime-win-install-2.png" alt=""></p>
+<p>When you open this file you can change the memory settings, both heap and metaspace. In the figures shown below you can see which parts of the file you need to change to change the memory settings.</p>
+<p><strong>Heap memory:</strong>
+<img src="../../img/howto/runtime-win-install-3.png" alt=""></p>
+<p><strong>Metaspace memory:</strong>
+<img src="../../img/howto/runtime-win-install-4.png" alt=""></p>
+<p>Don't forget to save the file as administrator and restart the runtime afterwards to make sure that the new settings are applied</p>
+<h2><a class="anchor" aria-hidden="true" id="multiple-java-versions-on-same-server-addendum"></a><a href="#multiple-java-versions-on-same-server-addendum" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multiple Java versions on same server addendum</h2>
+<p>When confronted with a situation in which you have to support multiple runtime versions running multiple Java versions this addendum is for you.</p>
+<p>This is mainly the case when both Acceptance and Production connectors are running on the same server on-premise or when you migrate environments through multiple steps. To determine the correct Java version needed for your runtime please see the attached picture detailed under Java runtime and eMagiz runtime compatibility.
+Be warned: These steps need to be taken before you install a runtime. If you have already installed the runtime please use the uninstall-service.bat action to uninstall the service before proceeding. When confronted with this situation on a live environment please first discuss your actions with CAPE support and the customer.</p>
+<ol>
+<li>Navigate to the folder belonging to the runtime you currently want to install and start</li>
+<li>Navigate to the bin folder within the runtime installation folder</li>
+<li>Edit the setenv.bat file via Notepad++ / Kladblok / WordPad</li>
+<li>Search (CTRL + F) for: rem SET JAVA_HOME and change this to SET JAVA_HOME=<Java path>      The Java path refers to the location (path) where Java (8) is installed. Commonly this path will look like:    ‘C:\Program Files\Java\jre1.8.x_xxx’ of ‘C:\Program Files\Java\jdk1.8.x_xxx’.
+Be warned: Make sure no spaces are surrounding the ‘=’ character</li>
+<li>Save the file as administrator to ensure that changes made in the file are also represented in</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requirements">Requirements</a></li><li><a href="#additional-information">Additional information:</a></li><li><a href="#java-runtime-and-emagiz-runtime-compatibility">Java runtime and eMagiz runtime compatibility</a></li><li><a href="#how-to-install-runtime">How to install runtime</a><ul class="toc-headings"><li><a href="#pre-configuration">Pre-configuration</a></li><li><a href="#download-runtime">Download runtime</a></li><li><a href="#unzip-the-runtime">Unzip the runtime</a></li><li><a href="#test-the-runtime">Test the runtime</a></li><li><a href="#install-the-runtime">Install the runtime</a></li></ul></li><li><a href="#sizing-upgrade-addendum">Sizing upgrade addendum</a></li><li><a href="#multiple-java-versions-on-same-server-addendum">Multiple Java versions on same server addendum</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
