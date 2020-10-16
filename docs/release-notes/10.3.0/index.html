@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.3.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.3.0, released 2020-08-07"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.3.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.3.0, released 2020-08-07"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/integration/" target="_self">Key Concepts</a></li><li class=""><a href="/docs/iPaaS/" target="_self">Integration Life Cycle</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.3.0</h1></header><article><div><span><p>Version 10.3.0, released 2020-08-07</p>
+<p>Release that improves the workflow of creating, testing and deploying integrations. In addition, this release includes several noticable performance improvements and tackles some minor issues.</p>
+<p>New features</p>
+<ul>
+<li>In the flow designer, the start editing button no longer prompts the creation of a new version. This allows you to edit the flow first and decide when the flow will increase to a new version later. After clicking the stop editing button, you can decide whether to create a new version or not. Upon creating the new version, it will automatically update the Create phase release in the Deploy phase.  If you do not create a new version, eMagiz will save the changes done until that moment in an auto-saved version and list it in the history tab as well.</li>
+<li>The refresh Create phase release button has been moved to a context menu option and renamed to &quot;Batch update&quot;. The Create phase release is now updated with every change done on the Create phase. To remove tenants, you will need to press &quot;Batch update&quot;.</li>
+<li>Deploy - Deployment Plan: Introduced a new automated step, &quot;Monitoring trigger&quot;. To avoid false positive alerts during deployments, you have the option to add automated steps to disable and re-enable all alert triggers. This way you can suppress all alerts during the deployment, and turn them on again after you are done, without having to manually keep track of which ones were enabled.</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Create - Overview: The visual representation now uses the React framework. This lowers the loading time when navigating to the Create phase considerably, and enhances the responsiveness of the UI.</li>
+<li>Deploy - Deployment plan execution: When executing the deployment plan automatically, you will receive a confirmation pop-up when eMagiz detects that a runtime is not reachable. This allows you to fix the problem before continuing with the next steps of the deployment plan.</li>
+<li>Across the portal improved performance for specific pages and actions, significantly reducing loading times in the UI.</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>Help text at field level works again. In some cases, specially noticeably in Design, help text was not visible when clicking a field of the page.
+Fixed that, when creating a new bus, runtimes where not automatically created in the Manage and Deploy phases of the ILM.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
