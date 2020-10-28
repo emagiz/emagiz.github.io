@@ -50,9 +50,10 @@ Advice would be to govern this via an IDP (i.e. Azure AD) so you can set up role
 <h4><a class="anchor" aria-hidden="true" id="rights-for-running"></a><a href="#rights-for-running" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rights for running</h4>
 <p>In Windows a service account is needed to be able to run a Windows Service (in this case the runtime you have installed). This service account is different compared to the user that does the installing of the runtime.
 There are two options on this level:</p>
-<pre><code class="hljs">-   Use the local system account. This account has sufficient rights to run the service and can therefore be used for everything. Less work to configure, more impact on the integrity of data when the account gets compromised.
--   Use a specific service account per runtime. This way you limit the power of users to a specific runtime making you less vulnerable if this account gets compromised.
-</code></pre>
+<ul>
+<li>Use the local system account. This account has sufficient rights to run the service and can therefore be used for everything. Less work to configure, more impact on the integrity of data when the account gets compromised.</li>
+<li>Use a specific service account per runtime. This way you limit the power of users to a specific runtime making you less vulnerable if this account gets compromised.</li>
+</ul>
 <p>In Linux the service will be running under the local system account as per default.</p>
 <h3><a class="anchor" aria-hidden="true" id="32-cloud"></a><a href="#32-cloud" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Cloud</h3>
 <p>In the eMagiz cloud the access is restricted to those who have a legitimate reason to access it based on the SLA level agreements between customers and eMagiz. This means support engineers, consignment employees and your bus owner have access to your specific cloud setup.
@@ -87,13 +88,14 @@ Within eMagiz there are three main integration patterns a user can configure to 
 <h3><a class="anchor" aria-hidden="true" id="51-messaging"></a><a href="#51-messaging" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.1 Messaging</h3>
 <p>Messaging is the most flexible option of the three. Therefore a wide range of options is available within eMagiz to secure the connections.
 eMagiz offers users the tools to set up integrations and end-points in a secure manner. eMagiz supports well-known market standards, including:</p>
-<pre><code class="hljs">-   OpenID Connect
--   WS-Security
--   API Keys in combination with HTTPS/SSL
--   SOAP Authentication
--   OAuth2.0
--   Basic Authentication
-</code></pre>
+<ul>
+<li>OpenID Connect</li>
+<li>WS-Security</li>
+<li>API Keys in combination with HTTPS/SSL</li>
+<li>SOAP Authentication</li>
+<li>OAuth2.0</li>
+<li>Basic Authentication</li>
+</ul>
 <p>This way each connection between the application and the integration (end-point) can be secured in a proper manner and gives the flexibility to confer with the external application which method suits their needs the best.</p>
 <h4><a class="anchor" aria-hidden="true" id="52-api-gateway"></a><a href="#52-api-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.2 API Gateway</h4>
 <p>A structure with roles and rights per role can be specified within the portal or via an external IDP, to secure the front end of the API Gateway in eMagiz.</p>
