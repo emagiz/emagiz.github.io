@@ -25,6 +25,8 @@ Besides this addition Capture has not changed and still should be filled in acco
 <p align="center"><img src="../../img/howto/userguide-apigw-2.png"></p>
 <p>One distinct differences between setting up Capture for an API Gateway in comparison to Messaging for instance is that with the help of Capture you can visualize the clients calling an API Gateway. In upcoming release, more capabilities could be added to Design this system further. In this document, this system is not further discussed in terms of configuration(s).</p>
 <p align="center"><img src="../../img/howto/userguide-apigw-43.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="user-management"></a><a href="#user-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Management</h3>
+<p>In Capture you can correctly setup 'consuming' entities of your API Gateway. For more information please read <a href="/docs/howto/user-management">this</a> document</p>
 <h2><a class="anchor" aria-hidden="true" id="design"></a><a href="#design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design</h2>
 <p>The focus point of configuring the API Gateway to be used via the eMagiz platform lies in Design. In this ILM phase you set up the structure of your API Gateway. The API Gateway consists of a front end (client facing) and a (series of) back end system(s). Each operation created on the front end (client facing) has a link to a back end operation hosted by an external party.
 The Design phase gives you the tools that are needed to set up both the front end as the various back end operations.
@@ -76,6 +78,8 @@ Be aware, not all API specifications are accepted by the tooling. Only OpenAPI 3
 <li><p>The result would be something like this. For each added operation the counter will increase and the operation will become visible</p></li>
 </ol>
 <p align="center"><img src="../../img/howto/userguide-apigw-11.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="user-management-1"></a><a href="#user-management-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Management</h3>
+<p>In Design you can correctly assign roles and rights to 'consuming' entities of your API Gateway. For more information please read <a href="/docs/howto/user-management">this</a> document</p>
 <p>In the remainder of this section we will look at various scenarios that can occur in Design based on the phase your project is in.</p>
 <h4><a class="anchor" aria-hidden="true" id="scenario-1-new-api-gateway-new-system-and-new-api-resourceoperation"></a><a href="#scenario-1-new-api-gateway-new-system-and-new-api-resourceoperation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scenario 1: New API Gateway, New System and New API Resource/Operation</h4>
 <ol>
@@ -185,43 +189,12 @@ If you configured everything correctly no changes are needed in this flow.</li>
 <ol>
 <li>Navigate to Deploy -&gt; Releases</li>
 <li>Create a new Release based on the currently active release and add to the new release all new flow versions based on the changes made in the Create phase of eMagiz.</li>
-<li>Adding and updating flows can be done in a slightly different way in comparison to what you are used when adding /updating a messaging flow.</li>
-<li>Click on the details icon (the three dots) and select Details</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-33.png"></p>
-<ol start="5">
-<li>When adding an integration navigate to the integrations tab and Click on Add</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-34.png"></p>
-<ol start="6">
-<li>After you have added the integration select the tab Flow versions. In this tab the newly added integration will show up with the latest version</li>
-<li>If you want to update a flow you will need to be in the same screen as in step 5 (Flow versions). Here you can easily change the version of a certain flow to the version you want</li>
+<li>Adding and updating flows can be done by selecting the Deploy widget for API and selecting the correct version just as you are used to with messaging</li>
 <li>Click on Save</li>
-<li>If this is the first time ever you are about to host an API Gateway please first read the section around Creating and managing API Keys (see right-hand panel menu)</li>
+<li>If you have added or updated rights in Design please read <a href="/docs/howto/user-management">this</a> document</li>
 <li>Press Deploy in the drop-down menu to deploy the various new / updated flow to the correct runtimes. When confronted with the pop up that properties are missing fill them in according to the relevant best practices. A list of relevant properties always needed for an API Gateway are listed under the list of Relevant Properties (see right-hand panel menu)</li>
 <li>Verify via the usual steps, checking runtime dashboard and manage, whether all flows are running correctly and as expected.</li>
-</ol>
-<h3><a class="anchor" aria-hidden="true" id="creating-and-managing-api-keys"></a><a href="#creating-and-managing-api-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating and managing API Keys</h3>
-<ol>
-<li>Navigate to Deploy -&gt; API Gateway</li>
-<li>Here you can add Users and Roles. The way this works is that you can assign a Role to a User and based on a Role you can grant access to specific exposed operations.</li>
-<li>If you want to add an User click on New. Click on edit if you want to edit an User and /or accompanying Authentication Key or Delete if you want to revoke a certain Authentication Key / delete a user</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-35.png"></p>
-<ol start="4">
-<li>If you want to add an Role click on New. Click on edit if you want to edit an Role or Delete if you want to revoke a certain Role</li>
-</ol>
-<p align="center"><img src="../../img/howto/userguide-apigw-36.png"></p>
-<ol start="5">
-<li>Assign a Role to a specific integrations / operation</li>
-<li>Assign a User to a Role to link authentication keys to operations.</li>
-<li>After you have assigned the integration the Deploy phase refreshes so you can check under Deploy -&gt; Properties if the key is generated correctly for the gateway
-List of relevant properties API Gateway
-<ul>
-<li>{technicalname -system}.exit.{systemname}. Defines the host for the API of the external system. One needed per external system linked to the API Gateway</li>
-<li>{technicalname -system}.entry.port. Defines the port on which the API Gateway is running</li>
-<li>authentication.{technicalname-system}.{technicalname-integration}.api-key. One property with all approved API Keys for a certain integration. Needed if authorization method via ApiKey is used. See Creating and managing API Keys for how to generate these automatically</li>
-</ul></li>
+<li>You can test your API Gateway via the SwaggerUI by pressing the View SwaggerUI button located in the runtime dashboard of the gateway container.</li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="exposing-the-operation-in-the-mendix-datahub"></a><a href="#exposing-the-operation-in-the-mendix-datahub" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exposing the operation in the Mendix DataHub</h3>
 <p>Objective of this step is to create the link between the entity in eMagiz as defined in the Gateway Model, and the Mendix datahub. A CSDL (Conceptual Schema Definition Language) file contains the required definitions to let Mendix Data Hub understand what exactly is in the entity defined. So that the Catalog of the Mendix Data Hub can displayed this properly. It also contains the required connection details for the runtime of Mendix to reach the OData Gateway located in the all.entry.</p>
@@ -248,7 +221,7 @@ This can be seen in more detail under the section API Gateway Statistics (Under 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/AZZwEwKkaR4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Publish</p>
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/_dPcRbU3fUI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-guide-api-gateway-emagiz">User Guide API Gateway eMagiz</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#capture">Capture</a></li><li><a href="#design">Design</a><ul class="toc-headings"><li><a href="#importing-api-specifications">Importing API specifications</a></li><li><a href="#importing-a-backend-operation-of-the-api-gateway">Importing a backend operation of the API Gateway</a></li><li><a href="#change-api-gateway-settings">Change API Gateway settings</a></li><li><a href="#add--edit-integration">Add / Edit integration</a></li><li><a href="#transforming-data-api-gateway">Transforming data API Gateway</a></li><li><a href="#design-architecture---deploy-architecture">Design Architecture &lt;-&gt; Deploy Architecture</a></li></ul></li><li><a href="#create">Create</a><ul class="toc-headings"><li><a href="#scenario-1-adding-an-integration">Scenario 1: Adding an integration</a></li><li><a href="#scenario-2-updating-an-integration">Scenario 2: Updating an integration</a></li></ul></li><li><a href="#deploy">Deploy</a><ul class="toc-headings"><li><a href="#creating-and-managing-api-keys">Creating and managing API Keys</a></li><li><a href="#exposing-the-operation-in-the-mendix-datahub">Exposing the operation in the Mendix DataHub</a></li></ul></li><li><a href="#manage">Manage</a></li><li><a href="#5-reference-videos">5. Reference videos</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-guide-api-gateway-emagiz">User Guide API Gateway eMagiz</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#capture">Capture</a><ul class="toc-headings"><li><a href="#user-management">User Management</a></li></ul></li><li><a href="#design">Design</a><ul class="toc-headings"><li><a href="#importing-api-specifications">Importing API specifications</a></li><li><a href="#importing-a-backend-operation-of-the-api-gateway">Importing a backend operation of the API Gateway</a></li><li><a href="#change-api-gateway-settings">Change API Gateway settings</a></li><li><a href="#add--edit-integration">Add / Edit integration</a></li><li><a href="#user-management-1">User Management</a></li><li><a href="#transforming-data-api-gateway">Transforming data API Gateway</a></li><li><a href="#design-architecture---deploy-architecture">Design Architecture &lt;-&gt; Deploy Architecture</a></li></ul></li><li><a href="#create">Create</a><ul class="toc-headings"><li><a href="#scenario-1-adding-an-integration">Scenario 1: Adding an integration</a></li><li><a href="#scenario-2-updating-an-integration">Scenario 2: Updating an integration</a></li></ul></li><li><a href="#deploy">Deploy</a><ul class="toc-headings"><li><a href="#exposing-the-operation-in-the-mendix-datahub">Exposing the operation in the Mendix DataHub</a></li></ul></li><li><a href="#manage">Manage</a></li><li><a href="#5-reference-videos">5. Reference videos</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
