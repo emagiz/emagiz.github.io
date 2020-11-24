@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/ws-security · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# WS-Security"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/ws-security · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# WS-Security"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/ws-security</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="ws-security"></a><a href="#ws-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WS-Security</h1>
+<p>Within eMagiz there are multiple ways of handling security in relation to SOAP Webservices. One of these methods is WS-Security. In this guide we will look at WS-Security from the following viewpoints:</p>
+<ul>
+<li>What is WS-Security</li>
+<li>Calling an external SOAP Webservice that has secured their webservice via WS-Security</li>
+<li>Securing an eMagiz SOAP Webservice with the help of WS-Security</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="what-is-ws-security"></a><a href="#what-is-ws-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is WS-Security</h2>
+<p>Web Services Security (WS Security) is a specification that defines how security measures are implemented in web services to protect them from external attacks.
+This is done via a set of protocols that ensure the principles of confidentiality, integrity and authentication via security for SOAP-based messages.</p>
+<p>The aim of WS-Security is to ensure that communication between two parties is not interrupted or interpreted by an unauthorized third party.
+The receiver needs to be assured that the message was indeed sent by the sender, and the sender should be assured the receiver cannot deny receiving the message.
+Finally, the data sent during communication should not be altered by an unauthorized source.</p>
+<p>These aims can be implemented by sending (a set of) WS-Security SOAP Headers along with the SOAP body. Examples of these headers are:</p>
+<ul>
+<li>UsernameToken</li>
+<li>Timestamp</li>
+<li>Encrypt</li>
+<li>Signature</li>
+<li>NoSecurity</li>
+</ul>
+<p>For eMagiz hosted SOAP Webservice we require the Signature option. What an external system requires depends on the requirements made by that system.</p>
+<h2><a class="anchor" aria-hidden="true" id="calling-an-external-soap-webservice-that-has-secured-their-webservice-via-ws-security"></a><a href="#calling-an-external-soap-webservice-that-has-secured-their-webservice-via-ws-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Calling an external SOAP Webservice that has secured their webservice via WS-Security</h2>
+<p>To ensure that eMagiz creates the required SOAP headers on top of your SOAP message you have to add two support objects to the flow where you want to call the external webservice (predominantly the exit).
+These support objects are:</p>
+<ul>
+<li>Merlin crypto</li>
+<li>WSS4J security interceptor</li>
+</ul>
+<p>In the merlin crypto support object you need to place a reference to the keystore you need to authenticate yourself with the external party. This keystore should hold the correct key to access the webservice.</p>
+<p align="center"><img src="../../img/howto/ws-security-merlin-crypto-exit.png"></p>
+<p>The WSS4J support object should be filed in based on the specifications as delivered by the external party. Below you will find a standard implementation of WS-Security for an external SOAP webservice. As a user you need to fill in the details on both the basic level as well as the securement level</p>
+<p align="center"><img src="../../img/howto/ws-security-wss4j-crypto-exit-basic.png"></p>
+<p align="center"><img src="../../img/howto/ws-security-wss4j-crypto-exit-securement.png"></p>
+<p>To make sure that the actual headers are send as part of the SOAP webservice call eMagiz will execute you will have to link the WSS4J security interceptor as interceptor on your webservice outbound gateway.
+If you have done so your configuration of WS-Security will be correct.</p>
+<p>You can test the setup by sending a message via eMagiz towards this SOAP webservice to see if the requirements of the external party are correctly implemented by you.</p>
+<h2><a class="anchor" aria-hidden="true" id="securing-an-emagiz-soap-webservice-with-the-help-of-ws-security"></a><a href="#securing-an-emagiz-soap-webservice-with-the-help-of-ws-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Securing an eMagiz SOAP Webservice with the help of WS-Security</h2>
+<p>To ensure that eMagiz can validate the incoming requests for the avalibity of the correct WS-Security SOAP headers you need to add one support object and add a wss4j security validating interceptor to the message dispatcher component.</p>
+<p>The support object you need to link to the entry is:</p>
+<ul>
+<li>Merlin crypto</li>
+</ul>
+<p>In the merlin crypto support object you need to place a reference to the truststore where you store the public certificate against which the external needs to authenticate themselves.</p>
+<p align="center"><img src="../../img/howto/ws-security-merlin-crypto-entry.png"></p>
+<p>Next to adding the support object you also need to open the message dispatcher support object. Within this component you select the payload root QName endpoint mapping for which you want to add the WS-Security settings and press Edit.
+In the following pop-up you can navigate to the Advanced tab, select the WSS4J security interceptor and configure this component as follows</p>
+<p align="center"><img src="../../img/howto/ws-security-wss4j-crypto-entry-basic.png"></p>
+<p align="center"><img src="../../img/howto/ws-security-wss4j-crypto-entry-validation.png"></p>
+<p>If you have configured this correctly you will end up with something like this</p>
+<p align="center"><img src="../../img/howto/ws-security-wss4j-crypto-entry-result.png"></p>
+<p>When you are done with the configuration you can deploy the flow via Releases or straight from the flow if you have a Test environment and ask the external party to send a message towards your endpoint so you can validate the result.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#what-is-ws-security">What is WS-Security</a></li><li><a href="#calling-an-external-soap-webservice-that-has-secured-their-webservice-via-ws-security">Calling an external SOAP Webservice that has secured their webservice via WS-Security</a></li><li><a href="#securing-an-emagiz-soap-webservice-with-the-help-of-ws-security">Securing an eMagiz SOAP Webservice with the help of WS-Security</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
