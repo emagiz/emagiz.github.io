@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.11.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.11.0, released 2020-11-27"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.11.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.11.0, released 2020-11-27"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.11.0</h1></header><article><div><span><p>Version 10.11.0, released 2020-11-27</p>
+<p>Release that adds new overviews on properties and error messages. Besides that, OAuth2 can now be used to secure your API gateway entry flows. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<p>New features</p>
+<ul>
+<li>Create - Flow designer: API gateways can be secured using OAuth2. The components to make this possible are available in the flow designer. In upcoming releases these components will be part of the generated API gateway flows. New components:</li>
+<li>Secured channels with authentication manager, access decision manager, and access policies</li>
+<li>Manage - Error messages: Grouping of error messages by flow and by exception class allows you to easily see what type of error messages you are getting and where you are getting them, including how many. Double-click a group to see the error messages belonging to it.</li>
+<li>Deploy - Properties: A new perspective on properties shows them across all environments in one overview. This allows for easy comparison between Testing, Acceptance, and Production (TAP) environments.</li>
+</ul>
+<p>Major changes</p>
+<ul>
+<li>Deploy - Deployment plan: A new deployment step type has been added, enabling deployment plans to restart runtimes. Restarting only works for runtimes in the eMagiz AWS cloud. It is not part of a default plan - users can manually add this step on a case by case basis</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Deploy - Architecture: More feedback is provided when apply the settings to the architecture.</li>
+<li>Deploy - User management (for API Gateway): A user account of the eMagiz portal can easily be set as an API user, to which API roles can be assigned. This can be used to provide test rights in a clear way.</li>
+<li>Create - Unit testing: New options
+<ul>
+<li>Generate JSON test messages</li>
+<li>Choose between minimal (none of the optional fields), and complete (use both required and optional fields), when generating XML messages for eMagiz definitions</li>
+<li>Generate XML messages from external definitions (upload XSD file)</li>
+</ul></li>
+<li>Across the portal minor (textual) improvements have been made, including updates to help texts, an infographic, and adding some icons.</li>
+<li>Design - CDM: Further improved security by avoiding specific cases of code injection in annotations.</li>
+<li>Community - Cloud templates release notes: Release date of each template is now available</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>Design - API Gateway: Direction of consumed operation when the system is on the right side is now correct</li>
+<li>Create - Flow designer: Standard service activator screen will not show as editable, if start editing has not been pressed.</li>
+<li>Design - CDM and Message mapping: No longer redirecting to Homepage, when clicking response message of a synchronous message</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.10.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.10.0, released 2020-11-13"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.10.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.10.0, released 2020-11-13"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.10.0</h1></header><article><div><span><p>Version 10.10.0, released 2020-11-13</p>
+<p>Release that lets you create test messages from an eMagiz definition. Besides that, user management for API gateways can be done form the Design phase. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<p>New features</p>
+<ul>
+<li>Create - Unit testing: Example XML test messages can be generated based on eMagiz message definitions.</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Manage - Error messages: &quot;Last flow name&quot; is now available as a search field and column. This should make it quicker for you to get to the place where something is wrong. The last flow name information is based on the message history, and therefore may not be available for all error messages. The information is only available for error messages that have arrived since this release. The search field will only find messages if you fill in the complete and exact name of the flow, in the format &quot;system.message.onramp&quot;.</li>
+<li>Across the portal, several minor (textual) improvements were done, including the Deploy infographic.</li>
+<li>Upgraded to Mendix 8.15</li>
+<li>Design - Architecture: The number on the JMS server container now shows an indication of the amount of queues, instead of the amount of flows. This better reflects its impact, and the required sizing.</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>Create - Unit testing: For flows with properties, it is possible to set those properties again.</li>
+<li>Manage - Notification settings: Congestion control threshold can be saved again.</li>
+<li>Manage - Triggers: If you do not have edit rights, JMS queue scheduled triggers do not show up as editable anymore.</li>
+</ul>
+<p>Remarks</p>
+<ul>
+<li>Spring 2 compatibility has been disabled on our own integration infrastructure, allowing us to move forward faster.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
