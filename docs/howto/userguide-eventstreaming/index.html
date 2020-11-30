@@ -5,16 +5,9 @@
           )
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/userguide-eventstreaming</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="user-guide-event-streaming-emagiz"></a><a href="#user-guide-event-streaming-emagiz" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Guide Event Streaming eMagiz</h2>
-<p>Below the user guide for Event Streaming. In this guide we will focus on the following parts:</p>
-<ul>
-<li>Using the portal to set up an eMagiz Managed Kafka for your project</li>
-<li>Designing an Event Stream (Topic)</li>
-<li>Produce messages on a event stream (Topic)</li>
-<li>Consume messages from a event stream (Topic)</li>
-<li>Transform messages between event streams (Topics)</li>
-</ul>
+<p>Below the user guide for Event Streaming. In this guide we will walk you through the various ILM phases of eMagiz and guide you on which actions to take in each of these phase to implement Event Streaming successfully.</p>
 <p>Should you have any questions, please contact <a href="mailto:productmanagement@emagiz.com">productmanagement@emagiz.com</a>.
-Last update: September 29th 2020</p>
+Last update: November 26th 2020</p>
 <h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
 <ul>
 <li>Basic knowledge of the eMagiz platform</li>
@@ -22,83 +15,42 @@ Last update: September 29th 2020</p>
 <li>Toggle Feature – Event streaming made available via your partner manager for your environment</li>
 <li>eMagiz Managed Kafka cluster available for your project (requires proper licensing by eMagiz)</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="1-using-the-portal-to-set-up-an-emagiz-managed-kafka-for-your-project"></a><a href="#1-using-the-portal-to-set-up-an-emagiz-managed-kafka-for-your-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Using the portal to set up an eMagiz Managed Kafka for your project</h2>
-<p>To set up an eMagiz managed Kafka cluster, for the first time, you need to follow this process</p>
-<p align="center"><img src="../../img/howto/userguide-es-15.png"></p>
-<p>Any optional steps (such as adding schemas to topics) is explained below but is not deemed a necessity to make an eMagiz managed Kafka cluster to work.</p>
-<p>First stop is the Design phase of eMagiz. In here you can navigate to the Settings page. In this page you have the option to select the correct multi tenant cluster for your project.
-After you have selected this cluster press the button apply settings. This makes sure that eMagiz generates the required information for you that you need.</p>
-<p>Next stop is the Deploy phase in emagiz to create users and topics. In case you have already set up an eMagiz managed Kafka cluster before the process will look something like this</p>
-<p align="center"><img src="../../img/howto/userguide-es-10.png"></p>
-<p>This process indicates that every mutation to the eMagiz Managed Kafka can be the result of the addition of a new user, a new topic or both.</p>
-<p>Let us know delve into the specifics of how to set up these various elements. Let us remind ourselves that some of the steps described below are not mandatory.</p>
-<p>In the Deploy phase of eMagiz you need to select the Event Streaming tab.</p>
-<p align="center"><img src="../../img/howto/userguide-es-0.png"></p>
-<p>In this screen you will have the following options:</p>
+<h2><a class="anchor" aria-hidden="true" id="capture"></a><a href="#capture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Capture</h2>
+<p>As with all integration patterns the process starts in Capture. In Capture you have the option to add systems to the canvas that have the ability to connect to a topic.
+To indicate this ability on system level you have the option to select Event Streaming as default integration pattern on system level.</p>
+<p align="center"><img src="../../img/howto/userguide-es-capture-system.png"></p>
+<p>After you have created the system and filled the details in you can add integrations from and to eMagiz. When looking at Event Streaming within the scope of eMagiz the integration (in messaging) equals a topic (in event streaming).
+If you draw a line from a system to eMagiz you define that the system from which you have drawn the line is a 'producing' system. A 'producing' system is a system that writes data to one or more topics. If a systems write to more topics you draw more lines.</p>
+<p align="center"><img src="../../img/howto/userguide-es-capture-producing-integration.png"></p>
+<p>If you draw a line from eMagiz to a system you define that the system to which you have drawn the line is a 'consuming' system on the. A 'consuming' system is a system that reads data from one or more topics. If a systems reads from more topics you draw more lines.</p>
+<p align="center"><img src="../../img/howto/userguide-es-capture-consuming-integration.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="design"></a><a href="#design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design</h2>
+<p>Design is the crucial phase when it comes to Event Streaming. In this phase you can set the properties of specific topics, add event processors so you can transform data between two separate topics,
+and see the topic storage for your project to determine if this is sufficient or not among others</p>
+<h3><a class="anchor" aria-hidden="true" id="event-streaming-settings"></a><a href="#event-streaming-settings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Streaming Settings</h3>
+<p>When you navigate to Settings -&gt; Event Streaming you can configure the amount of Event Processing containers. In most cases the default of one is adequate for your needs</p>
+<h3><a class="anchor" aria-hidden="true" id="design-overview"></a><a href="#design-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design overview</h3>
+<p>In Design you see an overview of your landscape including all first class integration patterns (messaging, api gateway and event streaming).</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-overview.png"></p>
+<p>For Event Streaming integrations you see one or more numbers per integration. This numbers mean as follows (left to right):</p>
 <ul>
-<li>Users</li>
-<li>Access Control Lists (ACL)</li>
-<li>Consumers</li>
-<li>Topics</li>
-<li>Schemas</li>
-<li>Configuration Details</li>
+<li>Number of 'producers' on a topic</li>
+<li>Number of event processors for which this data of the topic (integration) is the input of the event processor</li>
+<li>Number of event processors for which this data of the topic (integration) is the output of the event processor</li>
+<li>Number of 'consumers' on a topic</li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" id="users"></a><a href="#users" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Users</h3>
-<p>Under the users tab you can create new users, view information on users or delete a user. Every time a new producer or consumer needs to be connected to the Event streaming environment you will have to create a new user via this screen.
-When you want to revoke all rights of an existing user you can remove the user via the Delete button. Don’t forget to also remove the ACL and Topic if this is the last remaining user linked to a specific Topic!</p>
-<p align="center"><img src="../../img/howto/userguide-es-1.png"></p>
-<h3><a class="anchor" aria-hidden="true" id="acl"></a><a href="#acl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ACL</h3>
-<p>ACL stands for Access control list. This list states which user has which rights on which Topic. In this view you can revoke rights by pressing Delete, view the details of a specific entry in the ACL or Add an ACL entry to the list. Adding an ACL entry to the list is preferable not done here but rather via the Topics tab. The reason for this is that in this way you can link the user and the Topic to each other and on the basis of that let eMagiz automatically create the ACL entry for you.</p>
-<p align="center"><img src="../../img/howto/userguide-es-2.png"></p>
-<h3><a class="anchor" aria-hidden="true" id="topics"></a><a href="#topics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Topics</h3>
-<p>This is the main page for the hosting of an Event Streaming solution. Under this page you can create Topics, view Topics, delete Topics, fetch messages and monitor traffic on the Topics.</p>
- <p align="center"><img src="../../img/howto/userguide-es-3.png"></p>
-<p>Let us first look at creating a Topic. For each distinct event you should create a new Topic. For example when you measure both temperature and humidity in a room, the events that are triggered by temperature variations are placed on a separate Topic in comparison to the events that are triggered based on humidity variations.
-Creating a Topic can be done by pressing Add Topic and given the Topic a descriptive name (i.e. emagiz.es.acceptance.temperature or emagiz.es.acceptance.humidity), select the user that will receive rights on this Topic and leave the remainder to the default settings made for you. If you want to deviate from these advanced configurations, please first consult the help text provided by eMagiz.</p>
-<p>Via the Delete option you can remove a Topic altogether. This means no messages can be produced or consumed on that specific Topic. All remaining messages that were still residing on the topic will de deleted also.</p>
-<h3><a class="anchor" aria-hidden="true" id="monitoring-topics"></a><a href="#monitoring-topics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Monitoring Topics</h3>
-<p>The button Monitoring is created so you can monitor the Topic. Under monitoring you will see how many messages are placed on a Topic, what the size of the Topic is at the moment and the so called consumer lag.</p>
-<h3><a class="anchor" aria-hidden="true" id="schemas"></a><a href="#schemas" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Schemas</h3>
-<p>Just as with the API gateway and with messaging a certain structure or schema needs can be defined. The purpose of a schema in the context of Event Streaming is to let the consumer know how the message they can consume will look like. For event streaming you can define this via the eMagiz portal by adding an AVRO schema. By creating such a schema you can specify for which Topic the message need to adhere to this schema.</p>
- <p align="center"><img src="../../img/howto/userguide-es-4.png"></p>
-<p>Creating a schema can be done by pressing the Create subject button. In the following screen you enter the name of the subject, which should mimic the name of the Topic and add the schema. If you have trouble creating an AVRO schema please use this easy to use tool to convert a JSON message to an AVRO schema (such as <a href="https://toolslick.com/generation/metadata/avro-schema-from-json">https://toolslick.com/generation/metadata/avro-schema-from-json</a>). This in combination with the example provided in the help text gives you as user an easy way to correctly set up the schema. In future versions, graphical possibilities will be added to create these AVRO schemas without the need to use such external tools.
-Apart from creating a schema you can view it, delete it or see the version of a specific schema. By using the compatibility function you can update a schema to a newer version but by setting the compatibility to Backward compatible also make sure that producers and consumers can still exchange messages that adhere to the old structure. eMagiz provides you with several options as shown below.</p>
- <p align="center"><img src="../../img/howto/userguide-es-5.png"></p>
-<h3><a class="anchor" aria-hidden="true" id="config-details"></a><a href="#config-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Config details</h3>
-<p>This is a read only screen that specifies the technical connections needed to set up the Event Streaming functionality. The bootstrap server information is the part of the screen that is relevant for you as a user. Both in case you want to produce or consume messages as a part of a message flow or when you need to communicate this information to the external party.</p>
-<p>To learn more about producing and consuming messages please see the sections on Produce messages on a event stream (Topic) from eMagiz and Consume messages from a event stream (Topic) via eMagiz</p>
-<h3><a class="anchor" aria-hidden="true" id="providing-details-to-user"></a><a href="#providing-details-to-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Providing details to user</h3>
-<p>To make sure that an external user can indeed connect to the topic(s) you have created for your eMagiz managed kafka solution they need the following pieces of information:</p>
-<ul>
-<li>Topic name</li>
-<li>Access Key</li>
-<li>Access Certification (possible in combination with the Key as a .p12 resource)</li>
-<li>Bootstrap server</li>
-</ul>
-<h2><a class="anchor" aria-hidden="true" id="2-designing-an-event-stream-topic"></a><a href="#2-designing-an-event-stream-topic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Designing an Event Stream (Topic)</h2>
-<p>Apart from providing an eMagiz Managed Kafka solution it is also possible to produce and/or consume messages from topics in eMagiz itself. This way you have another integration pattern to select from to better support the business processes.</p>
-<p>In this section we will focus on the Capture and Design part of eMagiz. In here, and especially in the Design part, you can design the topics in such a way that configuration in Create and Deploy is kept to a minimum.</p>
-<p>We start designing the Event Stream in Capture. In here we draw a system (as we are used to do) and draw a line from that system to eMagiz (producing) or from eMagiz to the system (consuming).
-On both system as message type level we indicate that this is an Event Streaming message flow. This we need in Design.</p>
-<p align="center"><img src="../../img/howto/userguide-es-13.png"></p>
-<p>In Design there is an Event Streaming tab. On this tab you will see the following elements:</p>
-<ul>
-<li>Data Model</li>
-<li>Processors</li>
-<li>Topics</li>
-</ul>
-<p>In terms of necessity the only required part here is the Topic part (which eMagiz prefills for you).
-Data model can be used as the basis of the schema and the Processor part is needed when a transformation needs to be done between two topics.</p>
-<p>Process wise this looks as follows:</p>
-<p align="center"><img src="../../img/howto/userguide-es-14.png"></p>
-<h3><a class="anchor" aria-hidden="true" id="topics-1"></a><a href="#topics-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Topics</h3>
+<h3><a class="anchor" aria-hidden="true" id="topic-properties"></a><a href="#topic-properties" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Topic Properties</h3>
 <p>Based on the lines you drew in Capture eMagiz automatically generates a topic. In other words, for each line you drew in Capture eMagiz will create an accompanying topic.</p>
 <p>Apart from the naming of the topic eMagiz also provides you with a set of default settings for your topic. Two of these settings need a closer look from you. These settings are:</p>
 <ul>
 <li>Retention Hours</li>
 <li>Retention Bytes</li>
 </ul>
-<p>These two settings mainly determine the amount of GB in storage is necessary on the eMagiz Managed Kafka cluster to run all topics. As you can imagine the longer you retain data and the more data you retain the higher the costs will be.</p>
+<p>These two settings mainly determine the amount of GB in storage is necessary on the eMagiz Managed Kafka cluster to run all topics.
+As you can imagine the longer you retain data and the more data you retain the higher the costs will be.
+You have the option to change these properties by right clicking on the integration to show the context menu so you can select the topic properties option.</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-change-topic-properties-context-menu.png"></p>
+<p>In the pop-up you will see you can expand the Advanced settings information. Here you can set these settings. See below for what these settings mean and how you can determine them</p>
 <h4><a class="anchor" aria-hidden="true" id="retention-hours"></a><a href="#retention-hours" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Retention Hours</h4>
 <p>Retention Hours is the number of hours data can reside on the topic before a FiFo principle of removing the first entry in the log kicks in. The moment data is still on the topic beyond this threshold it will automatically start deleting the data.
 The default setting eMagiz provides you is 168 hours (7 days). For your use case it might be that there is no need to retain the data for such an extensive period of time. Instead you only want to retain the data for 72 hours (3 days) for example because all consumers can pick up data within that timeframe and all messages older as three days will be obsolete anyway.</p>
@@ -120,92 +72,114 @@ The default setting eMagiz provides you is roughly 500 MB. This might be too low
 <li>3 partitions</li>
 </ul>
 <p>Results in 1.5 / 3 = 0.5 GB in Retention Bytes. As the name indicates this value needs to be added in bytes. For this example we end up with 524288000 bytes.</p>
-<h3><a class="anchor" aria-hidden="true" id="data-model"></a><a href="#data-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data Model</h3>
-<p>The Data Model part can be compared to a CDM like structure in which you can model out the structure of the messages that are placed on topics. From here you have the option to assign parts of the data model to be the message definition belonging to a topic.</p>
-<p align="center"><img src="../../img/howto/userguide-es-11.png"></p>
-<h3><a class="anchor" aria-hidden="true" id="processors"></a><a href="#processors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Processors</h3>
-<p>Under this part you have the option to create an Event processor. An Event processor, as the name already suggests, processes Events.
-In eMagiz this gives you the option to transform the JSON message from Topic A to Topic B within eMagiz before (external) users can consume the data.
-For example when you gather the weather information from American and European sources and want to present those in one generic format (Celcius)
-to be consumed you want to transform the topic containing the American weather information to the European (Celcius) format.</p>
-<p>To set up such a processor follow the following steps:</p>
+<h3><a class="anchor" aria-hidden="true" id="red-background-in-design-on-integration-level"></a><a href="#red-background-in-design-on-integration-level" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Red background in Design on integration level</h3>
+<p>If you see a red background behind the number this indicates that you have indicated that a system is consuming data from a specific topic (integration) but have not yet indicated how the data will be produced on the topic.</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-consumer-without-producer.png"></p>
+<p>There are two ways to set this straight:</p>
 <ol>
-<li>Open the Data model and add a message definition to both the input aswell as the output topic</li>
-<li>Press New under Processors and fill in the required fields
-<ul>
-<li>Display Name</li>
-<li>Technical Name</li>
-<li>Topic In</li>
-<li>Topic Out</li>
-</ul></li>
-<li>Press Add in this popup screen and select the Topic Out to be linked to the integration. The result of these step should look like this:
-<p align="center"><img src="../../img/howto/userguide-es-12.png"></p></li>
-<li>Verify that step 1 wend well by pressing the Message In or Message Out button. In the following page you have the ability to switch between the Message In, Message Out and Message Mapping tabs. If both show the expected result click on the Message Mapping tab.</li>
-<li>Fill in the message mapping as you are used to from other integration patterns.</li>
-<li>After you have set this up correctly you can move the integration to Create and eMagiz will generate all necessary components for you.</li>
+<li>Go back to Capture and draw a line to indicate that a specific system directly produces messages on that topic.</li>
+<li>Add an Event processor.</li>
 </ol>
-<h2><a class="anchor" aria-hidden="true" id="2-architectural-design-event-streaming"></a><a href="#2-architectural-design-event-streaming" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Architectural Design Event Streaming</h2>
-<p>All Event Streaming related processes will run in the eMagiz Cloud on separate container(s) that is specifically designed for Event Streaming.
-Logically the moment you start adding more Event processors the amount of resources needed to successfully run these Event processors goes about. Comparable to when you add flows to your messaging solution
-This looks as follows:</p>
-<p align="center"><img src="../../img/howto/userguide-es-16.png"></p>
-<p>In hybrid situations you will see several containers each linked to a specific integration pattern.
-For example when using both Messaging and Event Streaming separate containers are created for the Messaging portion of your project (onramps, offramps, etc.) and for the Event Streaming part (Event processors).</p>
-<p align="center"><img src="../../img/howto/userguide-es-17.png"></p>
-<h2><a class="anchor" aria-hidden="true" id="3-produce-messages-on-a-event-stream-topic"></a><a href="#3-produce-messages-on-a-event-stream-topic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Produce messages on a event stream (Topic)</h2>
-<p>After you have designed the event Stream (Topic) in Capture and Design you can move the integration to Create.
-In here eMagiz creates all the required information for you based on the choices you made in Design. So in case of a passthrough case in which eMagiz is a producer eMagiz creates the Kafka template and the Kafka outbound channel adapter for you.
-Furthermore eMagiz creates the needed keystores for you and will add those to the flow automatically.</p>
-<p>The input that makes sure that eMagiz produces messages could be another topic, another messaging flow or a series of components that is part of this integration</p>
-<h3><a class="anchor" aria-hidden="true" id="reference-information"></a><a href="#reference-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reference Information</h3>
-<p>To produce messages on a Topic you need two components in eMagiz:</p>
+<h3><a class="anchor" aria-hidden="true" id="event-streaming-design-architecture"></a><a href="#event-streaming-design-architecture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Streaming Design Architecture</h3>
+<p>Within the Design Architecture overview there are two information elements that are Event Streaming specific.</p>
 <ol>
-<li>A Kafka template. This template sets up the connection between the producer and the server that hosts the Topics. In this component the following things need to be configured:</li>
+<li>Topic Storage</li>
+<li>Event Processor Container</li>
 </ol>
+<h4><a class="anchor" aria-hidden="true" id="topic-storage"></a><a href="#topic-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Topic Storage</h4>
+<p>Whether or not you are using an event processor to transfer data between topic in and topic out or not you will always have a need for temporary data storage.
+Per environment of a project eMagiz gives an advice on how much topic storage is needed for that environment. This advice is based on the input of the developer when configuring the topic properties.
+So make sure you predict the needed storage per topic as good as you are capable.</p>
+<p>In Architecture the cumulative total of the topic property configurations will be shown as the adviced sizing given by eMagiz. Just as with messaging and API Gateway you have the ability to change the value here (per increment of 10GB).
+To actualize these changes approval is necessary. Please contact your partner manager if you think you are in need of more topic storage.</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-architecture-topic-storage.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="event-processor-container"></a><a href="#event-processor-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Processor Container</h4>
+<p>Just as with API Gateway flows, event processing flows will be deployed on a specific event processor container. This container hosts all flow in which you process data between two topics.
+This container will be running on the same VM as the JMS server.</p>
+<h3><a class="anchor" aria-hidden="true" id="event-streaming-data-model"></a><a href="#event-streaming-data-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Streaming Data model</h3>
+<p>Just as with messaging and API Gateway you can define a data model to visualize the structure of the data that flows through the various topics within your integration landscape.
+You can view and edit this data model by selecting the context menu on Event Streaming (EVS) level. This context menu is located in the center of the Design overview</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-open-data-model.png"></p>
+<p>Within this data model you can drag and drop entities on the canvas, add attributes, remove attributes, add/remove datatypes etc. Just as you are used to with messaging. Here you can also specify which part of the data model is the topic definition of a specific topic</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-data-model-view.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="add-an-event-processor"></a><a href="#add-an-event-processor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add an Event Processor</h3>
+<p>You can add an Event Processor when you right click on a integration (topic) in Design. A context menu will open giving you two options. One of these options is to Add a processor</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-add-a-processor-context-menu.png"></p>
+<p>In the popup that is presented fill in the Display name and technical name of the event processor. Furthermore choose the input topic (Topic In).</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-add-a-processor-popup.png"></p>
+<p>The result of this action will be shown in the Design overview</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-add-a-processor-result.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="add--change-processor-mapping"></a><a href="#add--change-processor-mapping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add / Change processor mapping</h4>
+<p>On Event Processor level you can select the context menu. One of these options is to go to the processor mapping. You can go here after you have defined the topic definitions of the input and the output topic via the Event Streaming data model.
+With this functionality you can create a mapping between the input and the output just as you are used to when creating mappings for messaging and API Gateway integrations.</p>
+<p align="center"><img src="../../img/howto/userguide-es-design-processor-mapping-start.png"></p>
+<p align="center"><img src="../../img/howto/userguide-es-design-processor-mapping-finished.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="create"></a><a href="#create" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create</h2>
+<h3><a class="anchor" aria-hidden="true" id="create-overview"></a><a href="#create-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create overview</h3>
+<p>Within Create you have an overview of your Event Streaming topics and Event processors. You can access this view by select the Stream option as the toggle option of your choice when you enter Create.</p>
+<p>The overview will look something like this</p>
+<p align="center"><img src="../../img/howto/userguide-es-create-overview.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="adding-integrations"></a><a href="#adding-integrations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding integrations</h3>
+<p>Just as with messasing and API Gateway you have the option to transfer a integration (topic) and/or an event processor via the Add integration option in Create.
+In this overview you can select which topics you want to move to Create and eMagiz will create the topics and if needed also the event processors.</p>
+<p align="center"><img src="../../img/howto/userguide-es-create-add-integrations-event-streaming.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="viewing-topic-information"></a><a href="#viewing-topic-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Viewing Topic Information</h3>
+<p>When you are in the Create overview you can double click on any topic (white background with green line and green letters) to see the properties as you have configured them in Design
+The same can be achieved by a right click and select the option Show topic information</p>
+<p align="center"><img src="../../img/howto/userguide-es-create-view-topic-info.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="opening-and-editing-event-processor"></a><a href="#opening-and-editing-event-processor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Opening (and editing) Event Processor</h3>
+<p>Apart from looking at the topic information you can also open the event processor and see the inner workings of the flow (from topic in to topic out) and even edit the flow if that is necessary.
+However since all relevant information is already supplied via Design you don't have to edit this flow in most cases. A typical event processor flow looks as follows:</p>
+<p align="center"><img src="../../img/howto/userguide-es-create-event-processor-flow.png"></p>
+<p>If your case is in need for adjustments you can easily make these adjustments as you are used to.
+Important thing to remember is that you do not have to change the settings of the kafka inbound channel adapter nor the kafka outbound channel adapter.</p>
+<h2><a class="anchor" aria-hidden="true" id="deploy"></a><a href="#deploy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploy</h2>
+<p>In Deploy you can select the event processors in your release in the following manner:</p>
 <ul>
-<li>Host and port of the server to which you want to connect to (separated by a semicolon).</li>
-<li>Security protocol. Default for an server is SSL</li>
-<li>Client ID. Identifier to determine who produces the messages</li>
-<li>A keystore (containing a p12 that identifies the client) + including password and type (PKCS12 or JKS)</li>
-<li>A truststore (containing the ca of the server that authorizes clients) + including password and type (JKS)</li>
+<li>Create a new release</li>
+<li>Open the context menu and select details</li>
+<li>Select the integration tab</li>
 </ul>
- <p align="center"><img src="../../img/howto/userguide-es-6.png"></p>
-<ol start="2">
-<li>A Kafka outbound channel adapter. This adapter produces messages on a specific Topic. To make this work you need to configure the following things:</li>
-</ol>
+<p align="center"><img src="../../img/howto/userguide-es-deploy-add-integrations.png"></p>
 <ul>
-<li>The name of the Topic on which you want to produce messages</li>
-<li>The Partition ID (default is 0) to which you want to write the message. Deviations from the standard can be made if a lot of messages need to be produced. This to reduce the load a consumer needs to process. Or in cases specific messages are only relevant for certain consumers.</li>
-<li>Link to a Kafka template</li>
+<li>Press the Add button and select the integration(s) you want to add</li>
 </ul>
- <p align="center"><img src="../../img/howto/userguide-es-7.png"></p>
-<h2><a class="anchor" aria-hidden="true" id="4-consume-messages-from-a-event-stream-topic"></a><a href="#4-consume-messages-from-a-event-stream-topic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Consume messages from a event stream (Topic)</h2>
-<p>After you have designed the event Stream (Topic) in Capture and Design you can move the integration to Create.
-In here eMagiz creates all the required information for you based on the choices you made in Design. So in case of a passthrough case in which eMagiz is a consumer eMagiz creates the Kafka message listener container and the Kafka message driven channel adapter for you.
-Furthermore eMagiz creates the needed keystores for you and will add those to the flow automatically.</p>
-<p>The output of consuming messages could result in message being placed on another topic, another messaging flow, an API Gateway call or a series of components that is part of the integration itself
-An example could be the buying certain products leads to an event telling several systems that new raw materials need to be purchased and new goods need to be produced</p>
-<h3><a class="anchor" aria-hidden="true" id="reference-information-1"></a><a href="#reference-information-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reference Information</h3>
-<p>To consume messages from a Topic you need two components in eMagiz:</p>
-<ol>
-<li>Kafka message listener container</li>
-</ol>
+<p align="center"><img src="../../img/howto/userguide-es-deploy-add-integrations-context-menu.png"></p>
 <ul>
-<li>Host and port of the server to which you want to connect to (separated by a semicolon).</li>
-<li>Security protocol. Default for an server is SSL</li>
-<li>Group ID (Cluster ID). Identifier of the group / cluster to which the Topic belongs.</li>
-<li>A keystore (containing a p12 that identifies the client) + including password and type (PKCS12 or JKS)</li>
-<li>A truststore (containing the ca of the server that authorizes clients) + including password and type (JKS)</li>
+<li>If you are satisfied with your choice press the Add to release button and the flows will be added to your Release. You can Save the release and deploy it.</li>
 </ul>
- <p align="center"><img src="../../img/howto/userguide-es-8.png"></p>
-<ol start="2">
-<li>Kafka message driven channel adapter</li>
-</ol>
+<p>The moment you make a release active or deploy it, eMagiz will automatically create the relevant topics that you have configured in Design and transferred to Create.</p>
+<h2><a class="anchor" aria-hidden="true" id="user-management"></a><a href="#user-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Management</h2>
+<p>When you are in Deploy you can navigate to Event Streaming. Every time a new external producer or consumer needs to be connected to the Event streaming environment you will have to create a new user via the external users screen.
+When you want to revoke all rights of an existing user you can remove the user via the Delete button. Don’t forget to also remove the ACL and Topic if this is the last remaining user linked to a specific Topic!</p>
+<p align="center"><img src="../../img/howto/userguide-es-deploy-add-external-user.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="configuration-of-the-acl"></a><a href="#configuration-of-the-acl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration of the ACL</h3>
+<p>After you have added the external users to eMagiz you can give them rights on one or more of the automatically created topics. This can be done by selecting the ACL tab under the Cluster settings.
+Within this tab you can Add an ACL Entry or Delete an ACL Entry. By deleting you revoke the rights of a user on a certain topic.</p>
+<p>To add an ACL Entry you press the button Add ACL Entry, select the user and topic combination and determine whether that user can consume, produce, do both or is an admin.
+This will result in something like this.</p>
+<p align="center"><img src="../../img/howto/userguide-es-deploy-add-acl-entry.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="event-processor-configuration"></a><a href="#event-processor-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Processor configuration</h2>
+<p>To make sure that eMagiz can communicate with the topic(s) in case you have build an Event Processor there are three properties you need to fill in:</p>
 <ul>
-<li>Link to the Kafka message listener</li>
+<li>emagiz.runtime.environment</li>
+<li>emagiz.runtime.name</li>
+<li>com.emagiz.{displayname}.{technicalname}.bootstrapserver</li>
 </ul>
- <p align="center"><img src="../../img/howto/userguide-es-9.png"></p>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-guide-event-streaming-emagiz">User Guide Event Streaming eMagiz</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#1-using-the-portal-to-set-up-an-emagiz-managed-kafka-for-your-project">1. Using the portal to set up an eMagiz Managed Kafka for your project</a><ul class="toc-headings"><li><a href="#users">Users</a></li><li><a href="#acl">ACL</a></li><li><a href="#topics">Topics</a></li><li><a href="#monitoring-topics">Monitoring Topics</a></li><li><a href="#schemas">Schemas</a></li><li><a href="#config-details">Config details</a></li><li><a href="#providing-details-to-user">Providing details to user</a></li></ul></li><li><a href="#2-designing-an-event-stream-topic">2. Designing an Event Stream (Topic)</a><ul class="toc-headings"><li><a href="#topics-1">Topics</a></li><li><a href="#data-model">Data Model</a></li><li><a href="#processors">Processors</a></li></ul></li><li><a href="#2-architectural-design-event-streaming">2. Architectural Design Event Streaming</a></li><li><a href="#3-produce-messages-on-a-event-stream-topic">3. Produce messages on a event stream (Topic)</a><ul class="toc-headings"><li><a href="#reference-information">Reference Information</a></li></ul></li><li><a href="#4-consume-messages-from-a-event-stream-topic">4. Consume messages from a event stream (Topic)</a><ul class="toc-headings"><li><a href="#reference-information-1">Reference Information</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<p>By filling these in correctly you are able to communicate between eMagiz and the relevant topics for your Event Processor.</p>
+<h2><a class="anchor" aria-hidden="true" id="manage"></a><a href="#manage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manage</h2>
+<p>In Manage there is under Monitoring a section called Topic statistics. In this page you see the following things:</p>
+<ul>
+<li>Configured retention bytes</li>
+<li>Actual size of a topic (in KB, MB or GB depending on the size)</li>
+<li>The size of each partition of a topic (in bytes)</li>
+<li>The last offset per partition (the unique number of the last message that was written to a partition)</li>
+<li>The first offset per partition (the unique number of the first message that is still available to be read on a specific partition)</li>
+<li>The consumer offset (per consumer)</li>
+<li>The number of messages a consumer is behind</li>
+</ul>
+<p align="center"><img src="../../img/howto/userguide-es-manage-topic-statistics.png"></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-guide-event-streaming-emagiz">User Guide Event Streaming eMagiz</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#capture">Capture</a></li><li><a href="#design">Design</a><ul class="toc-headings"><li><a href="#event-streaming-settings">Event Streaming Settings</a></li><li><a href="#design-overview">Design overview</a></li><li><a href="#topic-properties">Topic Properties</a></li><li><a href="#red-background-in-design-on-integration-level">Red background in Design on integration level</a></li><li><a href="#event-streaming-design-architecture">Event Streaming Design Architecture</a></li><li><a href="#event-streaming-data-model">Event Streaming Data model</a></li><li><a href="#add-an-event-processor">Add an Event Processor</a></li></ul></li><li><a href="#create">Create</a><ul class="toc-headings"><li><a href="#create-overview">Create overview</a></li><li><a href="#adding-integrations">Adding integrations</a></li><li><a href="#viewing-topic-information">Viewing Topic Information</a></li><li><a href="#opening-and-editing-event-processor">Opening (and editing) Event Processor</a></li></ul></li><li><a href="#deploy">Deploy</a></li><li><a href="#user-management">User Management</a><ul class="toc-headings"><li><a href="#configuration-of-the-acl">Configuration of the ACL</a></li></ul></li><li><a href="#event-processor-configuration">Event Processor configuration</a></li><li><a href="#manage">Manage</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
