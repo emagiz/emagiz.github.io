@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/microlearning-using-kafka-module-mendix · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Using Kafka Module in Mendix"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/microlearning-using-kafka-module-mendix · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Using Kafka Module in Mendix"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/microlearning-using-kafka-module-mendix</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="using-kafka-module-in-mendix"></a><a href="#using-kafka-module-in-mendix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Kafka Module in Mendix</h1>
+<p>In this microlearning we will focus on how you can utilize the Kafka Module from Mendix as available in the Mendix Store to consume and produce data from topics managed within the eMagiz Kafka Cluster.</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: January 13th 2021</li>
+<li>Required reading time: 10 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+<li>Basic knowledge of the Mendix platform</li>
+<li>Mendix project in which you can test this functionality</li>
+<li>Kafka cluster you can use to test against.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This micro learning centers around using the kafka module in mendix.
+With using, in this context, we mean: Being able to produce and consume data to and from topics that are managed within an external Kafka Cluster, such as the eMagiz Kafka Cluster.</p>
+<p>By knowing how you can easily set up Mendix to consume and produce data from and to topics you have the option to better transport large volumes of data between several systems (i.e. two Mendix applications).</p>
+<p>Producing data on a topic means that the external system, in this case Mendix, writes data to a pre-defined topic where the data is stored temporarily to make sure that the data can be consumed by one or more other systems.
+Consuming data from a topic means that the external system, in this case Mendix, reads data from a pre-defined topic where the data is stored temporarily.</p>
+<h2><a class="anchor" aria-hidden="true" id="3-using-kafka-module-in-mendix"></a><a href="#3-using-kafka-module-in-mendix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Using Kafka Module in Mendix</h2>
+<p>To use the Kafka Module in Mendix you need to be able to do at least the following:</p>
+<ol>
+<li>Set up a connection to the external Kafka Cluster (i.e the eMagiz Kafka Cluster) from Mendix</li>
+<li>Configure a Producer that can write (publish) data to a topic</li>
+<li>Configure a Consumer that can read (listen) data from a topic</li>
+</ol>
+<p>When you have configured these steps you would have to think about how you want to transfer data from and to your data model.
+That part is excluded in this microlearning as that focuses solely on how you build microflows in Mendix.
+It is good to notice that the Kafka Module comes with some good example of microflows which you can use as a starting point.</p>
+<h3><a class="anchor" aria-hidden="true" id="31-set-up-a-connection-to-the-external-kafka-cluster-ie-the-emagiz-kafka-cluster-from-mendix"></a><a href="#31-set-up-a-connection-to-the-external-kafka-cluster-ie-the-emagiz-kafka-cluster-from-mendix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Set up a connection to the external Kafka Cluster (i.e the eMagiz Kafka Cluster) from Mendix</h3>
+<p>The first step is to set up the connection to a external Kafka Cluster. Fefore we can configure anything we first need to retrieve the correct Mendix Modules from the Mendix App Store.</p>
+<h4><a class="anchor" aria-hidden="true" id="311-app-store-modules-needed"></a><a href="#311-app-store-modules-needed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1.1 App Store Modules needed</h4>
+<p>As specified before, Mendix offers the Kafka Module via the Mendix App Store. Therefore it is logical that we need to retrieve the Kafka Module from the App Store.</p>
+<p>Apart from the Kafka Module you will need the following App Store Modules (if you do not yet have them in your Mendix project):</p>
+<ul>
+<li>MxModelReflection</li>
+<li>LibraryLogging</li>
+<li>Encryption</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="312-making-the-configuration-page-accessible"></a><a href="#312-making-the-configuration-page-accessible" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1.2 Making the configuration page accessible</h4>
+<p>After you have imported those four App Store Modules within your project you can take the next step.
+Within the Kafka Module there is a page called Server_NewEdit, make sure an admin can reach this page as this is the central page where you will do the rest of the configuration.</p>
+<h4><a class="anchor" aria-hidden="true" id="313-set-up-a-connection-to-the-external-kafka-cluster"></a><a href="#313-set-up-a-connection-to-the-external-kafka-cluster" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1.3 Set up a connection to the external Kafka Cluster</h4>
+<p>When you run your project, access the page we specified above and press the New button.</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--kafka-admin-overview.png"></p>
+<p>After you have pressed the new button Mendix will show you the following page</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--kafka-admin-overview-detailed.png"></p>
+<p>Let us first focus on the general settings, and when we are finished with those we can turn our attention to setting up the Producer and the Consumer configuration.</p>
+<p>To set up the general settings first navigate to the tab called Configuration. This will lead you to the following overview.</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--kafka-admin-overview-configuration.png"></p>
+<p>This overview holds all generic configuration elements that are needed to set up a connection to a Kafka cluster. As you can see most of it is already filled in, you don't have to change these settings.</p>
+<p>The settings you do need to change / fill in however are:</p>
+<ul>
+<li>bootstrap servers (Ask your implementation contact that manages the Kafka cluster for the correct url)</li>
+<li>security protocol (Change the security protocol to SSL)</li>
+</ul>
+<p>If you have done so you can navigate to the SSL tab. In this tab we define the truststore and keystore that are needed to authenticate ourself with the Kafka Cluster.
+Ask you implementation contact for the relevant keystore and truststore belonging to your user (including passwords).</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--kafka-admin-overview-ssl.png"></p>
+<p>If you have received the keystore and truststore you can upload them and fill in the password.
+Remember the private key password of the keystore always needs to match the password of the keystore itself.</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--kafka-admin-overview-ssl-filled-in.png"></p>
+<p>The moment you are satisfied with your configuration press Save. This leads you back to the overview page where you now see one Server entry with the name you have given the Server.</p>
+<h3><a class="anchor" aria-hidden="true" id="32-configure-a-producer-that-can-write-publish-data-to-a-topic"></a><a href="#32-configure-a-producer-that-can-write-publish-data-to-a-topic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Configure a Producer that can write (publish) data to a topic</h3>
+<p>To configure a Producer you Edit your Server and press New under where it says Producers</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--new-producer.png"></p>
+<p>Give the Producer a name and press Save. The default Configuration Mendix provides works and therefore there is no need to change it.
+The result of this is that you will see a new producer on the configuration page.</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--producer-added.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="33-configure-a-consumer-that-can-read-listen-data-from-a-topic"></a><a href="#33-configure-a-consumer-that-can-read-listen-data-from-a-topic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Configure a Consumer that can read (listen) data from a topic</h3>
+<p>To configure a Consumer you Edit your Server and press New under where it says Consumers</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--new-consumer.png"></p>
+<p>Give the Consumer a name, fill in the topic from which you need to consume data and select the On Receive Microflow that will handle the incoming data.</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--new-consumer-general-filled-in.png"></p>
+<p>To discern between consumer groups you should fill in the group id under the Configuration tab with a descriptive name so you can link it back to your application.</p>
+<p>If you have done all this press Save. The result of this is that you will see a new consumer on the configuration page.</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--consumer-added.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="331-registering-a-consumer"></a><a href="#331-registering-a-consumer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.1 Registering a Consumer</h4>
+<p>After you have configured the consumer you will need to make sure that every time your application starts up the consumer(s) are registered and are listening whether new data comes in.</p>
+<p>To do so make sure that in the after startup microflow of your project you retrieve the consumer(s) you have configured
+and start them one by one with the help of the Start Kafka Consumer Java Action that is included in the Kafka Module.</p>
+<p align="center"><img src="../../img/microlearning/ml-using-kafka-module-mendix--consumer-registered.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="34-testing-the-connection"></a><a href="#34-testing-the-connection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Testing the connection</h3>
+<p>To test the connection (for both the consumer as producer config) you can use the Explore and Publish tabs that are available within the configuration overview.
+To test the configuration of the consumer navigate to the Explore tab and press Retrieve Topics. If Mendix returns one or more topics you know that the consumer configuration is done correctly.</p>
+<p>To test whether your producer configuration is correct you will have to navigate to the Publish tab. In here you need to select the Producer config,
+enter the topic to which you want to Publish data and enter a message payload that you want to publish on that topic.</p>
+<p>If you have done so press the Publish button. If everything is configured correctly you will receive a popup saying Message published in partition x at offset y! where x and y are dynamically determined by Mendix.</p>
+<p>Congratulations, you have succesfully configured Mendix to produce and consume data from and to topics registered on a external Kafka cluster.</p>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Set up a connection between your Mendix application and a Kafka cluster and test this connection with the help of the Explore and Publish tabs in the configuration overview.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>Starting point is importing the correct App Store Modules within your project</li>
+<li>Make sure that your implementation contact has provided you with the relevant information (bootstrap server, keystore and truststore)</li>
+<li>The pre-configured settings Mendix provides you with don't need to be changed accept for one</li>
+<li>Testing the configuration and connection can be done via the Explore and Publish tab.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please see the following links:</p>
+<ul>
+<li><a href="https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html#:~:text=Apache%20Kafka%20is%20a%20publish,add%2C%20process%20and%20reprocess%20records">https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html#:~:text=Apache%20Kafka%20is%20a%20publish,add%2C%20process%20and%20reprocess%20records</a>.</li>
+<li><a href="https://kafka.apache.org/documentation/#topicconfigs">https://kafka.apache.org/documentation/#topicconfigs</a></li>
+<li><a href="https://medium.com/@tsureshkumar/sizing-kafka-capacity-needed-for-your-application-fdb6f24f67cd">https://medium.com/@tsureshkumar/sizing-kafka-capacity-needed-for-your-application-fdb6f24f67cd</a></li>
+<li><a href="https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/">https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/</a></li>
+<li><a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you can test whether you have done everything correct with regards to the assignment and gives you some context on what you have just learned.</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/microlearning-using-kafka-module-mendix.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-using-kafka-module-in-mendix">3. Using Kafka Module in Mendix</a><ul class="toc-headings"><li><a href="#31-set-up-a-connection-to-the-external-kafka-cluster-ie-the-emagiz-kafka-cluster-from-mendix">3.1 Set up a connection to the external Kafka Cluster (i.e the eMagiz Kafka Cluster) from Mendix</a></li><li><a href="#32-configure-a-producer-that-can-write-publish-data-to-a-topic">3.2 Configure a Producer that can write (publish) data to a topic</a></li><li><a href="#33-configure-a-consumer-that-can-read-listen-data-from-a-topic">3.3 Configure a Consumer that can read (listen) data from a topic</a></li><li><a href="#34-testing-the-connection">3.4 Testing the connection</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
