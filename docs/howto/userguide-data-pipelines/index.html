@@ -87,6 +87,35 @@
 <p>The job manager in turn will look in the H2 database linked to that specific flow for relevant information on the executions of jobs via the data pipeline solutions.</p>
 <p>This information is then showed to the user via a popup were you can see all executions and see the details of executions when you click through them</p>
 <p align="center"><img src="../../img/howto/job-dashboard-data-pipeline-2.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="52-cleaning-up-the-job-dashboard"></a><a href="#52-cleaning-up-the-job-dashboard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.2 Cleaning up the Job Dashboard</h3>
+<p>The moment you run a lot of Jobs within your eMagiz solution, to keep an overview, you need a way to clean up old jobs.
+This is now made possible via a simple addition to the standard store template that is available to process your data, for example the Mendix -&gt; Redshift example.</p>
+<p align="center"><img src="../../img/howto/job-dashboard-data-pipeline-3.png"></p>
+<p>In case you already have a running data pipeline you cannot simply update automatically to this new version. In this case you will have to do so manually.
+Recreating the components in the picture is not that hard luckily. You simply have to follow these steps:</p>
+<ul>
+<li>Create a channel called clean</li>
+<li>Add a standard inbound channel adapter with the expression 'clean' and a cron trigger that will trigger each day at five o'clock in the morning 0 0 5 * * *</li>
+<li>Use the channel called clean as the output channel of this standard inbound channel adapter.</li>
+<li>Add a second standard inbound channel adapter the expression 'clean' and a fixed delay trigger of 999999999 seconds. This means it will only trigger at startup.</li>
+<li>Use the channel called clean as the output channel of this standard inbound channel adapter.</li>
+<li>Add a JDBC outbound channel adapter and link it to the h2 database as the SQL data source</li>
+<li>Enter the following query. This query makes sure that all jobs older then one month are removed from the job dashboard</li>
+</ul>
+<p>DELETE FROM BATCH_JOB_EXECUTION_CONTEXT WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE());
+DELETE FROM BATCH_JOB_EXECUTION_PARAMS WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE());
+DELETE FROM BATCH_STEP_EXECUTION_CONTEXT WHERE
+STEP_EXECUTION_ID IN (SELECT STEP_EXECUTION_ID FROM BATCH_STEP_EXECUTION WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE()));
+DELETE FROM BATCH_STEP_EXECUTION WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE());
+DELETE FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE();
+DELETE FROM BATCH_JOB_INSTANCE WHERE
+JOB_INSTANCE_ID NOT IN (SELECT JOB_INSTANCE_ID FROM BATCH_JOB_EXECUTION);</p>
+<p>If you have followed all these steps you can deploy your new version of the flow to your environment and eMagiz will clean up your Job dashboard
+ensuring that you always have a clean overview of what is happening with your Jobs.</p>
 <h3><a class="anchor" aria-hidden="true" id="best-practices"></a><a href="#best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best practices</h3>
 <ul>
 <li>Create a separate H2 database per data pipeline you build within your project. For example if you have 10 data pipelines you should create 10 separate H2 databases. As stated in the documentation of the store component:
@@ -96,7 +125,7 @@
 <li>Clean up the H2 database on a periodic basis to keep its contents in check to prevent that the Job dashboard will stop functioning</li>
 <li>Use the Job dashboard in conjuction with the Manage phase to monitor and set up alerting surrounding the performance of the data pipeline solutions</li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#2-data-pipelines-in-emagiz">2. Data pipelines in eMagiz</a></li><li><a href="#3-input-and-output-options">3. Input and output options</a></li><li><a href="#4-mendix-to-aws-redshift-example">4. Mendix to AWS Redshift Example</a><ul class="toc-headings"><li><a href="#41-getting-started">4.1 Getting started</a></li><li><a href="#42-create-a-materialized-view">4.2 Create a materialized view</a></li><li><a href="#43-refresh-the-materialized-view">4.3 Refresh the materialized view</a></li><li><a href="#44-delete-the-materialized-view">4.4 Delete the Materialized view</a></li></ul></li><li><a href="#5-job-dashboard-data-pipeline">5. Job dashboard data pipeline</a><ul class="toc-headings"><li><a href="#51-job-dashboard">5.1 Job dashboard</a></li><li><a href="#52-explaining-the-inner-workings-of-the-job-dashboard">5.2 Explaining the inner workings of the Job Dashboard</a></li><li><a href="#best-practices">Best practices</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#2-data-pipelines-in-emagiz">2. Data pipelines in eMagiz</a></li><li><a href="#3-input-and-output-options">3. Input and output options</a></li><li><a href="#4-mendix-to-aws-redshift-example">4. Mendix to AWS Redshift Example</a><ul class="toc-headings"><li><a href="#41-getting-started">4.1 Getting started</a></li><li><a href="#42-create-a-materialized-view">4.2 Create a materialized view</a></li><li><a href="#43-refresh-the-materialized-view">4.3 Refresh the materialized view</a></li><li><a href="#44-delete-the-materialized-view">4.4 Delete the Materialized view</a></li></ul></li><li><a href="#5-job-dashboard-data-pipeline">5. Job dashboard data pipeline</a><ul class="toc-headings"><li><a href="#51-job-dashboard">5.1 Job dashboard</a></li><li><a href="#52-explaining-the-inner-workings-of-the-job-dashboard">5.2 Explaining the inner workings of the Job Dashboard</a></li><li><a href="#52-cleaning-up-the-job-dashboard">5.2 Cleaning up the Job Dashboard</a></li><li><a href="#best-practices">Best practices</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
