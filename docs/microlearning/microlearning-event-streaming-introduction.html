@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/microlearning-event-streaming-introduction · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Event Streaming - Introduction"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/microlearning-event-streaming-introduction · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Event Streaming - Introduction"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/microlearning-event-streaming-introduction</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="event-streaming---introduction"></a><a href="#event-streaming---introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Streaming - Introduction</h1>
+<p>In this microlearning we will give an Introduction into Event Streaming and look a little bit into how this is implemented in eMagiz.</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: January 22th 2021</li>
+<li>Required reading time: 12 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This micro learning gives an introduction into Event Streaming.</p>
+<p>Below you find several key concepts that define (parts of) event streaming:</p>
+<ul>
+<li>With event streaming you can publish data without building specific data integration between one or more applications</li>
+<li>Publisher and subscriber are de-coupled and don't need to be aware of each other specifically</li>
+<li>Data is stored inside the platform for a certain amount of time (retention)</li>
+<li>Event data is continuous being sent or made available</li>
+</ul>
+<p>We will elaborate on these concepts a bit more so you have a good introduction before we start linking Event Streaming to eMagiz in the upcoming microlearnings.</p>
+<h2><a class="anchor" aria-hidden="true" id="3-event-streaming---introduction"></a><a href="#3-event-streaming---introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Event Streaming - Introduction</h2>
+<p>In this microlearning we want to take you on a short journey to explain the fundemental concepts of what Event Streaming is.
+In the microlearnings that follow we will guide you in implementing event streaming within the eMagiz platform.</p>
+<p>We will explain what Event Streaming is based on the following perspectives:</p>
+<ul>
+<li>With event streaming you can publish data without building specific data integration between one or more applications</li>
+<li>Publisher and subscriber are de-coupled and don't need to be aware of each other specifically</li>
+<li>Data is stored inside the platform for a certain amount of time (retention)</li>
+<li>Event data is continuous being sent or made available</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="31-publish-data-without-building-a-specific-data-integration"></a><a href="#31-publish-data-without-building-a-specific-data-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Publish data without building a specific data integration</h3>
+<p>Event Streaming revolves around a cluster of topics that contain data. External parties can write data to said topics without having to know who will consume the data.
+Compare it to a news item that gets published on a news website. The editor publishes the data on the news site without
+having knowledge of who will consume the data and when they will consume the data.</p>
+<p>The same principle applies for other types of data. By having a centralized point where authorized parties can publish their data for others to consume you have enough to exchange that data between parties.
+Subsequently it is up to the consuming entities to read the data and process the data in a way that aids their business process.</p>
+<p align="center"><img src="../../img/microlearning/ml-event-streaming-introduction--centralized-data-set.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="32-publisher-and-subscriber-are-de-coupled-and-dont-need-to-be-aware-of-each-other-specifically"></a><a href="#32-publisher-and-subscriber-are-de-coupled-and-dont-need-to-be-aware-of-each-other-specifically" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Publisher and subscriber are de-coupled and don't need to be aware of each other specifically</h3>
+<p>Because there is a centralized managed cluster of topics to which a producer can write data without having to wait for acknowledgement of the consumer(s)
+you can de-couple all publishers and subscriber. This makes sure that your microservices landscape can be strongly de-coupled.</p>
+<p>By being de-coupled from one another it makes it easier to develop on certain applications in parallel without having to constantly communicate on the shared integration that transfers data from application A to application B.</p>
+<p>In this way it has become the sole responsibility of the producer to publish data on a certain topic. After he has done so his job is finished.</p>
+<p>It is further up to the consumer to subscribe to that data and process it in a way that adds value to their specific business application.</p>
+<p align="center"><img src="../../img/microlearning/ml-event-streaming-introduction--de-coupling-publish-subscribe.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="33-data-is-stored-inside-the-platform-for-a-certain-amount-of-time-retention"></a><a href="#33-data-is-stored-inside-the-platform-for-a-certain-amount-of-time-retention" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Data is stored inside the platform for a certain amount of time (retention)</h3>
+<p>Because publishers and subscribers are totally unaware of each other a centralized piece
+of the puzzle needs to make sure that data is kept at that centralized location (the topic) for a certain amount of time.</p>
+<p>This way you can ensure that data can be consumed at will by those who subscribed to a topic without having to navigate to the
+transactional nature of delivering a specific message to each consumer as you would with messaging.</p>
+<p>Correctly determining the retention policy in terms of event streaming is therefore one of the crucial parts of a successfull implementation of event streaming.</p>
+<p align="center"><img src="../../img/microlearning/ml-event-streaming-introduction--retention-construction.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="34-event-data-is-continuous-being-sent-or-made-available"></a><a href="#34-event-data-is-continuous-being-sent-or-made-available" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Event data is continuous being sent or made available</h3>
+<p>The 'streaming' part of the event stream says it all. In this scenario the data (compiled of a continous series of events) keeps on being sent to the topic and is therefore continously available for consumers to process.</p>
+<p>For example, if you want to monitor the temperature in a certain building on a room by room basis to send out an alert when the temperature passes a certain threshold you can facilitate this easily with Event Streaming.</p>
+<p>Simply make sure that all monitors send their data to the topic continously and check whether or not a value of a monitor exceeds a value.
+If so, please the message on a different topic from which a third application can read the data and send an SMS to a concerned party.</p>
+<p>Obviously this is a very rudimentary scenario that can be optimized a lot but it gives an idea of what Event Streaming can do for you.</p>
+<p align="center"><img src="../../img/microlearning/ml-event-streaming-introduction--log-record-event-streaming.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="35-example-situations-event-streaming"></a><a href="#35-example-situations-event-streaming" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.5 Example situations Event Streaming</h3>
+<ul>
+<li>Sensors in transportation vehicles, industrial equipment, and farm machinery send data to a streaming application. The application monitors performance, detects any potential defects in advance, and places a spare part order automatically preventing equipment down time.</li>
+<li>A financial institution tracks changes in the stock market in real time, computes value-at-risk, and automatically rebalances portfolios based on stock price movements.</li>
+<li>A real-estate website tracks a subset of data from consumers’ mobile devices and makes real-time property recommendations of properties to visit based on their geo-location.</li>
+<li>A solar power company has implemented a streaming data application that monitors of all of panels in the field, and schedules service in real time, thereby minimizing the periods of low throughput from each panel and the associated penalty payouts.</li>
+<li>A media publisher streams billions of clickstream records from its online properties, aggregates and enriches the data with demographic information about users, and optimizes content placement on its site, delivering relevancy and better experience to its audience.</li>
+<li>An online gaming company collects streaming data about player-game interactions and feeds the data into its gaming platform. It then analyzes the data in real-time, offers incentives and dynamic experiences to engage its players.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="4-key-takeaways"></a><a href="#4-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Key takeaways</h2>
+<p>Event Streaming is a decoupled service that works best within a microservices architecture with each application having its own core function for high volumes.</p>
+<p>Critical perspectives when looking at Event Streaming are:</p>
+<ul>
+<li>With event streaming you can publish data without building specific data integration between one or more applications</li>
+<li>Publisher and subscriber are de-coupled and don't need to be aware of each other specifically</li>
+<li>Data is stored inside the platform for a certain amount of time (retention)</li>
+<li>Event data is continuous being sent or made available</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="5-suggested-additional-readings"></a><a href="#5-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please see the following links:</p>
+<ul>
+<li><a href="https://www.emagiz.com/event-streaming/">https://www.emagiz.com/event-streaming/</a></li>
+<li><a href="https://www.confluent.io/learn/kafka-tutorial/">https://www.confluent.io/learn/kafka-tutorial/</a></li>
+<li><a href="https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/">https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/</a></li>
+<li></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video gives a nice introduction into Event Streaming in relation to the eMagiz platform.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VRGz3z_T3mw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-event-streaming---introduction">3. Event Streaming - Introduction</a><ul class="toc-headings"><li><a href="#31-publish-data-without-building-a-specific-data-integration">3.1 Publish data without building a specific data integration</a></li><li><a href="#32-publisher-and-subscriber-are-de-coupled-and-dont-need-to-be-aware-of-each-other-specifically">3.2 Publisher and subscriber are de-coupled and don't need to be aware of each other specifically</a></li><li><a href="#33-data-is-stored-inside-the-platform-for-a-certain-amount-of-time-retention">3.3 Data is stored inside the platform for a certain amount of time (retention)</a></li><li><a href="#34-event-data-is-continuous-being-sent-or-made-available">3.4 Event data is continuous being sent or made available</a></li><li><a href="#35-example-situations-event-streaming">3.5 Example situations Event Streaming</a></li></ul></li><li><a href="#4-key-takeaways">4. Key takeaways</a></li><li><a href="#5-suggested-additional-readings">5. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
