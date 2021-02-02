@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/migration-path-job-dashboard-cleanup · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Migration Path - Job Dashboard Cleanup"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/migration-path-job-dashboard-cleanup · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="## Migration Path - Job Dashboard Cleanup"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/migration-path-job-dashboard-cleanup</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="migration-path---job-dashboard-cleanup"></a><a href="#migration-path---job-dashboard-cleanup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Migration Path - Job Dashboard Cleanup</h2>
+<p>Below you will find a document describing the migration path to add the Job Dashboard Cleanup functionality to a datapipeline solution you have previously build.
+In case you want to implement a new datapipeline make sure to import it from the store as that will guarantee that this functionality will be included.</p>
+<p>Should you have any questions, please contact <a href="mailto:productmanagement@emagiz.com">productmanagement@emagiz.com</a>.
+Last update: February 2th 2021</p>
+<h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+<li>Understanding of Data pipelining concepts</li>
+<li>A existing Data pipeline solution within your eMagiz project.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-remove-unnecessary-components"></a><a href="#1-remove-unnecessary-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Remove unnecessary components</h2>
+<p>First we will delete components that have become obsolete as of late. The components you can remove from the flow are:</p>
+<ul>
+<li>support.bus-connection-plain</li>
+<li>support.bus-connection-caching</li>
+</ul>
+<p>Furthermore you could remove the following debug components as every interesting step is already monitored and can therefore be tracked without the help of the debugger:</p>
+<ul>
+<li>global channel interceptor</li>
+<li>activate.debug-bridge</li>
+<li>send.debug</li>
+<li>entry.channel.debug-queue</li>
+<li>debugBridgeChannel</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-add-new-components-to-cleanup-the-job-dashboard"></a><a href="#2-add-new-components-to-cleanup-the-job-dashboard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Add new components to cleanup the Job Dashboard</h2>
+<p>With the new functionality we have made it possible to cleanup the Job Dashboard for you. This to ensure that you can keep accessing the job info of the last month of job activity.</p>
+<p>To make sure that your existing data pipeline will function in the same way you should execute the following steps:</p>
+<ul>
+<li>Add a support object called top level poller and configure it as follows
+<p align="center"><img src="../../img/howto/migration-path-job-dashboard-cleanup-top-level-poller-config.png"></p></li>
+<li>Add a channel called clean</li>
+<li>Add a standard inbound channel adapter called clean.cron and configure it as follows (As you can see it cleans the job dashboard every day at five in the morning)
+<p align="center"><img src="../../img/howto/migration-path-job-dashboard-cleanup-clean-cron-config.png"></p></li>
+<li>Add a standard inbound channel adapter called startup.cron and configure it as follows (It cleans the job dashboard on startup)
+<p align="center"><img src="../../img/howto/migration-path-job-dashboard-cleanup-startup-cron-config.png"></p></li>
+<li>Add a JDBC outbound channel adapter to your flow
+<ul>
+<li>Use the clean channel as input</li>
+<li>Link it to the h2 database that is in your flow</li>
+<li>Enter the query that you can find below
+<p align="center"><img src="../../img/howto/migration-path-job-dashboard-cleanup-jdbc-outbound-config.png"></p></li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="21-query-you-need-for-cleanup"></a><a href="#21-query-you-need-for-cleanup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1 Query you need for cleanup</h3>
+<p>The following query is needed to cleanup all relevant parts of the job dashboard to ensure that only the jobs of the last month are still visible.</p>
+<p>DELETE FROM BATCH_JOB_EXECUTION_CONTEXT WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE());
+DELETE FROM BATCH_JOB_EXECUTION_PARAMS WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE());
+DELETE FROM BATCH_STEP_EXECUTION_CONTEXT WHERE
+STEP_EXECUTION_ID IN (SELECT STEP_EXECUTION_ID FROM BATCH_STEP_EXECUTION WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE()));
+DELETE FROM BATCH_STEP_EXECUTION WHERE
+JOB_EXECUTION_ID IN (SELECT JOB_EXECUTION_ID FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE());
+DELETE FROM BATCH_JOB_EXECUTION WHERE DATEADD(MONTH, 1, CREATE_TIME) &lt; CURDATE();
+DELETE FROM BATCH_JOB_INSTANCE WHERE
+JOB_INSTANCE_ID NOT IN (SELECT JOB_INSTANCE_ID FROM BATCH_JOB_EXECUTION);</p>
+<h2><a class="anchor" aria-hidden="true" id="3-result"></a><a href="#3-result" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Result</h2>
+<p>The result should look something like this:</p>
+<p align="center"><img src="../../img/howto/migration-path-job-dashboard-cleanup-result.png"></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#migration-path---job-dashboard-cleanup">Migration Path - Job Dashboard Cleanup</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#1-remove-unnecessary-components">1. Remove unnecessary components</a></li><li><a href="#2-add-new-components-to-cleanup-the-job-dashboard">2. Add new components to cleanup the Job Dashboard</a><ul class="toc-headings"><li><a href="#21-query-you-need-for-cleanup">2.1 Query you need for cleanup</a></li></ul></li><li><a href="#3-result">3. Result</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
