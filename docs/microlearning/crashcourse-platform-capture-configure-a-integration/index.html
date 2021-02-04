@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-platform-capture-configure-a-integration · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Configure a integration"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-platform-capture-configure-a-integration · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Configure a integration"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/crashcourse-platform-capture-configure-a-integration</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="configure-a-integration"></a><a href="#configure-a-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure a integration</h1>
+<p>In this microlearning we will focus on learning how to configure a integration.
+Configuring the integration itself is the third and final step in designing a integration within eMagiz</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: February 1th 2021</li>
+<li>Required reading time: 6 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This microlearning centers around configuring a integration.
+With configuration we mean: Adding, Editing and/or Deleting of a integration
+With integration we mean: A method to exchanga data between a external party and eMagiz based on agreed upon rules and definitions</p>
+<p>To configure a integration you need the following:</p>
+<ul>
+<li>Connection information (how are you going to exchange information)</li>
+<li>Content information (what are you going to exchange)</li>
+<li>Security information (how are you going to secure the data exchange)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="3-configure-a-integration"></a><a href="#3-configure-a-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Configure a integration</h2>
+<p>As specified before with configure we mean adding, editing and/or deleting a integration. Below we will detail per action what you should do.</p>
+<h3><a class="anchor" aria-hidden="true" id="31-adding-a-integration"></a><a href="#31-adding-a-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Adding a integration</h3>
+<p>To add a integration you simply drag a line from or to a system on the canvas</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-message-type--drag-message-type-on-canvas-start.png"></p> 
+<p>After you have connected the system to eMagiz (located in the center) you will immediately be presented with the following pop-up. In this pop-up you have a choice to make:</p>
+<ul>
+<li>Re-use a message type (in case another system already supplies Orders and you want to send these Orders to another system for example)</li>
+<li>Add new message type</li>
+</ul>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-message-type--new-message-type-first-popup.png"></p>
+<p>In case you want to add a new message type, please study the microlearning <a href="microlearning-configure-a-message-type.md">Configure a message type</a>.</p>
+<p>In this microlearning we will assume that the message type you want to use for this particular integration is already available within your eMagiz project.
+Therefore we will select the message type Configure a message type from the drop down menu</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--select-message-type.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="32-editing-a-integration"></a><a href="#32-editing-a-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Editing a integration</h3>
+<p>Editing a integration means filling in the detailed information belonging to the integration and subsequently change the information is reality changes.</p>
+<p>Filling in the detail information in Capture helps you to better Design, Create, Deploy and Manage your integration.
+This detail information is available when you double click on the line you have just drew (or select the Edit integration option via the context menu).</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--edit-integration-context-menu.png"></p>
+<p>After you have selected the integration a pop-up will be shown. This pop-up is divided into five segments:</p>
+<ul>
+<li>General</li>
+<li>Message Transport</li>
+<li>Message Content</li>
+<li>Security</li>
+<li>Remarks</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="321-general"></a><a href="#321-general" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.1 General</h4>
+<p>This segment answers several general questions surrounding this integration.
+If you have correctly added the message type you will notice that these questions are already filled in the moment you open them.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--edit-message-type-general.png"></p>
+<p>The moment you want to change a answer given earlier on these questions this is the place to do so.</p>
+<h4><a class="anchor" aria-hidden="true" id="322-message-transport"></a><a href="#322-message-transport" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.2 Message Transport</h4>
+<p>The second segment has all to do with the transport of the message (i.e. how will the data be send to eMagiz or from eMagiz to a external system).</p>
+<p>In this segment you will answer questions on:</p>
+<ul>
+<li>how the messages will be send (i.e. REST webservice, file drop, etc.)</li>
+<li>In what format the messages are exchanged (i.e. JSON, XML, EDI, CSV, etc.)</li>
+<li>whether the data is pushed (i.e the receiving systems waits idle untill a message is send to it) or pulled (i.e the receiving systems is actively checking for new messages)</li>
+<li>The preferred option to exchange data (i.e. REST webservice, SOAP webservice, etc.)</li>
+<li>The status of the interface (i.e. what already exists on both sides for this)</li>
+</ul>
+<p>If you have filled in all this information you have learned a lot about how you need to Design and Create your integration.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--edit-message-type-message-transport.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="323-message-content"></a><a href="#323-message-content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.3 Message Content</h4>
+<p>The third segment is focused on the content of the message.
+Remind yourself, in the previous segment we determined the format of the message, now we can zoom in to determine the actual content of the messages that will be exchanged.</p>
+<p>In this question you can add various documents retrieved from the external party that define how messages will be exchanged:</p>
+<ul>
+<li>Example messages (i.e. examples of how a message could look like, very usefull when unit testing your flow)</li>
+<li>Definitions (i.e XSD or WSDL, that define the exact structure, order and data types of the message)</li>
+<li>Specification Document (i.e. detailing the method of authentication, order of actions needed to successfully post a message, etc.)</li>
+</ul>
+<p>You can do so by adding attachments to this specific implementation of the message type.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--add-example-message-attachment.png"></p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--add-xsd-attachment.png"></p>
+<p>All attachments linked to this specific implementation of the message type are shown in a grid on this third segment.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--message-content-overview.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="324-security"></a><a href="#324-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.4 Security</h4>
+<p>The fourth segment has everything to do with security. In this segment you can fill in all information related to the security of the connection between eMagiz and the external party.
+In the example we are working out the external party will send data to eMagiz via a SOAP Webservice.</p>
+<p>Therefore the Security details should reflect the way eMagiz will secure this connection to make sure that the integrity of the data is not comprised.
+Best practice for <strong>SOAP</strong> Webservices is a API Key + Client certification for client authentication.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--security-overview.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="325-remarks"></a><a href="#325-remarks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.5 Remarks</h4>
+<p>The fifth and last segment is called Remarks. In this segment you can add everything you want.
+For example, you could add your notes of meetings with the business that will help your fellow developer to actually build the solution in Create.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--remarks-overview.png"></p>
+<p>The moment you are satisfied with the information registered in Capture on integration level you can switch the status of the integration to done.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--set-status-done.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="33-deleting-a-integration"></a><a href="#33-deleting-a-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Deleting a integration</h3>
+<p>Deleting a integration can be done with the help of the context menu on integration level. If you right click on the line you have just finished you will see a option Delete Integration.
+Selecting that option will delete your integration.</p>
+<p align="center"><img src="../../img/microlearning/ml-configure-a-integration--delete-integration.png"></p>
+<p>Be aware that you can only delete a integration if the integration is not part of the Create phase (anymore).</p>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>The assignment is simple this time. Simply add, edit and subsequently delete a integration called Configure a message type.
+After you have successfully deleted the integration re-add the integration as you will need it in the following assignment(s).
+This assignment can be completed with the help of a associated Mendix project linked to the (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>A integration refers to a specific implementation between a specific external party and eMagiz based on a message type (data object)</li>
+<li>Several integrations can re-use the same message type</li>
+<li>Filling in the detail information in Capture helps you to better Design, Create, Deploy and Manage your integration.</li>
+<li>Deleting a integration can only be done <strong>after</strong> the integration has been untransferred from Create (or never existed in Create in the first place)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the help text provided by eMagiz.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned. Disclaimer, you only see the eMagiz part but if you follow the above steps you are good to go!</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/microlearning-configure-a-integration.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-configure-a-integration">3. Configure a integration</a><ul class="toc-headings"><li><a href="#31-adding-a-integration">3.1 Adding a integration</a></li><li><a href="#32-editing-a-integration">3.2 Editing a integration</a></li><li><a href="#33-deleting-a-integration">3.3 Deleting a integration</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

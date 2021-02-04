@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.12.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.12.0, released 2020-12-11"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.12.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.12.0, released 2020-12-11"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.12.0</h1></header><article><div><span><p>Version 10.12.0, released 2020-12-11</p>
+<p>Release that adds a visualization of error messages associated to an integration. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<p>New features</p>
+<ul>
+<li>Manage - Manage dashboard: The Manage dashboard is a new graphical visualization of your project in the Manage phase of the ILM. It displays the amount of error messages associated to each flow. When double clicking a flow you can see an overview of error messages and get detailed information of the selected error message.</li>
+</ul>
+<p>Major changes</p>
+<ul>
+<li>Deploy - Containers: Flow distribution per process container</li>
+<li>Flow assignation on containers is kept all the time. When you remove a flow from a release and when you want to add it back, the initial selection will be preserved. This should prevent situations where flows are deployed accidentally on container(s) where they should not be deployed on.</li>
+<li>The bus contact of your project can now set an advised number of flows per process container. By doing so you will get a warning the moment you add a new flow to your release or when you promote the release to a new environment and you exceed the number you defined yourself.</li>
+<li>Design - CDM: Auditing. You can document and version your changes done on the CDM. In the history overview, you can see which changes have occurred when and what has been changed</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Design - Gateway catalog: You can add example messages when editing the content of a response for an API operation. These examples will be exposed in the Swagger UI API documentation.</li>
+<li>Create - Processes: The integration pattern that you are currently working on is memorized. So the next time you go to a project, that pattern will be the default integration pattern.</li>
+<li>Create - JMS servers: JMS server flows contain a new address setting for better handling API gateway messages. This is not applied to existing projects, unless you manually reset the JMS server flow(s)</li>
+<li>Design - Architecture: The size of Gateway container is correct now in design architecture</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>Design - Message mapping: Refreshing issue of message mapping when unset as mapped the entity or the attribute (#EPB-65)</li>
+<li>Deploy - Deployment plan: When you execute steps, the progress message has been removed, since it was not descriptive (#EPB-74)</li>
+<li>Manage - Error messages: Paging works on the new overview that shows flows with errors</li>
+<li>Deploy - Properties: Property names work properly with lengths up to 256 characters (#EPB-93)</li>
+<li>Manage - Error messages: For flows that have a string followed by a full stop (.), it is possible to retrieve the associated error messages.</li>
+<li>Create - Processes: Tags associated to integrations are visible on Create phase. (#EPB-36)</li>
+<li>Across the portal minor (textual) improvements have been made. (#EPB-90)</li>
+<li>Deploy - Runtime dashboard: Select container checkbox for OSGi and Active (#EPB-78)</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

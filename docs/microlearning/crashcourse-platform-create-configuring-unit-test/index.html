@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-platform-create-configuring-unit-test · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Configuring a Unit Test"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-platform-create-configuring-unit-test · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Configuring a Unit Test"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/crashcourse-platform-create-configuring-unit-test</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="configuring-a-unit-test"></a><a href="#configuring-a-unit-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring a Unit Test</h1>
+<p>In this microlearning we will focus on configuring a unit test.</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: January 7th 2021</li>
+<li>Required reading time: 7 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+<li>Understanding of Unit testing concept</li>
+<li>On- or offramp (without splitter or router) that needs to be tested</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This micro learning centers around configuring a unit test.
+With unit testing we mean: Testing each separate component (unit) within the context of a flow based on a supplied input (and an expected outcome).</p>
+<p>Configuring a unit test can be done via the right hand panel menu while being in the Configure Tests screen of your Create flow.
+In this right panel there is a button called Add Test. By pressing this button you have the ability to configure your unit test.</p>
+<p>The moment you already have unit tests available within the context of your flow you can edit these by selecting the edit icon on that specific unit test.</p>
+<h2><a class="anchor" aria-hidden="true" id="3-configuring-a-unit-test"></a><a href="#3-configuring-a-unit-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Configuring a Unit Test</h2>
+<p>Configuration of a unit test can happen on two occassions. On the one hand you want to add a new unit test to test a scenario for which you have not yet a unit test available.
+On the other hand you want to be able to edit a existing unit test to alter the input, output or naming of the existing unit test.</p>
+<h3><a class="anchor" aria-hidden="true" id="31-add-a-unit-test"></a><a href="#31-add-a-unit-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Add a Unit Test</h3>
+<p>To add a unit test you navigate to the Create phase of eMagiz. Within the Create phase of eMagiz you open the flow you want to unit test.
+After you have opened the flow you should press the button on the bottom bar called Configure tests</p>
+<p>In this overview you will see the flow as you have build it and in the right hand panel there is a button located called Add test.
+By pressing this button you add a new unit test to the context of the flow on which you are currently working on.</p>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--add-test-button.png"></p>
+<p>After you have pressed this button a new entry in your list of unit tests will appear. Obviously when your list is still empty this will be your first entry, congrats!</p>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--added-a-test.png"></p>
+<p>As you can see from the picture above you are now in a mode ready to configure your unit test.</p>
+<p>To properly configure a unit test you should follow these steps:</p>
+<ul>
+<li>Select the input for the unit test that fits the scenario you want to test.
+<ul>
+<li>This can be done by navigating with your mouse to the input component of the flow and clicking on the document icon. Here you will be presented with a list of options from which you can choose the correct input message. (The same process works for the output components)</li>
+</ul></li>
+<li>If available and relevant for your scenario select the test message that embodies the expected outcome of the scenario you want to test. Be aware this is an optional step.</li>
+<li>When you are content with your selection press Done.</li>
+</ul>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--selecting-the-input.png"></p>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--selected-input-output.png"></p>
+<p>As you can see from the picture above the view has changed again. To finish the configuration please add a descriptive name to the unit test. This way you and others that work with you can keep them apart.</p>
+<p>To enter a name of the unit test you simply hover over the just created unit test on the point just before the - icon and click on the edit icon (pencil)</p>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--entering-a-name.png"></p>
+<p>This action makes it possible for you to enter a name. As mentioned before keep the name as descriptive as possible. For an example see below.</p>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--entered-a-name.png"></p>
+<p>The moment you hover over a certain message you will see two icons appear. One, the pencil, indicates the possiblity to edit the message.</p>
+<p align="center"><img src="../../img/microlearning/ml-editing-test-messages--edit-test-message-icon.png"></p>
+<p>When you are satisfied with your choice you can click on the edit icon. The result will be a popup showing you the message you can edit.
+If you are satisfied with your name simply select the checkmark icon. In case you have doubts or want to cancel press the X icon.</p>
+<p>By following these steps you have succesfully added a unit test to your flow.</p>
+<h3><a class="anchor" aria-hidden="true" id="32-edit-a-unit-test"></a><a href="#32-edit-a-unit-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Edit a Unit Test</h3>
+<p>Apart from Adding a Unit test you can also edit a unit test if you for example would like to change the input, output and/or name of the unit test.</p>
+<p>To edit the name of the unit test you simply hover over the just created unit test on the point just before the - icon and click on the edit icon (pencil)</p>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--entering-a-name.png"></p>
+<p>This action makes it possible for you to enter a name. As mentioned before keep the name as descriptive as possible. For an example see below.</p>
+<p align="center"><img src="../../img/microlearning/ml-configuring-a-unit-test--entered-a-name.png"></p>
+<p>The moment you hover over a certain message you will see two icons appear. One, the pencil, indicates the possiblity to edit the message.</p>
+<p align="center"><img src="../../img/microlearning/ml-editing-test-messages--edit-test-message-icon.png"></p>
+<p>When you are satisfied with your choice you can click on the edit icon. The result will be a popup showing you the message you can edit.
+If you are satisfied with your name simply select the checkmark icon. In case you have doubts or want to cancel press the X icon.</p>
+<p>To edit the input and/or output message that will be used in your unit test you press the Edit button</p>
+<p align="center"><img src="../../img/microlearning/ml-editing-test-messages--edit-input-output.png"></p>
+<p>After you have pressed this button you can select another input (and/or output) message just as we have learned in the Add a unit test segment.</p>
+<p>The moment you are satisfied with your changes you press Done and your changes have been saved.</p>
+<h3><a class="anchor" aria-hidden="true" id="33-removing-a-unit-test"></a><a href="#33-removing-a-unit-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Removing a Unit Test</h3>
+<p>Sometimes you even want to get rid of certain unit test. Maybe they have become obsolete due to changes within the flow, or maybe multiple test were created with the same intent.
+Whatever the reason may be you can remove a unit test from the list of unit tests that is linked to the flow.</p>
+<p>To do so simply press the Remove button for the unit test that you want to remove. After you pressed this button the unit test is gone from the list.</p>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Configure two unit tests. One unit test should have as input a complete representation of the system message in Design.
+The second unit test should have as input a minimal representation of the system message in Design and as output the expected CDM message. This assignment can be completed within a onramp or offramp flow within your (Academy) project that you have created in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>Configuring a unit test can mean three things:
+<ul>
+<li>Add a unit test</li>
+<li>Edit a unit test</li>
+<li>Remove a unit test</li>
+</ul></li>
+<li>Always give each unit test a descriptive name so it becomes clear what you are trying to test</li>
+<li>Selecting an input message is mandatory</li>
+<li>Selecting an output message is optional</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the helptext provided by eMagiz when executing these actions and read the user guide on unit testing which you can find in the documentation portal.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned.</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/microlearning-configure-a-unit-test.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-configuring-a-unit-test">3. Configuring a Unit Test</a><ul class="toc-headings"><li><a href="#31-add-a-unit-test">3.1 Add a Unit Test</a></li><li><a href="#32-edit-a-unit-test">3.2 Edit a Unit Test</a></li><li><a href="#33-removing-a-unit-test">3.3 Removing a Unit Test</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.14.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.14.0, released 2021-01-08"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.14.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.14.0, released 2021-01-08"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.14.0</h1></header><article><div><span><p>Version 10.14.0, released 2021-01-08</p>
+<p>Release that adds Manage Dashboard improvements and adds support for OAuth 2.0 in your API gateway. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<p>Major changes</p>
+<ul>
+<li>Manage Dashboard improvements
+<ul>
+<li>Exceptions types of error messages are visualized and selectable in the right-side panel.
+<ul>
+<li>Status, time and tag filters are added to the right-side panel.</li>
+<li>In case of errors the status filter is applied, so that the dashboard only shows the flows with errors.</li>
+</ul></li>
+</ul></li>
+<li>API Gateway integrations can be secured using OAuth 2.0
+<ul>
+<li>Design Solution design - Server and security settings are improved and per environment configuration is possible.</li>
+<li>Design Solution design – The OAuth 2.0 authorization server can be configured or eMagiz can deploy one as a Service.</li>
+<li>Create Flow designer - The generated swagger UI schema includes the OAuth 2.0 security settings.</li>
+<li>Deploy User Management - The &quot;Apply to Environment&quot; button will update an eMagiz hosted authorization server automatically.</li>
+</ul></li>
+<li>New integration pattern: Event streaming
+<ul>
+<li>Event streaming integrations can be added to every project.</li>
+<li>To create event processor flows and deploy topics and processors a license is needed. Please contact your partner manager to obtain one.</li>
+</ul></li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Deploy Architecture - AWS Upgrade feature feedback
+<ul>
+<li>The upgrade plan date can not to be more than 30 days in the future</li>
+<li>The standard delay for automatic upgrade planning is three working days.</li>
+<li>The 'new template available’ reminder popup does not show when an upgrade is planned.</li>
+<li>The plan date and time fields are hidden if no new template is selected.</li>
+<li>The order of the cloud slot context menu items has changed.</li>
+</ul></li>
+<li>Project dashboard - API gateway and event streaming integrations are included in the progress percentages and number of integrations.</li>
+<li>Design CDM – Users can give a description for autosaved versions in the CDM history as well as in the flow designer history.</li>
+<li>Design Architecture - Audit trail when changing cloud sizes.</li>
+<li>Design Architecture – In machine sizing recommendations the reserved memory for the OS has been changed from 512MB to 712MB.</li>
+<li>Design Architecture - On single lane topology more cloud machines are allowed than the default 1 core and 1 connector machine. If you want to make use of this feature, please use the latest cloud template release to make sure the network routes are applied correctly.</li>
+<li>Create Flow designer - All transformation resulting in JSON support primitive numbers and boolean output. Previously all resulting values were String values.</li>
+<li>Create Flow designer – Better user feedback on exceptions, for example when deleting objects failed because of security constraints</li>
+<li>Create Unit testing - Test message generation has an option to choose the outcome of the example message type: XML or JSON. Besides that, the option to create an example message from External Definitions also allows to customize the output of the example message to minimal and complete.</li>
+<li>Deploy Containers – It is possible to remove flows from containers and still being able to active the release. That makes it possible to prevent unnecessary deployment of “dummy” process or connector flows.</li>
+<li>Deploy Event streaming - Kafka servers for test environments are turned off outside working hours. The topics will be auto-generated again after turning on the Kafka server.</li>
+<li>Improved eMagiz infrastructure monitoring capabilities</li>
+<li>Across the platform help text improvements</li>
+<li>Deploy-Release: When setting a release as active, the onramps of the integrations marked as Data Pipelines in Design phase do not need to be assigned to any process containers. In this way preventing to install unnecessary flows.</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>The feedback feature has been fixed by upgrading it to the latest version.</li>
+<li>Create Flow designer - In the XML to Flat file component, the configured columns sometimes disappeared. This issue has been fixed.</li>
+<li>Deploy Dashboard - Bug fix where the data pipeline job dashboard was not working.</li>
+<li>Fixed issue of not mapping the custom attribute values of a new CDM code when pressing &quot;Save &amp; add new CDM code&quot; (#EPB-97)</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

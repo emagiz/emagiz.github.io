@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-platform-eventstreaming-designing-a-event-stream · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Designing a Event Stream"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-platform-eventstreaming-designing-a-event-stream · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Designing a Event Stream"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/crashcourse-platform-eventstreaming-designing-a-event-stream</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="designing-a-event-stream"></a><a href="#designing-a-event-stream" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Designing a Event Stream</h1>
+<p>In this microlearning we will focus on how you can design a Event Streaming Solution with the help of the first two phases of eMagiz (i.e Capture and Design).</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: January 22th 2021</li>
+<li>Required reading time: 4 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+<li>Understanding of Event Streaming concept</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This micro learning centers around designing a event stream.
+With event stream we mean: Definition to follow.</p>
+<p>To design a event stream you must do the following:</p>
+<ul>
+<li>Define the system(s) in Capture that you want to connect</li>
+<li>Define the data object you want to exchange with the help of a event stream, name this accordingly and draw lines indicating the flow of data between these systems</li>
+<li>Check your work in Design via the Design overview.</li>
+</ul>
+<p>Below we will discuss each of these steps separaretly.</p>
+<h2><a class="anchor" aria-hidden="true" id="3-designing-a-event-stream"></a><a href="#3-designing-a-event-stream" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Designing a Event Stream</h2>
+<p>Within the eMagiz platform you can easily design a event stream.
+In this section we will discuss how you can design a event stream by following these steps:</p>
+<ul>
+<li>Define the system(s) in Capture that you want to connect</li>
+<li>Define the data object you want to exchange with the help of a event stream, name this accordingly and draw lines indicating the flow of data between these systems</li>
+<li>Check your work in Design via the Design overview.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="31-define-the-systems-in-capture-that-you-want-to-connect"></a><a href="#31-define-the-systems-in-capture-that-you-want-to-connect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Define the system(s) in Capture that you want to connect</h3>
+<p>As with all integration patterns the process starts in Capture. In Capture you have the option to add systems to the canvas that have the ability to connect to a topic.
+To indicate this ability on system level you have the option to select Event Streaming as default integration pattern on system level.</p>
+<p align="center"><img src="../../img/microlearning/ml-designing-a-event-stream--capture-es-system-config.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="32-define-the-data-object-you-want-to-exchange-with-the-help-of-a-event-stream-name-this-accordingly-and-draw-lines-indicating-the-flow-of-data-between-these-systems"></a><a href="#32-define-the-data-object-you-want-to-exchange-with-the-help-of-a-event-stream-name-this-accordingly-and-draw-lines-indicating-the-flow-of-data-between-these-systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Define the data object you want to exchange with the help of a event stream, name this accordingly and draw lines indicating the flow of data between these systems</h3>
+<p>After you have created the system and filled the details in you can add integrations from and to eMagiz. When looking at Event Streaming within the scope of eMagiz the integration (in messaging) equals a topic (in event streaming).
+If you draw a line from a system to eMagiz you define that the system from which you have drawn the line is a 'producing' system. A 'producing' system is a system that writes data to one or more topics. If a systems write to more topics you draw more lines.</p>
+<p align="center"><img src="../../img/microlearning/ml-designing-a-event-stream--capture-es-producing-integration.png"></p>
+<p>If you draw a line from eMagiz to a system you define that the system to which you have drawn the line is a 'consuming' system on the. A 'consuming' system is a system that reads data from one or more topics. If a systems reads from more topics you draw more lines.</p>
+<p align="center"><img src="../../img/microlearning/ml-designing-a-event-stream--capture-es-consuming-integration.png"></p>
+<p>The moment you have captured these systems you will end up with something like this.</p>
+<p align="center"><img src="../../img/microlearning/ml-designing-a-event-stream--capture-es-result.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="32-check-your-work-in-design-via-the-design-overview"></a><a href="#32-check-your-work-in-design-via-the-design-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Check your work in Design via the Design overview.</h3>
+<p>Design is the crucial phase when it comes to Event Streaming. More on all of the specific functionalities Design offers you in other microlearnings.
+In this microlearning we will focus on the Design overview and how you can use this to verify what you have captured</p>
+<h4><a class="anchor" aria-hidden="true" id="321-design-overview"></a><a href="#321-design-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.1 Design overview</h4>
+<p>In Design you see an overview of your landscape including all first class integration patterns (messaging, api gateway and event streaming).</p>
+<p align="center"><img src="../../img/microlearning/ml-designing-a-event-stream--design-overview.png"></p>
+<p>For Event Streaming integrations you see one or more numbers per integration. This numbers mean as follows (left to right):</p>
+<ul>
+<li>Number of 'producers' on a topic</li>
+<li>Number of event processors for which this data of the topic (integration) is the input of the event processor</li>
+<li>Number of event processors for which this data of the topic (integration) is the output of the event processor</li>
+<li>Number of 'consumers' on a topic</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="3211-technical-config-system"></a><a href="#3211-technical-config-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.1.1 Technical config system</h5>
+<p>If you have configured your system in such a way that you have specified that this system has a default integration pattern of Event Streaming you only need to fill in the technical name in Design
+as eMagiz already has set the message format to JSON. This is done because the defacto standard of Event Streaming messages is JSON.</p>
+<p align="center"><img src="../../img/microlearning/ml-designing-a-event-stream--design-technical-config-system.png"></p>
+<h5><a class="anchor" aria-hidden="true" id="3212-red-background-in-design-on-integration-level"></a><a href="#3212-red-background-in-design-on-integration-level" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.1.2 Red background in Design on integration level</h5>
+<p>If you see a red background behind the number this indicates that you have indicated that a system is consuming data from a specific topic (integration)
+but have not yet indicated how the data will be produced on the topic.</p>
+<p align="center"><img src="../../img/microlearning/ml-designing-a-event-stream--design-consumer-without-producer.png"></p>
+<p>There are two ways to set this straight:</p>
+<ol>
+<li>Go back to Capture and draw a line to indicate that a specific system directly produces messages on that topic. For more information on this revisit the section surrounding Capture in this microlearning</li>
+<li>Add an Event processor. More on this later in the course</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>As a assignment on this subject please execute the following steps:</p>
+<ul>
+<li>Add one producing and one consuming system to eMagiz</li>
+<li>Connect these systems by drawing a line between them via eMagiz</li>
+<li>Verify your work with the help of the Design overview (i.e. no red background) and fill in the technical details of both systems.</li>
+</ul>
+<p>This assignment can be completed within the Capture and Design phase of your (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>To design a event stream you must do the following:
+<ul>
+<li>Define the system(s) in Capture that you want to connect</li>
+<li>Define the data object you want to exchange with the help of a event stream, name this accordingly and draw lines indicating the flow of data between these systems</li>
+<li>Check your work in Design via the Design overview.</li>
+</ul></li>
+<li>To verify whether there are mismatches you can use the visual queues eMagiz provides you with in the Design overview</li>
+<li>Based on the Design overview you can see in one view the metadata related to your data flow</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the helptext provided by eMagiz when executing these actions and read the user guide provided on this topic.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned.</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/microlearning-designing-a-event-stream.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-designing-a-event-stream">3. Designing a Event Stream</a><ul class="toc-headings"><li><a href="#31-define-the-systems-in-capture-that-you-want-to-connect">3.1 Define the system(s) in Capture that you want to connect</a></li><li><a href="#32-define-the-data-object-you-want-to-exchange-with-the-help-of-a-event-stream-name-this-accordingly-and-draw-lines-indicating-the-flow-of-data-between-these-systems">3.2 Define the data object you want to exchange with the help of a event stream, name this accordingly and draw lines indicating the flow of data between these systems</a></li><li><a href="#32-check-your-work-in-design-via-the-design-overview">3.2 Check your work in Design via the Design overview.</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

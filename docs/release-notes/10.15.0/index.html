@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>release-notes/10.15.0 · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Version 10.15.0, released 2021-01-22"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="release-notes/10.15.0 · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="Version 10.15.0, released 2021-01-22"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">release-notes/10.15.0</h1></header><article><div><span><p>Version 10.15.0, released 2021-01-22</p>
+<p>Release that addresses many improvements suggested by our users. On top of that, security has been further improved. In addition, this release includes several other improvements and tackles some minor issues.</p>
+<p>New features</p>
+<ul>
+<li>Deploy - Releases: Manage properties associated with a release. Next to &quot;Check properties&quot;, you can add new properties to a release, which will be created or updated when you set the release as active. Besides that, while adding a new property from the missing properties overview, you can save this property as the Release Property to apply it later.</li>
+</ul>
+<p>Major changes</p>
+<ul>
+<li>Design - CDM: Behaviour of &quot;Stop editing&quot; in the CDM matches that of the Create phase, allowing users to either create a user version, or autosave and continue.</li>
+<li>Create - Flow designer: Improved error handling behaviour for newly generated synchronous entry flows. This matches the best practice applied in the API Gateway. When generating synchronous combined entry flows, we send the error message back to the consuming system directly. If it is a custom combined entry or normal entry, an annotation helps you implement the error message behaviour you desire.</li>
+</ul>
+<p>Minor changes</p>
+<ul>
+<li>Design - CDM: You can mark attributes as confidential. Those will show up with a lock icon.</li>
+<li>Deploy - Releases: When installing, if there are new infra flows, you see the flows based on their short name.</li>
+<li>Across the portal, minor (textual) improvements have been made.</li>
+<li>Across the portal, upgraded client-side libraries to improve security.</li>
+<li>Create - Flow designer: Only if you have edit rights in the Create phase of the ILM, you see &quot;Start Editing&quot;.</li>
+<li>Deploy - User Management: Tenant users become inactive when tenants are deleted from Capture</li>
+<li>Design - Gateway: Improved validation of Security settings. Only one security type can be added for each gateway. Also, only one security type can be added for each environment.</li>
+<li>Design - Gateway: OpenID support for SwaggerUI</li>
+<li>Deploy - User Management: When Applying to Environment, a new deploy property is created: authentication.gateway.oauth2-issuer-url. It holds the IssuerURL of the schema.</li>
+<li>Across the portal, security has been improved.</li>
+<li>Deploy - Properties TAP: You can edit or view properties of all environments without having to select the environment drop-down.</li>
+<li>Design - Architecture: You can apply settings for all integration patterns directly from the Architecture section</li>
+<li>Design - Solution design: You can run the pattern wizard on an integration in Design even for integrations in Create already</li>
+<li>Deploy - Releases: On the page Latest Infra Flow Versions, we added buttons to select all infra flows from the page and update all infra flows.</li>
+<li>Manage - Dashboard: On the error overview page, the failed message tab shows the source system if it is available.</li>
+<li>Design - Architecture: Improved the content of the cloud size status page.</li>
+<li>Deploy - Releases: Improved the performance of loading buttons on the releases to the right</li>
+<li>Design - Gateway: Improved the data model. &quot;Stop editing&quot; behaviour is the same as for the CDM, history is available, and for message definitions you can use a back button.</li>
+</ul>
+<p>Bug fixes</p>
+<ul>
+<li>Create - Flow designer: For recipient list routers, fixed so that items could not be removed in specific cases.</li>
+<li>Create - Flow designer: For component file item readers, fixed that line mappers no longer disappear in a specific case. This would happen when you clicked on the top-right close button on the overview while not in edit mode.</li>
+<li>Create - Transfer: Fixed that untransferring tenants would be impossible in specific cases.</li>
+<li>Deploy - Properties: Fixed that the Properties TAP screen in Deploy could be shown without the correct rights in specific cases.</li>
+<li>Create - Flow designer: For validation components, view/edit buttons of the message definition show up correctly, while they would not in specific cases.</li>
+<li>Manage - Dashboard: You can select &quot;OK&quot; as filter option, even if there are error messages.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
