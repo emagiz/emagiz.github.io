@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-platform-create-flow-editor-basics · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Flow Editor - Basics"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-platform-create-flow-editor-basics · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Flow Editor - Basics"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index-modules" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/crashcourse-platform-create-flow-editor-basics</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="flow-editor---basics"></a><a href="#flow-editor---basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flow Editor - Basics</h1>
+<p>A central part of building your integration in eMagiz is the flow editor. In here you can see what is actually happening in the flow to make the intented process work as you would expect.
+To make your life easier eMagiz will generate a starting point for you based on your configuration choices in Design so you don't start with a complete blank canvas.</p>
+<p>Having said that not all flows are completely pre-built yet and do require changes made by you.
+In this microlearning we will focus on getting to know the various types of components that are at your disposal while creating / editing a flow and illustrate what those types are based on some examples.</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: February 8th 2021</li>
+<li>Required reading time: 9 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This micro learning focuses on the flow editor.</p>
+<p>With flow editor we mean: The canvas in Create that allows you to edit the functionality of a flow</p>
+<h2><a class="anchor" aria-hidden="true" id="3-flow-editor---basics"></a><a href="#3-flow-editor---basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Flow Editor - Basics</h2>
+<p>A central part of building your integration in eMagiz is the flow editor. In here you can see what is actually happening in the flow to make the intented process work as you would expect.
+To make your life easier eMagiz will generate a starting point for you based on your configuration choices in Design so you don't start with a complete blank canvas.</p>
+<p>Some of the flows that are pre-built for 85-95% of the cases include:</p>
+<ul>
+<li>Onramps and offramps (Messaging)</li>
+<li>Entry and exit gate (API Gateway)</li>
+<li>Event Processors (Event Streaming)</li>
+</ul>
+<p>Having said that not all flows are completely pre-built yet and do require changes made by you.
+Therefore we would like to walk you through the various type of components that you can use to edit your flow:</p>
+<ul>
+<li>Inbound (Input)</li>
+<li>Outbound (Output)</li>
+<li>Transformation (Change)</li>
+<li>Splitter (Change)</li>
+<li>Filter (Decision)</li>
+<li>Router (Decision)</li>
+<li>Support (Help)</li>
+</ul>
+<p>To connect each of these components together you use channels that connect one component to another component.</p>
+<h3><a class="anchor" aria-hidden="true" id="31-inbound"></a><a href="#31-inbound" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Inbound</h3>
+<p>All inbound components represent the input of your flow (i.e. the starting point). Inbound components can be identified through the green color of the components</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--inbound-components.png"></p>
+<p>Via these components the flow either <strong>receives</strong> or <strong>retrieves</strong> data from a external source. The inbound components most frequently used are:</p>
+<ul>
+<li>JMS Message Driven Channel Adapter</li>
+<li>HTTP Inbound Gateway</li>
+<li>Web service Inbound Gateway</li>
+<li>File inbound channel adapter</li>
+<li>Kafka message driven channel adapter</li>
+</ul>
+<p>We will not discuss each of them in detail here but all of them receive or retrieve data from a external source.
+The JMS Message Driven Channel Adapter for example <strong>receives</strong> messages placed on a certain queue. The HTTP Inbound Gateway <strong>receives</strong> messages everytime someone calls your endpoint.
+The file inbound channel adapter <strong>retrieves</strong> messages from a specific location.</p>
+<h3><a class="anchor" aria-hidden="true" id="32-outbound"></a><a href="#32-outbound" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Outbound</h3>
+<p>All outbound components represent the output of the flow (i.e. the end point). Outbound components can be identified through the white color with a green border.</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--outbound-components.png"></p>
+<p>Via these components the flow either <strong>sends</strong> or <strong>retrieves</strong> data to/from a external source. The outbound components most frequently used are:</p>
+<ul>
+<li>JMS outbound channel adapter</li>
+<li>HTTP Outbound Gateway</li>
+<li>Web service Outbound Gateway</li>
+<li>File outbound channel adapter</li>
+<li>Kafka outbound channel adapter</li>
+</ul>
+<p>As you can see, the list is pretty similar and when you make the correct design decisions most of these are already placed on the canvas and you only need to fill in the details at most.
+The JMS outbound channel adapter for example <strong>sends</strong> messages to a certain queue.
+The HTTP outbound gateway <strong>sends</strong> or <strong>retrieves</strong> (based on the operation) messages from a external source by calling a endpoint.
+The Kafka outbound channel adapter <strong>sends</strong> data to a topic.</p>
+<h3><a class="anchor" aria-hidden="true" id="33-transformation"></a><a href="#33-transformation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Transformation</h3>
+<p>All standard transformations as created as part of the message mapping in Design are automatically transferred and correctly linked to the flow in Create. So that is easy.
+In all other cases you will have to add a transformation component to the flow. These components are identifiable as blue rectangles in eMagiz</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--transformation-components.png"></p>
+<p>The two most often use cases of a transformation component are:</p>
+<ul>
+<li>XSLT Transformer (Using the message mapping in Design)</li>
+<li>Standard Header enricher</li>
+</ul>
+<p>We will talk more on the former later in this course.
+The latter gives you the option to add pieces of metadata to the data that you are processing (i.e. where does it come from, what is it about, where should it go to).
+To do so you can add a Custom header with name and value to the standard enricher component that will be stored on message level.</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--standard-header-enricher-component.png"></p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--standard-header-enricher-component-name-value.png"></p>
+<p>Some other transformation components that are used are:</p>
+<ul>
+<li>Flat file to XML transformer</li>
+<li>XPath header enricher</li>
+<li>Standard Transformer</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="34-splitter"></a><a href="#34-splitter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Splitter</h3>
+<p>In eMagiz you can split messages based on the input message.
+If a input message contains a list you can make seperate messages based on each entry in the list with the help of a splitter. These components are identifiable as blue trapeziums in eMagiz.</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--splitter-components.png"></p>
+<p>We will discuss the splitter components in more detail in a later microlearning.</p>
+<h3><a class="anchor" aria-hidden="true" id="35-filter"></a><a href="#35-filter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.5 Filter</h3>
+<p>In eMagiz you can filter messages based on certain criteria a message should adhere to. If a input message does not fit the criteria it will be filtered out.
+The failure of matching the criteria can lead to silently dropping messages or could lead to an error (the decision is yours). These components are identifiable as yellow pentagons in eMagiz.</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--filter-components.png"></p>
+<p>There are three filter components available of which the XML validating filter is used most often:</p>
+<ul>
+<li>XML validating filter</li>
+<li>Standard filter</li>
+<li>XPath filter</li>
+</ul>
+<p>Best practice is to validate your message <strong>before</strong> and <strong>after</strong> any change done by a component that is capable of altering the message (i.e. transformation and splitter).
+This can be done with the help of a XML validating filter. This filter validates your input message against your message definition. If the message is valid it can pass. If not it will be refused.</p>
+<p>In a standard filter or XPath filter you could filter on information in the body of the message or on metadata information stored in a header related to the message. More on those in a later course.</p>
+<h3><a class="anchor" aria-hidden="true" id="36-router"></a><a href="#36-router" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.6 Router</h3>
+<p>In eMagiz you can route messages based on criteria. The content to verify if the criteria are met can be either stored in headers or in the body itself.
+These components are identifiable as yellow diamonds in eMagiz.</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--router-components.png"></p>
+<p>There are several router components in eMagiz. The ones that are most used are:</p>
+<ul>
+<li>Header value router</li>
+<li>Recipient list router</li>
+</ul>
+<p>As most of the use cases for incorporating a router component on flow level without eMagiz generating it for you lie within messaging we won't go into detail in the exact mechanics of each of these router options.</p>
+<h3><a class="anchor" aria-hidden="true" id="37-support"></a><a href="#37-support" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.7 Support</h3>
+<p>In eMagiz support objects can be linked to a functional component to aid the working of that component. These components are identifiable through the grey color of the components</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--support-components.png"></p>
+<p>We will discuss the support components in more detail in a later microlearning.</p>
+<h3><a class="anchor" aria-hidden="true" id="38-channel"></a><a href="#38-channel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.8 Channel</h3>
+<p>To connect all these components together (except for the support objects) we need channels. A channel makes sure that the output of component A is send to component B for further processing.</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--channel-components.png"></p>
+<p>Each channel should be given a descriptive name so you and others you work with know what the channel is used for.</p>
+<h3><a class="anchor" aria-hidden="true" id="39-annotation"></a><a href="#39-annotation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.9 Annotation</h3>
+<p>eMagiz also offers you the option to add a annotation and link it to one or more components.
+This way you can make it explicit for yourself and others what is exactly happening in those components and why you have opted for a certain option.</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--annotation-components.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="310-the-combination"></a><a href="#310-the-combination" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.10 The Combination</h3>
+<p>Combining this altogether results in a flow with atleast a input and output component helped by several support objects. A example of how a working flow looks like is:</p>
+<p align="center"><img src="../../img/microlearning/ml-flow-editor-basics--working-flow.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Open a flow that is pre-generated by eMagiz or built by someone else. Define for each functional component (excluding the support objects) what its function is within the flow.
+This assignment can be completed within the (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>By making the correct Design decisions eMagiz will generate most of your flow for you based on defined best practices.
+<ul>
+<li>If no best practice has yet emerged only the known components are generated</li>
+</ul></li>
+<li>A flow needs to have atleast a input and output component paired with the default support objects</li>
+<li>Every component has a specific function and there are a lot of them</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the help text provided by eMagiz or browse through the reference guide to see which components eMagiz offers.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates a working solution and how you can validate whether you have successfully completed the assignment.</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/microlearning-flow-editor-basics.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-flow-editor---basics">3. Flow Editor - Basics</a><ul class="toc-headings"><li><a href="#31-inbound">3.1 Inbound</a></li><li><a href="#32-outbound">3.2 Outbound</a></li><li><a href="#33-transformation">3.3 Transformation</a></li><li><a href="#34-splitter">3.4 Splitter</a></li><li><a href="#35-filter">3.5 Filter</a></li><li><a href="#36-router">3.6 Router</a></li><li><a href="#37-support">3.7 Support</a></li><li><a href="#38-channel">3.8 Channel</a></li><li><a href="#39-annotation">3.9 Annotation</a></li><li><a href="#310-the-combination">3.10 The Combination</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
