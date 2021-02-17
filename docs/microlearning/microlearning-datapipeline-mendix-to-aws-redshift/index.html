@@ -77,12 +77,12 @@ eMagiz will tell you that the information will be retrieved from the store.</p>
 <ul>
 <li>This configuration makes sure that the job, with certain parameters, is launched at a certain point in time. It is up to the user what this point of time is.</li>
 </ul></li>
-<li>All the way in the right corner we have the job listener configuration
+<li>All the way in the left corner we have the job listener configuration
 <ul>
 <li>This piece of the flow waits for a signal that the job is complete and upon completion will refresh the materialized view (and therefore updating the overview we want).</li>
 </ul></li>
 <li>In the bottom center we have some specific support objects that are relevant for this particular data pipeline implementation</li>
-<li>Last but not least, on the right bottom we have the functionality that automatically cleans up the job dashboard.</li>
+<li>Last but not least, on the right hand bottom corner we have the functionality that automatically cleans up the job dashboard.</li>
 </ul>
 <p>The only thing you need to do is to rename the properties where it says message to the technicalname of what you have just added (i.e. sale, event)</p>
 <h4><a class="anchor" aria-hidden="true" id="322-deploy"></a><a href="#322-deploy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.2 Deploy</h4>
@@ -114,7 +114,7 @@ GROUP BY event.eventname</p>
 <p align="center"><img src="../../img/microlearning/ml-datapipeline-mendix-to-aws-redshift--datapipeline-materialized-view-after.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
 <p>The assignment is complex this time and comes with a lot of requirements as this talks about a complete integration.
-So only procede with this assignment if you have access to Mendix and AWS Redshift on top of eMagiz.</p>
+So only proceed with this assignment if you have access to Mendix and AWS Redshift in addition to eMagiz.</p>
 <p>If so, the assignment is to succesfully refresh a AWS materialized view that answers the question What were the total sales per event?</p>
 <p>This assignment can be completed with the help of a associated Mendix project linked to the (Academy) project that you have created/used in the previous assignment.</p>
 <h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
