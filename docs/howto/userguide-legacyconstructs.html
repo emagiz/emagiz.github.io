@@ -6,7 +6,7 @@
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/userguide-legacyconstructs</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="identification-legacy-parts"></a><a href="#identification-legacy-parts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Identification Legacy parts</h2>
 <p>Below you will find several sections that identify parts of the framework that are deemed legacy and are replaced by newer and better alternatives. The guide is split up per legacy part. Per section we describe the legacy method, the new method and how to migrate from legacy to new. Should you have any questions, please contact <a href="mailto:productmanagement@emagiz.com">productmanagement@emagiz.com</a>.
-Last update: August 8th 2020</p>
+Last update: February 17th 2021</p>
 <h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
 <ul>
 <li>Basic knowledge of the eMagiz platform</li>
@@ -57,6 +57,31 @@ Now you have successfully transformed the XSLT into the Message Mapping in Desig
 <li>Navigate to Create</li>
 <li>Open the flow for which you want to migrate</li>
 <li>Open the tabs System message, CDM message and Transformation one by one to verify if the results of the previous steps in Design are visible in Create.</li>
+<li>If the results <strong>not</strong> visible continue with step 24. If the results <strong>are</strong> visible continue with step 36</li>
+<li>Press Start Editing</li>
+<li>Navigate to Resources</li>
+<li>Press Add bus resources to flow</li>
+<li>Search for other standard resources and add them to the flow (take any resource that is related to another flow to ensure that the link between the flow and any resource is severed)</li>
+</ol>
+<ul>
+<li>In a onramp you need the system message validation and the transformation from system to CDM</li>
+<li>In a offramp you need the CDM message validation and the transformation from CDM to system</li>
+</ul>
+<ol start="27">
+<li>Press Stop Editing</li>
+<li>In case you are working on a offramp also open the exit accompanying the offramp and continue with step 29. If not continue with step 33</li>
+<li>Press Start Editing</li>
+<li>Navigate to Resources</li>
+<li>Press Add bus resources to flow</li>
+<li>Search for other standard resources and add them to the flow (take any resource that is related to another flow to ensure that the link between the flow and any resource is severed)</li>
+</ol>
+<ul>
+<li>In a exit you need a system message validation</li>
+</ul>
+<ol start="33">
+<li>Navigate to Create -&gt; Resources and search for the resources that eMagiz should have created for you (based on the naming convention)</li>
+<li>Remove those resources</li>
+<li>Navigate back to the flow for which you want the resources to be generated correctly</li>
 <li>Press Start Editing</li>
 <li>Navigate to Resources</li>
 <li>Press Add bus resources to flow</li>
@@ -66,16 +91,16 @@ Now you have successfully transformed the XSLT into the Message Mapping in Desig
 <li>In a onramp you need the system message validation and the transformation from system to CDM</li>
 <li>In a offramp you need the CDM message validation and the transformation from CDM to system</li>
 </ul>
-<ol start="27">
+<ol start="40">
 <li>Link the resources to their respective components in the flow
 After this you have successfully linked the new transformation tooling resources to your flow in Create</li>
 <li>Verify based on the XSLT downloaded in step 3 if changes have to be made to the transformation made in step 19. This can de done by comparing the old and new XSLT. The new XSLT can be downloaded via the Resources tab of the flow</li>
 </ol>
 <ul>
-<li>If no changes are necessary, continue with step 30</li>
-<li>If changes are necessary, continue with step 29</li>
+<li>If no changes are necessary, continue with step 43</li>
+<li>If changes are necessary, continue with step 42</li>
 </ul>
-<ol start="29">
+<ol start="42">
 <li>Recreate the old mapping logic via the Transformation page in the flow. This can be done in various ways</li>
 </ol>
 <ul>
@@ -86,14 +111,14 @@ After this you have successfully linked the new transformation tooling resources
 <li>Grouping
 Now you have migrated from the old to the new tooling. Last step will be to verify everything works exactly the same as before. This can be done in two ways</li>
 </ul>
-<ol start="30">
+<ol start="43">
 <li>Test your changes</li>
 </ol>
 <ul>
 <li>If possible, test your flowing by using the Unit Test functionality. For more information see <a href="/docs/howto/userguide-unitttest">User Guide Unit testing</a></li>
 <li>Otherwise test it by deploying the flow and sending a message.</li>
 </ul>
-<ol start="31">
+<ol start="44">
 <li>Verify your results</li>
 </ol>
 <ul>
