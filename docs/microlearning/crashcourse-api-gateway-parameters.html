@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-api-gateway-parameters · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Parameters (Path, Query)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-api-gateway-parameters · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Parameters (Path, Query)"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/crashcourse-api-gateway-parameters</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="parameters-path-query"></a><a href="#parameters-path-query" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters (Path, Query)</h1>
+<p>In this microlearning we will focus on learning about parameters that can be part of the resource path.
+In the previous couple of microlearnings we learned how to build up the resource path and how to select the correct HTTP method.</p>
+<p>In this microlearning we will expand on this by talking about parameters.</p>
+<p>For API a parameter represents a dynamic part or extension of the resource path</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: February 11th 2021</li>
+<li>Required reading time: 9 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This microlearning centers around parameters (Path, Query).
+With API we mean: A collection of definitions based on which a client can communicate with applications
+With parameters we mean: A dynamic part or extension of the resource path</p>
+<p>There are two main parameters when working with API's:</p>
+<ul>
+<li>Path
+<ul>
+<li>Part of the path</li>
+<li>Mandatory</li>
+</ul></li>
+<li>Query
+<ul>
+<li>Extension of the resource path</li>
+<li>Optional (mostly)</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="3-parameters-path-query"></a><a href="#3-parameters-path-query" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Parameters (Path, Query)</h2>
+<p>Building on what we learned in the previous microlearnings we now take a look at the dynamic parts of API endpoints.</p>
+<p>There are two main parameters when working with API's:</p>
+<ul>
+<li>Path
+<ul>
+<li>Part of the path</li>
+<li>Mandatory</li>
+</ul></li>
+<li>Query
+<ul>
+<li>Extension of the resource path</li>
+<li>Optional (mostly)</li>
+</ul></li>
+</ul>
+<p>Below we will discuss both of them and tell you how you should configure them in emagiz</p>
+<h3><a class="anchor" aria-hidden="true" id="31-path"></a><a href="#31-path" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Path</h3>
+<p>Let's start with Path parameters. Path parameters are mandatory parts of the resource path that can be filled in dynamically.
+A classic example of using a path parameter is when you execute a GET call to retrieve one specific resource (i.e. Order, Client, Invoice).
+The full path, including path parameter would then look as follows:</p>
+<ul>
+<li>/orders/{uuid}</li>
+</ul>
+<p>The notation of a Path parameter is the name of the path parameter encapsuled with curly brackets. In this case the path parameter label is uuid.
+When a external client would call this endpoint they will replace the parameter placeholder with a valid uuid for which they want to retrieve the order information.
+A example would be:</p>
+<ul>
+<li>/orders/12345</li>
+</ul>
+<p>If a order with that specific uuid exists in our backend we will return the information to the client.
+In case a client does not send this value they will be faced with a 404 not found error because you have to fill in a path parameter as it is mandatory</p>
+<h3><a class="anchor" aria-hidden="true" id="32-query"></a><a href="#32-query" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Query</h3>
+<p>The second parameter that is used frequently is the query parameter. Query parameters are mostly optional in nature and can help you to filter or sort a collection of resources.
+So let us say that apart from making it possible for our external clients to retrieve a single order (via the path parameter option)
+we could also make it possible to limit the result set based on a characteristic, for example customer via a GET call.</p>
+<p>The correct notation of the resource path would then be as follows:</p>
+<ul>
+<li>/orders?customer=eMagiz</li>
+</ul>
+<p>This call will return all orders for which the characteristic (customer) is equal to eMagiz.
+By making this optional you can re-use the same endpoint to retrieve all orders and to filter on certain characteristics if there is a need.</p>
+<p>So to summarize the difference between path and query parameters:</p>
+<ul>
+<li>Path parameters are always mandatory wheras query parameters are mostly optional</li>
+<li>Path parameters narrow the scope down to a single iteration whereas query parameters offer you the option to filter a result set</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="33-configure-parameters"></a><a href="#33-configure-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Configure parameters</h3>
+<h4><a class="anchor" aria-hidden="true" id="331-expose-from-backend-operation"></a><a href="#331-expose-from-backend-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.1 Expose from backend operation</h4>
+<p>Now that we know what the main differences are let us take a look at how you can implement them in eMagiz.
+As you know from our previous microlearning on HTTP Operations you can expose backend operations.
+Once again if they have a solid base re-use that, eMagiz will include path and query parameters if they exists in the backend operation.</p>
+<h4><a class="anchor" aria-hidden="true" id="332-addedit-path-parameters"></a><a href="#332-addedit-path-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.2 Add/Edit Path Parameters</h4>
+<p>When that is not the case however you can add and edit the path parameters to your API Gateway Catalog in the following way.
+First step is to open the API Gateway Catalog.
+This can be done through a right click on the API component in the center of your Design overview to select the option Edit Catalog.</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--access-api-catalog-in-design.png"></p>
+<p>Here you see an overview of all resource paths, operations and also parameters</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design.png"></p>
+<p>In case you want to add a path parameter you need to first change the resource path to identify which part of the resource path is based on the dynamic entry of a parameter value.
+In this case we want to limit the scope of what people can retrieve when calling the HTTP methods endpoint to one specific HTTP method.</p>
+<p>To do so we select the resource path and press Edit</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-edit-resource-path.png"></p>
+<p>In the pop-up that follows you will be able to edit the resource path accordingly. This change should result in something like this. When you are happy you can press Save.</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-edit-resource-path-result.png"></p>
+<p>The second step would be to add this parameter and link it to this resource path. You can do that in the same screen. On the right side of the screen you have the parameters tab</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-parameters.png"></p>
+<p>By pressing the button new you can add your parameter with the help of the following pop-up.</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-parameter-config.png"></p>
+<p>The crucial element in this pop-up is the name of the parameter. That should match with the name of the parameter you have changed in the resource path itself. In this example that would be: method</p>
+<p>The rest is correct by default. For illustrative purposes it would be good to add a example of a value that is expected. Save when ready</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-parameter-config-result.png"></p>
+<p>If you want to change something simply select the parameter and press Edit to edit the parameter</p>
+<h4><a class="anchor" aria-hidden="true" id="332-addedit-query-parameters"></a><a href="#332-addedit-query-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.2 Add/Edit Query Parameters</h4>
+<p>When that is not the case however you can add and edit the query parameters to your API Gateway Catalog in the following way
+First step is to open the API Gateway Catalog.
+This can be done through a right click on the API component in the center of your Design overview to select the option Edit Catalog.</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--access-api-catalog-in-design.png"></p>
+<p>Here you see an overview of all resource paths, operations and also parameters</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design.png"></p>
+<p>In the case of a path parameter we needed to specify where in the path it would end up.
+For query parameters we don't need to do so because they are always a extension of the resource path at the <strong>end</strong> of a resource path.</p>
+<p>On the right side of the screen you have the parameters tab</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-parameters.png"></p>
+<p>By pressing the button new you can add your parameter with the help of the following pop-up.</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-parameter-config.png"></p>
+<p>To add a query parameter you give the parameter a name here and you select the option Query instead of Path. A example of this filled in looks as follows.</p>
+<p align="center"><img src="../../img/microlearning/ml-api-gateway-parameters--api-catalog-in-design-parameter-config-result-query.png"></p>
+<p>If you want to change something simply select the parameter and press Edit to edit the parameter</p>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Change the exposed endpoint from the last exercise so that it includes a path parameter with the name method.
+This assignment can be completed with the help of a associated Mendix project linked to the (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<p>There are two main parameters when working with API's:</p>
+<ul>
+<li>Path
+<ul>
+<li>Part of the path</li>
+<li>Mandatory</li>
+</ul></li>
+<li>Query
+<ul>
+<li>Extension of the resource path</li>
+<li>Optional (mostly)</li>
+</ul></li>
+</ul>
+<p>To summarize the difference between path and query parameters:</p>
+<ul>
+<li>Path parameters are always mandatory wheras query parameters are mostly optional</li>
+<li>Path parameters narrow the scope down to a single iteration whereas query parameters offer you the option to filter a result set</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the help text provided by eMagiz.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned. Disclaimer, you only see the eMagiz part but if you follow the above steps you are good to go!</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/microlearning-api-gateway-parameters.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-parameters-path-query">3. Parameters (Path, Query)</a><ul class="toc-headings"><li><a href="#31-path">3.1 Path</a></li><li><a href="#32-query">3.2 Query</a></li><li><a href="#33-configure-parameters">3.3 Configure parameters</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
