@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/expert-solution-architecture-determining-needed-memory · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Determining Needed Memory"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/expert-solution-architecture-determining-needed-memory · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Determining Needed Memory"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/expert-solution-architecture-determining-needed-memory</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="determining-needed-memory"></a><a href="#determining-needed-memory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Determining Needed Memory</h1>
+<p>In this microlearning, we will focus on how can stay in control of your integration landscape with the help of determining the needed memory footprint for your integration landscape.
+As your integration landscape changes over time the need for more (or less) memory is evident.</p>
+<p>.Therefore it is crucial to know how you can determine the memory correctly.</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: February 22th 2021</li>
+<li>Required reading time: 13 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Advanced knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This microlearning centers around determining the memory that is needed to run your complete integration landscape.
+With memory, we mean: A collection of memory types (heap, native and direct) that are needed to properly run a runtime (Java Virtual Machine)
+With integration landscape we mean: A overview of all data integrations that are used to exchange data between systems</p>
+<ul>
+<li>eMagiz will help to determine the needed memory via the Design Architecture page.</li>
+<li>eMagiz works with pre-determined sizes that are represented via an S, M, L, XL structure. Every size has a certain amount of memory available</li>
+<li>When you exceed such a threshold you should upgrade (or downgrade) your memory in consultation with your partner manager</li>
+<li>Overhead for OS and support functionality (auto-healing, alerting, monitoring) needs to be taken into account</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="3-determining-needed-memory"></a><a href="#3-determining-needed-memory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Determining Needed Memory</h2>
+<p>One of the key aspects of running a stable eMagiz solution is proper management of the needed memory to run all your integrations within your integration landscape.
+To determine what is needed you get help from eMagiz in Design Architecture.
+In the Design Architecture eMagiz tells you based on our calculations what the recommended sizing of a <strong>machine</strong> should be.
+If this deviates from what is configured you should take a closer look at whether you indeed need more memory.</p>
+<h3><a class="anchor" aria-hidden="true" id="31-the-calculation-of-emagiz"></a><a href="#31-the-calculation-of-emagiz" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 The calculation of eMagiz</h3>
+<p>In this section, we will delve into that recommendation to explain to you how you should interpret this recommendation so you can make the correct determination of how much memory is needed.</p>
+<p>To calculate the memory eMagiz has determined that the flows that are running on the runtimes make up most of the memory.
+To calculate how much memory a single flow uses on average eMagiz uses several assumptions. These assumptions are the foundation of the recommended memory size by eMagiz.</p>
+<ul>
+<li>Limited use of 'non-standard' flows. So, are the number of components within a flow comparable to the 'standard' setup (i.e. an autogenerated onramp).</li>
+<li>Average message size of less than 100KbSize van de berichten</li>
+<li>Standard number of consumers</li>
+<li>Use of Java extensions such as Groovy Scripts</li>
+<li>Limited use of complex transformations</li>
+<li>Limited use of Xpath and SpEL expression related to large messages</li>
+</ul>
+<p>As long as you do not deviate from the above assumptions at all or not too much the recommended sizing of eMagiz should work for you.</p>
+<p>Based on the above assumption we made thresholds for the number of flows.
+If you pass a threshold (i.e. 50 flows) the recommended size of that runtime and therefore the machine the runtime is running on will increase.</p>
+<p>All thresholds that are used by eMagiz can be found in the help text of eMagiz when checking the size status.</p>
+<p>On top of the calculation of needed memory based on the number of flows eMagiz also accounts for the following 'overhead'</p>
+<ul>
+<li>OS</li>
+<li>Support functionality (auto-healing, alerting on infrastructure, monitoring on infrastructure)</li>
+<li>Buffer</li>
+</ul>
+<p>For JMS processes the default is 500MB heap and 152MB non-heap.
+In most cases, there is no reason to deviate from this number until you reach a lot of throughput on a lot of flows.</p>
+<h3><a class="anchor" aria-hidden="true" id="32-check-size-status"></a><a href="#32-check-size-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Check size status</h3>
+<p>Now that we know how eMagiz calculates the needed memory based on the number of flows and certain categories of overhead we can turn our attention to the eMagiz tooling itself.
+In eMagiz, in Design Architecture you can check the recommended size status given by eMagiz.</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--check-size-status.png"></p>
+<p>Selecting this option will lead you to the following pop-up</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--check-size-status-pop-up.png"></p>
+<p>In this pop-up you see the calculation split up into three categories:</p>
+<ul>
+<li>Required heap memory</li>
+<li>Required non-heap (native) memory</li>
+<li>Required overhead</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="321-required-overhead"></a><a href="#321-required-overhead" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.1 Required overhead</h4>
+<p>The first segment we are going to take a look at is the required overhead. Under this category fall the following characteristics:</p>
+<ul>
+<li>OS</li>
+<li>Support functionality (auto-healing, alerting on infrastructure, monitoring on infrastructure)</li>
+<li>Buffer</li>
+</ul>
+<p>Each of these characteristics has a pre-determined setting that we recommend for the proper working of eMagiz.
+We reserve 712MB for the OS, 50MB for the Support functionality, and a Buffer of 100MB <strong>per</strong> active runtime on a machine.
+If we tally this up for our example we end up with 962MB of overhead. Just as you can see in the pop-up:</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--check-size-status-pop-up-required-overhead.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="322-required-heap-memory"></a><a href="#322-required-heap-memory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.2 Required heap memory</h4>
+<p>As explained before the amount of memory needed is determined by the number of flows that are designed within your integration landscape.
+In eMagiz the memory allocation is divided into two parts:</p>
+<ul>
+<li>Heap memory</li>
+<li>Native (non-heap) memory</li>
+</ul>
+<p>The heap memory is used to process messages and can be cleaned up via the garbage collection process.
+The native memory is used to start up your flows and keep them running. This part of the memory is allocated and not released in the same way as with heap memory.</p>
+<p>To make it clear for you how much of which type of memory is needed we have split up the calculation into two portions.
+One for the required heap memory and the other for the required non-heap (native) memory.</p>
+<p>Both are derived from the number of flows that are designed in your integration landscape. In our example, we have one JMS and one process container, and a total of 29 flows.
+This leads to the following calculation on heap memory:</p>
+<p>500 (JMS) + 580 (Process Container) = 1080MB. This is once again the same as what is calculated under check size status</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--check-size-status-pop-up-required-heap-memory.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="323-required-non-heap-memory"></a><a href="#323-required-non-heap-memory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.3 Required non-heap memory</h4>
+<p>The third part of the equation is the amount of non-heap memory that is required to run your eMagiz solution. Once again the starting point is the number of flows. In this case 29 flows.
+This leads to the following calculation on non-heap memory:</p>
+<p>152 (JMS) + 792 (Process Container = 944MB. This is the same as what is calculated under check size status</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--check-size-status-pop-up-required-non-heap-memory.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="324-total-recommended-memory"></a><a href="#324-total-recommended-memory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2.4 Total recommended memory</h4>
+<p>When you sum up these three values you arrive at the recommended size based on the current state of your Design.
+So when your Design is not representative of the truth the calculation will neither be a correct representation of the truth.</p>
+<p>In this case the total recommended memory will be:</p>
+<p>962 + 1080 + 944 = 2986MB</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--check-size-status-pop-up-recommended-sizing.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="33-comparison"></a><a href="#33-comparison" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Comparison</h3>
+<p>Now that we know the recommended sizing of eMagiz we can compare this to the sizing that is allocated based on the contractual agreements between eMagiz and you.
+This is the last segment of the check Size Status information in Design. In this segment you see:</p>
+<ul>
+<li>The recommended size</li>
+<li>The allocated size</li>
+<li>The difference between recommended and allocated</li>
+</ul>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--check-size-status-pop-up-comparison.png"></p>
+<p>So in this example, we still have 1110MB left on our machine. If the number at the bottom would indicate that you need more size than is allocated at the moment you should take action.</p>
+<h3><a class="anchor" aria-hidden="true" id="34-taking-action"></a><a href="#34-taking-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Taking Action</h3>
+<p>Based on this information it is time to take action. Taking action is foremost validating the calculation as given by eMagiz.
+As said before we assume certain things and based on whether part of those assumptions, all of them or none of them are met the result could differ.</p>
+<p>In this section, we will discuss some combinations and the appropriate action based on these combinations.</p>
+<h4><a class="anchor" aria-hidden="true" id="341-valid-assumptions--correct-nr-of-flows"></a><a href="#341-valid-assumptions--correct-nr-of-flows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4.1 Valid Assumptions + Correct nr. of flows</h4>
+<p>The first combination is the easiest of them all. This combination states that all assumptions that eMagiz has done hold truth.
+If so, trust the calculations of eMagiz and ensure that there is enough allocated room based on the recommended size by eMagiz.</p>
+<h4><a class="anchor" aria-hidden="true" id="342-valid-assumptions--incorrect-nr-of-flows"></a><a href="#342-valid-assumptions--incorrect-nr-of-flows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4.2 Valid Assumptions + Incorrect nr. of flows</h4>
+<p>We see a growing number of projects that have a myriad of process containers with the consequence that the assumption that all process containers run the same flows does not hold anymore.
+In these cases, you should adjust the calculations for the heap and non-heap memory allocation yourself based on the actual number of flows.</p>
+<p>If the result of that calculation still says that there is not enough room please allocate more room based on that altered calculation.
+To help you perform that calculation yourself we have devised two tables that you can use to come up with the correct values for both heap and non-heap.</p>
+<p>The table shown below is relevant for process containers on the CORE machines.</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Nr. Flows</th><th style="text-align:center">Heap</th><th style="text-align:center">Non-heap</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">0-10</td><td style="text-align:center">500</td><td style="text-align:center">472</td></tr>
+<tr><td style="text-align:center">11-20</td><td style="text-align:center">500</td><td style="text-align:center">552</td></tr>
+<tr><td style="text-align:center">21-50</td><td style="text-align:center">580</td><td style="text-align:center">792</td></tr>
+<tr><td style="text-align:center">51-75</td><td style="text-align:center">820</td><td style="text-align:center">992</td></tr>
+<tr><td style="text-align:center">76-100</td><td style="text-align:center">820</td><td style="text-align:center">1192</td></tr>
+<tr><td style="text-align:center">101-150</td><td style="text-align:center">1220</td><td style="text-align:center">1592</td></tr>
+</tbody>
+</table>
+<p>The table shown below is relevant for connectors on the CONNECTOR machines.</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Nr. Flows</th><th style="text-align:center">Heap</th><th style="text-align:center">Non-heap</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">0-5</td><td style="text-align:center">500</td><td style="text-align:center">152</td></tr>
+<tr><td style="text-align:center">6-10</td><td style="text-align:center">500</td><td style="text-align:center">192</td></tr>
+<tr><td style="text-align:center">11-15</td><td style="text-align:center">500</td><td style="text-align:center">232</td></tr>
+<tr><td style="text-align:center">16-20</td><td style="text-align:center">500</td><td style="text-align:center">272</td></tr>
+<tr><td style="text-align:center">21-25</td><td style="text-align:center">580</td><td style="text-align:center">312</td></tr>
+<tr><td style="text-align:center">26-30</td><td style="text-align:center">580</td><td style="text-align:center">352</td></tr>
+<tr><td style="text-align:center">31-35</td><td style="text-align:center">580</td><td style="text-align:center">392</td></tr>
+<tr><td style="text-align:center">36-40</td><td style="text-align:center">580</td><td style="text-align:center">432</td></tr>
+<tr><td style="text-align:center">41-45</td><td style="text-align:center">580</td><td style="text-align:center">472</td></tr>
+<tr><td style="text-align:center">46-50</td><td style="text-align:center">580</td><td style="text-align:center">512</td></tr>
+<tr><td style="text-align:center">51-55</td><td style="text-align:center">820</td><td style="text-align:center">552</td></tr>
+<tr><td style="text-align:center">56-60</td><td style="text-align:center">820</td><td style="text-align:center">592</td></tr>
+<tr><td style="text-align:center">61-65</td><td style="text-align:center">820</td><td style="text-align:center">632</td></tr>
+<tr><td style="text-align:center">66-70</td><td style="text-align:center">820</td><td style="text-align:center">672</td></tr>
+<tr><td style="text-align:center">71-75</td><td style="text-align:center">820</td><td style="text-align:center">712</td></tr>
+<tr><td style="text-align:center">76-100</td><td style="text-align:center">820</td><td style="text-align:center">912</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="343-incorrect-assumptions"></a><a href="#343-incorrect-assumptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4.3 Incorrect Assumptions</h4>
+<p>When you deviate from the assumptions made by eMagiz to determine the sizing
+you should start from scratch and determine how much you roughly deviate from the standard assumptions.</p>
+<p>Based on that estimate you should increase the heap and non-heap memory accordingly.
+This won't have any effect on the calculations for the overhead so they will stand.
+For example, when you deviate from the assumptions in a little way you could think of selecting the memory settings that are determined for one level higher.</p>
+<p>If you deviate a lot from the assumptions you should increase more drastically and test your solutions on the performance based on the expected throughput.</p>
+<h3><a class="anchor" aria-hidden="true" id="35-configure-the-size"></a><a href="#35-configure-the-size" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.5 Configure the size</h3>
+<p>Now that we know what the size should be, either by following the eMagiz calculation
+or by calculating the correct numbers ourselves with the help of components of the eMagiz calculation we can configure the size.</p>
+<p>To configure the size you enter Start Editing Mode in Design Architecture</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-determining-needed-memory--design-architecture-start-editing-mode.png"></p>
+<p>While you are in Start Editing Mode you can alter the configured size of your eMagiz cloud machines to ensure that enough memory is available for the processes running on that machine.
+You can easily do so by switching around between S, M, L, XL, and XXL on machine level with the help of the arrows.
+After you have altered the size you can verify whether the change was enough by comparing
+it to the recommended size which is shown beside the configured size, by opening the Check Size Status pop-up for conformation or by comparing your calculation to the newly allocated memory.</p>
+<p>In case there is room left you have scaled accordingly. If there still is extra room required you should move another level up until you reach the desired level.</p>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Do your calculation based on what we learned in this microlearning and compare the solution to what eMagiz suggests under Check Size Status
+This assignment can be completed with the help of the (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>eMagiz will help to determine the needed memory via the Design Architecture page.</li>
+<li>eMagiz works with pre-determined sizes that are represented via an S, M, L, XL structure. Every size has a certain amount of memory available</li>
+<li>When you exceed such a threshold you should upgrade (or downgrade) your memory in consultation with your partner manager</li>
+<li>Overhead for OS and support functionality (auto-healing, alerting, monitoring) needs to be taken into account</li>
+<li>Calculating memory can be challenging. Always confer with others before taking action</li>
+<li>You can compare your calculations with the calculations of eMagiz.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the help text provided by eMagiz.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned.</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/expert-solution-architecture-determining-needed-memory.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-determining-needed-memory">3. Determining Needed Memory</a><ul class="toc-headings"><li><a href="#31-the-calculation-of-emagiz">3.1 The calculation of eMagiz</a></li><li><a href="#32-check-size-status">3.2 Check size status</a></li><li><a href="#33-comparison">3.3 Comparison</a></li><li><a href="#34-taking-action">3.4 Taking Action</a></li><li><a href="#35-configure-the-size">3.5 Configure the size</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

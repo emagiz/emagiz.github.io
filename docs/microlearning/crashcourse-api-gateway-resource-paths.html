@@ -1,16 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-api-gateway-resource-paths · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# HTTP Resource (Paths)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-api-gateway-resource-paths · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# HTTP Resource (Paths)"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-api-gateway-resource-paths · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# HTTP Resource (Paths)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-api-gateway-resource-paths · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# HTTP Resource (Paths)"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
           )
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/crashcourse-api-gateway-resource-paths</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="http-resource-paths"></a><a href="#http-resource-paths" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP Resource (Paths)</h1>
-<p>In this microlearning we will focus on learning about HTTP Resource (Paths).
+<p>In this microlearning, we will focus on learning about HTTP Resource (Paths).
 A crucial part of setting up your (API) Gateway with the help of RESTful services is
 knowing to which resources (i.e. Order, Client, Employee) you want to give external parties access via your (API) Gateway.</p>
 <p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
 <ul>
-<li>Last update: February 19th 2021</li>
+<li>Last update: February 19th, 2021</li>
 <li>Required reading time: 4 minutes</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
@@ -18,15 +18,15 @@ knowing to which resources (i.e. Order, Client, Employee) you want to give exter
 <li>Basic knowledge of the eMagiz platform</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
-<p>This microlearning centers around HTTP Resource (Paths) in conjuction with the API Gateway solution of eMagiz.
-With HTTP Resource Paths we mean: Identify the resource (i.e. Client, Order, Employee) and define the descriptive path (i.e. /v1/order, /v1/order/{uuid}) a external party can call to execute the operation
-With API Gateway we mean: A collection of RESTful API operations that can be published to the outside world in order to give them access to applications that are linked to your business process</p>
+<p>This microlearning centers around HTTP Resource (Paths) in conjunction with the API Gateway solution of eMagiz.
+With HTTP Resource Paths we mean: Identify the resource (i.e. Client, Order, Employee) and define the descriptive path (i.e. /v1/order, /v1/order/{uuid}) an external party can call to execute the operation
+With API Gateway we mean: A collection of RESTful API operations that can be published to the outside world to give them access to applications that are linked to your business process</p>
 <p>When determining the correct resource path to expose to the outside world start at what you want to make publicly available.
 For example, when you want to make it possible for external parties to retrieve a collection of orders without any filter a valid resource path can be:</p>
 <ul>
 <li>/orders</li>
 </ul>
-<p>If you have multiple resources that you want to make available that all have something to do with the order process you could add each of them to a 'group' to add a extra layer of information:</p>
+<p>If you have multiple resources that you want to make available that all have something to do with the order process you could add each of them to a 'group' to add an extra layer of information:</p>
 <ul>
 <li>/order-management/orders</li>
 <li>/order-management/trips</li>
@@ -41,7 +41,7 @@ For example, when you want to make it possible for external parties to retrieve 
 <ul>
 <li>/orders</li>
 </ul>
-<p>If you have multiple resources that you want to make available that all have something to do with the order process you could add each of them to a 'group' to add a extra layer of information:</p>
+<p>If you have multiple resources that you want to make available that all have something to do with the order process you could add each of them to a 'group' to add an extra layer of information:</p>
 <ul>
 <li>/order-management/orders</li>
 <li>/order-management/trips</li>
@@ -50,11 +50,11 @@ For example, when you want to make it possible for external parties to retrieve 
 If this adheres to the best practice simply use that. More on that specific relation in later microlearnings.</p>
 <p>A list of best practices can be found here:
 <a href="https://restfulapi.net/resource-naming/">https://restfulapi.net/resource-naming/</a></p>
-<p>In the following microlearning on HTTP Operations we will bring the HTTP Resource (Paths) together with the HTTP Operations.
+<p>In the following microlearning on HTTP Operations, we will bring the HTTP Resource (Paths) together with the HTTP Operations.
 That combination is the basis for any integration that runs via the API Gateway.</p>
 <h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
 <p>Read up on the best practices when it comes to the naming of HTTP Resource Paths and see if you can relate this to the eMagiz implementation.
-This assignment can be completed with the help of a associated Mendix project linked to the (Academy) project that you have created/used in the previous assignment.</p>
+This assignment can be completed with the help of the (Academy) project that you have created/used in the previous assignment.</p>
 <h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
 <ul>
 <li>Start at the backend operation</li>

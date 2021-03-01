@@ -1,16 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-api-gateway-error-handling-from-a-client-perspective · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Error Handling from a Client Perspective"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-api-gateway-error-handling-from-a-client-perspective · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Error Handling from a Client Perspective"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/crashcourse-api-gateway-error-handling-from-a-client-perspective · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Error Handling from a Client Perspective"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/crashcourse-api-gateway-error-handling-from-a-client-perspective · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# Error Handling from a Client Perspective"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
           )
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/crashcourse-api-gateway-error-handling-from-a-client-perspective</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="error-handling-from-a-client-perspective"></a><a href="#error-handling-from-a-client-perspective" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Handling from a Client Perspective</h1>
-<p>In this microlearning we will focus on understanding how the error handling for the API Gateway works in general sense.
-As the API Gateway is synchronous in nature you will get a response for every request you have executed. This works for both OK and NOT OK responses</p>
+<p>In this microlearning, we will focus on understanding how the error handling for the API Gateway works in a general sense.
+As the API Gateway is synchronous you will get a response for every request you have executed. This works for both OK and NOT OK responses</p>
 <p>Therefore the error handling is created in such a way that the client gets told if the response was OK or NOT OK</p>
 <p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
 <ul>
-<li>Last update: February 19th 2021</li>
+<li>Last update: February 19th, 2021</li>
 <li>Required reading time: 7 minutes</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
@@ -21,27 +21,27 @@ As the API Gateway is synchronous in nature you will get a response for every re
 <p>This microlearning centers around error handling from a client perspective for the API Gateway solution of eMagiz.
 With error handling we mean: Handling the NOT OK responses that occur in transit between API Gateway and backend operation or NOT OK response received from the backend operation
 With client perspective we mean: How should I interpret the response from the API Gateway to determine success or failure
-With API Gateway we mean: A collection of RESTful API operations that can be published to the outside world in order to give them access to applications that are linked to your business process</p>
+With API Gateway we mean: A collection of RESTful API operations that can be published to the outside world to give them access to applications that are linked to your business process</p>
 <p>The eMagiz API Gateway will always give back HTTP Response codes along the following lines:</p>
 <ul>
 <li>100-level (Informational) — Server acknowledges a request</li>
 <li>200-level (Success) — Server completed the request as expected</li>
-<li>300-level (Redirection) — Client needs to perform further actions to complete the request</li>
-<li>400-level (Client error) — Client sent an invalid request</li>
-<li>500-level (Server error) — Server failed to fulfill a valid request due to an error with server</li>
+<li>300-level (Redirection) — The client needs to perform further actions to complete the request</li>
+<li>400-level (Client error) — The client sent an invalid request</li>
+<li>500-level (Server error) — Server failed to fulfill a valid request due to an error with the server</li>
 </ul>
-<p>Of these levels the 200-level for Success calls and the 400-level and 500-level are most frequently used within the context of eMagiz.</p>
+<p>Of these levels, the 200-level for Success calls and the 400-level and 500-level are most frequently used within the context of eMagiz.</p>
 <h2><a class="anchor" aria-hidden="true" id="3-error-handling-from-a-client-perspective"></a><a href="#3-error-handling-from-a-client-perspective" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Error Handling from a Client Perspective</h2>
 <p>The eMagiz API Gateway will always give back HTTP Response codes along the following lines:</p>
 <ul>
 <li>100-level (Informational) — Server acknowledges a request</li>
 <li>200-level (Success) — Server completed the request as expected</li>
-<li>300-level (Redirection) — Client needs to perform further actions to complete the request</li>
-<li>400-level (Client error) — Client sent an invalid request</li>
-<li>500-level (Server error) — Server failed to fulfill a valid request due to an error with server</li>
+<li>300-level (Redirection) — The client needs to perform further actions to complete the request</li>
+<li>400-level (Client error) — The client sent an invalid request</li>
+<li>500-level (Server error) — Server failed to fulfill a valid request due to an error with the server</li>
 </ul>
-<p>Of these levels the 200-level for Success calls and the 400-level and 500-level are most frequently used within the context of eMagiz.
-Each request send by the client can return in a Success or a Failure.</p>
+<p>Of these levels, the 200-level for Success calls and the 400-level and 500-level are most frequently used within the context of eMagiz.
+Each request executed by the client can return a Success or a Failure.</p>
 <h3><a class="anchor" aria-hidden="true" id="31-success"></a><a href="#31-success" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Success</h3>
 <p>The default response code eMagiz uses for a Success is a 200 HTTP Status Code that could be accompanied by a response body.
 If the backend operation uses a 201 for example to indicate the creation of a resource in the backend eMagiz will give this back to the client making the request.</p>
@@ -50,7 +50,7 @@ If the backend operation uses a 201 for example to indicate the creation of a re
 <p>When we zoom in on the cases where something fails we have to discern multiple scenarios:</p>
 <ul>
 <li>Client calls a non-existing endpoint -&gt; eMagiz will return a 404 Not Found</li>
-<li>Client calls a endpoint without authentication or the wrong authentication -&gt; eMagiz will return a 401 Unauthorized</li>
+<li>Client calls an endpoint without authentication or the wrong authentication -&gt; eMagiz will return a 401 Unauthorized</li>
 <li>eMagiz receives a specific error from the backend operation -&gt; eMagiz will return the HTTP Status Code it received from the backend to the client.</li>
 <li>eMagiz does not receive a response from the backend -&gt; eMagiz will return a 500 Internal Error</li>
 <li>Something goes wrong in transit -&gt; eMagiz will return a 500 Internal Error</li>
@@ -60,35 +60,35 @@ If the backend operation uses a 201 for example to indicate the creation of a re
 You can imagine that doing that is not the ideal situation. Therefore eMagiz provides you with the option to define how you handle these specific errors.</p>
 <p>To do so navigate to Design and open the catalog. In the catalog select the operation for which you want to configure this and select the tab Responses</p>
 <p align="center"><img src="../../img/microlearning/ml-error-handling-from-a-client-perspective--control-error-message.png"></p>
-<p>In this screen you can select the button New. In the pop-up that follows you can specify the HTTP Status Code response and define the body of the message</p>
+<p>On this screen, you can select the button New. In the pop-up that follows you can specify the HTTP Status Code response and define the body of the message</p>
 <p align="center"><img src="../../img/microlearning/ml-error-handling-from-a-client-perspective--set-response-code.png"></p>
-<p>To get even more control you can assign standard occurences of errors while in transit to a certain HTTP Status Code. You can do so by pressing New under Custom Error Handler</p>
+<p>To get even more control you can assign standard occurrences of errors while in transit to a certain HTTP Status Code. You can do so by pressing New under Custom Error Handler</p>
 <p align="center"><img src="../../img/microlearning/ml-error-handling-from-a-client-perspective--custom-error-handler.png"></p>
-<p>Select the type, fill in the remainder of the details and press Save. After you have updated your all entry and deployed it this new functionality will be in effect.</p>
+<p>Select the type, fill in the remainder of the details, and press Save. After you have updated your all entry and deployed it this new functionality will be in effect.</p>
 <p align="center"><img src="../../img/microlearning/ml-error-handling-from-a-client-perspective--custom-error-handler-type.png"></p>
 <h3><a class="anchor" aria-hidden="true" id="34-emagiz-monitoring"></a><a href="#34-emagiz-monitoring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 eMagiz Monitoring</h3>
 <p>Apart from sending the response back to the client eMagiz will also write a warning to the log the moment something goes wrong after eMagiz has accepted the request.
 This means that cases such a the 404 and 401 do not show up here and should be dealt with by the client exclusively.</p>
 <p>In the other scenarios where eMagiz has (attempted to) send data to a backend operation and something fails eMagiz will write a warning to the log.
-On this warning you can set up alerting for (pro-active) monitoring</p>
+On this warning, you can set up alerts for (pro-active) monitoring</p>
 <p>Each backend operation has a specific exit gate that will handle all incoming traffic, connect to the backend operation and send the response back to the client that is calling the API.
 The exit gate can process up to five calls at the same time. The moment the response is delivered to client 1, the exit gate will continue with the message of client 6.</p>
-<p>With this setting we already scale the API Gateway in such a way that it can handle concurrency and peaks in traffic. For most use cases these settings will suffice.</p>
-<p>eMagiz will generate almost everything for you when you transfer a API integration to Create.
+<p>With this setting, we already scale the API Gateway in such a way that it can handle concurrency and peaks in traffic. For most use cases these settings will suffice.</p>
+<p>eMagiz will generate almost everything for you when you transfer an API integration to Create.
 There are however some things you need to change depending on the choices made in Design and based on the required authentication method.</p>
-<p>In case you have a passthrough case and the authentication method can be handled via a REST template (i.e. basic, oauth, azure) you only need to configure this specific authentication mechanism.</p>
+<p>In case you have a passthrough case and the authentication method can be handled via a REST template (i.e. basic, OAuth, azure) you only need to configure this specific authentication mechanism.</p>
 <p>In case you have a passthrough case and the authentication cannot be handled via a REST template you need to set up the authentication yourself.</p>
 <p>In case you have a transformation case you need to configure the outbound component + the accompanying authentication.</p>
-<p>In the most standard case eMagiz will auto generate the following flow for you</p>
+<p>In the most standard case, eMagiz will auto-generate the following flow for you</p>
 <p align="center"><img src="../../img/microlearning/ml-configure-exit-gate--auto-generated-flow.png"></p>
-<p>Just as with the entry gate we try to auto generate as much as possible to make your life easier the moment you start in the Create phase.</p>
+<p>Just as with the entry gate we try to auto-generate as much as possible to make your life easier the moment you start in the Create phase.</p>
 <h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
-<p>Try to call a endpoint of the API Gateway while not being authorized to see how the error handling of eMagiz works.
+<p>Try to call an endpoint of the API Gateway while not being authorized to see how the error handling of eMagiz works.
 This assignment can be completed with the help of the (Academy) project that you have created/used in the previous assignment.</p>
 <h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
 <ul>
 <li>Client calls a non-existing endpoint -&gt; eMagiz will return a 404 Not Found</li>
-<li>Client calls a endpoint without authentication or the wrong authentication -&gt; eMagiz will return a 401 Unauthorized</li>
+<li>Client calls an endpoint without authentication or the wrong authentication -&gt; eMagiz will return a 401 Unauthorized</li>
 <li>eMagiz receives a specific error from the backend operation -&gt; eMagiz will return the HTTP Status Code it received from the backend to the client.</li>
 <li>eMagiz does not receive a response from the backend -&gt; eMagiz will return a 500 Internal Error</li>
 <li>Something goes wrong in transit -&gt; eMagiz will return a 500 Internal Error</li>
