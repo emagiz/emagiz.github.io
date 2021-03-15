@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/intermediate-rest-webservice-connectivity-configuration · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;div class=&quot;ez-academy&quot;&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/intermediate-rest-webservice-connectivity-configuration · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;div class=&quot;ez-academy&quot;&gt;"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/intermediate-rest-webservice-connectivity-configuration</h1></header><article><div><span><div class="ez-academy">
+    <div class="ez-academy__body">
+        <main class="micro-learning">
+        <ul class="doc-nav">
+            <li class="doc-nav__item"><a href="../../docs/microlearning/expert-solution-architecture-index" class="doc-nav__link">Home</a></li>
+            <li class="doc-nav__item"><a href="#intro" class="doc-nav__link">Intro</a></li>
+            <li class="doc-nav__item"><a href="#theory" class="doc-nav__link">Theory</a></li>
+            <li class="doc-nav__item"><a href="#practice" class="doc-nav__link">Practice</a></li>
+            <li class="doc-nav__item"><a href="#solution" class="doc-nav__link">Solution</a></li>
+        </ul>
+<div class="doc">
+<h5><a class="anchor" aria-hidden="true" id="intro"></a><a href="#intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h5>
+<h1><a class="anchor" aria-hidden="true" id="configuration-rest-web-service"></a><a href="#configuration-rest-web-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration REST web service</h1>
+<p>In this microlearning, we will discuss how you can manually host a REST web service outside the API management layer of eMagiz.
+The main idea of hosting a web service, whether it be SOAP/XML or REST/JSON (or any other combination) is that the process you are supporting wants to be informed in real-time
+or wants to execute actions in real-time without any support from the integration.
+In other words, you want the application to push the requests to eMagiz instead of eMagiz having to pull the data out of an application.</p>
+<p>In this microlearning, we will focus on the REST web service and how you can host this in eMagiz through some simple steps.
+To summarize, hosting a REST web service gives you:</p>
+<ul>
+<li>A way to listen for messages instead of actively needing to pull them.</li>
+<li>A way to receive messages via various HTTP methods (GET, PUT, POST, DELETE, etc.)</li>
+</ul>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: March 9th, 2021</li>
+<li>Required reading time: 11 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Intermediate knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This microlearning centers around configuring a REST web service.
+With configuration, we mean: The steps you need to execute to achieve a certain result
+With REST, we mean: A web service that adheres to the RESTful principles</p>
+<ul>
+<li>The application (client) pushes the data to eMagiz</li>
+<li>To summarize, hosting a REST web service gives you:
+<ul>
+<li>A way to listen for messages instead of actively needing to pull them.</li>
+<li>A way to receive messages via various HTTP methods (GET, PUT, POST, DELETE, etc.)</li>
+</ul></li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="theory"></a><a href="#theory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theory</h5>
+<h2><a class="anchor" aria-hidden="true" id="3-configuration-rest-web-service"></a><a href="#3-configuration-rest-web-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Configuration REST web service</h2>
+<p>The main idea of hosting a web service, whether it be SOAP/XML or REST/JSON (or any other combination) is that the process you are supporting wants to be informed in real-time
+or wants to execute actions in real-time without any support from the integration.
+In other words, you want the application to push the requests to eMagiz instead of eMagiz having to pull the data out of an application.</p>
+<p>In this microlearning, we will focus on the REST web service and how you can host this in eMagiz through some simple steps.
+To summarize, hosting a REST web service gives you:</p>
+<ul>
+<li>A way to listen for messages instead of actively needing to pull them.</li>
+<li>A way to receive messages via various HTTP methods (GET, PUT, POST, DELETE, etc.)</li>
+</ul>
+<p>Before we delve into the steps required to configure a REST Webservice let us first turn our attention to the Best Practices when configuring a REST Webservice</p>
+<h3><a class="anchor" aria-hidden="true" id="31-best-practices"></a><a href="#31-best-practices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Best practices</h3>
+<ul>
+<li>Don’t change your process when executing Capture and Design. Those steps don’t change if you want the output of what is being delivered on your REST endpoint transformed to a CDM and beyond</li>
+<li>Use naming conventions to make it clear to the calling party what the build-up of the endpoint is, which methods are allowed and which content types are allowed</li>
+<li>Keep the connectivity in the entry and the transformation in the onramp</li>
+<li>Use one HTTP Inbound Gateway per HTTP Operation (i.e. GET /order/{uuid} or POST /order)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="33-setting-up-capture--design"></a><a href="#33-setting-up-capture--design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Setting up Capture &amp; Design</h3>
+<p>As with all solutions, we start our journey in Capture and from there we move through the various ILM phases of eMagiz.
+In Capture you need to, just as with other solutions check whether the system already exists and if not create a new system.
+Subsequently, you draw the lines and fill in the relevant information.</p>
+<p>In the Design phase, there is one deviation from the standard approach in Design. And that deviation is that you need to select the option called Combined Entry Connector on the system level.</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--combined-entry-connector.png"></p>
+<p>After you have selected this option you need to select the option Custom as Entry Connector Type</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--combined-entry-connector-type.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="32-configuring-the-server"></a><a href="#32-configuring-the-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Configuring the server</h3>
+<p>The first part of the solution in Create is configuring the server that will host all endpoints.
+By configuring the server you will give yourself the option to publish certain endpoints (one per HTTP Inbound Gateway).</p>
+<p>Because you want to host all endpoints on <em>one</em> server this part of the configuration only needs to be executed once.</p>
+<p>To create the server you need a support object called Jetty Server</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--jetty-server.png"></p>
+<p>After you have added the Jetty Server to the canvas you can open it and fill in the details.</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--jetty-server-starting-point.png"></p>
+<p>The first step is to select a connector. When running in AWS or if you want to handle the authentication without a client certificate requirement the Select channel connector is the option of your choice. In most cases, this is used
+In the pop-up that follows you need to fill in the port (with the help of a property)</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--edit-server-connector.png"></p>
+<p>After you have done this you need to select the handler type. Always choose the option Servlet context handler (unless you have very strong arguments to deviate from this).
+This will result in the following</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--servlet-context-handler-result.png"></p>
+<p>The next step will be to add a context path. This will become the first part of your endpoint after the host itself. You can opt for a single / or you could opt for something more specific.
+After that, you select the option called HTTP Inbound endpoint dispatcher servlet and give it a name.</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--servlet-result.png"></p>
+<p>The last step of our server configuration is to select a Servlet Mapping. This is the second part of your endpoint and gives you the option to group various endpoints.
+For example, you could use /apigateway or /messaging as such a group identifier.
+Always ensure that with this configuration you leave yourself the possibility to differentiate between the specific operations.</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--servlet-mapping-result.png"></p>
+<p>The only thing left to do is to save this configuration. This concludes the first steps for successfully making endpoints available.</p>
+<p>Based on the above configuration the endpoint will now look as follows: <a href="http://localhost">http://localhost</a>:port/microlearning/apigateway/*</p>
+<p>In the next part of this microlearning, we will explain which steps you need to take per operation that you want to expose to the outside world.</p>
+<h3><a class="anchor" aria-hidden="true" id="33-configuring-an-http-inbound-gateway"></a><a href="#33-configuring-an-http-inbound-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Configuring an HTTP Inbound Gateway</h3>
+<p>Per operation that you want to expose you need to have an HTTP Inbound Gateway as a starting point of your solution.
+Ensure that you create two channels (one for the request and one for the response) within your solution.
+You will need those channels as input and output of your HTTP Inbound Gateway.</p>
+<p>The next step would be to open the HTTP Inbound Gateway and configure it accordingly</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--http-inbound-gateway.png"></p>
+<p>At least you need to add a path that will make the endpoint specific for a certain HTTP Operation and define the HTTP Operation (POST, GET, DELETE)</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--http-inbound-gateway-path-operation.png"></p>
+<p>Furthermore, you can define settings such as params that are required or that your endpoint only consumes JSON for example to further limit the options given to clients calling the endpoint.</p>
+<p>Apart from the settings on the Basic tab you need to set a couple of things on the Advanced tab. One of these settings is the request payload type and the error channel.
+For the request payload, you should enter the value java.lang.String and for Error channel you should select the channel to which you want to route error messages.</p>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--http-inbound-gateway-advanced-settings.png"></p>
+<p>Furthermore, when you use paramaters (path or query) you can place them in the message headers with a simple SpEL expression:</p>
+<ul>
+<li>#pathVariables['{nameofpathparam}']</li>
+<li>#requestParams['{nameofqueryparam}']</li>
+</ul>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--http-inbound-gateway-parameters.png"></p>
+<p>Based on the above configuration the endpoint will now look as follows: <a href="http://localhost">http://localhost</a>:port/microlearning/apigateway/demo</p>
+<h3><a class="anchor" aria-hidden="true" id="34-error-handling"></a><a href="#34-error-handling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Error Handling</h3>
+<p>Giving back a 401
+In case you secure the web service with the help of an ApiKey you can validate whether what the client sends to the web service for authentication is indeed a correct ApiKey. This can be done via the following steps:</p>
+<ol>
+<li>Place a standard filter in your entry to validate if the ApiKey provided by the client is valid. This can be done via a SpEL expression comparable to the following (headers['Authorization'] == '${authentication.inbound.api-key}')</li>
+<li>In cases where the client is not authorized lead the message back to a standard header enricher. In this standard header, enricher add a header called http_statusCode with a value of 401</li>
+<li>Add a standard transformer to set a default message that can be given back to the client. An example would be '{ &quot;errors&quot;: [{ &quot;internalMessage&quot;: &quot;Unauthorized&quot; }]}'.</li>
+</ol>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--service-401.png"></p>
+<p>Giving back a 403
+In case you have secured your REST web service with the help of a client certificate and the client is unable to provide the correct certificate eMagiz will return a 403 by default. No other changes in the flow are needed</p>
+<p>Giving back a 404
+eMagiz will give back a 404 by default if the endpoint is not configured in one of the HTTP inbound channel adapters in your flow. You can override this functionality via the following steps.</p>
+<ol>
+<li>Add a separate HTTP inbound channel adapter that resolves to /* (this catches everything that cannot be resolved by any other HTTP inbound channel adapter)</li>
+<li>Set a standard header enricher and add a header called http_statusCode with a value 404</li>
+<li>Add a standard transformer to set a default message that can be given back to the client. An example would be '{ &quot;errors&quot;: [{ &quot;internalMessage&quot;: &quot;Het aangeroepen endpoint is niet gevonden&quot; }]}’.</li>
+</ol>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--service-404.png"></p>
+<p>Giving back a 500
+eMagiz will give back a 500 by default if the flow results in an unresolvable error. To counteract this for most scenarios the error handling in eMagiz for synchronous flows has changed in such a way that the message or error will be given back to the client. To specify the HTTP code and body of the response you can follow these steps.</p>
+<ol>
+<li>Use the standard filter eMagiz gives you in a synchronous flow (with the SpEL expression headers['emagiz_error_isErrorMessage']!=true) and make sure that instead of throwing a default error the error channel leads to a standard header enricher</li>
+<li>Set a standard header enricher and add a header called http_statusCode with a value of 500</li>
+<li>Add a standard transformer to set a default message that can be given back to the client. An example would be '{ &quot;errors&quot;: [{ &quot;internalMessage&quot;: &quot;Een technische error heeft plaatsgevonden in de integratie&quot; }]}’.</li>
+</ol>
+<p align="center"><img src="../../img/microlearning/intermediate-rest-webservice-connectivity-configuration--service-500.png"></p>
+<h5><a class="anchor" aria-hidden="true" id="practice"></a><a href="#practice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Practice</h5>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Navigate to a flow within your (Academy) project and configure a REST Webservice that eMagiz will host without worrying about error handling and authentication.
+In this REST Webservice expose the POST operation on the following endpoint: <a href="http://localhost">http://localhost</a>:port/microlearning/apigateway/demo
+This assignment can be completed with the help of the (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>The application (client) pushes the data to eMagiz</li>
+<li>To summarize, hosting a REST web service gives you:
+<ul>
+<li>A way to listen for messages instead of actively needing to pull them.</li>
+<li>A way to receive messages via various HTTP methods (GET, PUT, POST, DELETE, etc.)</li>
+</ul></li>
+<li>Error handling can be modeled out</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="solution"></a><a href="#solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solution</h5>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the help text provided by eMagiz.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned.</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/intermediate-rest-webservice-connectivity-configuration.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</main>
+</div>
+</div></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-configuration-rest-web-service">3. Configuration REST web service</a><ul class="toc-headings"><li><a href="#31-best-practices">3.1 Best practices</a></li><li><a href="#33-setting-up-capture--design">3.3 Setting up Capture &amp; Design</a></li><li><a href="#32-configuring-the-server">3.2 Configuring the server</a></li><li><a href="#33-configuring-an-http-inbound-gateway">3.3 Configuring an HTTP Inbound Gateway</a></li><li><a href="#34-error-handling">3.4 Error Handling</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

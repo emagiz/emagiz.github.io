@@ -17,12 +17,12 @@
 <div class="doc">
 <h5><a class="anchor" aria-hidden="true" id="intro"></a><a href="#intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h5>
 <h1><a class="anchor" aria-hidden="true" id="defining-a-message-format"></a><a href="#defining-a-message-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining a message format</h1>
-<p>Earlier in this module we already learned what message definitions are.
-In this microlearning we focus on setting the message format correctly in design. Setting this correct in Design helps you while building your integration in Create.</p>
-<p>In this microlearning we will learn which options you have for defining a message format in Design and how you can set it.</p>
+<p>Earlier in this module, we already learned what message definitions are.
+In this microlearning, we focus on setting the message format correctly in design. Setting this correct in Design helps build your integration in Create.</p>
+<p>In this microlearning, we will learn which options you have for defining a message format in Design and how you can set it.</p>
 <p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
 <ul>
-<li>Last update: February 4th 2021</li>
+<li>Last update: February 4th, 2021</li>
 <li>Required reading time: 4 minutes</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
@@ -30,48 +30,53 @@ In this microlearning we focus on setting the message format correctly in design
 <li>Basic knowledge of the eMagiz platform</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
-<p>This micro learning centers around defining a message format.</p>
-<p>With message format we mean: The form in which the message is send to or received from a external party the moment it can be validated by the system</p>
+<p>This microlearning centers around defining a message format.</p>
+<p>With message format we mean: The form in which the message is sent to or received from an external party the moment it can be validated by the system</p>
 <p>In other words, whether the message that you need to send or the message that you receive is in JSON or XML.</p>
 <h5><a class="anchor" aria-hidden="true" id="theory"></a><a href="#theory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theory</h5>
 <h2><a class="anchor" aria-hidden="true" id="3-defining-a-message-format"></a><a href="#3-defining-a-message-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Defining a message format</h2>
 <p>You can define your message format in two places in Design:</p>
 <ul>
-<li>On system level</li>
+<li>On the system level</li>
 <li>On integration level</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="31-defining-a-message-format-on-system-level"></a><a href="#31-defining-a-message-format-on-system-level" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Defining a message format on system level</h3>
-<p>When you go to Design and double click on a system you will see the following configuration. In this case we are interested in the default message format</p>
+<p>When you go to Design and double click on a system you will see the following configuration. In this case, we are interested in the default message format</p>
 <p align="center"><img src="../../img/microlearning/crashcourse-platform-design-defining-a-message-format--define-message-format-system-level.png"></p>
-<p>By switching between XML and JSON you indicate that all messages that are being send and received in relation to this system are defined in XML or JSON.
-This is an easy way of correctly definining the message format of all your integration related to a specific system at once.</p>
+<p>By switching between XML and JSON you indicate that all messages that are being sent and received concerning this system are defined in XML or JSON.
+This is an easy way of correctly defining the message format of all your integrations related to a specific system.</p>
 <h3><a class="anchor" aria-hidden="true" id="32-defining-a-message-format-on-integration-level"></a><a href="#32-defining-a-message-format-on-integration-level" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Defining a message format on integration level</h3>
-<p>However it could be that one the integration related to the system deviates from the default setting.
-If so you can register this on integration level. To be more precise on system message level.
-When you go to your system message and enter Start editing mode there will be a option called Change message format</p>
+<p>However, it could be that one of the integrations related to a system deviates from the default setting. If so, you can register this on the integration level.
+To be more precise on the system message level. When you go to your system message and enter ‘editing mode’ there will be an option called Change message format.</p>
 <p align="center"><img src="../../img/microlearning/crashcourse-platform-design-defining-a-message-format--context-menu-system-message-messaging.png"></p>
-<p>Selecting this option will result in the following pop-up. In this pop-up you can switch between both formats and save the result.</p>
+<p>Selecting this option will result in the following pop-up. In this pop-up, you can switch between both formats and save the result.</p>
 <p align="center"><img src="../../img/microlearning/crashcourse-platform-design-defining-a-message-format--change-message-format-system-message.png"></p>
 <h3><a class="anchor" aria-hidden="true" id="33-the-message-formats-explained"></a><a href="#33-the-message-formats-explained" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 The message formats explained</h3>
-<p>In this microlearning we talked a lot about message formats and the options eMagiz provides on choosing a message format.
-In this segment we will take a deeper look at those two to give you some context of why they exists and what they mean.</p>
+<p>In this microlearning, we talked a lot about message formats and the options eMagiz provides on choosing a message format.
+In this segment, we will take a deeper look at those two to give you some context of why they exist and what they mean.</p>
 <h3><a class="anchor" aria-hidden="true" id="331-xml"></a><a href="#331-xml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.1 XML</h3>
-<p>XML stands for eXtensible Markup Language. A XML is simply put, information wrapped in tags.
-By defining those tags and agreeing on those tags you can validate the XML and transform based on the input XML to a output XML.</p>
+<p>XML stands for eXtensible Markup Language. An XML is simply put, information wrapped in tags.
+By defining those tags and agreeing on those tags you can validate the XML and transform based on the input XML to an output XML.</p>
 <p>How the tags are named is determined by the person that defined the structure of the XML and therefore could be anything.</p>
-<p>The contract of how a tag should be named, which datatype (i.e. string, boolean, integer, etc.),
-how long the information wrapped in the tag can be, whether the tag is optional or not is written down in a XSD.
-The XSD can check any XML that passes its station to see whether or not it is allowed to continue or not.</p>
-<p>Because XML has these characterics it has become a standard when transporting data between systems.</p>
+<p>The contract of how a message should look is written down in an XSD document (XML Schema Definition) with the help of 'rules'.
+Some examples of these rules are:</p>
+<ul>
+<li>Ordering of elements and attributes</li>
+<li>Maximum length of an attribute</li>
+<li>Whether an attribute or entity is optional</li>
+<li>Which data type an attribute has (string, boolean, integer, decimal, etc.)
+The XSD can check any XML that passes its station to see whether or not it is allowed to continue or not.</li>
+</ul>
+<p>Because XML has these characteristics it has become one of the standards in transporting data between systems.</p>
 <h3><a class="anchor" aria-hidden="true" id="332-json"></a><a href="#332-json" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.2 JSON</h3>
-<p>JSON stands for JavaScript Object Notation. JSON is newer as XML and works based on name/value pairs.
+<p>JSON stands for JavaScript Object Notation. JSON is newer than XML and works based on name/value pairs.
 This way the data that is transported comes with less overhead compared to XML.</p>
-<p>The names of the name/value pair is determined by the person that defined the structure of the JSON and therefore could be anything.
-The contract of how a tag should be named, which datatype (i.e. string, boolean, integer, etc.),
-how long the information wrapped in the tag can be, whether the tag is optional or not is written down in a JSON schema.</p>
-<p>The JSON schema can check any JSON that passes its station to see whether or not it is allowed to continue or not.</p>
-<p>Because JSON has these characterics it has become a second standard when transporting data between systems.</p>
-<p>Note that in eMagiz we speak of message definitions which can be either XML or JSON. Validating these messages is therefore also done in a standardized way (with the help of a XSD)</p>
+<p>The names of the name/value pair are determined by the person that defined the structure of the JSON and therefore could be anything.
+The way a tag should be named, which datatype (i.e. string, boolean, integer, etc.), how long the information wrapped in the tag can be,
+whether the tag is optional or not is written down in a JSON schema.</p>
+<p>A JSON schema can check any JSON message that passes its station and see whether or not it is allowed to continue.</p>
+<p>Because JSON has these characteristics it has become one of the standards in transporting data between systems.</p>
+<p>Note that in eMagiz we speak of message definitions which can be either XML or JSON. Validating these messages is therefore also done in a standardized way (with the help of an XSD)</p>
 <h5><a class="anchor" aria-hidden="true" id="practice"></a><a href="#practice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Practice</h5>
 <h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
 <p>Navigate to Design and open a system. Set the default message format of this system to JSON, press Save, open the system again and switch it back to XML.

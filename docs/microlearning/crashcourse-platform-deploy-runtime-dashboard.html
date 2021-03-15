@@ -17,10 +17,10 @@
 <div class="doc">
 <h5><a class="anchor" aria-hidden="true" id="intro"></a><a href="#intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h5>
 <h1><a class="anchor" aria-hidden="true" id="runtime-dashboard"></a><a href="#runtime-dashboard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Runtime Dashboard</h1>
-<p>In this microlearning you will learn the way you can see and validate which flows are active or running on a specific runtime in eMagiz.</p>
+<p>In this microlearning, you will learn the way you can see and validate which flows are active or running on a specific runtime in eMagiz.</p>
 <p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
 <ul>
-<li>Last update: February 10th 2021</li>
+<li>Last update: February 10th, 2021</li>
 <li>Required reading time: 3 minutes</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
@@ -29,30 +29,30 @@
 <li>Understanding Releases and be able to run a Deployment plan effectively</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
-<p>eMagiz uses the concept of flows and runtimes. A flow can run inside a runtime, and that runtime acts as a container to make that flow operate properly. Flows can be stopped inside that container, started, installed and deinstalled. The runtime dashboard helps to understand the status of the flow inside the runtime, and where needed change the status of that flow.</p>
+<p>eMagiz uses the concept of flows and runtimes. A flow can run inside a runtime, and that runtime acts as a container to make that flow operate properly. Flows can be stopped inside that container, started, installed, and uninstalled. The runtime dashboard helps to understand the status of the flow inside the runtime, and where needed change the status of that flow.</p>
 <p>eMagiz holds some terminology around these runtimes
-1 - There is use of a JMS flow which is run as a single flow inside a runtime. For that specific runtime, there is 1 flow called the JMS and therefore usually referred as the JMS runtime or just JMS
-2 - In the Create phase you have seen the onramps and offramps, as well as the routing and error flows. These are running inside the container runtime, often referred as the container. In the Cloud formation, the JMS and Container are located on a single Cloud machine
-3 - There are also exit and entry flows that run inside runtimes, and these runtimes are referred as the connector runtimes or just connector. These connector can run on Cloud Connector machine or Local Connector machines.</p>
+1 - There is the use of a JMS flow which is run as a single flow inside a runtime. For that specific runtime, there is 1 flow called the JMS and therefore usually referred to as the JMS runtime or just JMS
+2 - In the Create phase you have seen the onramps and offramps, as well as the routing and error flows. These are running inside the container runtime, often referred to as the container. In the Cloud formation, the JMS and Container are located on a single Cloud machine
+3 - There are also exit and entry flows that run inside runtimes, and these runtimes are referred to as the connector runtimes or just connectors. These connectors can run on Cloud Connector machines or Local Connector machines.</p>
 <h5><a class="anchor" aria-hidden="true" id="theory"></a><a href="#theory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theory</h5>
 <h2><a class="anchor" aria-hidden="true" id="3-exploring-the-runtime-dashboard"></a><a href="#3-exploring-the-runtime-dashboard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Exploring the Runtime dashboard</h2>
 <ol>
-<li>Navigation - use the selection on the left hand panel to select the runtime you wish to inspect</li>
+<li>Navigation - use the selection on the left-hand panel to select the runtime you wish to inspect</li>
 <li>Options
 <ul>
 <li>Start - start the flow selected. The light bulb will turn yellow if the flow is started correctly</li>
 <li>Stop - stop the flow selected. The status of the flow will become Resolved.</li>
 <li>Refresh - refresh the status of all flows on the selected runtime</li>
-<li>Other options are discussed in next step microlearnings</li>
+<li>Other options are discussed in the next microlearnings</li>
 </ul></li>
 <li>Versions
 <ul>
-<li>Using the dashboard you can see what version of a flow is running in terms of major, minor or patch. The patterrn is <major>.<minor>.<patch>.</li>
+<li>Using the dashboard you can see what version of a flow is running in terms of major, minor, or patch. The pattern is <major>.<minor>.<patch>.</li>
 <li>The last two digits always denote the build number that is used for that flow.</li>
 </ul></li>
 <li>Do's and don'ts
 <ul>
-<li>Don't stop the container.infra flow. This means that the connectivity to the runtime is gone, and you control over the runtime itself. Especially in Cloud deployments this is not recommended</li>
+<li>Don't stop the container.infra flow. This means that the connectivity to the runtime is gone, and your control over the runtime itself. Especially in Cloud deployments, this is not recommended</li>
 <li>Stopping the error.process flow means that error messages are no longer send to the eMagiz platform.</li>
 </ul></li>
 </ol>
@@ -67,7 +67,7 @@
 </ul>
 <h5><a class="anchor" aria-hidden="true" id="solution"></a><a href="#solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solution</h5>
 <h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
-<p>If you are interested in this topic and want more information on it please read the helptext provided by eMagiz when executing these actions.</p>
+<p>If you are interested in this topic and want more information on it please read the help text provided by eMagiz when executing these actions.</p>
 <h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
 <p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned.</p>
 <iframe width="1280" height="720" src="../../vid/microlearning/crashcourse-platform-deploy-runtime-dashboard.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
