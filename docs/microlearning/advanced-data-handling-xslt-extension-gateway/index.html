@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/advanced-data-handling-xslt-extension-gateway · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;div class=&quot;ez-academy&quot;&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/advanced-data-handling-xslt-extension-gateway · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;div class=&quot;ez-academy&quot;&gt;"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/advanced-data-handling-xslt-extension-gateway</h1></header><article><div><span><div class="ez-academy">
+    <div class="ez-academy__body">
+        <main class="micro-learning">
+        <ul class="doc-nav">
+            <li class="doc-nav__item"><a href="../../docs/microlearning/advanced-data-handling-index" class="doc-nav__link">Home</a></li>
+            <li class="doc-nav__item"><a href="#intro" class="doc-nav__link">Intro</a></li>
+            <li class="doc-nav__item"><a href="#theory" class="doc-nav__link">Theory</a></li>
+            <li class="doc-nav__item"><a href="#practice" class="doc-nav__link">Practice</a></li>
+            <li class="doc-nav__item"><a href="#solution" class="doc-nav__link">Solution</a></li>
+        </ul>
+<div class="doc">
+<h5><a class="anchor" aria-hidden="true" id="intro"></a><a href="#intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h5>
+<h1><a class="anchor" aria-hidden="true" id="xslt-extension-gateway"></a><a href="#xslt-extension-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>XSLT Extension Gateway</h1>
+<p>In this microlearning, we will focus on the XSLT extension gateway.
+The XSLT extension gateway is a component in eMagiz that helps you to enrich your output XML message by retrieving data from an outside source.</p>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: March 22th, 2021</li>
+<li>Required reading time: 6 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Advanced knowledge of the eMagiz platform</li>
+<li>Advanced knowledge of XSLT</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This microlearning centers around the XSLT extension gateway component in eMagiz
+By XSLT extension gateway we mean: A component within eMagiz that gives you the option to retrieve additional data while executing the transformation from an outside source</p>
+<p>Via the XSLT extension gateway you can retrieve data from multiple sources (REST Webservice, SOAP Webservice, Database, etc.) as long as the outside source can supply a response in near real-time.</p>
+<h5><a class="anchor" aria-hidden="true" id="theory"></a><a href="#theory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theory</h5>
+<h2><a class="anchor" aria-hidden="true" id="3-xslt-extension-gateway"></a><a href="#3-xslt-extension-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. XSLT Extension Gateway</h2>
+<p>An XSLT Extension Gateway is a component within eMagiz that gives you the option to retrieve additional data while executing the transformation from an outside source.
+Via the XSLT extension gateway you can retrieve data from multiple sources (REST Webservice, SOAP Webservice, Database, etc.) as long as the outside source can supply a response in near real-time.
+This response is in turn used to enrich your output message with the correct information.</p>
+<h3><a class="anchor" aria-hidden="true" id="31-setting-up-the-xslt-extension-gateway"></a><a href="#31-setting-up-the-xslt-extension-gateway" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Setting up the XSLT Extension Gateway</h3>
+<p>The first step of setting up an XSLT Extension Gateway is to add the XSLT Extension Gateway component to your flow and create two channels (one for the request and one for the response).
+You can do so by dragging the correct component on the canvas, creating the channels and linking the channels to the XSLT Extension Gateway.
+An example of how this will look is shown below:</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--xslt-extension-gateway-added-to-canvas.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="32-connect-to-the-outside-source"></a><a href="#32-connect-to-the-outside-source" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Connect to the outside source</h3>
+<p>As stated before, via the XSLT extension gateway you can retrieve data from multiple sources (REST Webservice, SOAP Webservice, Database, etc.) as long as the outside source can supply a response in near real-time.
+In this example we will assume that you want to retrieve a Token from a REST Webservice that you need as part of your authorization when executing subsequent calls.</p>
+<p>In this case we will have to call a certain endpoint via a POST method. In the body of our message we need to send the username and password that we have received from the outside source.
+This outside source expects the body in XML.</p>
+<p>To make this a reality in eMagiz we first need to add an HTTP Outbound Gateway to the canvas and fill in the details.</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--http-outbound-gateway-xslt-extension.png"></p>
+<p>This automatically links the XSLT extension gateway to the HTTP oubound gateway, provided you selected the correct request and response channel.</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--http-outbound-gateway-xslt-extension-result.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="33-error-handling"></a><a href="#33-error-handling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Error handling</h3>
+<p>It could happen that something goes wrong while retrieving the relevant data from the outside will using the XSLT Extension Gateway.
+To ensure that the error handling does its work you need to link the XSLT Extension Gateway to the default error handling of eMagiz.</p>
+<p>You can easily do so by opening the XSLT Extension Gateway component, navigating to the Advanced tab, selecting the correct Error channel and setting the Reply timeout.</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--xslt-extension-gateway-error-channel.png"></p>
+<p>The result of this action will be that the XSLT extension will send his errors to the standard error handling process of eMagiz.</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--xslt-extension-gateway-error-channel-result.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="34-write-the-xslt"></a><a href="#34-write-the-xslt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Write the XSLT</h3>
+<p>To succesfully call an XSLT extension gateway your custom XSLT needs five things:</p>
+<ul>
+<li>A parameter that defines which component the XSLT extension gateway is within the flow</li>
+<li>A variable that calls the XSLT extension gateway and will hold the result</li>
+<li>A variable that defines what the input for your XSLT extension gateway will be</li>
+<li>A template match that copies your input</li>
+<li>A template match that ensures that the result of your XSLT extension gateway is correctly outputted</li>
+</ul>
+<p>An example of such an XSLT is depicted below. Within the XSLT we have described which part is responsible for what exactly.</p>
+<p>&lt;xsl:stylesheet xmlns:xsl=&quot;<a href="http://www.w3.org/1999/XSL/Transform">http://www.w3.org/1999/XSL/Transform</a>&quot;
+xmlns:ezx=&quot;<a href="http://www.emagiz.com/ns/xml/1.0/">http://www.emagiz.com/ns/xml/1.0/</a>&quot;
+version=&quot;2.0&quot;&gt;
+&lt;xsl:param name=&quot;Username&quot;/&gt;<br>
+&lt;xsl:param name=&quot;Password&quot;/&gt;</p>
+<pre><code class="hljs">&lt;!-- This segment will house the parameter that will identify which component to call within the flow --&gt;
+
+&lt;xsl:param name=&quot;ExtGateway&quot;/&gt;  
+
+&lt;!-- This segment will house the variable that will identify when you want to call the extension gateway, what the input of the extension gateway should be and what you want as a result --&gt;
+
+&lt;xsl:variable name=&quot;Token&quot; select=&quot;if (exists(//ID) and //ID != '') then ezx:call-xslt-extension-gateway($ExtGateway, $RetrieveToken) else ''&quot;/&gt;
+
+&lt;!-- This segment will copy the incoming message to the output --&gt;
+
+&lt;xsl:template match=&quot;@* | node()&quot;&gt;
+    &lt;xsl:copy&gt;
+        &lt;xsl:apply-templates select=&quot;@* | node()&quot;/&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;
+
+&lt;!-- This segment will ensure that the Token will be filled in correctly --&gt;
+
+&lt;xsl:template match=&quot;Token&quot;&gt;
+        &lt;Token&gt;
+            &lt;xsl:value-of select=&quot;$Token&quot;/&gt;
+        &lt;/Token&gt;            
+&lt;/xsl:template&gt;
+
+
+&lt;!-- The variable defined below will be the input to retrieve the token from the outside source --&gt;
+
+&lt;xsl:variable name=&quot;RetrieveToken&quot;&gt;
+    &lt;xsl:if test=&quot;exists(//ID) and //ID != ''&quot;&gt;
+        &lt;root&gt;
+            &lt;username&gt;&lt;xsl:value-of select=&quot;$Username&quot;/&gt;&lt;/username&gt;
+            &lt;password&gt;&lt;xsl:value-of select=&quot;$Password&quot;/&gt;&lt;/password&gt;
+        &lt;/root&gt;
+    &lt;/xsl:if&gt;
+&lt;/xsl:variable&gt;
+</code></pre>
+<p>&lt;/xsl:stylesheet&gt;</p>
+<p>Now that we have an example of a custom XSLT that we can use we now need to make sure that this XSLT will work within the context of our flow.</p>
+<h3><a class="anchor" aria-hidden="true" id="35-connect-xslt-to-flow"></a><a href="#35-connect-xslt-to-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.5 Connect XSLT to flow</h3>
+<p>The first step we need to take is to link the resource to the flow. To do so you navigate to the tab Resources on flow level, while in &quot;Start Editing&quot; mode.
+In this tab you have the option to Upload new resource</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--upload-new-resource.png"></p>
+<p>When you select this option you can upload your custom XSLT. Ensure that you select the correct resource type and give the resource a good descriptive name</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--upload-new-resource-filled-in.png"></p>
+<p>Now that we have added the resource to the flow we can return to the flow overview and add a XSLT transformer component to the canvas and fill in the details</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--xslt-transformer-basic.png"></p>
+<p>When you are finished with the basic config you can move to the Advanced section. In this section we need to define the values for our parameter(s).
+The end result will look something like this:</p>
+<p align="center"><img src="../../img/microlearning/advanced-data-handling-xslt-extension-gateway--xslt-transformer-advanced.png"></p>
+<p>As you can see the ExtGateway parameter refers to the ID of the XSLT extension gateway component within our flow.
+Now that we have set our XSLT transformer component up correctly the we have automatically linked the XSLT Transformer to the XSLT extension gateway.</p>
+<p>With these steps you can successfully use the XSLT extension gateway component in eMagiz. Based on your use case the details of the configuration can differ.</p>
+<h5><a class="anchor" aria-hidden="true" id="practice"></a><a href="#practice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Practice</h5>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Create within your flow an XSLT extension gateway setup as depicted above. The linking of the XSLT transformer to the XSLT extension gateway can be skipped in the exercise.
+This assignment can be completed with the help of the (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>An XSLT Extension Gateway is a component within eMagiz that gives you the option to retrieve additional data while executing the transformation from an outside source.</li>
+<li>Via the XSLT extension gateway you can retrieve data from multiple sources (REST Webservice, SOAP Webservice, Database, etc.) as long as the outside source can supply a response in near real-time.</li>
+<li>This response is in turn used to enrich your output message with the correct information.</li>
+<li>Setting up an XSLT extension gateway means several components need to work in perfect unison</li>
+<li>Don't forget about the error handling</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="solution"></a><a href="#solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solution</h5>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the release notes provided by eMagiz that accompany the eMagiz Mendix Connector version you have selected.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>This video demonstrates how you could have handled the assignment and gives you some context on what you have just learned.</p>
+<iframe width="1280" height="720" src="../../vid/microlearning/advanced-data-handling-xslt-extension-gateway.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</main>
+</div>
+</div></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-xslt-extension-gateway">3. XSLT Extension Gateway</a><ul class="toc-headings"><li><a href="#31-setting-up-the-xslt-extension-gateway">3.1 Setting up the XSLT Extension Gateway</a></li><li><a href="#32-connect-to-the-outside-source">3.2 Connect to the outside source</a></li><li><a href="#33-error-handling">3.3 Error handling</a></li><li><a href="#34-write-the-xslt">3.4 Write the XSLT</a></li><li><a href="#35-connect-xslt-to-flow">3.5 Connect XSLT to flow</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
