@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>microlearning/expert-solution-architecture-h2-database-for-other-applications · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;div class=&quot;ez-academy&quot;&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="microlearning/expert-solution-architecture-h2-database-for-other-applications · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="&lt;div class=&quot;ez-academy&quot;&gt;"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">microlearning/expert-solution-architecture-h2-database-for-other-applications</h1></header><article><div><span><div class="ez-academy">
+    <div class="ez-academy__body">
+        <main class="micro-learning">
+        <ul class="doc-nav">
+            <li class="doc-nav__item"><a href="../../docs/microlearning/expert-solution-architecture-index" class="doc-nav__link">Home</a></li>
+            <li class="doc-nav__item"><a href="#intro" class="doc-nav__link">Intro</a></li>
+            <li class="doc-nav__item"><a href="#theory" class="doc-nav__link">Theory</a></li>
+            <li class="doc-nav__item"><a href="#practice" class="doc-nav__link">Practice</a></li>
+            <li class="doc-nav__item"><a href="#solution" class="doc-nav__link">Solution</a></li>
+        </ul>
+<div class="doc">
+<h5><a class="anchor" aria-hidden="true" id="intro"></a><a href="#intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h5>
+<h1><a class="anchor" aria-hidden="true" id="h2-database-for-other-applications"></a><a href="#h2-database-for-other-applications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>H2 Database for other applications</h1>
+<p>In this microlearning, we will focus on how you can use the H2 database to store information temporarily so you can use it at another time or maybe even in another process.
+As you know the H2 database within eMagiz is used to store messages to ensure guaranteed delivery between the entry and the onramp in messaging.</p>
+<p>However, there are also other use cases in which an H2 database of your own making will be beneficial:</p>
+<ul>
+<li>Storing tokens because of rate-limiting of an external API</li>
+<li>Remembering where eMagiz stopped the last time when a process was executed (eMagiz remembers this to create deltas)</li>
+<li>Enriching your message with data from the H2 database</li>
+</ul>
+<p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
+<ul>
+<li>Last update: April 1th 2021</li>
+<li>Required reading time: 8 minutes</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
+<ul>
+<li>Advanced knowledge of the eMagiz platform</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-key-concepts"></a><a href="#2-key-concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Key concepts</h2>
+<p>This microlearning centers around how you can use the H2 database to store information temporarily so you can use it at another time or maybe even in another process.
+With the H2 database, we mean: A component in eMagiz that can easily create a simple database on runtime level that you can access from your flow</p>
+<p>As you know the H2 database within eMagiz is used to store messages to ensure guaranteed delivery between the entry and the onramp in messaging.</p>
+<p>However, there are also other use cases in which an H2 database of your own making will be beneficial:</p>
+<ul>
+<li>Storing tokens because of rate-limiting of an external API</li>
+<li>Remembering where eMagiz stopped the last time when a process was executed (eMagiz remembers this to create deltas)</li>
+<li>Enriching your message with data from the H2 database</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="theory"></a><a href="#theory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theory</h5>
+<h2><a class="anchor" aria-hidden="true" id="3-h2-database-for-other-applications"></a><a href="#3-h2-database-for-other-applications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. H2 Database for other applications</h2>
+<p>As you know the H2 database within eMagiz is used to store messages to ensure guaranteed delivery between the entry and the onramp in messaging.</p>
+<p>However, there are also other use cases in which an H2 database of your own making will be beneficial:</p>
+<ul>
+<li>Storing tokens because of rate-limiting of an external API</li>
+<li>Remembering where eMagiz stopped the last time when a process was executed (eMagiz remembers this to create deltas)</li>
+<li>Enriching your message with data from the H2 database</li>
+</ul>
+<p>Be sure to validate with others whether using the H2 database is the only option available to store this data. Consider other patterns and other approaches that might provide a better and more robust solution.</p>
+<h3><a class="anchor" aria-hidden="true" id="31-setting-up-the-table-within-the-h2-database"></a><a href="#31-setting-up-the-table-within-the-h2-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Setting up the table within the H2 database</h3>
+<p>Regardless of which use case you have you need to implement several steps to make it work in eMagiz. The first part is setting up your table within the H2 database and ensure that eMagiz will create an H2 database for you. To do so you need the following:</p>
+<ul>
+<li>A SQL resource that defines the table structure</li>
+<li>The support object called JDBC H2 Connection Pool</li>
+<li>The support object called JDBC initialize database</li>
+</ul>
+<p>A simple SQL statement that defines a table that holds the access token could look something like this.</p>
+<p>CREATE TABLE IF NOT EXISTS ACCESSTOKENS
+(
+CUSTOMERID varchar(255) PRIMARY KEY,
+EXPIRES varchar(255),
+ACCESSTOKEN varchar(255),
+ACCESSID varchar(255)
+);
+INSERT INTO ACCESSTOKENS
+SELECT 'NEW', '0', 'NEW', 'NEW'
+WHERE NOT EXISTS (SELECT * FROM ACCESSTOKENS);</p>
+<p>After you are satisfied with your SQL statement you can save the file with the .sql extension and upload it to eMagiz and link it to your flow.</p>
+<p>The next step will be to add the support object called JDBC H2 Connection Pool to the flow</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-h2-database-for-other-applications--jdbc-h2-search.png"></p>
+<p>When you open the component you will see that you need to fill in three variables</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-h2-database-for-other-applications--jdbc-h2-component-empty.png"></p>
+<p>The URL should look similar to the one shown in the help text. The only distinction is that the actual name (the part after h2/) needs to be changed to indicate that this H2 database is only meant to store something related to your use case. You can determine the username and password yourselves. A best practice is to refer to these values via a property in this component.</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-h2-database-for-other-applications--jdbc-h2-component-filled.png"></p>
+<p>The third and final step to set up the table within the H2 database is to add the support object called JDBC initialize database.</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-h2-database-for-other-applications--jdbc-h2-initialize-empty.png"></p>
+<p>There are two things we need to do to configure the component correctly. First, we need to link this component to the support object we have just created. Second, we need to refer to the SQL script that we have uploaded to our flow. To do so press New and fill in the Location. Remember the location starts with resources/ and should hold the unique reference number given by eMagiz and the extension of the resource.</p>
+<p>If you fail to do so eMagiz will not be able to locate the resource. Having done these things should result in something like this:</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-h2-database-for-other-applications--jdbc-h2-initialize-filled.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="33-write-data-to-the-table"></a><a href="#33-write-data-to-the-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Write data to the table</h3>
+<p>At some point in your process, based on your use case, you will need to write new data to the table to either update an existing row or to create a new row. To do so you can use a JDBC outbound channel adapter.</p>
+<p>For the component to properly function we need to refer to our data source and we need a SQL query that can be executed on this table. See below for an example of such an SQL Query</p>
+<p>MERGE INTO ACCESSTOKENS SET CUSTOMERID = :headers[customer], EXPIRES = :headers[expires], ACCESSTOKEN = :headers[access_key], ACCESSID = :headers[accessKeyId];</p>
+<p>When you have correctly filled in the details of the component it should look similar to below</p>
+<p align="center"><img src="../../img/microlearning/expert-solution-architecture-h2-database-for-other-applications--jdbc-write-action.png"></p>
+<h3><a class="anchor" aria-hidden="true" id="34-read-data-from-table"></a><a href="#34-read-data-from-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.4 Read data from table</h3>
+<p>Now that we have created a table in the database and we have written data to that table we now need to think about a way in which we can retrieve the data from the table in question. As you can imagine the next time you need the information from the table you will have to retrieve the information. One way of doing that is to use the XSLT Extension Gateway functionality. For more information on how to apply that you can take a look at the following microlearning: <a href="/docs/microlearning/advanced-data-handling-xslt-extension-gateway">XSLT Extension Gateway</a></p>
+<h5><a class="anchor" aria-hidden="true" id="practice"></a><a href="#practice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Practice</h5>
+<h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
+<p>Build an exit or entry flow in which you incorporate the logic that you have just learned
+This assignment can be completed with the help of the (Academy) project that you have created/used in the previous assignment.</p>
+<h2><a class="anchor" aria-hidden="true" id="5-key-takeaways"></a><a href="#5-key-takeaways" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Key takeaways</h2>
+<ul>
+<li>As you know the H2 database within eMagiz is used to store messages to ensure guaranteed delivery between the entry and the onramp in messaging.</li>
+<li>However, there are also other use cases in which an H2 database of your own making will be beneficial:
+<ul>
+<li>Storing tokens because of rate-limiting of an external API</li>
+<li>Remembering where eMagiz stopped the last time when a process was executed (eMagiz remembers this to create deltas)</li>
+<li>Enriching your message with data from the H2 database</li>
+</ul></li>
+<li>In the flow designer you need to ensure that the database and table are created, that you can write and read data</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="solution"></a><a href="#solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solution</h5>
+<h2><a class="anchor" aria-hidden="true" id="6-suggested-additional-readings"></a><a href="#6-suggested-additional-readings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Suggested Additional Readings</h2>
+<p>If you are interested in this topic and want more information on it please read the help text provided by eMagiz.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-silent-demonstration-video"></a><a href="#7-silent-demonstration-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Silent demonstration video</h2>
+<p>There is no demonstration video for this microlearning. We believe that the implementation of this is too specific based on the used case that a video would not be beneficial.</p>
+</div>
+</main>
+</div>
+</div></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-prerequisites">1. Prerequisites</a></li><li><a href="#2-key-concepts">2. Key concepts</a></li><li><a href="#3-h2-database-for-other-applications">3. H2 Database for other applications</a><ul class="toc-headings"><li><a href="#31-setting-up-the-table-within-the-h2-database">3.1 Setting up the table within the H2 database</a></li><li><a href="#33-write-data-to-the-table">3.3 Write data to the table</a></li><li><a href="#34-read-data-from-table">3.4 Read data from table</a></li></ul></li><li><a href="#4-assignment">4. Assignment</a></li><li><a href="#5-key-takeaways">5. Key takeaways</a></li><li><a href="#6-suggested-additional-readings">6. Suggested Additional Readings</a></li><li><a href="#7-silent-demonstration-video">7. Silent demonstration video</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
