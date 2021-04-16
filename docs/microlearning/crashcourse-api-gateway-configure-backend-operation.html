@@ -21,7 +21,7 @@
 A crucial part of setting up your (API) Gateway with the help of RESTful services is knowing which backend operations you want to expose with the help of the API Gateway.</p>
 <p>Should you have any questions, please contact <a href="mailto:academy@emagiz.com">academy@emagiz.com</a>.</p>
 <ul>
-<li>Last update: February 19th, 2021</li>
+<li>Last update: April 14th, 2021</li>
 <li>Required reading time: 6 minutes</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="1-prerequisites"></a><a href="#1-prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Prerequisites</h2>
@@ -36,15 +36,15 @@ With API Gateway we mean: A collection of RESTful API operations that can be pub
 <h5><a class="anchor" aria-hidden="true" id="theory"></a><a href="#theory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theory</h5>
 <h2><a class="anchor" aria-hidden="true" id="3-configure-a-backend-operation"></a><a href="#3-configure-a-backend-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Configure a backend operation</h2>
 <p>When you look at the conceptual idea of the API Gateway, exposing backend operations via a centralized location to the outside world
-it stands to reason that when you set up your API Gateway (i.e. the front-end facing part) start with the backend operation you want to expose.</p>
-<p>To configure the backend system that holds the operation(s) double click on the system to enter the following pop-up</p>
+it stands to reason that when you set up your API Gateway (i.e. the front-end facing part) you start with the backend operation you want to expose.</p>
+<p>Configuring backend operations is done in the Design phase of eMagiz. When you are in the Design overview you can double click on the backend system that holds the operation(s). This action will show you the following pop-up</p>
 <p align="center"><img src="../../img/microlearning/crashcourse-api-gateway-configure-backend-operations--system-edit.png"></p>
 <p>In here you need to fill in the technical name, just as with any other system. Furthermore, you have two decisions to make:</p>
 <ul>
 <li>Does the system talk JSON or XML</li>
 <li>Can you specify the backend operations either via an import of the OpenAPI 3.0 spec or via a manual action</li>
 </ul>
-<p>If the answer to the above decisions is JSON and yes the default setting are correct and you should continue to either import the OpenAPI 3.0 spec or manually configure at least one backend operation.
+<p>If the answer to the above decisions is JSON and yes the default settings are correct you should continue to either import the OpenAPI 3.0 spec or manually configure at least one backend operation.
 More on that later in this microlearning.</p>
 <p>In case the answer to the first decision is XML you should switch the default format to XML and unselect the OpenAPI 3.0 spec. The result should be something like this.</p>
 <p align="center"><img src="../../img/microlearning/crashcourse-api-gateway-configure-backend-operations--system-edit-xml-result.png"></p>
