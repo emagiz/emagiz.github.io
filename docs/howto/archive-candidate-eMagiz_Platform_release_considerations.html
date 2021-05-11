@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/archive-candidate-eMagiz_Platform_release_considerations · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# eMagiz platform release considerations"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/archive-candidate-eMagiz_Platform_release_considerations · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="# eMagiz platform release considerations"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/archive-candidate-eMagiz_Platform_release_considerations</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="emagiz-platform-release-considerations"></a><a href="#emagiz-platform-release-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>eMagiz platform release considerations</h1>
+<p>Objective of this document is to understand the key considerations around the versioning and regular updates of the technical components of the eMagiz platform.</p>
+<p>Last update September 12th 2020</p>
+<h2><a class="anchor" aria-hidden="true" id="platform-components"></a><a href="#platform-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Platform components</h2>
+<ul>
+<li><strong>1. Buildnumbers</strong> Every flow created has a specific build number. This build contains the eMagiz software components that work in conjunction with the flows as configured in the Create phase of the eMagiz Portal.</li>
+<li><strong>2. Runtime</strong> This is the component in which the individual integration flows are deployed into. It's a Java based application container that can run in the Cloud or Local. A runtime is visually displayed and described in the eMagiz iPaaS Portal as a container (holding the onramps, offramps, routing, error) or a connector (holding the exits and entries)</li>
+<li><strong>3. Cloud templates</strong> This provides the components such as OS, Java versions, etc. in which the runtime components can operate in. On top of that these templates also provide various auto-healing and managing tools to enhance the performance and stability of the platform instance. These are Cloud platform specific.</li>
+<li><strong>4. eMagiz iPaaS Portal</strong> Provides web based access to the eMagiz project where users can create, update and delete integrations across the Test, Acceptance and Productions environments. Holds access to all configuration options of the eMagiz platform instance required to run these integrations in an optimal manner.</li>
+<li><strong>5. eMagiz Connector for Mendix</strong> Contains the Mendix module that allows the Mendix project to interact with the eMagiz iPaaS instance. Holds the configuration details to connect to the eMagiz instance as well as the Java actions that can be refered to inside Mendix Microflows</li>
+</ul>
+<p align="center"><img src="../../img/howto/definition-emagiz-model.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="key-considerations"></a><a href="#key-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key considerations</h2>
+<ol>
+<li>The eMagiz iPaaS Portal (<a href="https://my.emagiz.com">https://my.emagiz.com</a>) is updated every 2 weeks to allow for user interface improvements and improvements to the integration model. According to the EULA, clients can expect a downtime of max. 2 hours of the eMagiz Portal. All other services inside client platform such as messaging and monitoring services, are not affected and will continue to run as normal.</li>
+<li>All buildnumbers released are always backwards compatible with previous build numbers. We are dedicated to ensure client platforms are unaffected by these buildnumbers improvements.</li>
+<li>eMagiz plans a major release once per year that involves migration activitities of the current client installation. A separate eMagiz Release should be created and tested to isolate a potential impact on the current configuration. eMagiz makes best efforts to make these migrations as smooth as possible with as little effort as possible for client installations.</li>
+<li>The eMagiz platform uses Cloud templates that are managing the Cloud machines where the different runtime components are running on. These Cloud templates are released per Cloud environment such as AWS and are updated between on average 2 times per year. The deployment of these can be done via the eMagiz Portal, and per availability zone in case a failover setup is used. The expected downtime for failover setups is none, for single lane setups between 10 and 15 minutes. Messaging traffic is only impacted with a delay - no messages are lost.</li>
+<li>Each of the components listed in the previous section are supported for 2 years from the moment a next version is released.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="current-versions"></a><a href="#current-versions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Current versions</h2>
+<h3><a class="anchor" aria-hidden="true" id="runtimes"></a><a href="#runtimes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Runtimes</h3>
+<p><strong>Non-supported versions</strong></p>
+<ul>
+<li>Version 5.0.0 - released July 27th 2018
+--&gt; Exception for client running in the ROOT Cloud environment - this version is still supported for that environment</li>
+</ul>
+<p><strong>Supported versions</strong></p>
+<ul>
+<li>Version 5.0.2 - released October 19th 2018</li>
+<li>Version 5.0.3 - released May 17th 2019</li>
+</ul>
+<p>See also release notes under the Community section of the eMagiz iPaaS Portal or this link: <a href="https://emagiz.github.io/docs/release-notes/index_runtime.html">https://emagiz.github.io/docs/release-notes/index_runtime.html</a></p>
+<h3><a class="anchor" aria-hidden="true" id="cloud-templates"></a><a href="#cloud-templates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloud templates</h3>
+<p><strong>Non-supported versions</strong></p>
+<ul>
+<li>R3</li>
+<li>R4</li>
+<li>R5</li>
+<li>R6</li>
+</ul>
+<p><strong>Supported versions AWS</strong></p>
+<ul>
+<li>R10 Single Lane</li>
+<li>R12 Single Lane</li>
+<li>R7 Double lane</li>
+<li>R8 Double lane</li>
+</ul>
+<p><strong>Supported versions ROOT</strong></p>
+<ul>
+<li>V24</li>
+</ul>
+<p>See also release notes under the Community section of the eMagiz iPaaS Portal or this link: <a href="https://emagiz.github.io/docs/release-notes/index_cloud.html">https://emagiz.github.io/docs/release-notes/index_cloud.html</a></p>
+<h3><a class="anchor" aria-hidden="true" id="build-numbers"></a><a href="#build-numbers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build numbers</h3>
+<p><strong>Non-supported versions</strong></p>
+<ul>
+<li>All build numbers lower than build 46 (released September 9th 2019)</li>
+</ul>
+<p><strong>Supported versions</strong></p>
+<ul>
+<li>All build numbers higher than or equal to build 46</li>
+</ul>
+<p>See also release notes under the Community section of the eMagiz iPaaS Portal or this link: <a href="https://emagiz.github.io/docs/release-notes/index_build.html">https://emagiz.github.io/docs/release-notes/index_build.html</a></p>
+<h3><a class="anchor" aria-hidden="true" id="emagiz-connector-for-mendix"></a><a href="#emagiz-connector-for-mendix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>eMagiz Connector for Mendix</h3>
+<p><strong>Non-supported versions</strong></p>
+<ul>
+<li>All EMC versions lower than version 3.0.2</li>
+</ul>
+<p><strong>Supported versions</strong></p>
+<ul>
+<li>All EMC versions higher of equal than version 3.0.2</li>
+</ul>
+<p>See also release notes under the Community section of the eMagiz iPaaS Portal or this link: <a href="https://emagiz.github.io/docs/release-notes/index_runtime.html">https://emagiz.github.io/docs/release-notes/index_runtime.html</a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#platform-components">Platform components</a></li><li><a href="#key-considerations">Key considerations</a></li><li><a href="#current-versions">Current versions</a><ul class="toc-headings"><li><a href="#runtimes">Runtimes</a></li><li><a href="#cloud-templates">Cloud templates</a></li><li><a href="#build-numbers">Build numbers</a></li><li><a href="#emagiz-connector-for-mendix">eMagiz Connector for Mendix</a></li></ul></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

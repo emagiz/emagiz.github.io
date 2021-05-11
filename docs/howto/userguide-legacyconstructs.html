@@ -115,7 +115,7 @@ Now you have migrated from the old to the new tooling. Last step will be to veri
 <li>Test your changes</li>
 </ol>
 <ul>
-<li>If possible, test your flowing by using the Unit Test functionality. For more information see <a href="/docs/howto/userguide-unitttest">User Guide Unit testing</a></li>
+<li>If possible, test your flowing by using the Unit Test functionality. For more information see <a href="userguide-unitttest.md">User Guide Unit testing</a></li>
 <li>Otherwise test it by deploying the flow and sending a message.</li>
 </ul>
 <ol start="44">
@@ -180,7 +180,7 @@ Based on these consideration the way errors are handled in a synchronous flow ha
 <li>Test your changes</li>
 </ol>
 <ul>
-<li>If possible, test your flowing by using the Unit Test functionality. For more information see <a href="/docs/howto/userguide-unitttest">User Guide Unit testing</a></li>
+<li>If possible, test your flowing by using the Unit Test functionality. For more information see <a href="userguide-unitttest.md">User Guide Unit testing</a></li>
 <li>Otherwise test it by deploying the flow and sending a message.</li>
 </ul>
 <ol start="15">
@@ -190,7 +190,7 @@ Based on these consideration the way errors are handled in a synchronous flow ha
 <li>If the result is the same you are finished</li>
 <li>If changes exists, analyze them and make changes to the transformation until you have reached the correct result</li>
 </ul>
-<p>Of course it is possible to use a combination of the suggestion made in step 11, 12 and 13 to configure the error handling to your specific use case. If you are planning on implementing a new synchronous flow please consider the API Gateway functionality. For more information please see <a href="/docs/howto/userguide-apigateway"> User Guide API Gateway</a></p>
+<p>Of course it is possible to use a combination of the suggestion made in step 11, 12 and 13 to configure the error handling to your specific use case. If you are planning on implementing a new synchronous flow please consider the API Gateway functionality. For more information please see <a href="userguide-apigateway.md"> User Guide API Gateway</a></p>
 <p>Congratulations, you have successfully migrated the error handling of your synchronous flows to the new best practice</p>
 <h2><a class="anchor" aria-hidden="true" id="3-error-flow"></a><a href="#3-error-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Error flow</h2>
 <p>The error flow is part of the default in any eMagiz project. This flow handles all errors that are thrown by (a)synchronous flows within your project and passes them through to the iPaaS so they show up under Manage -&gt; Error Messages. Recently we have made some changes to make the error flow work even more optimal.</p>

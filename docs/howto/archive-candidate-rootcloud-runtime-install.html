@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>howto/archive-candidate-rootcloud-runtime-install · eMagiz Platform documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Introduction"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="howto/archive-candidate-rootcloud-runtime-install · eMagiz Platform documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emagiz.github.io/"/><meta property="og:description" content="## Introduction"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/platypus.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic&amp;amp;subset=latin,greek,cyrillic"/><link rel="stylesheet" href="/css/style.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/platypus.png" alt="eMagiz Platform documentation"/><h2 class="headerTitleWithLogo">eMagiz Platform documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Ask me something" title="Ask me something"/></li><li class=""><a href="/docs/referenceguide/" target="_self">Reference Guide</a></li><li class=""><a href="/docs/microlearning/index_academy_all" target="_self">eMagiz Academy</a></li><li class=""><a href="/docs/howto/" target="_self">User Guides</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">howto/archive-candidate-rootcloud-runtime-install</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>This document describes what the requirements are for a eMagiz Cloud Root runtime installation as well as a step to step guideline how to install a runtime in the Root Cloud.</p>
+<h2><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
+<p>The requirements to install a Root Cloud runtime are:</p>
+<ol>
+<li>eMagiz should make the Root Cloud environment available. The eMagiz Partner Manager will only do this when there is a signed contract. eMagiz creates and releases the environment based on calculations of how many runtimes and flows will be running in the cloud and how much traffic is expected. Make sure that the Cloud calculations are correct and that you have enough space left.
+If you are unsure, please contact your eMagiz Partner Manager.</li>
+<li>In case of a connector, make sure you have considerate what kind of connection type you need to use in case of a webservice, HTTPS. A HTTPS connection is always preferred with a connection over the internet. HTTP is not allowed.</li>
+<li>In case of a connector, make sure that you cannot use a local file pick up and file drop. Cloud connectors are not meant to store data locally.</li>
+<li>In case of migrating a runtime, make sure to make a copy of your properties and the running flows. When migrating the JMS runtime, the JMS host property will be automatically replaced with the new value. You can create a copy of your properties by exporting your properties to a CSV file at the properties page. A copy of your running flows can be created by taking a screenshot of each runtime in your Runtime Dasboard. By not making a copy, you might have issues when you have to roll back.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="how-to"></a><a href="#how-to" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How To</h2>
+<p>This section will discuss the steps to install a runtime in the Root Cloud.</p>
+<ol>
+<li><p>Go in eMagiz to ‘Deploy’ and to ‘Cloud’ dashboard.</p></li>
+<li><p>In case that there is no firewall yet, please create it. The firewall shows the hostname. This will be the hostname for your URL’s when using web services in your connectors.</p></li>
+</ol>
+<p align="center"><img  src="../../img/howto/rootcloud-runtimeinstall-step2.png"></p>
+<ol start="3">
+<li>In case that there is no Virtual Machine (VM) yet, you can create it.
+eMagiz knows two types of VM’s. First VM type consists of a JMS and a container runtime. The second VM type consists of a group of connectors.</li>
+</ol>
+<p>In case that there is already the type of VM you want to use, please stop it before adding a new runtime.</p>
+<ol start="4">
+<li><p>Make sure that for each runtime you will have that the Infra or JMS flow available as package for your environment.</p></li>
+<li><p>Add the runtime via ‘Add/remove runtime’.</p></li>
+</ol>
+<p align="center"><img  src="../../img/howto/rootcloud-runtimeinstall-step5.png"></p>
+<p>If you cannot add a runtime, your cloud environment has not enough space or memory left to add this. Please contact your eMagiz Partner Manager for more information.
+By adding the JMS runtime, be aware that the JMS host property now will be replaced!</p>
+<ol start="6">
+<li>Start the VM via ‘Start’.</li>
+</ol>
+<p align="center"><img  src="../../img/howto/rootcloud-runtimeinstall-step6.png"></p>
+<ol start="7">
+<li><p>Go to the ‘Runtime Dashboard’. Wait for the added runtime to come up.</p></li>
+<li><p>If you are hosting web services, configure your firewall rules back in the ‘Cloud’ page.
+Select ‘Setting’ next to ‘Firewall’.</p></li>
+</ol>
+<p align="center"><img  src="../../img/howto/rootcloud-runtimeinstall-step8.png"></p>
+<p>Add your firewall mapping to your connector VM. The ‘Target port’ is the port you have added in your flow or property and the ‘Incoming port’ is the port for the web service URL This does not have to be the same port as your ‘Target port’.</p>
+<ol start="9">
+<li>Test the connection if your bus is working properly.</li>
+<li>Check if monitoring is active for all runtimes. If you click more for a runtime in the Cloud page, you will see the current monitoring status.</li>
+</ol>
+<p align="center"><img  src="../../img/howto/rootcloud-runtimeinstall-step10.png"></p>
+<p>Check if for your environment the service level is correct. Check it for the live environment. Contact your eMagiz Partner Manager to verify that these settings are correct.
+If the service level is set and the monitoring is not yet available, you can resume it by clicking Resume Mon.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#how-to">How To</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '2e1804e3e0c239242d9914d98d6bf260',
+                indexName: 'emagiz',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
