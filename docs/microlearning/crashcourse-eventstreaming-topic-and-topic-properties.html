@@ -65,7 +65,7 @@ Four characteristics related to topics are:</p>
 <li>Retention</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="32-topic-properties-and-their-configuration"></a><a href="#32-topic-properties-and-their-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Topic properties and their configuration</h3>
-<p>Apart from the naming of the topic eMagiz also provides you with a set of default settings for your topic. Two of these settings need a closer look from you. These settings are:</p>
+<p>Apart from the naming of the topic eMagiz also provides you with a set of default settings for your topic. Of these settings you should not touch the default settings for replication and partitioning, the default values for these work correctly. Two of these settings need a closer look from you. These settings are:</p>
 <ul>
 <li>Retention Hours</li>
 <li>Retention Bytes</li>
@@ -95,9 +95,9 @@ The default setting eMagiz provides you is roughly 500 MB. This might be too low
 <p>Based on the previous calculation and the number of partitions (more partitions equals higher throughput) on your topic you can calculate the Retention Bytes setting</p>
 <ul>
 <li>1.5 GB Storage capacity</li>
-<li>3 partitions</li>
+<li>1 partition</li>
 </ul>
-<p>Results in 1.5 / 3 = 0.5 GB in Retention Bytes. As the name indicates this value needs to be added in bytes. For this example, we end up with 524288000 bytes.</p>
+<p>Results in 1.5 / 1 = 1.5 GB in Retention Bytes. As the name indicates this value needs to be added in bytes. For this example, we end up with 1524288000 bytes. Please note that this number will be replicated by the replication factor to get to the actual correct amount of storage that you could theoretically write to our Event Streaming Cluster.</p>
 <h3><a class="anchor" aria-hidden="true" id="33-check-available-topic-storage"></a><a href="#33-check-available-topic-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Check available topic storage</h3>
 <p>When you are finished with configuring the properties per topic you can validate whether the expected data storage based on your configuration fits within the available amount of topic storage.
 You can do this with the help of Design Architecture.</p>
@@ -107,6 +107,8 @@ but also defines the amount of configured and the amount of recommended topic st
 <p>If we zoom in on the right-hand panel you can see on the bottom of that panel an entry that is relevant for Event Streaming.
 With this entry, you can easily see the amount of GB that is configured (based on the topic property settings) and see how much GB is still available based on your current contractual agreements.</p>
 <p align="center"><img src="../../img/microlearning/crashcourse-eventstreaming-topic-and-topic-properties--design-architecture-topic-storage-available.png"></p>
+<p>If you are exceeding your contractually allowed storage eMagiz will prevent you from deploying any new topics.</p>
+<p align="center"><img src="../../img/microlearning/crashcourse-eventstreaming-topic-and-topic-properties--design-architecture-topic-storage-not-enough-available.png"></p>
 <h5><a class="anchor" aria-hidden="true" id="practice"></a><a href="#practice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Practice</h5>
 <h2><a class="anchor" aria-hidden="true" id="4-assignment"></a><a href="#4-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Assignment</h2>
 <p>Set the retention hours to 8 hours and the number of retention bytes to 262144000
